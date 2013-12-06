@@ -9,8 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Charles aime les Poneys :D
-// Better kill them poneys
+
 namespace TP_Final
 {
     public partial class Team_Form : Form
