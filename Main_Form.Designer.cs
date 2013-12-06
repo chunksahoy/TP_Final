@@ -42,8 +42,9 @@
             this.FB_Edit_Team = new FlashButton.FlashButton();
             this.FB_Add_Team = new FlashButton.FlashButton();
             this.LV_Divisions = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LBL_Team = new System.Windows.Forms.Label();
+            this.LBL_Divisions = new System.Windows.Forms.Label();
+            this.logoScroller1 = new Logo_scroller.LogoScroller();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Teams)).BeginInit();
             this.MS_MainForm.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -56,9 +57,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DGV_Teams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Teams.Location = new System.Drawing.Point(240, 126);
+            this.DGV_Teams.Location = new System.Drawing.Point(240, 142);
             this.DGV_Teams.Name = "DGV_Teams";
-            this.DGV_Teams.Size = new System.Drawing.Size(862, 455);
+            this.DGV_Teams.Size = new System.Drawing.Size(1035, 548);
             this.DGV_Teams.TabIndex = 1;
             this.DGV_Teams.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Teams_CellContentClick);
             this.DGV_Teams.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_ColumnHeaderMouseClick);
@@ -72,7 +73,7 @@
             this.aideToolStripMenuItem});
             this.MS_MainForm.Location = new System.Drawing.Point(0, 0);
             this.MS_MainForm.Name = "MS_MainForm";
-            this.MS_MainForm.Size = new System.Drawing.Size(1114, 24);
+            this.MS_MainForm.Size = new System.Drawing.Size(1287, 24);
             this.MS_MainForm.TabIndex = 2;
             this.MS_MainForm.Text = "menuStrip1";
             // 
@@ -95,7 +96,7 @@
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Top;
             this.statusStrip1.Location = new System.Drawing.Point(0, 24);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1114, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1287, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -104,7 +105,7 @@
             this.TB_Search_Player.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_Search_Player.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.TB_Search_Player.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.TB_Search_Player.Location = new System.Drawing.Point(887, 24);
+            this.TB_Search_Player.Location = new System.Drawing.Point(1060, 24);
             this.TB_Search_Player.Name = "TB_Search_Player";
             this.TB_Search_Player.Size = new System.Drawing.Size(211, 20);
             this.TB_Search_Player.TabIndex = 4;
@@ -121,7 +122,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.FB_Remove_Division);
             this.panel1.Controls.Add(this.FB_Add_Division);
-            this.panel1.Location = new System.Drawing.Point(12, 587);
+            this.panel1.Location = new System.Drawing.Point(12, 696);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(222, 43);
             this.panel1.TabIndex = 5;
@@ -161,7 +162,7 @@
             this.panel2.Controls.Add(this.FB_Remove_Team);
             this.panel2.Controls.Add(this.FB_Edit_Team);
             this.panel2.Controls.Add(this.FB_Add_Team);
-            this.panel2.Location = new System.Drawing.Point(935, 587);
+            this.panel2.Location = new System.Drawing.Point(1108, 696);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(167, 43);
             this.panel2.TabIndex = 5;
@@ -215,44 +216,57 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.LV_Divisions.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LV_Divisions.HideSelection = false;
-            this.LV_Divisions.Location = new System.Drawing.Point(12, 126);
+            this.LV_Divisions.Location = new System.Drawing.Point(12, 142);
             this.LV_Divisions.Name = "LV_Divisions";
-            this.LV_Divisions.Size = new System.Drawing.Size(222, 455);
+            this.LV_Divisions.Size = new System.Drawing.Size(222, 548);
             this.LV_Divisions.TabIndex = 6;
             this.LV_Divisions.UseCompatibleStateImageBehavior = false;
             this.LV_Divisions.SelectedIndexChanged += new System.EventHandler(this.LV_Divisions_SelectedIndexChanged);
             this.LV_Divisions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LV_Divisions_MouseClick);
             // 
-            // label1
+            // LBL_Team
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(646, 91);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 25);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Équipes";
+            this.LBL_Team.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LBL_Team.AutoSize = true;
+            this.LBL_Team.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_Team.Location = new System.Drawing.Point(699, 114);
+            this.LBL_Team.Name = "LBL_Team";
+            this.LBL_Team.Size = new System.Drawing.Size(90, 25);
+            this.LBL_Team.TabIndex = 7;
+            this.LBL_Team.Text = "Équipes";
             // 
-            // label2
+            // LBL_Divisions
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.LBL_Divisions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(73, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 25);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Divisions";
+            this.LBL_Divisions.AutoSize = true;
+            this.LBL_Divisions.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_Divisions.Location = new System.Drawing.Point(69, 114);
+            this.LBL_Divisions.Name = "LBL_Divisions";
+            this.LBL_Divisions.Size = new System.Drawing.Size(99, 25);
+            this.LBL_Divisions.TabIndex = 7;
+            this.LBL_Divisions.Text = "Divisions";
+            // 
+            // logoScroller1
+            // 
+            this.logoScroller1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.logoScroller1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.logoScroller1.Location = new System.Drawing.Point(12, 49);
+            this.logoScroller1.Name = "logoScroller1";
+            this.logoScroller1.NbElements = 8;
+            this.logoScroller1.Size = new System.Drawing.Size(1263, 62);
+            this.logoScroller1.TabIndex = 8;
             // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 676);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1287, 769);
+            this.Controls.Add(this.logoScroller1);
+            this.Controls.Add(this.LBL_Divisions);
+            this.Controls.Add(this.LBL_Team);
             this.Controls.Add(this.LV_Divisions);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -266,6 +280,7 @@
             this.Text = "Hockey Manager 2013";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Form_FormClosing);
             this.Load += new System.EventHandler(this.Main_Form_Load);
+            this.SizeChanged += new System.EventHandler(this.Main_Form_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Teams)).EndInit();
             this.MS_MainForm.ResumeLayout(false);
             this.MS_MainForm.PerformLayout();
@@ -292,8 +307,9 @@
         private FlashButton.FlashButton FB_Add_Team;
         private FlashButton.FlashButton FB_Edit_Team;
         private System.Windows.Forms.ListView LV_Divisions;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LBL_Team;
+        private System.Windows.Forms.Label LBL_Divisions;
+        private Logo_scroller.LogoScroller logoScroller1;
     }
 }
 

@@ -192,7 +192,8 @@ namespace TP_Final
         /////////////////////////////////////////// Retrait d'une division dans la BD //////////////////////////////////////////////////
         private void Remove_Division()
         {
-            string sqlDelete = "delete from division where nom = '" + LV_Divisions.SelectedIndices.ToString() + "'";
+            //string sqlDelete = "delete from division where nom = '" + LV_Divisions.SelectedIndices.ToString() + "'";
+            string sqlDelete = "delete from division where nom = '" + LV_Divisions.SelectedItems.ToString() + "'";
             try
             {
                 OracleCommand oraCMD = new OracleCommand(sqlDelete, conn);
@@ -642,6 +643,11 @@ namespace TP_Final
             {
                 DGV_Teams.Rows[e.RowIndex].ReadOnly = false;
             }
+        }
+
+        private void Main_Form_SizeChanged(object sender, EventArgs e)
+        {
+             LBL_Team.Location = new Point(DGV_Teams.Location.X + (DGV_Teams.Size.Width - LBL_Team.Size.Width) / 2, DGV_Teams.Location.Y - LBL_Team.Size.Height);
         }
     }
 }
