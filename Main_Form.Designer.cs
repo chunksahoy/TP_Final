@@ -33,6 +33,7 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.SL_Tips = new System.Windows.Forms.ToolStripStatusLabel();
             this.TB_Search_Player = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.FB_Remove_Division = new FlashButton.FlashButton();
@@ -47,6 +48,7 @@
             this.logoScroller1 = new Logo_scroller.LogoScroller();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Teams)).BeginInit();
             this.MS_MainForm.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +67,8 @@
             this.DGV_Teams.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_ColumnHeaderMouseClick);
             this.DGV_Teams.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_RowHeaderMouseClick);
             this.DGV_Teams.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_RowHeaderMouseDoubleClick);
+            this.DGV_Teams.MouseEnter += new System.EventHandler(this.DGV_Teams_MouseEnter);
+            this.DGV_Teams.MouseLeave += new System.EventHandler(this.DGV_Teams_MouseLeave);
             // 
             // MS_MainForm
             // 
@@ -94,11 +98,19 @@
             // statusStrip1
             // 
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SL_Tips});
             this.statusStrip1.Location = new System.Drawing.Point(0, 24);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1287, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // SL_Tips
+            // 
+            this.SL_Tips.Name = "SL_Tips";
+            this.SL_Tips.Size = new System.Drawing.Size(105, 17);
+            this.SL_Tips.Text = "derpiederpthaderp";
             // 
             // TB_Search_Player
             // 
@@ -140,6 +152,8 @@
             this.FB_Remove_Division.Size = new System.Drawing.Size(28, 33);
             this.FB_Remove_Division.TabIndex = 5;
             this.FB_Remove_Division.Click += new System.EventHandler(this.FB_Remove_Division_Click);
+            this.FB_Remove_Division.MouseEnter += new System.EventHandler(this.FB_Remove_Division_MouseEnter);
+            this.FB_Remove_Division.MouseLeave += new System.EventHandler(this.FB_Remove_Division_MouseLeave);
             // 
             // FB_Add_Division
             // 
@@ -154,6 +168,8 @@
             this.FB_Add_Division.Size = new System.Drawing.Size(28, 33);
             this.FB_Add_Division.TabIndex = 6;
             this.FB_Add_Division.Click += new System.EventHandler(this.FB_Add_Division_Click);
+            this.FB_Add_Division.MouseEnter += new System.EventHandler(this.FB_Add_Division_MouseEnter);
+            this.FB_Add_Division.MouseLeave += new System.EventHandler(this.FB_Add_Division_MouseLeave);
             // 
             // panel2
             // 
@@ -194,6 +210,8 @@
             this.FB_Edit_Team.Size = new System.Drawing.Size(28, 33);
             this.FB_Edit_Team.TabIndex = 8;
             this.FB_Edit_Team.Click += new System.EventHandler(this.FB_Edit_Team_Click);
+            this.FB_Edit_Team.MouseEnter += new System.EventHandler(this.FB_Edit_Team_MouseEnter);
+            this.FB_Edit_Team.MouseLeave += new System.EventHandler(this.FB_Edit_Team_MouseLeave);
             // 
             // FB_Add_Team
             // 
@@ -223,6 +241,8 @@
             this.LV_Divisions.UseCompatibleStateImageBehavior = false;
             this.LV_Divisions.SelectedIndexChanged += new System.EventHandler(this.LV_Divisions_SelectedIndexChanged);
             this.LV_Divisions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LV_Divisions_MouseClick);
+            this.LV_Divisions.MouseEnter += new System.EventHandler(this.LV_Divisions_MouseEnter);
+            this.LV_Divisions.MouseLeave += new System.EventHandler(this.LV_Divisions_MouseLeave);
             // 
             // LBL_Team
             // 
@@ -258,6 +278,8 @@
             this.logoScroller1.NbElements = 8;
             this.logoScroller1.Size = new System.Drawing.Size(1263, 62);
             this.logoScroller1.TabIndex = 8;
+            this.logoScroller1.MouseEnter += new System.EventHandler(this.logoScroller1_MouseEnter);
+            this.logoScroller1.MouseLeave += new System.EventHandler(this.logoScroller1_MouseLeave);
             // 
             // Main_Form
             // 
@@ -284,6 +306,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Teams)).EndInit();
             this.MS_MainForm.ResumeLayout(false);
             this.MS_MainForm.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -310,6 +334,7 @@
         private System.Windows.Forms.Label LBL_Team;
         private System.Windows.Forms.Label LBL_Divisions;
         private Logo_scroller.LogoScroller logoScroller1;
+        private System.Windows.Forms.ToolStripStatusLabel SL_Tips;
     }
 }
 

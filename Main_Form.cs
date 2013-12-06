@@ -20,6 +20,8 @@ namespace TP_Final
             InitializeComponent();
         }
 
+        #region "Attributs privés"
+
         private OracleConnection conn = new OracleConnection();
         private DataSet myData = new DataSet();
         private BindingSource source;
@@ -27,7 +29,18 @@ namespace TP_Final
         private Color evenRowColor;
         private string m_Username;
         private string m_Pass;
+        #endregion
 
+        #region "Texte du StatusStrip"
+
+        private string Txt_ShowTeam = "Tips: Clique gauche pour ouvrir une fenêtre qui affiche tous les joueurs de l'équipe sélectionnée dans la grille Équipe.";
+        private string Txt_RemoveDivision = "Tips: Clique gauche pour retirer une division de la base de données.";
+        private string Txt_AddDivision = "Tips: Clique gauche pour ouvrir un dialogue qui vous permet d'ajouter une division dans ce conteneur.";
+        private string Txt_LogoScroller = "Tips: Clique gauche sur un logo pour afficher les joueurs de l'équipe correspondante au logo dans une autre fenêtre";
+        private string Txt_DGV_TeamOver = "Tips: Double clique sur une équipe pour afficher ses joueurs dans une autre fenêtre.";
+        private string Txt_LV_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
+
+        #endregion
         private void Main_Form_Load(object sender, EventArgs e)
         {
             Log_In();
@@ -663,6 +676,80 @@ namespace TP_Final
         {
              LBL_Team.Location = new Point(DGV_Teams.Location.X + (DGV_Teams.Size.Width - LBL_Team.Size.Width) / 2, DGV_Teams.Location.Y - LBL_Team.Size.Height);
         }
+
+        #region "Show Tips in SL_Tips"
+        private void DGV_Teams_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Tips.Text = Txt_DGV_TeamOver;
+        }
+        private void LV_Divisions_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Tips.Text = Txt_LV_Divisions;
+        } 
+        private void logoScroller1_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Tips.Text = Txt_LogoScroller;
+        }
+        private void FB_Add_Division_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Tips.Text = Txt_AddDivision;
+        }
+        private void FB_Remove_Division_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Tips.Text = Txt_RemoveDivision;
+        }
+        private void FB_Edit_Team_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Tips.Text = Txt_ShowTeam;
+        }
+        #endregion
+
+        #region "Vider le SL_Tips"
+        private void Empty_StatusStrip()
+        {
+            SL_Tips.Text = "";
+        }
+        private void DGV_Teams_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
+        private void LV_Divisions_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
+        private void logoScroller1_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
+        private void FB_Add_Division_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        } 
+        private void FB_Remove_Division_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        } 
+        private void FB_Edit_Team_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
 
