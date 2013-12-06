@@ -81,7 +81,7 @@ namespace TP_Final
             {
                 for (int colIndex = 0; colIndex < DGV_Teams.ColumnCount; colIndex++)
                 {
-                    DGV_Teams.Columns[colIndex].Width = int.Parse(widthStrings[colIndex]);
+                   // DGV_Teams.Columns[colIndex].Width = int.Parse(widthStrings[colIndex]);
                 }
             }
         }
@@ -249,11 +249,15 @@ namespace TP_Final
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////// Ajout d'une équipe dans la BD /////////////////////////////////////////////////
         private void Add_Team(string name, DateTime joined, string logo, string town, string division)
-        {
-            OracleParameter pphoto = new OracleParameter(":photo", OracleDbType.Blob);
+        { 
+            OracleParameter pname = new OracleParameter(":nom", OracleDbType.Varchar2, 30);
+            OracleParameter pcreation = new OracleParameter(":creation", OracleDbType.Date);
+            OracleParameter pphoto = new OracleParameter(":photo", OracleDbType.Blob);           
+            OracleParameter ptown = new OracleParameter(":ville", OracleDbType.Varchar2, 30);
+            OracleParameter pdivision = new OracleParameter(":division", OracleDbType.Varchar2, 20);
+            
 
-            string sqlADD = "insert into equipe (nom, dateintroduction, logo, ville, division) values('" + name + "', " + "to_date('" + joined
-                + "','MM-DD-YYYY')" + "," + ":photo" + ",'" + town + "','" + division + "')";
+            string sqlADD = "insert into equipe (nom, dateintroduction, logo, ville, division) values(:nom, to_date(:creation,'DD-MM-YYYY'), :photo, :ville, :division)";
 
             FileStream Streamp = new FileStream(logo, FileMode.Open, FileAccess.Read);
 
@@ -261,11 +265,21 @@ namespace TP_Final
             Streamp.Read(buffer1, 0, System.Convert.ToInt32(Streamp.Length));
             Streamp.Close();
 
-            pphoto.Value = buffer1;
-
+            pname.Value = name;
+            pcreation.Value = joined;
+            pphoto.Value = buffer1;            
+            ptown.Value = town;
+            pdivision.Value = division;
+            
             try
             {
                 OracleCommand oraInsert = new OracleCommand(sqlADD, conn);
+                oraInsert.Parameters.Add(pname);
+                oraInsert.Parameters.Add(pcreation);
+                oraInsert.Parameters.Add(pphoto);
+                oraInsert.Parameters.Add(ptown);
+                oraInsert.Parameters.Add(pdivision);
+
                 oraInsert.CommandType = CommandType.Text;
                 oraInsert.ExecuteNonQuery();
             }
@@ -284,7 +298,7 @@ namespace TP_Final
         //////////////////////////////////////////// Retrait d'une équipe dans la BD ///////////////////////////////////////////////////
         private void Remove_Team()
         {
-            string sqlDelete = "delete from equipe where nom = '" + LV_Divisions.SelectedItems[0].SubItems[0].ToString() + "'";
+            string sqlDelete = "delete from equipe where nom = '" +  DGV_Teams.SelectedRows[0].Cells[0].Value.ToString()+ "'";
 
             try
             {
@@ -591,7 +605,7 @@ namespace TP_Final
             if (LV_Divisions.SelectedItems.Count > 0)
             {
                 myData.Clear();
-                string sql = "select nom, dateintroduction,ville from equipe where division = '" + LV_Divisions.SelectedItems[0].SubItems[0].Text + "'";
+                string sql = "select * from equipe where division = '" + LV_Divisions.SelectedItems[0].SubItems[0].Text + "'";
 
                 OracleCommand oraCMD = new OracleCommand(sql, conn);
                 OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
