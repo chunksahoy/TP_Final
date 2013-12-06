@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A22FC78-49D9-4852-A1CA-A421AB11EFB8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TP_Final</RootNamespace>
+    <AssemblyName>TP Final</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BoutonFlèche, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\BoutonFlèche.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FlashButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Add_Division_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Division_Form.Designer.cs">
+      <DependentUpon>Add_Division_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Player_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Player_Form.Designer.cs">
+      <DependentUpon>Add_Player_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Team_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Team_Form.Designer.cs">
+      <DependentUpon>Add_Team_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Log_Form.Designer.cs">
+      <DependentUpon>Log_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Options_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Options_Form.Designer.cs">
+      <DependentUpon>Main_Options_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Match_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Match_Form.Designer.cs">
+      <DependentUpon>Match_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Player_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Player_Form.Designer.cs">
+      <DependentUpon>Player_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panel_Image_Setting.cs" />
+    <Compile Include="Team_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Team_Form.Designer.cs">
+      <DependentUpon>Team_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Form.Designer.cs">
+      <DependentUpon>Main_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Add_Division_Form.resx">
+      <DependentUpon>Add_Division_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Player_Form.resx">
+      <DependentUpon>Add_Player_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Team_Form.resx">
+      <DependentUpon>Add_Team_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Log_Form.resx">
+      <DependentUpon>Log_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Options_Form.resx">
+      <DependentUpon>Main_Options_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Match_Form.resx">
+      <DependentUpon>Match_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Player_Form.resx">
+      <DependentUpon>Player_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Team_Form.resx">
+      <DependentUpon>Team_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Form.resx">
+      <DependentUpon>Main_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Calendar_Click.png" />
+    <Content Include="Properties\Calendar_Disable.png" />
+    <Content Include="Properties\Calendar_Neutral.png" />
+    <Content Include="Properties\Calendar_Over.png" />
+    <Content Include="Properties\Delete_Click.png" />
+    <Content Include="Properties\Delete_Disable.png" />
+    <Content Include="Properties\Delete_Neutral.png" />
+    <Content Include="Properties\Delete_Over.png" />
+    <Content Include="Properties\ICON_Accepter_Click.png" />
+    <Content Include="Properties\ICON_Accepter_Disable.png" />
+    <Content Include="Properties\ICON_Accepter_Neutral.png" />
+    <Content Include="Properties\ICON_Accepter_Over.png" />
+    <Content Include="Properties\ICON_Ajouter_Click.png" />
+    <Content Include="Properties\ICON_Ajouter_Disable.png" />
+    <Content Include="Properties\ICON_Ajouter_Neutral.png" />
+    <Content Include="Properties\ICON_Ajouter_Over.png" />
+    <Content Include="Properties\ICON_Annuler_Click.png" />
+    <Content Include="Properties\ICON_Annuler_Disable.png" />
+    <Content Include="Properties\ICON_Annuler_Neutral.png" />
+    <Content Include="Properties\ICON_Annuler_Over.png" />
+    <Content Include="Properties\ICON_Editer_Click.png" />
+    <Content Include="Properties\ICON_Editer_Disable.png" />
+    <Content Include="Properties\ICON_Editer_Neutre.png" />
+    <Content Include="Properties\ICON_Editer_Survol.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
