@@ -34,28 +34,18 @@
   <ItemGroup>
     <Reference Include="BoutonFlèche, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>L:\GUI\TP_Final\bin\Debug\BoutonFlèche.dll</HintPath>
+      <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\bin\Debug\BoutonFlèche.dll</HintPath>
     </Reference>
-    <Reference Include="FlashButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>L:\GUI\TP_Final\bin\Debug\FlashButton.dll</HintPath>
+    <Reference Include="FlashButton">
+      <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\FlashButton.dll</HintPath>
     </Reference>
-    <Reference Include="Logo scroller, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>L:\GUI\TP_Final\bin\Debug\Logo scroller.dll</HintPath>
-      <HintPath>L:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\bin\Debug\BoutonFlèche.dll</HintPath>
+    <Reference Include="Logo scroller">
+      <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\bin\Debug\Logo scroller.dll</HintPath>
     </Reference>
-    <Reference Include="FlashButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>L:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\bin\Debug\FlashButton.dll</HintPath>
-    </Reference>
-    <Reference Include="Logo scroller, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>L:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\bin\Debug\Logo scroller.dll</HintPath>
-    </Reference>
-    <Reference Include="Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="Oracle.DataAccess, Version=2.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

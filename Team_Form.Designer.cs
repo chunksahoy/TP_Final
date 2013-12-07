@@ -39,8 +39,11 @@
             this.FB_Cancel = new FlashButton.FlashButton();
             this.FB_Add_Player = new FlashButton.FlashButton();
             this.LBL_Team = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.SL_TeamTips = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Players)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGV_Players
@@ -54,6 +57,8 @@
             this.DGV_Players.Size = new System.Drawing.Size(999, 439);
             this.DGV_Players.TabIndex = 0;
             this.DGV_Players.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Players_RowHeaderMouseDoubleClick);
+            this.DGV_Players.MouseEnter += new System.EventHandler(this.DGV_Players_MouseEnter);
+            this.DGV_Players.MouseLeave += new System.EventHandler(this.DGV_Players_MouseLeave);
             // 
             // menuStrip1
             // 
@@ -92,6 +97,8 @@
             this.FB_Remove_Player.Name = "FB_Remove_Player";
             this.FB_Remove_Player.Size = new System.Drawing.Size(28, 26);
             this.FB_Remove_Player.TabIndex = 4;
+            this.FB_Remove_Player.MouseEnter += new System.EventHandler(this.FB_Remove_Player_MouseEnter);
+            this.FB_Remove_Player.MouseLeave += new System.EventHandler(this.FB_Remove_Player_MouseLeave);
             // 
             // FB_Ok
             // 
@@ -107,6 +114,8 @@
             this.FB_Ok.Size = new System.Drawing.Size(38, 36);
             this.FB_Ok.TabIndex = 4;
             this.FB_Ok.Click += new System.EventHandler(this.FB_Ok_Click);
+            this.FB_Ok.MouseEnter += new System.EventHandler(this.FB_Ok_MouseEnter);
+            this.FB_Ok.MouseLeave += new System.EventHandler(this.FB_Ok_MouseLeave);
             // 
             // FB_Edit_Player
             // 
@@ -122,6 +131,8 @@
             this.FB_Edit_Player.Size = new System.Drawing.Size(28, 26);
             this.FB_Edit_Player.TabIndex = 4;
             this.FB_Edit_Player.Click += new System.EventHandler(this.FB_Edit_Player_Click);
+            this.FB_Edit_Player.MouseEnter += new System.EventHandler(this.FB_Edit_Player_MouseEnter);
+            this.FB_Edit_Player.MouseLeave += new System.EventHandler(this.FB_Edit_Player_MouseLeave);
             // 
             // FB_Display_Calendar
             // 
@@ -136,6 +147,8 @@
             this.FB_Display_Calendar.Name = "FB_Display_Calendar";
             this.FB_Display_Calendar.Size = new System.Drawing.Size(75, 61);
             this.FB_Display_Calendar.TabIndex = 5;
+            this.FB_Display_Calendar.MouseEnter += new System.EventHandler(this.FB_Display_Calendar_MouseEnter);
+            this.FB_Display_Calendar.MouseLeave += new System.EventHandler(this.FB_Display_Calendar_MouseLeave);
             // 
             // FB_Cancel
             // 
@@ -151,6 +164,8 @@
             this.FB_Cancel.Size = new System.Drawing.Size(37, 36);
             this.FB_Cancel.TabIndex = 4;
             this.FB_Cancel.Click += new System.EventHandler(this.FB_Cancel_Click);
+            this.FB_Cancel.MouseEnter += new System.EventHandler(this.FB_Cancel_MouseEnter);
+            this.FB_Cancel.MouseLeave += new System.EventHandler(this.FB_Cancel_MouseLeave);
             // 
             // FB_Add_Player
             // 
@@ -166,6 +181,8 @@
             this.FB_Add_Player.Size = new System.Drawing.Size(28, 28);
             this.FB_Add_Player.TabIndex = 4;
             this.FB_Add_Player.Click += new System.EventHandler(this.FB_Add_Player_Click);
+            this.FB_Add_Player.MouseEnter += new System.EventHandler(this.FB_Add_Player_MouseEnter);
+            this.FB_Add_Player.MouseLeave += new System.EventHandler(this.FB_Add_Player_MouseLeave);
             // 
             // LBL_Team
             // 
@@ -173,7 +190,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LBL_Team.AutoSize = true;
             this.LBL_Team.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_Team.Location = new System.Drawing.Point(491, 40);
+            this.LBL_Team.Location = new System.Drawing.Point(488, 64);
             this.LBL_Team.Name = "LBL_Team";
             this.LBL_Team.Size = new System.Drawing.Size(80, 27);
             this.LBL_Team.TabIndex = 6;
@@ -183,11 +200,29 @@
             this.LBL_Team.MouseEnter += new System.EventHandler(this.LBL_Team_MouseEnter);
             this.LBL_Team.MouseLeave += new System.EventHandler(this.LBL_Team_MouseLeave);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SL_TeamTips});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 24);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1113, 22);
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // SL_TeamTips
+            // 
+            this.SL_TeamTips.Name = "SL_TeamTips";
+            this.SL_TeamTips.Size = new System.Drawing.Size(127, 17);
+            this.SL_TeamTips.Text = "derpdadepiederpederp";
+            // 
             // Team_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 671);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.LBL_Team);
             this.Controls.Add(this.FB_Display_Calendar);
             this.Controls.Add(this.FB_Cancel);
@@ -204,6 +239,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Players)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,5 +259,7 @@
         private FlashButton.FlashButton FB_Display_Calendar;
         private FlashButton.FlashButton FB_Edit_Player;
         private System.Windows.Forms.Label LBL_Team;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel SL_TeamTips;
     }
 }

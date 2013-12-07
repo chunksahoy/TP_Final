@@ -84,8 +84,10 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.ToolTipText = "Cherles aime les poneys";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // aideToolStripMenuItem
@@ -196,6 +198,8 @@
             this.FB_Remove_Team.Size = new System.Drawing.Size(28, 33);
             this.FB_Remove_Team.TabIndex = 7;
             this.FB_Remove_Team.Click += new System.EventHandler(this.FB_Remove_Team_Click);
+            this.FB_Remove_Team.MouseEnter += new System.EventHandler(this.FB_Remove_Team_MouseEnter);
+            this.FB_Remove_Team.MouseLeave += new System.EventHandler(this.FB_Remove_Team_MouseLeave);
             // 
             // FB_Edit_Team
             // 
@@ -226,6 +230,8 @@
             this.FB_Add_Team.Size = new System.Drawing.Size(28, 33);
             this.FB_Add_Team.TabIndex = 8;
             this.FB_Add_Team.Click += new System.EventHandler(this.FB_Add_Team_Click);
+            this.FB_Add_Team.MouseEnter += new System.EventHandler(this.FB_Add_Team_MouseEnter);
+            this.FB_Add_Team.MouseLeave += new System.EventHandler(this.FB_Add_Team_MouseLeave);
             // 
             // LV_Divisions
             // 
