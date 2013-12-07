@@ -14,6 +14,17 @@ namespace TP_Final
 {
     public partial class Team_Form : Form
     {
+
+        #region "StatusStrip text"
+        private string Txt_CancelChanges = "Tips: Clique gauche pour annuler les changements faits et quitter la fenêtre.";
+        private string Txt_AcceptChanges = "Tips: Clique gauche pour confirmer et appliquer les changements au niveau de la base de données et quitter la fenêtre.";
+        private string Txt_ShowCalendar = "Tips: Clique gauche pour afficher la grille des parties de la saison pour cette équipe.";
+        private string Txt_EditPlayer = "Tips: Clique gauche pour afficher les statistiques et les modifier du joueur sélectionné";
+        private string Txt_RemovePlayer = "Tips: Clique gauche pour retirer le joueur sélectionné de cette équipe.";
+        private string Txt_AddPlayers = "Tips: Clique gauche pour ouvrir une fenêtre qui vous permet d'ajouter un joueur à cette équipe.";
+        private string Txt_DGV_Players = "Tips: Double clique sur l'entête d'une rangée d'un joueur pour afficher ses statistiques dans une autre fenêtre.";
+        #endregion
+
         public Team_Form()
         {
             InitializeComponent();
@@ -204,5 +215,85 @@ namespace TP_Final
         {
             Cursor = Cursors.Default;
         }
+
+
+        #region "SL_TeamTips fill text"
+        private void DGV_Players_MouseEnter(object sender, EventArgs e)
+        {
+            SL_TeamTips.Text = Txt_DGV_Players;
+        }
+        private void FB_Add_Player_MouseEnter(object sender, EventArgs e)
+        {
+            SL_TeamTips.Text = Txt_AddPlayers;
+        }  
+        private void FB_Remove_Player_MouseEnter(object sender, EventArgs e)
+        {
+            SL_TeamTips.Text = Txt_RemovePlayer;
+        }
+        private void FB_Edit_Player_MouseEnter(object sender, EventArgs e)
+        {
+            SL_TeamTips.Text = Txt_EditPlayer;
+        }
+        private void FB_Display_Calendar_MouseEnter(object sender, EventArgs e)
+        {
+            SL_TeamTips.Text = Txt_ShowCalendar;
+        } 
+        private void FB_Ok_MouseEnter(object sender, EventArgs e)
+        {
+            SL_TeamTips.Text = Txt_AcceptChanges;
+        }
+        private void FB_Cancel_MouseEnter(object sender, EventArgs e)
+        {
+            SL_TeamTips.Text = Txt_CancelChanges;
+        }
+        #endregion
+        #region "SL_TeamTips clear text"
+        private void DGV_Players_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_SL_TeamTips();
+        }
+        private void Empty_SL_TeamTips()
+        {
+            SL_TeamTips.Text = "";
+        }
+        private void FB_Add_Player_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_SL_TeamTips();
+        } 
+        private void FB_Remove_Player_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_SL_TeamTips();
+        } 
+        private void FB_Edit_Player_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_SL_TeamTips();
+        }
+        private void FB_Display_Calendar_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_SL_TeamTips();
+        }
+        private void FB_Ok_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_SL_TeamTips();
+        }
+        private void FB_Cancel_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_SL_TeamTips();
+        }
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

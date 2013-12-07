@@ -33,11 +33,13 @@ namespace TP_Final
 
         #region "Texte du StatusStrip"
 
+        private string Txt_AddTeam = "Tips: Clique gauche pour ouvrir un dialogue qui permet  d'ajouter une équipe à cette division.";
+        private string Txt_RemoveTeam = "Tips: Clique gauche pour effacer l'équipe selectionnée de la division choisie.";
         private string Txt_ShowTeam = "Tips: Clique gauche pour ouvrir une fenêtre qui affiche tous les joueurs de l'équipe sélectionnée dans la grille Équipe.";
         private string Txt_RemoveDivision = "Tips: Clique gauche pour retirer une division de la base de données.";
         private string Txt_AddDivision = "Tips: Clique gauche pour ouvrir un dialogue qui vous permet d'ajouter une division dans ce conteneur.";
         private string Txt_LogoScroller = "Tips: Clique gauche sur un logo pour afficher les joueurs de l'équipe correspondante au logo dans une autre fenêtre";
-        private string Txt_DGV_TeamOver = "Tips: Double clique sur une équipe pour afficher ses joueurs dans une autre fenêtre.";
+        private string Txt_DGV_TeamOver = "Tips: Double clique sur l'entête d'une rangée d'une équipe pour afficher ses joueurs dans une autre fenêtre.";
         private string Txt_LV_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
 
         #endregion
@@ -701,7 +703,16 @@ namespace TP_Final
         private void FB_Edit_Team_MouseEnter(object sender, EventArgs e)
         {
             SL_Tips.Text = Txt_ShowTeam;
+        } 
+        private void FB_Add_Team_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Tips.Text = Txt_AddTeam;
         }
+        private void FB_Remove_Team_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Tips.Text = Txt_RemoveTeam;
+        }
+
         #endregion
 
         #region "Vider le SL_Tips"
@@ -733,7 +744,22 @@ namespace TP_Final
         {
             Empty_StatusStrip();
         }
+        private void FB_Add_Team_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        } 
+        private void FB_Remove_Team_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
         #endregion
+
+
+
+
+
+
+
 
 
 
