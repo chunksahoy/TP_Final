@@ -47,7 +47,11 @@ namespace TP_Final
         private string Txt_AddDivision = "Tips: Clique gauche pour ouvrir un dialogue qui vous permet d'ajouter une division dans ce conteneur.";
         private string Txt_LogoScroller = "Tips: Clique gauche sur un logo pour afficher les joueurs de l'équipe correspondante au logo dans une autre fenêtre";
         private string Txt_DGV_TeamOver = "Tips: Double clique sur l'entête d'une rangée d'une équipe pour afficher ses joueurs dans une autre fenêtre.";
+<<<<<<< HEAD
         private string Txt_LB_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
+=======
+        private string Txt_LV_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
+>>>>>>> Update Status Strip du form Division et Équipe
 
         #endregion
         private void Main_Form_Load(object sender, EventArgs e)
@@ -872,6 +876,13 @@ namespace TP_Final
         {
             
         }
+
+
+
+
+
+
+
 
     }
 }

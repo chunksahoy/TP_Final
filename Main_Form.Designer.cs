@@ -89,7 +89,11 @@
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+<<<<<<< HEAD
             this.optionsToolStripMenuItem.Text = "&Options";
+=======
+            this.optionsToolStripMenuItem.Text = "Options";
+>>>>>>> Update Status Strip du form Division et Équipe
             this.optionsToolStripMenuItem.ToolTipText = "Cherles aime les poneys";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
@@ -236,6 +240,26 @@
             this.FB_Add_Team.Click += new System.EventHandler(this.FB_Add_Team_Click);
             this.FB_Add_Team.MouseEnter += new System.EventHandler(this.FB_Add_Team_MouseEnter);
             this.FB_Add_Team.MouseLeave += new System.EventHandler(this.FB_Add_Team_MouseLeave);
+<<<<<<< HEAD
+=======
+            // 
+            // LV_Divisions
+            // 
+            this.LV_Divisions.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.LV_Divisions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LV_Divisions.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LV_Divisions.HideSelection = false;
+            this.LV_Divisions.Location = new System.Drawing.Point(12, 142);
+            this.LV_Divisions.Name = "LV_Divisions";
+            this.LV_Divisions.Size = new System.Drawing.Size(222, 548);
+            this.LV_Divisions.TabIndex = 6;
+            this.LV_Divisions.UseCompatibleStateImageBehavior = false;
+            this.LV_Divisions.SelectedIndexChanged += new System.EventHandler(this.LV_Divisions_SelectedIndexChanged);
+            this.LV_Divisions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LV_Divisions_MouseClick);
+            this.LV_Divisions.MouseEnter += new System.EventHandler(this.LV_Divisions_MouseEnter);
+            this.LV_Divisions.MouseLeave += new System.EventHandler(this.LV_Divisions_MouseLeave);
+>>>>>>> Update Status Strip du form Division et Équipe
             // 
             // LBL_Team
             // 
