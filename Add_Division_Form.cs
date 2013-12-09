@@ -38,5 +38,10 @@ namespace TP_Final
                 e.Handled = true;
             }
         }
+
+        private void Add_Division_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

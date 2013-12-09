@@ -52,7 +52,7 @@ namespace TP_Final
         private void Add_Match()
         {
             Add_Match_Form mform = new Add_Match_Form();
-
+            mform.m_TeamName = m_Team;
             mform.conn = conn;
 
             if (mform.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -152,6 +152,11 @@ namespace TP_Final
         private void DGV_Historic_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
+        }
+
+        private void DGV_Historic_RowHeightChanged(object sender, DataGridViewRowEventArgs e)
+        {
+           
         }
     }
 }

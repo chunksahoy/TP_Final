@@ -23,18 +23,9 @@ namespace TP_Final
         public string m_Team_Division;
         public string m_file_Name;
         public BindingSource source;
-        private Panel_Image_Setting m_Image;
 
         public List<string> m_Divisions_List = new List<string>();
 
-        private void Initialize_Divisions()
-        {
-            foreach (string division in m_Divisions_List)
-            {
-                CBX_Team_Divison.Items.Add(division);
-            }
-            CBX_Team_Divison.SelectedIndex = 0;
-        }
 
         private void TB_Team_Name_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -63,7 +54,6 @@ namespace TP_Final
             m_Team_Joined = DTP_Team_Join.Value;
             m_Team_Logo = PN_Team_Logo.BackgroundImage;
             m_Team_Town = TB_Team_Town.Text.ToString();
-            m_Team_Division = CBX_Team_Divison.SelectedItem.ToString(); // bug ! databinding??
         }
 
         private void BTN_Browse_Logos_Click(object sender, EventArgs e)
@@ -89,7 +79,6 @@ namespace TP_Final
                 PN_Team_Logo.BackgroundImage = bitmap1;
                 PN_Team_Logo.BackgroundImageLayout = ImageLayout.Stretch;
 
-                // m_Image.BackgroundImage = bitmap1;
             }
             else
             {
@@ -98,7 +87,7 @@ namespace TP_Final
         }
         private void Add_Team_Form_Load(object sender, EventArgs e)
         {
-            Initialize_Divisions();
+
         }
     }
 }

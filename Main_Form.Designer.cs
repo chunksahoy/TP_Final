@@ -65,8 +65,10 @@
             this.DGV_Teams.TabIndex = 1;
             this.DGV_Teams.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Teams_CellContentClick);
             this.DGV_Teams.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_ColumnHeaderMouseClick);
+            this.DGV_Teams.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DGV_Teams_ColumnWidthChanged);
             this.DGV_Teams.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_RowHeaderMouseClick);
             this.DGV_Teams.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_RowHeaderMouseDoubleClick);
+            this.DGV_Teams.RowHeightChanged += new System.Windows.Forms.DataGridViewRowEventHandler(this.DGV_Teams_RowHeightChanged);
             this.DGV_Teams.MouseEnter += new System.EventHandler(this.DGV_Teams_MouseEnter);
             this.DGV_Teams.MouseLeave += new System.EventHandler(this.DGV_Teams_MouseLeave);
             // 

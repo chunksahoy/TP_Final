@@ -124,6 +124,7 @@
             this.Controls.Add(this.BTN_Ok);
             this.Controls.Add(this.BTN_Cancel);
             this.Name = "Add_Division_Form";
+            this.Load += new System.EventHandler(this.Add_Division_Form_Load);
             this.GB_Division_Stats.ResumeLayout(false);
             this.GB_Division_Stats.PerformLayout();
             this.ResumeLayout(false);

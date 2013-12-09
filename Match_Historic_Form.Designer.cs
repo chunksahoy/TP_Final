@@ -30,9 +30,9 @@
         {
             this.DGV_Historic = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.FB_Ok = new FlashButton.FlashButton();
             this.FB_Edit_Match = new FlashButton.FlashButton();
             this.FB_Remove_Match = new FlashButton.FlashButton();
@@ -55,6 +55,7 @@
             this.DGV_Historic.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Historic_CellContentClick);
             this.DGV_Historic.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Historic_RowHeaderMouseClick);
             this.DGV_Historic.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Historic_RowHeaderMouseDoubleClick);
+            this.DGV_Historic.RowHeightChanged += new System.Windows.Forms.DataGridViewRowEventHandler(this.DGV_Historic_RowHeightChanged);
             // 
             // menuStrip1
             // 
@@ -66,6 +67,18 @@
             this.menuStrip1.Size = new System.Drawing.Size(789, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.optionsToolStripMenuItem.Text = "&Options";
+            // 
+            // aideToolStripMenuItem
+            // 
+            this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
+            this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.aideToolStripMenuItem.Text = "&Aide";
             // 
             // panel1
             // 
@@ -79,18 +92,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(765, 66);
             this.panel1.TabIndex = 2;
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.optionsToolStripMenuItem.Text = "&Options";
-            // 
-            // aideToolStripMenuItem
-            // 
-            this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-            this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.aideToolStripMenuItem.Text = "&Aide";
             // 
             // FB_Ok
             // 

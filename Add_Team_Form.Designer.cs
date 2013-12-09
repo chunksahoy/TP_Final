@@ -38,23 +38,22 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.GB_Add_Player = new System.Windows.Forms.GroupBox();
-            this.CBX_Team_Divison = new System.Windows.Forms.ComboBox();
             this.GB_Add_Player.SuspendLayout();
             this.SuspendLayout();
             // 
             // PN_Team_Logo
             // 
-            this.PN_Team_Logo.Location = new System.Drawing.Point(136, 199);
+            this.PN_Team_Logo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PN_Team_Logo.Location = new System.Drawing.Point(182, 166);
             this.PN_Team_Logo.Name = "PN_Team_Logo";
             this.PN_Team_Logo.Size = new System.Drawing.Size(57, 54);
             this.PN_Team_Logo.TabIndex = 29;
             // 
             // BTN_Browse_Logos
             // 
-            this.BTN_Browse_Logos.Location = new System.Drawing.Point(199, 209);
+            this.BTN_Browse_Logos.Location = new System.Drawing.Point(178, 226);
             this.BTN_Browse_Logos.Name = "BTN_Browse_Logos";
             this.BTN_Browse_Logos.Size = new System.Drawing.Size(68, 25);
             this.BTN_Browse_Logos.TabIndex = 28;
@@ -85,14 +84,14 @@
             // 
             // DTP_Team_Join
             // 
-            this.DTP_Team_Join.Location = new System.Drawing.Point(133, 62);
+            this.DTP_Team_Join.Location = new System.Drawing.Point(133, 70);
             this.DTP_Team_Join.Name = "DTP_Team_Join";
             this.DTP_Team_Join.Size = new System.Drawing.Size(134, 20);
             this.DTP_Team_Join.TabIndex = 25;
             // 
             // TB_Team_Town
             // 
-            this.TB_Team_Town.Location = new System.Drawing.Point(133, 156);
+            this.TB_Team_Town.Location = new System.Drawing.Point(133, 118);
             this.TB_Team_Town.Name = "TB_Team_Town";
             this.TB_Team_Town.Size = new System.Drawing.Size(134, 20);
             this.TB_Team_Town.TabIndex = 22;
@@ -109,7 +108,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 199);
+            this.label5.Location = new System.Drawing.Point(21, 166);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 17;
@@ -118,7 +117,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 62);
+            this.label4.Location = new System.Drawing.Point(21, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 13);
             this.label4.TabIndex = 18;
@@ -127,20 +126,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 156);
+            this.label3.Location = new System.Drawing.Point(21, 118);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 19;
             this.label3.Text = "Ville";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 106);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Division";
             // 
             // label1
             // 
@@ -153,11 +143,9 @@
             // 
             // GB_Add_Player
             // 
-            this.GB_Add_Player.Controls.Add(this.CBX_Team_Divison);
             this.GB_Add_Player.Controls.Add(this.PN_Team_Logo);
             this.GB_Add_Player.Controls.Add(this.label1);
             this.GB_Add_Player.Controls.Add(this.BTN_Browse_Logos);
-            this.GB_Add_Player.Controls.Add(this.label2);
             this.GB_Add_Player.Controls.Add(this.label3);
             this.GB_Add_Player.Controls.Add(this.label4);
             this.GB_Add_Player.Controls.Add(this.DTP_Team_Join);
@@ -169,15 +157,6 @@
             this.GB_Add_Player.Size = new System.Drawing.Size(285, 266);
             this.GB_Add_Player.TabIndex = 30;
             this.GB_Add_Player.TabStop = false;
-            // 
-            // CBX_Team_Divison
-            // 
-            this.CBX_Team_Divison.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBX_Team_Divison.FormattingEnabled = true;
-            this.CBX_Team_Divison.Location = new System.Drawing.Point(136, 106);
-            this.CBX_Team_Divison.Name = "CBX_Team_Divison";
-            this.CBX_Team_Divison.Size = new System.Drawing.Size(131, 21);
-            this.CBX_Team_Divison.TabIndex = 30;
             // 
             // Add_Team_Form
             // 
@@ -207,9 +186,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox GB_Add_Player;
-        private System.Windows.Forms.ComboBox CBX_Team_Divison;
     }
 }

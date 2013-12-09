@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.DataAccess;
 using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
 using System.IO;
 /*
  * Hockey Manager 2013
@@ -51,7 +52,7 @@ namespace TP_Final
         #endregion
         private void Main_Form_Load(object sender, EventArgs e)
         {
-            Log_In();
+            //Log_In();
             Connect();
 
             ListDivisions();
@@ -60,6 +61,46 @@ namespace TP_Final
             ApplyRowsStyles();
 
             Initialize_Controls();
+            //Initialize_LogoScroller();
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////// Ajout des images dans le LogoScroller ///////////////////////////////////////////
+        private void Initialize_LogoScroller()
+        {
+            string sql = "select logo from equipe";
+            Image unLogo;
+            try
+            {
+                OracleCommand oraCMD = new OracleCommand(sql, conn);
+                oraCMD.CommandType = CommandType.Text;
+
+                OracleDataReader oraRead = oraCMD.ExecuteReader();
+
+                while (oraRead.Read())
+                {
+                    if (oraRead.GetValue(0).ToString() != "")
+                    {
+                        // Création d'une variable locale blob
+                        OracleBlob blob = oraRead.GetOracleBlob(0);
+                        // Convertion du blob en tableau de bytes
+                        byte[] myByteArray = new Byte[blob.Length];
+                         
+                       // int i = blob.Read(myByteArray,0,System.Convert.ToInt32(blob.Length));
+
+                        // Création d'un stream pour convertir le ByteAray en Image
+                        MemoryStream memStream = new MemoryStream(myByteArray);
+                        unLogo = Image.FromStream(memStream);
+
+                        LS_Logos.AddElement(unLogo);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////// Affichage de la fenêtre de connection //////////////////////////////////////////
@@ -84,6 +125,10 @@ namespace TP_Final
             TB_Search_Player.ForeColor = Color.Gray;
             FB_Remove_Team.Enabled = false;
             FB_Edit_Team.Enabled = false;
+            FB_Add_Team.Enabled = false;
+
+            if (LV_Divisions.Controls.Count == 0)
+                FB_Remove_Division.Enabled = false;
         }
         #region "Settings"
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -138,7 +183,7 @@ namespace TP_Final
                 + "(CONNECT_DATA=(SERVICE_NAME=ORCL)))";
 
             String ChaineConnexion = "Data Source=" + Dsource
-            + ";User Id=" + m_Username + ";Password =" + m_Pass;
+            + ";User Id= hunterro;Password =oracle1";
             conn.ConnectionString = ChaineConnexion;
 
             try
@@ -150,7 +195,6 @@ namespace TP_Final
                 MessageBox.Show(ex.Message.ToString());
                 Application.Exit();
             }
-            MessageBox.Show("Connecté");
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////// Liste les division dans un ListView /////////////////////////////////////////////
@@ -175,6 +219,7 @@ namespace TP_Final
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+            FB_Remove_Division.Enabled = false;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////// Gestion du clique du bouton flash d'ajout d'équipe /////////////////////////////////////
@@ -191,11 +236,20 @@ namespace TP_Final
         /////////////////////////////////////////////// Ajout d'une division dans la BD ////////////////////////////////////////////////
         private void Add_Division(string name, DateTime joined)
         {
-            string sqlADD = "insert into division (nom, datecreation) values('" + name + "', " + "to_date('" + joined + "', 'DD-MM-YYYY HH:MI:SS AM'))";
+            OracleParameter pname = new OracleParameter(":nom", OracleDbType.Varchar2, 20);
+            OracleParameter pdate = new OracleParameter(":date", OracleDbType.Date);
+            
+            string sqlADD = "insert into division (nom, datecreation) values(:pname, to_date(:pdate, 'DD-MM-YYYY'))";
+
+            pname.Value = name;
+            pdate.Value = joined;
 
             try
             {
                 OracleCommand oraInsert = new OracleCommand(sqlADD, conn);
+
+                oraInsert.Parameters.Add(pname);
+                oraInsert.Parameters.Add(pdate);
                 oraInsert.CommandType = CommandType.Text;
                 oraInsert.ExecuteNonQuery();
             }
@@ -210,11 +264,12 @@ namespace TP_Final
         private void FB_Remove_Division_Click(object sender, EventArgs e)
         {
             Remove_Division();
+            
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////// Retrait d'une division dans la BD //////////////////////////////////////////////////
         private void Remove_Division()
-        {
+        { 
             string sqlDelete = "delete from division where nom = '" + LV_Divisions.SelectedItems[0].Text + "'";
             try
             {
@@ -239,7 +294,7 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, form.m_Team_Division);
+                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LV_Divisions.SelectedItems[0].SubItems[0].Text);
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -656,7 +711,7 @@ namespace TP_Final
             {
                 InitializeDGV();
 
-                if (DGV_Teams.RowCount >MAX_TEAMS)
+                if (DGV_Teams.RowCount > MAX_TEAMS)
                     FB_Add_Team.Enabled = false;
                 else
                     FB_Add_Team.Enabled = true;
@@ -664,12 +719,19 @@ namespace TP_Final
                 {
                     FB_Remove_Team.Enabled = false;
                     FB_Edit_Team.Enabled = false;
+                    FB_Add_Team.Enabled = false;
                 }
                 else
                 {
                     FB_Remove_Team.Enabled = true;
                     FB_Edit_Team.Enabled = true;
+                    FB_Add_Team.Enabled = true;
                 }
+                FB_Remove_Division.Enabled = true;
+            }
+            else
+            {
+                FB_Remove_Division.Enabled = false;
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -788,6 +850,22 @@ namespace TP_Final
         private void Main_Form_LocationChanged(object sender, EventArgs e)
         {
             Save_Settings();
+        }
+
+        private void DGV_Teams_RowHeightChanged(object sender, DataGridViewRowEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGV_Teams.SelectedRows)
+            {
+                row.Height = e.Row.Height;
+            }
+        }
+
+        private void DGV_Teams_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e) //  Voir Mathieu "TheBigDick" Dumoulin
+        {
+            foreach (DataGridViewColumn Col in DGV_Teams.Columns)
+            {
+                Col.Width = e.Column.Width;
+            }
         }
 
     }

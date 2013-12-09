@@ -18,6 +18,7 @@ namespace TP_Final
             InitializeComponent();
         }
 
+        public string m_TeamName;
         public string m_Home;
         public string m_Visitor;
         public DateTime m_Date;
@@ -58,6 +59,14 @@ namespace TP_Final
             {
                 string complete = "select * from equipe where nom like '" + TB_Home.Text + "%'";
                 CompleteTeam(complete, TB_Home);
+                if (TB_Home.Text != m_TeamName && TB_Home.Text.Length > 1)
+                    TB_Visitor.Text = m_TeamName;
+            }
+            if (TB_Home.Text == TB_Visitor.Text && TB_Visitor.Text != "" && TB_Home.Text != "")
+            {
+                MessageBox.Show("Erreur! Vous ne pouvez pas ajouter un match officiel qui comporte la même équipe pour les visiteurs et les receveurs.");
+                TB_Home.Text = "";
+                TB_Visitor.Text = "";
             }
         }
 
@@ -67,6 +76,14 @@ namespace TP_Final
             {
                 string complete = "select * from equipe where nom like '" + TB_Visitor.Text + "%'";
                 CompleteTeam(complete, TB_Visitor);
+                if (TB_Visitor.Text != m_TeamName && TB_Visitor.Text.Length > 1)
+                    TB_Home.Text = m_TeamName;
+            }
+            if (TB_Home.Text == TB_Visitor.Text && TB_Visitor.Text != "" && TB_Home.Text != "")
+            {
+                MessageBox.Show("Erreur! Vous ne pouvez pas ajouter un match officiel qui comporte la même équipe pour les visiteurs et les receveurs.");
+                TB_Home.Text = "";
+                TB_Visitor.Text = "";
             }
         }
         private void CompleteTeam(string sql, TextBox tb)
