@@ -45,7 +45,7 @@
             this.LV_Divisions = new System.Windows.Forms.ListView();
             this.LBL_Team = new System.Windows.Forms.Label();
             this.LBL_Divisions = new System.Windows.Forms.Label();
-            this.logoScroller1 = new Logo_scroller.LogoScroller();
+            this.LS_Logos = new Logo_scroller.LogoScroller();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Teams)).BeginInit();
             this.MS_MainForm.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -86,15 +86,16 @@
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.Text = "&Options";
             this.optionsToolStripMenuItem.ToolTipText = "Cherles aime les poneys";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // aideToolStripMenuItem
             // 
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
+            this.aideToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.aideToolStripMenuItem.Text = "Aide";
+            this.aideToolStripMenuItem.Text = "&Aide";
             this.aideToolStripMenuItem.Click += new System.EventHandler(this.aideToolStripMenuItem_Click);
             // 
             // statusStrip1
@@ -133,7 +134,7 @@
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.FB_Remove_Division);
             this.panel1.Controls.Add(this.FB_Add_Division);
             this.panel1.Location = new System.Drawing.Point(12, 696);
@@ -176,7 +177,7 @@
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.FB_Remove_Team);
             this.panel2.Controls.Add(this.FB_Edit_Team);
             this.panel2.Controls.Add(this.FB_Add_Team);
@@ -274,25 +275,26 @@
             this.LBL_Divisions.TabIndex = 7;
             this.LBL_Divisions.Text = "Divisions";
             // 
-            // logoScroller1
+            // LS_Logos
             // 
-            this.logoScroller1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.LS_Logos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.logoScroller1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.logoScroller1.Location = new System.Drawing.Point(12, 49);
-            this.logoScroller1.Name = "logoScroller1";
-            this.logoScroller1.NbElements = 8;
-            this.logoScroller1.Size = new System.Drawing.Size(1263, 62);
-            this.logoScroller1.TabIndex = 8;
-            this.logoScroller1.MouseEnter += new System.EventHandler(this.logoScroller1_MouseEnter);
-            this.logoScroller1.MouseLeave += new System.EventHandler(this.logoScroller1_MouseLeave);
+            this.LS_Logos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LS_Logos.Location = new System.Drawing.Point(12, 49);
+            this.LS_Logos.Name = "LS_Logos";
+            this.LS_Logos.NbElements = 8;
+            this.LS_Logos.Size = new System.Drawing.Size(1263, 62);
+            this.LS_Logos.TabIndex = 8;
+            this.LS_Logos.Load += new System.EventHandler(this.LS_Logos_Load);
+            this.LS_Logos.MouseEnter += new System.EventHandler(this.logoScroller1_MouseEnter);
+            this.LS_Logos.MouseLeave += new System.EventHandler(this.logoScroller1_MouseLeave);
             // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1287, 769);
-            this.Controls.Add(this.logoScroller1);
+            this.Controls.Add(this.LS_Logos);
             this.Controls.Add(this.LBL_Divisions);
             this.Controls.Add(this.LBL_Team);
             this.Controls.Add(this.LV_Divisions);
@@ -308,6 +310,7 @@
             this.Text = "Hockey Manager 2013";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Form_FormClosing);
             this.Load += new System.EventHandler(this.Main_Form_Load);
+            this.LocationChanged += new System.EventHandler(this.Main_Form_LocationChanged);
             this.SizeChanged += new System.EventHandler(this.Main_Form_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Teams)).EndInit();
             this.MS_MainForm.ResumeLayout(false);
@@ -339,7 +342,7 @@
         private System.Windows.Forms.ListView LV_Divisions;
         private System.Windows.Forms.Label LBL_Team;
         private System.Windows.Forms.Label LBL_Divisions;
-        private Logo_scroller.LogoScroller logoScroller1;
+        private Logo_scroller.LogoScroller LS_Logos;
         private System.Windows.Forms.ToolStripStatusLabel SL_Tips;
     }
 }

@@ -16,5 +16,10 @@ namespace TP_Final
         {
             InitializeComponent();
         }
+
+        private void Match_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

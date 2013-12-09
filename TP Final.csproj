@@ -40,9 +40,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>L:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\bin\Debug\FlashButton.dll</HintPath>
     </Reference>
-    <Reference Include="Logo scroller, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Logo scroller.dll</HintPath>
     <Reference Include="FlashButton">
       <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\FlashButton.dll</HintPath>
     </Reference>
@@ -68,6 +65,12 @@
     </Compile>
     <Compile Include="Add_Division_Form.Designer.cs">
       <DependentUpon>Add_Division_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Match_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Match_Form.Designer.cs">
+      <DependentUpon>Add_Match_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Add_Player_Form.cs">
       <SubType>Form</SubType>
@@ -99,6 +102,12 @@
     <Compile Include="Match_Form.Designer.cs">
       <DependentUpon>Match_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Match_Historic_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Match_Historic_Form.Designer.cs">
+      <DependentUpon>Match_Historic_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +132,9 @@
     <EmbeddedResource Include="Add_Division_Form.resx">
       <DependentUpon>Add_Division_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add_Match_Form.resx">
+      <DependentUpon>Add_Match_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add_Player_Form.resx">
       <DependentUpon>Add_Player_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Match_Form.resx">
       <DependentUpon>Match_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Match_Historic_Form.resx">
+      <DependentUpon>Match_Historic_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Player_Form.resx">
       <DependentUpon>Player_Form.cs</DependentUpon>
@@ -175,6 +190,7 @@
     <Content Include="Properties\Calendar_Disable.png" />
     <Content Include="Properties\Calendar_Neutral.png" />
     <Content Include="Properties\Calendar_Over.png" />
+    <Content Include="Properties\Champion.png" />
     <Content Include="Properties\Delete_Click.png" />
     <Content Include="Properties\Delete_Disable.png" />
     <Content Include="Properties\Delete_Neutral.png" />
@@ -195,6 +211,10 @@
     <Content Include="Properties\ICON_Editer_Disable.png" />
     <Content Include="Properties\ICON_Editer_Neutre.png" />
     <Content Include="Properties\ICON_Editer_Survol.png" />
+    <Content Include="Properties\StraightLines_Click.png" />
+    <Content Include="Properties\StraightLines_Neutral.png" />
+    <Content Include="Properties\StraightLines_Over.png" />
+    <Content Include="Properties\Versus-Symbol.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -53,7 +53,7 @@
             this.BTN_Ok.Location = new System.Drawing.Point(88, 378);
             this.BTN_Ok.Name = "BTN_Ok";
             this.BTN_Ok.Size = new System.Drawing.Size(75, 23);
-            this.BTN_Ok.TabIndex = 13;
+            this.BTN_Ok.TabIndex = 7;
             this.BTN_Ok.Text = "Accepter";
             this.BTN_Ok.UseVisualStyleBackColor = true;
             this.BTN_Ok.Click += new System.EventHandler(this.BTN_Ok_Click);
@@ -65,7 +65,7 @@
             this.BTN_Cancel.Location = new System.Drawing.Point(169, 378);
             this.BTN_Cancel.Name = "BTN_Cancel";
             this.BTN_Cancel.Size = new System.Drawing.Size(75, 23);
-            this.BTN_Cancel.TabIndex = 14;
+            this.BTN_Cancel.TabIndex = 8;
             this.BTN_Cancel.Text = "Annuler";
             this.BTN_Cancel.UseVisualStyleBackColor = true;
             // 
@@ -76,7 +76,7 @@
             this.DTP_Player_Birth.Location = new System.Drawing.Point(78, 110);
             this.DTP_Player_Birth.Name = "DTP_Player_Birth";
             this.DTP_Player_Birth.Size = new System.Drawing.Size(166, 20);
-            this.DTP_Player_Birth.TabIndex = 12;
+            this.DTP_Player_Birth.TabIndex = 3;
             // 
             // TB_Player_Name
             // 
@@ -85,7 +85,7 @@
             this.TB_Player_Name.Location = new System.Drawing.Point(78, 69);
             this.TB_Player_Name.Name = "TB_Player_Name";
             this.TB_Player_Name.Size = new System.Drawing.Size(166, 20);
-            this.TB_Player_Name.TabIndex = 10;
+            this.TB_Player_Name.TabIndex = 2;
             this.TB_Player_Name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_Player_Surname_KeyPress);
             // 
             // TB_Player_Surname
@@ -95,7 +95,7 @@
             this.TB_Player_Surname.Location = new System.Drawing.Point(78, 30);
             this.TB_Player_Surname.Name = "TB_Player_Surname";
             this.TB_Player_Surname.Size = new System.Drawing.Size(166, 20);
-            this.TB_Player_Surname.TabIndex = 11;
+            this.TB_Player_Surname.TabIndex = 1;
             this.TB_Player_Surname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_Player_Surname_KeyPress);
             // 
             // label5
@@ -142,9 +142,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Prénom";
+            this.label2.Text = "Nom:";
             // 
             // label1
             // 
@@ -154,9 +154,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Nom";
+            this.label1.Text = "Prénom:";
             // 
             // PN_Player_Picture
             // 
@@ -172,7 +172,7 @@
             this.BTN_Browse_Logos.Location = new System.Drawing.Point(176, 239);
             this.BTN_Browse_Logos.Name = "BTN_Browse_Logos";
             this.BTN_Browse_Logos.Size = new System.Drawing.Size(68, 25);
-            this.BTN_Browse_Logos.TabIndex = 29;
+            this.BTN_Browse_Logos.TabIndex = 6;
             this.BTN_Browse_Logos.Text = "Parcourir...";
             this.BTN_Browse_Logos.UseVisualStyleBackColor = true;
             this.BTN_Browse_Logos.Click += new System.EventHandler(this.BTN_Browse_Logos_Click);
@@ -196,7 +196,7 @@
             this.NUD_Jersey_Number.Location = new System.Drawing.Point(78, 152);
             this.NUD_Jersey_Number.Name = "NUD_Jersey_Number";
             this.NUD_Jersey_Number.Size = new System.Drawing.Size(46, 20);
-            this.NUD_Jersey_Number.TabIndex = 32;
+            this.NUD_Jersey_Number.TabIndex = 4;
             // 
             // CBX_Player_Role
             // 
@@ -204,7 +204,7 @@
             this.CBX_Player_Role.Location = new System.Drawing.Point(78, 190);
             this.CBX_Player_Role.Name = "CBX_Player_Role";
             this.CBX_Player_Role.Size = new System.Drawing.Size(166, 21);
-            this.CBX_Player_Role.TabIndex = 33;
+            this.CBX_Player_Role.TabIndex = 5;
             // 
             // Add_Player_Form
             // 
@@ -227,7 +227,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Add_Player_Form";
-            this.Text = "Ajouter Joueur";
+            this.Text = "Joueur";
             this.Load += new System.EventHandler(this.Add_Player_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Jersey_Number)).EndInit();
             this.ResumeLayout(false);

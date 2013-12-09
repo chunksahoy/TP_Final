@@ -10,7 +10,12 @@ using System.Windows.Forms;
 using Oracle.DataAccess;
 using Oracle.DataAccess.Client;
 using System.IO;
-
+/*
+ * Hockey Manager 2013
+ * but: gère le contrôle des divisions, équipes et joueurs à partir d'une BD
+ * 
+ * par Charles Hunter-Roy et Mathieu Dumoulin, 2013
+ * */
 namespace TP_Final
 {
     public partial class Main_Form : Form
@@ -29,6 +34,7 @@ namespace TP_Final
         private Color evenRowColor;
         private string m_Username;
         private string m_Pass;
+        private const int MAX_TEAMS = 4;
         #endregion
 
         #region "Texte du StatusStrip"
@@ -79,7 +85,7 @@ namespace TP_Final
             FB_Remove_Team.Enabled = false;
             FB_Edit_Team.Enabled = false;
         }
-
+        #region "Settings"
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////// Chargement des réglages /////////////////////////////////////////////////////
         private void LoadSettings()
@@ -96,7 +102,7 @@ namespace TP_Final
             {
                 for (int colIndex = 0; colIndex < DGV_Teams.ColumnCount; colIndex++)
                 {
-                   // DGV_Teams.Columns[colIndex].Width = int.Parse(widthStrings[colIndex]);
+                  // DGV_Teams.Columns[colIndex].Width = int.Parse(widthStrings[colIndex]);
                 }
             }
         }
@@ -122,6 +128,7 @@ namespace TP_Final
 
             Properties.Settings.Default.Save();
         }
+        #endregion
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////// Connection à la BD //////////////////////////////////////////////////////////
         private void Connect()
@@ -141,6 +148,7 @@ namespace TP_Final
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
+                Application.Exit();
             }
             MessageBox.Show("Connecté");
         }
@@ -207,8 +215,7 @@ namespace TP_Final
         /////////////////////////////////////////// Retrait d'une division dans la BD //////////////////////////////////////////////////
         private void Remove_Division()
         {
-            //string sqlDelete = "delete from division where nom = '" + LV_Divisions.SelectedIndices.ToString() + "'";
-            string sqlDelete = "delete from division where nom = '" + LV_Divisions.SelectedItems.ToString() + "'";
+            string sqlDelete = "delete from division where nom = '" + LV_Divisions.SelectedItems[0].Text + "'";
             try
             {
                 OracleCommand oraCMD = new OracleCommand(sqlDelete, conn);
@@ -229,7 +236,6 @@ namespace TP_Final
 
             form.m_Divisions_List = Initialize_Divisions_List();
             form.source = source;
-
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -269,8 +275,7 @@ namespace TP_Final
             OracleParameter pcreation = new OracleParameter(":creation", OracleDbType.Date);
             OracleParameter pphoto = new OracleParameter(":photo", OracleDbType.Blob);           
             OracleParameter ptown = new OracleParameter(":ville", OracleDbType.Varchar2, 30);
-            OracleParameter pdivision = new OracleParameter(":division", OracleDbType.Varchar2, 20);
-            
+            OracleParameter pdivision = new OracleParameter(":division", OracleDbType.Varchar2, 20);           
 
             string sqlADD = "insert into equipe (nom, dateintroduction, logo, ville, division) values(:nom, to_date(:creation,'DD-MM-YYYY'), :photo, :ville, :division)";
 
@@ -302,6 +307,12 @@ namespace TP_Final
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+            InitializeDGV();
+
+            if (DGV_Teams.RowCount > 0 && DGV_Teams.RowCount < MAX_TEAMS)
+            {
+                FB_Remove_Team.Enabled = true;
+            }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////// Gestion du clique du bouton flash de retrait d'une équipe //////////////////////////////////
@@ -324,6 +335,11 @@ namespace TP_Final
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
+            }
+            InitializeDGV();
+            if (DGV_Teams.RowCount == 0)
+            {
+                FB_Remove_Team.Enabled = false;
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -394,6 +410,8 @@ namespace TP_Final
         private void DGV_Teams_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DGV_Teams.SelectedRows[0].ReadOnly = true;
+            FB_Edit_Team.Enabled = true;
+
             if (e.Button == MouseButtons.Right)
             {
                 if (DGV_Teams.SelectedRows.Count > 0)
@@ -564,7 +582,7 @@ namespace TP_Final
             Team_Form form = new Team_Form();
 
             form.m_TeamName = DGV_Teams.SelectedRows[0].Cells[0].Value.ToString();
-            form.m_TeamTown = DGV_Teams.SelectedRows[0].Cells[2].Value.ToString();
+            form.m_TeamTown = DGV_Teams.SelectedRows[0].Cells[3].Value.ToString();
             form.oddRowColor = oddRowColor;
             form.evenRowColor = evenRowColor;
             form.conn = conn;
@@ -613,26 +631,32 @@ namespace TP_Final
         {
             ApplyRowsStyles();
         }
+
+        private void InitializeDGV()
+        {
+            myData.Clear();
+            string sql = "select * from equipe where division = '" + LV_Divisions.SelectedItems[0].SubItems[0].Text + "'";
+
+            OracleCommand oraCMD = new OracleCommand(sql, conn);
+            OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
+
+            adapt.Fill(myData, "divisions");
+
+            source = new BindingSource(myData, "divisions");
+            DGV_Teams.DataSource = source;
+            LoadSettings();
+            ApplyRowsStyles();
+        }
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////// Rafraîchissement des équipes affichées dans le DGV_Teams ///////////////////////////////////
         private void LV_Divisions_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (LV_Divisions.SelectedItems.Count > 0)
             {
-                myData.Clear();
-                string sql = "select * from equipe where division = '" + LV_Divisions.SelectedItems[0].SubItems[0].Text + "'";
+                InitializeDGV();
 
-                OracleCommand oraCMD = new OracleCommand(sql, conn);
-                OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
-
-                adapt.Fill(myData, "divisions");
-
-                source = new BindingSource(myData, "divisions");
-                DGV_Teams.DataSource = source;
-                LoadSettings();
-                ApplyRowsStyles();
-
-                if (DGV_Teams.RowCount >= 5)
+                if (DGV_Teams.RowCount >MAX_TEAMS)
                     FB_Add_Team.Enabled = false;
                 else
                     FB_Add_Team.Enabled = true;
@@ -667,6 +691,8 @@ namespace TP_Final
         ////////////////////////// Prévient l'édition des cellules du DGV_Teams(intégrité des données) /////////////////////////////////
         private void DGV_Teams_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            FB_Edit_Team.Enabled = false;
+
             DGV_Teams.Rows[e.RowIndex].ReadOnly = true;
             if (DGV_Teams.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
             {
@@ -754,63 +780,15 @@ namespace TP_Final
         }
         #endregion
 
+        private void LS_Logos_Load(object sender, EventArgs e)
+        {
+            
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        private void Main_Form_LocationChanged(object sender, EventArgs e)
+        {
+            Save_Settings();
+        }
 
     }
 }
-
-/*   //AJOUTER UNE IMAGE DANS LA BD
-     try
-            {
-                OracleCommand oraIns = new OracleCommand("insert into employes (nom, prenom,photo)values(:nom,:prenom,:photo)", conn);
-               
-                OracleParameter pnom = new OracleParameter(":nom", OracleDbType.NVarchar2, 30);
-                OracleParameter pprenom = new OracleParameter(":prenom", OracleDbType.NVarchar2, 30);
-                OracleParameter pphoto = new OracleParameter(":photo", OracleDbType.Blob);
-                
-                pnom.Value = textNom.Text;
-                pprenom.Value = textpRN.Text;
-       
-                oraIns.Parameters.Add(pnom);
-                oraIns.Parameters.Add(pprenom);
-
-                // récuper le fichier nomFichier et le convertir en Byte. 
-                //le résultat est dans buffer1
-                // oracle stocke les images sous forme de Bytes.
-                FileStream Streamp = new FileStream(nomFichier, FileMode.Open, FileAccess.Read);
-                byte[] buffer1 = new byte[Streamp.Length];
-                Streamp.Read(buffer1, 0, System.Convert.ToInt32(Streamp.Length));
-                Streamp.Close();
-                // ajout de la photo dans la BD.
-
-                pphoto.Value = buffer1;
-                oraIns.Parameters.Add(pphoto);
-
-                oraIns.ExecuteNonQuery();
-                 Vider();    
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-*/

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,8 @@ namespace TP_Final
         public Color oddRowColor;
         public Color evenRowColor;
         public int m_Selected_Index;
+        public string m_Logo_File_Path;
+
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Main_Options_Form form = new Main_Options_Form();
@@ -61,6 +64,7 @@ namespace TP_Final
 
             LoadSettings();
             ApplyRowsStyles();
+            RefreshLogo();
         }
 
         private void SaveSettings()
@@ -99,7 +103,8 @@ namespace TP_Final
             {
                 for (int colIndex = 0; colIndex < DGV_Players.ColumnCount; colIndex++)
                 {
-                    DGV_Players.Columns[colIndex].Width = int.Parse(widthStrings[colIndex]);
+                    if(colIndex != 2)
+                        DGV_Players.Columns[colIndex].Width = int.Parse(widthStrings[colIndex]);
                 }
             }
         }
@@ -129,13 +134,92 @@ namespace TP_Final
 
             source = new BindingSource(myData, "divisions");
             DGV_Players.DataSource = source;
+            ApplyRowsStyles();
         }
 
         private void Show_Player()
         {
-            
-        }
 
+        }
+        private void DGV_Players_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DGV_Players.SelectedRows[0].ReadOnly = true;
+            if (e.Button == MouseButtons.Right)
+            {
+                if (DGV_Players.SelectedRows.Count > 0)
+                {
+
+                    ContextMenuStrip cms = new ContextMenuStrip();
+                    ToolStripMenuItem tsmi;
+                    if (DGV_Players.RowCount > 1 && DGV_Players.SelectedRows[0].Index != DGV_Players.RowCount - 1)
+                    {
+                        tsmi = new ToolStripMenuItem("Editer l'enregistrement");
+                        tsmi.Click += tsmi_Edit_Click;
+                        cms.Items.Add(tsmi);
+
+                        tsmi = new ToolStripMenuItem("Effacer l'enregistrement");
+                        tsmi.Click += tsmi_Delete_Click;
+                        cms.Items.Add(tsmi);
+                    }
+                    tsmi = new ToolStripMenuItem("Police...");
+                    tsmi.Click += tsmi_Font_Click;
+                    cms.Items.Add(tsmi);
+
+                    tsmi = new ToolStripMenuItem("Couleur...");
+                    tsmi.Click += tsmi_Color_Click;
+                    cms.Items.Add(tsmi);
+
+                    cms.Show(DGV_Players, DGV_Players.PointToClient(Cursor.Position));
+                }
+            }
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////// Gestion de l'option couleur du menu contextuel du DGV_Teams //////////////////////////////////
+        private void tsmi_Color_Click(object sender, EventArgs e)
+        {
+            ColorDialog dlg = new ColorDialog();
+
+            dlg.Color = (DGV_Players.SelectedRows[0].Index % 2 == 0 ? evenRowColor : oddRowColor);
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (DGV_Players.SelectedRows[0].Index % 2 == 0)
+                    evenRowColor = dlg.Color;
+                else
+                    oddRowColor = dlg.Color;
+                ApplyRowsStyles();
+
+            }
+            //Save_Settings();
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////// Gestion de l'option police du menu contextuel du DGV_Teams ///////////////////////////////////
+        private void tsmi_Font_Click(object sender, EventArgs e)
+        {
+            FontDialog dlg = new FontDialog();
+
+            dlg.Font = DGV_Players.Font;
+            dlg.Color = DGV_Players.ForeColor;
+            dlg.ShowColor = true;
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                DGV_Players.Font = dlg.Font;
+                DGV_Players.ForeColor = dlg.Color;
+            }
+            //Save_Settings();
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////// Gestion de l'option édition du menu contextuel du DGV_Teams //////////////////////////////////
+        private void tsmi_Edit_Click(object sender, EventArgs e)
+        {
+            EditPlayer();
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////// Gestion de l'option suppression du menu contextuel du DGV_Teams ////////////////////////////////
+        private void tsmi_Delete_Click(object sender, EventArgs e)
+        {
+            Remove_Player();
+        }
         private void EditPlayer()
         {
             Player_Form form = new Player_Form();
@@ -157,21 +241,69 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Add_Player(form.m_PlayerName, form.m_PlayerSurname, form.m_Player_Birth, form.m_PlayerJersey ,form.m_PlayerPosition);
-            }            
+                Add_Player(form.m_PlayerName, form.m_PlayerSurname, form.m_Player_Birth, form.m_PlayerJersey, form.m_PlayerPosition);
+            }
         }
 
         private void Add_Player(string name, string surname, DateTime birth, int jersey, string position)
         {
-            string sqlADD = "insert into player (nom, prenom, datenaissance, numerotmaillot, role, numjoueur, equipe) values('" + name
-                + "','" + surname + "', " + "to_date('" + birth + "', 'DD-MM-YYYY'), " + jersey
-                + ",'"+ position + "', :seqJoueurs.nextvalue" + ",'" + m_TeamName + "') ";
+            OracleParameter pname = new OracleParameter(":nom", OracleDbType.Varchar2, 30);
+            OracleParameter psurname = new OracleParameter(":prenom", OracleDbType.Varchar2, 30);
+            OracleParameter pbirth = new OracleParameter(":naissance", OracleDbType.Date);
+            OracleParameter pjersey = new OracleParameter(":maillot", OracleDbType.Int32);
+            OracleParameter pposition = new OracleParameter(":position", OracleDbType.Varchar2, 20);
+            OracleParameter pteam = new OracleParameter(":equipe", OracleDbType.Varchar2, 30);
+
+            string sqlADD = "insert into player (nom, prenom, datenaissance, numeromaillot, role, equipe) values(:pname, :psurname, to_date(:pbirth, 'DD-MM-YYYY'), :pjersey, " +
+                ":pposition, :pteam) ";
+
+            pname.Value = name;
+            psurname.Value = surname;
+            pbirth.Value = birth;
+            pjersey.Value = jersey;
+            pposition.Value = position;
+            pteam.Value = m_TeamName;
 
             try
             {
                 OracleCommand oraInsert = new OracleCommand(sqlADD, conn);
+                oraInsert.Parameters.Add(pname);
+                oraInsert.Parameters.Add(psurname);
+                oraInsert.Parameters.Add(pbirth);
+                oraInsert.Parameters.Add(pjersey);
+                oraInsert.Parameters.Add(pposition);
+                oraInsert.Parameters.Add(pteam);
+
                 oraInsert.CommandType = CommandType.Text;
                 oraInsert.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            InitializeDataGrid();
+        }
+
+        private void FB_Remove_Player_Click(object sender, EventArgs e)
+        {
+            Remove_Player();
+        }
+
+        private void Remove_Player()
+        {
+            OracleParameter pnum = new OracleParameter(":numjoueur", OracleDbType.Int32);
+            string sqlDel = "delete from joueur where numjoueur = :pnum";
+
+            pnum.Value = DGV_Players.SelectedRows[0].Cells[5].Value.ToString();
+
+            try
+            {
+                OracleCommand oraDel = new OracleCommand(sqlDel, conn);
+
+                oraDel.Parameters.Add(pnum);
+
+                oraDel.CommandType = CommandType.Text;
+                oraDel.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -194,6 +326,15 @@ namespace TP_Final
         private void DGV_Players_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             EditPlayer();
+        }
+
+        private void DGV_Players_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DGV_Players.Rows[e.RowIndex].ReadOnly = true;
+            if (DGV_Players.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
+            {
+                DGV_Players.Rows[e.RowIndex].ReadOnly = false;
+            }
         }
 
         private void FB_Edit_Player_Click(object sender, EventArgs e)
@@ -225,7 +366,7 @@ namespace TP_Final
         private void FB_Add_Player_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_AddPlayers;
-        }  
+        }
         private void FB_Remove_Player_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_RemovePlayer;
@@ -237,7 +378,7 @@ namespace TP_Final
         private void FB_Display_Calendar_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_ShowCalendar;
-        } 
+        }
         private void FB_Ok_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_AcceptChanges;
@@ -259,11 +400,11 @@ namespace TP_Final
         private void FB_Add_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
-        } 
+        }
         private void FB_Remove_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
-        } 
+        }
         private void FB_Edit_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
@@ -282,18 +423,96 @@ namespace TP_Final
         }
         #endregion
 
+        private void FB_Display_Calendar_Click(object sender, EventArgs e)
+        {
+            Match_Historic_Form hform = new Match_Historic_Form();
+
+            hform.m_Team = m_TeamName;
+            hform.source = source;
+            hform.conn = conn;
+
+            if (hform.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void RefreshLogo()
+        {
+           // Image logo;
+
+            string getLogo = "select logo from equipe where nom = '" + m_TeamName + "'";
+
+            try
+            {
+                OracleCommand oraCMD = new OracleCommand(getLogo, conn);
+                OracleDataAdapter oraAdapt = new OracleDataAdapter();
+                oraAdapt.SelectCommand = oraCMD;
 
 
+                oraCMD.CommandType = CommandType.Text;
 
+                oraAdapt.Fill(myData, "logo");
 
+               // PB_Logo.Image = 
+                PB_Logo.DataBindings.Add("Image", myData, "equipe.logo", true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
 
+            PB_Logo.Refresh();
+        }
+        private void UpdateLogo(string filePath)
+        {
+            OracleParameter plogo = new OracleParameter(":logo", OracleDbType.Blob);
 
+            string sql = "update equipe SET logo = :plogo where nom = '" + m_TeamName + "'";
 
+                
+            FileStream Streamp = new FileStream(filePath, FileMode.Open, FileAccess.Read);
 
+            byte[] buffer1 = new byte[Streamp.Length];
+            Streamp.Read(buffer1, 0, System.Convert.ToInt32(Streamp.Length));
+            Streamp.Close();
 
+            plogo.Value = buffer1;
 
+            try
+            {
+                OracleCommand oraUpdate = new OracleCommand(sql,conn);
 
+                oraUpdate.Parameters.Add(plogo);
 
+                oraUpdate.CommandType = CommandType.Text;
+                oraUpdate.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            RefreshLogo();
+        }
 
+        private void PB_Logo_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                UpdateLogo(dlg.FileName);
+            }            
+        }
+
+        private void PB_Logo_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void PB_Logo_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
+        }
     }
 }

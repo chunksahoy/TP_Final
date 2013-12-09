@@ -107,28 +107,28 @@
             this.TB_Player_Goals.Location = new System.Drawing.Point(75, 67);
             this.TB_Player_Goals.Name = "TB_Player_Goals";
             this.TB_Player_Goals.Size = new System.Drawing.Size(100, 20);
-            this.TB_Player_Goals.TabIndex = 1;
+            this.TB_Player_Goals.TabIndex = 2;
             // 
             // TB_Player_Points
             // 
             this.TB_Player_Points.Location = new System.Drawing.Point(75, 160);
             this.TB_Player_Points.Name = "TB_Player_Points";
             this.TB_Player_Points.Size = new System.Drawing.Size(100, 20);
-            this.TB_Player_Points.TabIndex = 1;
+            this.TB_Player_Points.TabIndex = 4;
             // 
             // TB_Player_Pass
             // 
             this.TB_Player_Pass.Location = new System.Drawing.Point(75, 113);
             this.TB_Player_Pass.Name = "TB_Player_Pass";
             this.TB_Player_Pass.Size = new System.Drawing.Size(100, 20);
-            this.TB_Player_Pass.TabIndex = 1;
+            this.TB_Player_Pass.TabIndex = 3;
             // 
             // TB_Player_Penalty
             // 
             this.TB_Player_Penalty.Location = new System.Drawing.Point(75, 202);
             this.TB_Player_Penalty.Name = "TB_Player_Penalty";
             this.TB_Player_Penalty.Size = new System.Drawing.Size(100, 20);
-            this.TB_Player_Penalty.TabIndex = 1;
+            this.TB_Player_Penalty.TabIndex = 5;
             // 
             // PN_Player_Picture
             // 
@@ -199,7 +199,7 @@
             this.FB_Cancel.Location = new System.Drawing.Point(257, 420);
             this.FB_Cancel.Name = "FB_Cancel";
             this.FB_Cancel.Size = new System.Drawing.Size(25, 26);
-            this.FB_Cancel.TabIndex = 5;
+            this.FB_Cancel.TabIndex = 7;
             this.FB_Cancel.Click += new System.EventHandler(this.FB_Cancel_Click);
             // 
             // FB_Ok
@@ -229,6 +229,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Player_Form";
+            this.Load += new System.EventHandler(this.Player_Form_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.GB_Player_Stats.ResumeLayout(false);

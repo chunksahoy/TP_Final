@@ -60,5 +60,15 @@ namespace TP_Final
             //channelPic.Image = (Image)O;
            // this.Refresh();
         }
+
+        private void Player_Form_Load(object sender, EventArgs e)
+        {
+            TB_Player_Position.Text = m_Player_Position;
+            TB_Player_Goals.Text = m_Player_Goals.ToString();
+            TB_Player_Pass.Text = m_Player_Pass.ToString();
+            TB_Player_Points.Text = m_Player_Points.ToString();
+            TB_Player_Penalty.Text = m_Player_Punitions.ToString();
+
+        }
     }
 }

@@ -37,9 +37,9 @@
             this.PN_EvenRow_Color = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.CBX_DGV_Font = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.BTN_DGV_Font = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CBX_DGV_Font = new System.Windows.Forms.ComboBox();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -87,18 +87,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 13);
+            this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Rangées Impaires";
+            this.label2.Text = "Rangées paires";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Rangées Paires";
+            this.label1.Text = "Rangées impaires";
             // 
             // PN_OddRow_Color
             // 
@@ -146,14 +146,15 @@
             this.tabPage2.Text = "Police";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // CBX_DGV_Font
+            // BTN_DGV_Font
             // 
-            this.CBX_DGV_Font.FormattingEnabled = true;
-            this.CBX_DGV_Font.Location = new System.Drawing.Point(42, 54);
-            this.CBX_DGV_Font.Name = "CBX_DGV_Font";
-            this.CBX_DGV_Font.Size = new System.Drawing.Size(75, 21);
-            this.CBX_DGV_Font.TabIndex = 0;
-            this.CBX_DGV_Font.SelectedIndexChanged += new System.EventHandler(this.CBX_DGV_Font_SelectedIndexChanged);
+            this.BTN_DGV_Font.Location = new System.Drawing.Point(123, 54);
+            this.BTN_DGV_Font.Name = "BTN_DGV_Font";
+            this.BTN_DGV_Font.Size = new System.Drawing.Size(36, 23);
+            this.BTN_DGV_Font.TabIndex = 2;
+            this.BTN_DGV_Font.Text = "...";
+            this.BTN_DGV_Font.UseVisualStyleBackColor = true;
+            this.BTN_DGV_Font.Click += new System.EventHandler(this.BTN_DGV_Font_Click);
             // 
             // label3
             // 
@@ -164,15 +165,14 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Grille";
             // 
-            // BTN_DGV_Font
+            // CBX_DGV_Font
             // 
-            this.BTN_DGV_Font.Location = new System.Drawing.Point(123, 54);
-            this.BTN_DGV_Font.Name = "BTN_DGV_Font";
-            this.BTN_DGV_Font.Size = new System.Drawing.Size(36, 23);
-            this.BTN_DGV_Font.TabIndex = 2;
-            this.BTN_DGV_Font.Text = "...";
-            this.BTN_DGV_Font.UseVisualStyleBackColor = true;
-            this.BTN_DGV_Font.Click += new System.EventHandler(this.BTN_DGV_Font_Click);
+            this.CBX_DGV_Font.FormattingEnabled = true;
+            this.CBX_DGV_Font.Location = new System.Drawing.Point(42, 54);
+            this.CBX_DGV_Font.Name = "CBX_DGV_Font";
+            this.CBX_DGV_Font.Size = new System.Drawing.Size(75, 21);
+            this.CBX_DGV_Font.TabIndex = 0;
+            this.CBX_DGV_Font.SelectedIndexChanged += new System.EventHandler(this.CBX_DGV_Font_SelectedIndexChanged);
             // 
             // Main_Options_Form
             // 
