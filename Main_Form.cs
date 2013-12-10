@@ -85,11 +85,9 @@ namespace TP_Final
                         OracleBlob blob = oraRead.GetOracleBlob(0);
                         // Convertion du blob en tableau de bytes
                         byte[] myByteArray = new Byte[blob.Length];
-<<<<<<< HEAD
-=======
+
                          
                         int i = blob.Read(myByteArray,0,System.Convert.ToInt32(blob.Length));
->>>>>>> Modifications LogoScroller
 
                         // Création d'un stream pour convertir le ByteAray en Image
                         MemoryStream memStream = new MemoryStream(myByteArray);
@@ -297,12 +295,7 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItems.ToString());
-=======
-                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LV_Divisions.SelectedItems[0].SubItems[0].Text);
-                LS_Logos.AddElement(form.m_file_Name);
->>>>>>> Modifications LogoScroller
             }
 
             
