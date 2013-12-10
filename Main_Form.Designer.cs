@@ -264,6 +264,7 @@
             // 
             this.LS_Logos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.LS_Logos.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.LS_Logos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.LS_Logos.Location = new System.Drawing.Point(12, 49);
             this.LS_Logos.Name = "LS_Logos";
