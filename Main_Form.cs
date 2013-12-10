@@ -47,7 +47,7 @@ namespace TP_Final
         private string Txt_AddDivision = "Tips: Clique gauche pour ouvrir un dialogue qui vous permet d'ajouter une division dans ce conteneur.";
         private string Txt_LogoScroller = "Tips: Clique gauche sur un logo pour afficher les joueurs de l'équipe correspondante au logo dans une autre fenêtre";
         private string Txt_DGV_TeamOver = "Tips: Double clique sur l'entête d'une rangée d'une équipe pour afficher ses joueurs dans une autre fenêtre.";
-        private string Txt_LV_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
+        private string Txt_LB_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
 
         #endregion
         private void Main_Form_Load(object sender, EventArgs e)
@@ -85,8 +85,6 @@ namespace TP_Final
                         OracleBlob blob = oraRead.GetOracleBlob(0);
                         // Convertion du blob en tableau de bytes
                         byte[] myByteArray = new Byte[blob.Length];
-                         
-                       // int i = blob.Read(myByteArray,0,System.Convert.ToInt32(blob.Length));
 
                         // Création d'un stream pour convertir le ByteAray en Image
                         MemoryStream memStream = new MemoryStream(myByteArray);
@@ -127,7 +125,7 @@ namespace TP_Final
             FB_Edit_Team.Enabled = false;
             FB_Add_Team.Enabled = false;
 
-            if (LV_Divisions.Controls.Count == 0)
+            if (LB_Divisions.Controls.Count == 0)
                 FB_Remove_Division.Enabled = false;
         }
         #region "Settings"
@@ -202,7 +200,7 @@ namespace TP_Final
         {
             try
             {
-                LV_Divisions.Items.Clear();
+                LB_Divisions.Items.Clear();
                 string sql = "select Nom from division";
 
                 OracleCommand oraCMD = new OracleCommand(sql, conn);
@@ -212,7 +210,7 @@ namespace TP_Final
 
                 while (oraRead.Read())
                 {
-                    LV_Divisions.Items.Add(oraRead.GetString(0));
+                    LB_Divisions.Items.Add(oraRead.GetString(0));
                 }
             }
             catch (Exception ex)
@@ -270,7 +268,7 @@ namespace TP_Final
         /////////////////////////////////////////// Retrait d'une division dans la BD //////////////////////////////////////////////////
         private void Remove_Division()
         { 
-            string sqlDelete = "delete from division where nom = '" + LV_Divisions.SelectedItems[0].Text + "'";
+            string sqlDelete = "delete from division where nom = '" + LB_Divisions.SelectedItem.ToString()+ "'";
             try
             {
                 OracleCommand oraCMD = new OracleCommand(sqlDelete, conn);
@@ -294,7 +292,7 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LV_Divisions.SelectedItems[0].SubItems[0].Text);
+                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItems.ToString());
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -445,7 +443,7 @@ namespace TP_Final
             Remove_Team();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////// Gestion de l'option suppression du menu contextuel du LV_Division ///////////////////////////////
+        ////////////////////////////// Gestion de l'option suppression du menu contextuel du LB_Division ///////////////////////////////
         private void tsmi_Remove_Division_Click(object sender, EventArgs e)
         {
             Remove_Division();
@@ -690,7 +688,7 @@ namespace TP_Final
         private void InitializeDGV()
         {
             myData.Clear();
-            string sql = "select * from equipe where division = '" + LV_Divisions.SelectedItems[0].SubItems[0].Text + "'";
+            string sql = "select * from equipe where division = '" + LB_Divisions.SelectedItem.ToString() + "'";
 
             OracleCommand oraCMD = new OracleCommand(sql, conn);
             OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
@@ -703,52 +701,6 @@ namespace TP_Final
             ApplyRowsStyles();
         }
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////// Rafraîchissement des équipes affichées dans le DGV_Teams ///////////////////////////////////
-        private void LV_Divisions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (LV_Divisions.SelectedItems.Count > 0)
-            {
-                InitializeDGV();
-
-                if (DGV_Teams.RowCount > MAX_TEAMS)
-                    FB_Add_Team.Enabled = false;
-                else
-                    FB_Add_Team.Enabled = true;
-                if (DGV_Teams.RowCount <= 1)
-                {
-                    FB_Remove_Team.Enabled = false;
-                    FB_Edit_Team.Enabled = false;
-                    FB_Add_Team.Enabled = false;
-                }
-                else
-                {
-                    FB_Remove_Team.Enabled = true;
-                    FB_Edit_Team.Enabled = true;
-                    FB_Add_Team.Enabled = true;
-                }
-                FB_Remove_Division.Enabled = true;
-            }
-            else
-            {
-                FB_Remove_Division.Enabled = false;
-            }
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////// Création du menu contextuel du LV_Divisions ////////////////////////////////////////////
-        private void LV_Divisions_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                ContextMenuStrip cms = new ContextMenuStrip();
-                ToolStripMenuItem tsmi = new ToolStripMenuItem("Effacer Enregistrement");
-                tsmi.Click += tsmi_Remove_Division_Click;
-
-                cms.Items.Add(tsmi);
-
-                cms.Show(LV_Divisions, LV_Divisions.PointToClient(Cursor.Position));
-            }
-        }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////// Prévient l'édition des cellules du DGV_Teams(intégrité des données) /////////////////////////////////
         private void DGV_Teams_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -772,9 +724,9 @@ namespace TP_Final
         {
             SL_Tips.Text = Txt_DGV_TeamOver;
         }
-        private void LV_Divisions_MouseEnter(object sender, EventArgs e)
+        private void LB_Divisions_MouseEnter(object sender, EventArgs e)
         {
-            SL_Tips.Text = Txt_LV_Divisions;
+            SL_Tips.Text = Txt_LB_Divisions;
         } 
         private void logoScroller1_MouseEnter(object sender, EventArgs e)
         {
@@ -812,7 +764,7 @@ namespace TP_Final
         {
             Empty_StatusStrip();
         }
-        private void LV_Divisions_MouseLeave(object sender, EventArgs e)
+        private void LB_Divisions_MouseLeave(object sender, EventArgs e)
         {
             Empty_StatusStrip();
         }
@@ -846,7 +798,6 @@ namespace TP_Final
         {
             
         }
-
         private void Main_Form_LocationChanged(object sender, EventArgs e)
         {
             Save_Settings();
@@ -865,6 +816,52 @@ namespace TP_Final
             foreach (DataGridViewColumn Col in DGV_Teams.Columns)
             {
                 Col.Width = e.Column.Width;
+            }
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////// Rafraîchissement des équipes affichées dans le DGV_Teams ///////////////////////////////////
+        private void LB_Divisions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (LB_Divisions.SelectedItems.Count > 0)
+            {
+                InitializeDGV();
+
+                if (DGV_Teams.RowCount > MAX_TEAMS)
+                    FB_Add_Team.Enabled = false;
+                else
+                    FB_Add_Team.Enabled = true;
+                if (DGV_Teams.RowCount <= 1)
+                {
+                    FB_Remove_Team.Enabled = false;
+                    FB_Edit_Team.Enabled = false;
+                    FB_Add_Team.Enabled = false;
+                }
+                else
+                {
+                    FB_Remove_Team.Enabled = true;
+                    FB_Edit_Team.Enabled = true;
+                    FB_Add_Team.Enabled = true;
+                }
+                FB_Remove_Division.Enabled = true;
+            }
+            else
+            {
+                FB_Remove_Division.Enabled = false;
+            }
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////// Création du menu contextuel du LB_Divisions ////////////////////////////////////////////
+        private void LB_Divisions_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                ContextMenuStrip cms = new ContextMenuStrip();
+                ToolStripMenuItem tsmi = new ToolStripMenuItem("Effacer Enregistrement");
+                tsmi.Click += tsmi_Remove_Division_Click;
+
+                cms.Items.Add(tsmi);
+
+                cms.Show(LB_Divisions, LB_Divisions.PointToClient(Cursor.Position));
             }
         }
 

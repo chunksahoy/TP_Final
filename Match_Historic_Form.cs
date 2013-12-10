@@ -156,7 +156,7 @@ namespace TP_Final
 
         private void DGV_Historic_RowHeightChanged(object sender, DataGridViewRowEventArgs e)
         {
-           
+
         }
     }
 }

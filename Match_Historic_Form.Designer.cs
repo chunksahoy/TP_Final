@@ -44,8 +44,7 @@
             // 
             // DGV_Historic
             // 
-            this.DGV_Historic.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.DGV_Historic.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DGV_Historic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Historic.Location = new System.Drawing.Point(12, 49);
@@ -82,15 +81,14 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.FB_Ok);
             this.panel1.Controls.Add(this.FB_Edit_Match);
             this.panel1.Controls.Add(this.FB_Remove_Match);
             this.panel1.Controls.Add(this.FB_Add_Match);
             this.panel1.Location = new System.Drawing.Point(12, 340);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(765, 66);
+            this.panel1.Size = new System.Drawing.Size(767, 66);
             this.panel1.TabIndex = 2;
             // 
             // FB_Ok
@@ -102,7 +100,7 @@
             this.FB_Ok.ImageDisable = global::TP_Final.Properties.Resources.ICON_Accepter_Disable;
             this.FB_Ok.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Accepter_Neutral;
             this.FB_Ok.ImageOver = global::TP_Final.Properties.Resources.ICON_Accepter_Over;
-            this.FB_Ok.Location = new System.Drawing.Point(724, 16);
+            this.FB_Ok.Location = new System.Drawing.Point(726, 16);
             this.FB_Ok.Name = "FB_Ok";
             this.FB_Ok.Size = new System.Drawing.Size(38, 36);
             this.FB_Ok.TabIndex = 10;

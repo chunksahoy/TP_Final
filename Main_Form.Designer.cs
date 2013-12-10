@@ -42,10 +42,10 @@
             this.FB_Remove_Team = new FlashButton.FlashButton();
             this.FB_Edit_Team = new FlashButton.FlashButton();
             this.FB_Add_Team = new FlashButton.FlashButton();
-            this.LV_Divisions = new System.Windows.Forms.ListView();
             this.LBL_Team = new System.Windows.Forms.Label();
             this.LBL_Divisions = new System.Windows.Forms.Label();
             this.LS_Logos = new Logo_scroller.LogoScroller();
+            this.LB_Divisions = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Teams)).BeginInit();
             this.MS_MainForm.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -236,23 +236,6 @@
             this.FB_Add_Team.MouseEnter += new System.EventHandler(this.FB_Add_Team_MouseEnter);
             this.FB_Add_Team.MouseLeave += new System.EventHandler(this.FB_Add_Team_MouseLeave);
             // 
-            // LV_Divisions
-            // 
-            this.LV_Divisions.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.LV_Divisions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.LV_Divisions.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LV_Divisions.HideSelection = false;
-            this.LV_Divisions.Location = new System.Drawing.Point(12, 142);
-            this.LV_Divisions.Name = "LV_Divisions";
-            this.LV_Divisions.Size = new System.Drawing.Size(222, 548);
-            this.LV_Divisions.TabIndex = 6;
-            this.LV_Divisions.UseCompatibleStateImageBehavior = false;
-            this.LV_Divisions.SelectedIndexChanged += new System.EventHandler(this.LV_Divisions_SelectedIndexChanged);
-            this.LV_Divisions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LV_Divisions_MouseClick);
-            this.LV_Divisions.MouseEnter += new System.EventHandler(this.LV_Divisions_MouseEnter);
-            this.LV_Divisions.MouseLeave += new System.EventHandler(this.LV_Divisions_MouseLeave);
-            // 
             // LBL_Team
             // 
             this.LBL_Team.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -291,15 +274,27 @@
             this.LS_Logos.MouseEnter += new System.EventHandler(this.logoScroller1_MouseEnter);
             this.LS_Logos.MouseLeave += new System.EventHandler(this.logoScroller1_MouseLeave);
             // 
+            // LB_Divisions
+            // 
+            this.LB_Divisions.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_Divisions.FormattingEnabled = true;
+            this.LB_Divisions.ItemHeight = 25;
+            this.LB_Divisions.Location = new System.Drawing.Point(12, 140);
+            this.LB_Divisions.Name = "LB_Divisions";
+            this.LB_Divisions.Size = new System.Drawing.Size(222, 529);
+            this.LB_Divisions.TabIndex = 9;
+            this.LB_Divisions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LB_Divisions_MouseClick);
+            this.LB_Divisions.SelectedIndexChanged += new System.EventHandler(this.LB_Divisions_SelectedIndexChanged);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1287, 769);
+            this.Controls.Add(this.LB_Divisions);
             this.Controls.Add(this.LS_Logos);
             this.Controls.Add(this.LBL_Divisions);
             this.Controls.Add(this.LBL_Team);
-            this.Controls.Add(this.LV_Divisions);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TB_Search_Player);
@@ -341,11 +336,11 @@
         private FlashButton.FlashButton FB_Remove_Team;
         private FlashButton.FlashButton FB_Add_Team;
         private FlashButton.FlashButton FB_Edit_Team;
-        private System.Windows.Forms.ListView LV_Divisions;
         private System.Windows.Forms.Label LBL_Team;
         private System.Windows.Forms.Label LBL_Divisions;
         private Logo_scroller.LogoScroller LS_Logos;
         private System.Windows.Forms.ToolStripStatusLabel SL_Tips;
+        private System.Windows.Forms.ListBox LB_Divisions;
     }
 }
 

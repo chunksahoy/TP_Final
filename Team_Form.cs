@@ -1,4 +1,5 @@
 ﻿using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +41,7 @@ namespace TP_Final
         public Color evenRowColor;
         public int m_Selected_Index;
         public string m_Logo_File_Path;
+        public byte[] image;
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -61,10 +63,10 @@ namespace TP_Final
         {
             InitializeTitle();
             InitializeDataGrid();
-
+            RefreshLogo();
             LoadSettings();
             ApplyRowsStyles();
-            RefreshLogo();
+
         }
 
         private void SaveSettings()
@@ -103,8 +105,8 @@ namespace TP_Final
             {
                 for (int colIndex = 0; colIndex < DGV_Players.ColumnCount; colIndex++)
                 {
-                    if(colIndex != 2)
-                        DGV_Players.Columns[colIndex].Width = int.Parse(widthStrings[colIndex]);
+                   // if (colIndex != 2)
+                       // DGV_Players.Columns[colIndex].Width = int.Parse(widthStrings[colIndex]);
                 }
             }
         }
@@ -277,7 +279,7 @@ namespace TP_Final
                 oraInsert.CommandType = CommandType.Text;
                 oraInsert.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
@@ -305,7 +307,7 @@ namespace TP_Final
                 oraDel.CommandType = CommandType.Text;
                 oraDel.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
@@ -439,29 +441,44 @@ namespace TP_Final
 
         private void RefreshLogo()
         {
-           // Image logo;
-
-            string getLogo = "select logo from equipe where nom = '" + m_TeamName + "'";
+            //string getLogo = "select logo from equipe where nom = :nom";
 
             try
             {
-                OracleCommand oraCMD = new OracleCommand(getLogo, conn);
-                OracleDataAdapter oraAdapt = new OracleDataAdapter();
-                oraAdapt.SelectCommand = oraCMD;
+                OracleCommand oraCMD = conn.CreateCommand();
+                oraCMD.CommandText = "select logo from equipe where nom = :nom";
 
+                oraCMD.Parameters.Add(new OracleParameter(":nom", m_TeamName));
 
-                oraCMD.CommandType = CommandType.Text;
+                using (OracleDataReader oraReader = oraCMD.ExecuteReader())
+                {
+                    if (oraReader.Read())
+                    {
+                        OracleBlob blob = oraReader.GetOracleBlob(0);
 
-                oraAdapt.Fill(myData, "logo");
+                        if (!blob.IsNull)
+                        {
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                byte[] buffer = new byte[8 * 1024];
 
-               // PB_Logo.Image = 
-                PB_Logo.DataBindings.Add("Image", myData, "equipe.logo", true);
+                                int read = 0;
+
+                                while ((read = blob.Read(buffer, 0, 8 * 1024)) > 0)
+                                {
+                                    ms.Write(buffer, 0, read);
+                                }
+                                image = ms.ToArray();
+                                PB_Logo.Image = Image.FromStream(ms); // PB_Images et un PictureBox sur le form
+                            }
+                        }
+                    }
+                }
             }
-            catch (Exception ex)
+            catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-
             PB_Logo.Refresh();
         }
         private void UpdateLogo(string filePath)
@@ -470,7 +487,6 @@ namespace TP_Final
 
             string sql = "update equipe SET logo = :plogo where nom = '" + m_TeamName + "'";
 
-                
             FileStream Streamp = new FileStream(filePath, FileMode.Open, FileAccess.Read);
 
             byte[] buffer1 = new byte[Streamp.Length];
@@ -481,14 +497,14 @@ namespace TP_Final
 
             try
             {
-                OracleCommand oraUpdate = new OracleCommand(sql,conn);
+                OracleCommand oraUpdate = new OracleCommand(sql, conn);
 
                 oraUpdate.Parameters.Add(plogo);
 
                 oraUpdate.CommandType = CommandType.Text;
                 oraUpdate.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
@@ -502,7 +518,7 @@ namespace TP_Final
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 UpdateLogo(dlg.FileName);
-            }            
+            }
         }
 
         private void PB_Logo_MouseEnter(object sender, EventArgs e)
