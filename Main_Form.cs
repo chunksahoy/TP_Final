@@ -294,15 +294,11 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItems.ToString());
+                //LS_Logos.AddElement(form.m_file_Name);  
             }
-=======
-                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItems[0].ToString());
->>>>>>> calioss
 
-                //LS_Logos.AddElement(form.m_file_Name);
-            }            
+                        
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////// Gestion du clique du bouton flash d'édition d'équipe ///////////////////////////////////////

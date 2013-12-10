@@ -228,9 +228,9 @@
             this.PB_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PB_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PB_Logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PB_Logo.Location = new System.Drawing.Point(987, 49);
+            this.PB_Logo.Location = new System.Drawing.Point(1006, 55);
             this.PB_Logo.Name = "PB_Logo";
-            this.PB_Logo.Size = new System.Drawing.Size(69, 60);
+            this.PB_Logo.Size = new System.Drawing.Size(50, 50);
             this.PB_Logo.TabIndex = 8;
             this.PB_Logo.TabStop = false;
             this.PB_Logo.Click += new System.EventHandler(this.PB_Logo_Click);
