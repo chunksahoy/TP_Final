@@ -61,9 +61,10 @@
             this.DGV_Teams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Teams.Location = new System.Drawing.Point(240, 142);
             this.DGV_Teams.Name = "DGV_Teams";
+            this.DGV_Teams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Teams.Size = new System.Drawing.Size(1035, 548);
             this.DGV_Teams.TabIndex = 1;
-            this.DGV_Teams.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Teams_CellContentClick);
+            this.DGV_Teams.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_CellMouseClick);
             this.DGV_Teams.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_ColumnHeaderMouseClick);
             this.DGV_Teams.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DGV_Teams_ColumnWidthChanged);
             this.DGV_Teams.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_RowHeaderMouseClick);

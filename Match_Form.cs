@@ -21,5 +21,11 @@ namespace TP_Final
         {
 
         }
+
+        private void FB_Stats_Click(object sender, EventArgs e)
+        {
+            LBL_Receveur.Text = LBL_Visiteur.Text = "Statistiques du match";
+           // FB_Stats.ImageNeutral
+        }
     }
 }

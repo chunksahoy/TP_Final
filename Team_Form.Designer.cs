@@ -56,6 +56,7 @@
             this.DGV_Players.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Players.Location = new System.Drawing.Point(57, 111);
             this.DGV_Players.Name = "DGV_Players";
+            this.DGV_Players.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Players.Size = new System.Drawing.Size(999, 439);
             this.DGV_Players.TabIndex = 0;
             this.DGV_Players.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Players_CellContentClick);
@@ -225,12 +226,11 @@
             // 
             // PB_Logo
             // 
-            this.PB_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PB_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PB_Logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PB_Logo.Location = new System.Drawing.Point(1006, 55);
             this.PB_Logo.Name = "PB_Logo";
-            this.PB_Logo.Size = new System.Drawing.Size(50, 50);
+            this.PB_Logo.Size = new System.Drawing.Size(40, 40);
             this.PB_Logo.TabIndex = 8;
             this.PB_Logo.TabStop = false;
             this.PB_Logo.Click += new System.EventHandler(this.PB_Logo_Click);

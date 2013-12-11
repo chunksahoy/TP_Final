@@ -49,6 +49,7 @@
             this.DGV_Historic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV_Historic.Location = new System.Drawing.Point(12, 49);
             this.DGV_Historic.Name = "DGV_Historic";
+            this.DGV_Historic.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Historic.Size = new System.Drawing.Size(765, 285);
             this.DGV_Historic.TabIndex = 0;
             this.DGV_Historic.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Historic_CellContentClick);

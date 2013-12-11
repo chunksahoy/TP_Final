@@ -470,6 +470,7 @@ namespace TP_Final
                                 }
                                 image = ms.ToArray();
                                 PB_Logo.Image = Image.FromStream(ms); // PB_Images et un PictureBox sur le form
+
                             }
                         }
                     }

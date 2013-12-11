@@ -51,16 +51,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\bin\Debug\BoutonFlèche.dll</HintPath>
     </Reference>
+    <Reference Include="FlashButton">
+      <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\FlashButton.dll</HintPath>
+    </Reference>
     <Reference Include="FlashButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>L:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\bin\Debug\FlashButton.dll</HintPath>
-    </Reference>
-    <Reference Include="FlashButton">
       <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\FlashButton.dll</HintPath>
     </Reference>
     <Reference Include="Logo scroller, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Logo scroller.dll</HintPath>
+      <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\bin\Debug\Logo scroller.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -213,6 +213,7 @@
     <Content Include="Properties\Delete_Disable.png" />
     <Content Include="Properties\Delete_Neutral.png" />
     <Content Include="Properties\Delete_Over.png" />
+    <Content Include="Properties\gEtoile.png" />
     <Content Include="Properties\ICON_Accepter_Click.png" />
     <Content Include="Properties\ICON_Accepter_Disable.png" />
     <Content Include="Properties\ICON_Accepter_Neutral.png" />

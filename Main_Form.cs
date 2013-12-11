@@ -294,8 +294,8 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItems.ToString());
-                //LS_Logos.AddElement(form.m_file_Name);  
+                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
+                LS_Logos.AddElement(form.m_file_Name);  
             }
 
                         
@@ -710,8 +710,6 @@ namespace TP_Final
         ////////////////////////// Prévient l'édition des cellules du DGV_Teams(intégrité des données) /////////////////////////////////
         private void DGV_Teams_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            FB_Edit_Team.Enabled = false;
-
             DGV_Teams.Rows[e.RowIndex].ReadOnly = true;
             if (DGV_Teams.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
             {
@@ -868,6 +866,11 @@ namespace TP_Final
 
                 cms.Show(LB_Divisions, LB_Divisions.PointToClient(Cursor.Position));
             }
+        }
+
+        private void DGV_Teams_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
         }
 
     }

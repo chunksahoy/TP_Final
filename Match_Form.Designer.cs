@@ -42,8 +42,8 @@
             this.PN_RHome_Win = new System.Windows.Forms.Panel();
             this.PN_LHome_Win = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LBL_Receveur = new System.Windows.Forms.Label();
+            this.LBL_Visiteur = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LBL_Stadium = new System.Windows.Forms.Label();
             this.LBL_Score_Home = new System.Windows.Forms.Label();
@@ -87,8 +87,9 @@
             this.DGV_Home.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.DGV_Home.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Home.Location = new System.Drawing.Point(51, 178);
+            this.DGV_Home.Location = new System.Drawing.Point(51, 202);
             this.DGV_Home.Name = "DGV_Home";
+            this.DGV_Home.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Home.Size = new System.Drawing.Size(330, 301);
             this.DGV_Home.TabIndex = 1;
             // 
@@ -98,8 +99,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DGV_Visitor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Visitor.Location = new System.Drawing.Point(678, 178);
+            this.DGV_Visitor.Location = new System.Drawing.Point(678, 202);
             this.DGV_Visitor.Name = "DGV_Visitor";
+            this.DGV_Visitor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Visitor.Size = new System.Drawing.Size(330, 301);
             this.DGV_Visitor.TabIndex = 1;
             // 
@@ -112,7 +114,7 @@
             this.PN_Visitor.Controls.Add(this.LBL_Visitor);
             this.PN_Visitor.Controls.Add(this.PN_RVis_Win);
             this.PN_Visitor.Controls.Add(this.PN_LVis_Win);
-            this.PN_Visitor.Location = new System.Drawing.Point(678, 80);
+            this.PN_Visitor.Location = new System.Drawing.Point(678, 104);
             this.PN_Visitor.Name = "PN_Visitor";
             this.PN_Visitor.Size = new System.Drawing.Size(330, 65);
             this.PN_Visitor.TabIndex = 2;
@@ -151,7 +153,7 @@
             this.PN_Home.Controls.Add(this.LBL_Home);
             this.PN_Home.Controls.Add(this.PN_RHome_Win);
             this.PN_Home.Controls.Add(this.PN_LHome_Win);
-            this.PN_Home.Location = new System.Drawing.Point(51, 80);
+            this.PN_Home.Location = new System.Drawing.Point(51, 104);
             this.PN_Home.Name = "PN_Home";
             this.PN_Home.Size = new System.Drawing.Size(330, 65);
             this.PN_Home.TabIndex = 3;
@@ -184,33 +186,34 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 526);
+            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 24);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1067, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // label1
+            // LBL_Receveur
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.LBL_Receveur.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(184, 155);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Top 3";
+            this.LBL_Receveur.AutoSize = true;
+            this.LBL_Receveur.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_Receveur.Location = new System.Drawing.Point(184, 179);
+            this.LBL_Receveur.Name = "LBL_Receveur";
+            this.LBL_Receveur.Size = new System.Drawing.Size(60, 20);
+            this.LBL_Receveur.TabIndex = 6;
+            this.LBL_Receveur.Text = "Top 3";
             // 
-            // label2
+            // LBL_Visiteur
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(819, 155);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Top 3";
+            this.LBL_Visiteur.AutoSize = true;
+            this.LBL_Visiteur.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_Visiteur.Location = new System.Drawing.Point(819, 179);
+            this.LBL_Visiteur.Name = "LBL_Visiteur";
+            this.LBL_Visiteur.Size = new System.Drawing.Size(60, 20);
+            this.LBL_Visiteur.TabIndex = 6;
+            this.LBL_Visiteur.Text = "Top 3";
             // 
             // panel1
             // 
@@ -219,7 +222,7 @@
             this.panel1.Controls.Add(this.LBL_Score_Home);
             this.panel1.Controls.Add(this.LBL_Score_Visitor);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(431, 43);
+            this.panel1.Location = new System.Drawing.Point(431, 67);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 94);
             this.panel1.TabIndex = 8;
@@ -276,18 +279,19 @@
             this.FB_Stats.ImageDisable = null;
             this.FB_Stats.ImageNeutral = global::TP_Final.Properties.Resources.StraightLines_Neutral;
             this.FB_Stats.ImageOver = global::TP_Final.Properties.Resources.StraightLines_Over;
-            this.FB_Stats.Location = new System.Drawing.Point(479, 365);
+            this.FB_Stats.Location = new System.Drawing.Point(479, 389);
             this.FB_Stats.Name = "FB_Stats";
             this.FB_Stats.Size = new System.Drawing.Size(111, 95);
             this.FB_Stats.TabIndex = 7;
+            this.FB_Stats.Click += new System.EventHandler(this.FB_Stats_Click);
             // 
             // PN_Versus
             // 
             this.PN_Versus.BackgroundImage = global::TP_Final.Properties.Resources.Versus_Symbol;
             this.PN_Versus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PN_Versus.Location = new System.Drawing.Point(431, 178);
+            this.PN_Versus.Location = new System.Drawing.Point(431, 202);
             this.PN_Versus.Name = "PN_Versus";
-            this.PN_Versus.Size = new System.Drawing.Size(200, 159);
+            this.PN_Versus.Size = new System.Drawing.Size(200, 181);
             this.PN_Versus.TabIndex = 4;
             // 
             // Match_Form
@@ -297,8 +301,8 @@
             this.ClientSize = new System.Drawing.Size(1067, 548);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.FB_Stats);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LBL_Visiteur);
+            this.Controls.Add(this.LBL_Receveur);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.PN_Versus);
             this.Controls.Add(this.PN_Home);
@@ -342,8 +346,8 @@
         private System.Windows.Forms.Label LBL_Visitor;
         private System.Windows.Forms.Label LBL_Home;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LBL_Receveur;
+        private System.Windows.Forms.Label LBL_Visiteur;
         private FlashButton.FlashButton FB_Stats;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label LBL_Score_Home;
