@@ -239,6 +239,9 @@
     <Content Include="Properties\StraightLines_Neutral.png" />
     <Content Include="Properties\StraightLines_Over.png" />
     <Content Include="Properties\Versus-Symbol.png" />
+    <None Include="Resources\Star_Click.png" />
+    <None Include="Resources\Star_Over.png" />
+    <None Include="Resources\Star_Neutral.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,10 @@ namespace TP_Final
         {
             InitializeComponent();
         }
+        public string m_Home;
+        public string m_Visitor;
+        OracleConnection conn;
+
 
         private void Match_Form_Load(object sender, EventArgs e)
         {

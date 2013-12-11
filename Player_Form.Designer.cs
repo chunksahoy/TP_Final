@@ -44,10 +44,16 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GB_Player_Stats = new System.Windows.Forms.GroupBox();
+            this.BTN_Begin = new BoutonFlèche.BoutonFlèche();
+            this.BTN_Previous = new BoutonFlèche.BoutonFlèche();
+            this.BTN_Next = new BoutonFlèche.BoutonFlèche();
+            this.BTN_End = new BoutonFlèche.BoutonFlèche();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.FB_Cancel = new FlashButton.FlashButton();
             this.FB_Ok = new FlashButton.FlashButton();
             this.menuStrip1.SuspendLayout();
             this.GB_Player_Stats.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // LBL_Position
@@ -132,9 +138,9 @@
             // 
             // PN_Player_Picture
             // 
-            this.PN_Player_Picture.Location = new System.Drawing.Point(67, 48);
+            this.PN_Player_Picture.Location = new System.Drawing.Point(80, 48);
             this.PN_Player_Picture.Name = "PN_Player_Picture";
-            this.PN_Player_Picture.Size = new System.Drawing.Size(180, 100);
+            this.PN_Player_Picture.Size = new System.Drawing.Size(175, 100);
             this.PN_Player_Picture.TabIndex = 2;
             this.PN_Player_Picture.Paint += new System.Windows.Forms.PaintEventHandler(this.PN_Player_Picture_Paint);
             // 
@@ -152,7 +158,7 @@
             this.aideToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(294, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(320, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -170,8 +176,7 @@
             // 
             // GB_Player_Stats
             // 
-            this.GB_Player_Stats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GB_Player_Stats.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GB_Player_Stats.Controls.Add(this.TB_Player_Position);
             this.GB_Player_Stats.Controls.Add(this.LBL_Position);
             this.GB_Player_Stats.Controls.Add(this.LBL_Goals);
@@ -182,11 +187,75 @@
             this.GB_Player_Stats.Controls.Add(this.TB_Player_Pass);
             this.GB_Player_Stats.Controls.Add(this.TB_Player_Goals);
             this.GB_Player_Stats.Controls.Add(this.TB_Player_Points);
-            this.GB_Player_Stats.Location = new System.Drawing.Point(67, 154);
+            this.GB_Player_Stats.Location = new System.Drawing.Point(61, 154);
             this.GB_Player_Stats.Name = "GB_Player_Stats";
-            this.GB_Player_Stats.Size = new System.Drawing.Size(180, 232);
+            this.GB_Player_Stats.Size = new System.Drawing.Size(206, 232);
             this.GB_Player_Stats.TabIndex = 7;
             this.GB_Player_Stats.TabStop = false;
+            // 
+            // BTN_Begin
+            // 
+            this.BTN_Begin.Apparence = BoutonFlèche.BoutonFlèche.ApparenceType.Aigu;
+            this.BTN_Begin.ClickColor = System.Drawing.Color.White;
+            this.BTN_Begin.Direction = BoutonFlèche.BoutonFlèche.DirectionType.Gauche;
+            this.BTN_Begin.EnterColor = System.Drawing.Color.LightGray;
+            this.BTN_Begin.LeaveColor = System.Drawing.Color.Black;
+            this.BTN_Begin.Location = new System.Drawing.Point(12, 19);
+            this.BTN_Begin.Name = "BTN_Begin";
+            this.BTN_Begin.Size = new System.Drawing.Size(30, 33);
+            this.BTN_Begin.TabIndex = 8;
+            this.BTN_Begin.Click += new System.EventHandler(this.BTN_Begin_Click);
+            // 
+            // BTN_Previous
+            // 
+            this.BTN_Previous.Apparence = BoutonFlèche.BoutonFlèche.ApparenceType.Triangle;
+            this.BTN_Previous.ClickColor = System.Drawing.Color.White;
+            this.BTN_Previous.Direction = BoutonFlèche.BoutonFlèche.DirectionType.Gauche;
+            this.BTN_Previous.EnterColor = System.Drawing.Color.LightGray;
+            this.BTN_Previous.LeaveColor = System.Drawing.Color.Black;
+            this.BTN_Previous.Location = new System.Drawing.Point(51, 19);
+            this.BTN_Previous.Name = "BTN_Previous";
+            this.BTN_Previous.Size = new System.Drawing.Size(30, 33);
+            this.BTN_Previous.TabIndex = 8;
+            this.BTN_Previous.Click += new System.EventHandler(this.BTN_Previous_Click);
+            // 
+            // BTN_Next
+            // 
+            this.BTN_Next.Apparence = BoutonFlèche.BoutonFlèche.ApparenceType.Triangle;
+            this.BTN_Next.ClickColor = System.Drawing.Color.White;
+            this.BTN_Next.Direction = BoutonFlèche.BoutonFlèche.DirectionType.Droit;
+            this.BTN_Next.EnterColor = System.Drawing.Color.LightGray;
+            this.BTN_Next.LeaveColor = System.Drawing.Color.Black;
+            this.BTN_Next.Location = new System.Drawing.Point(87, 19);
+            this.BTN_Next.Name = "BTN_Next";
+            this.BTN_Next.Size = new System.Drawing.Size(30, 33);
+            this.BTN_Next.TabIndex = 8;
+            this.BTN_Next.Click += new System.EventHandler(this.BTN_Next_Click);
+            // 
+            // BTN_End
+            // 
+            this.BTN_End.Apparence = BoutonFlèche.BoutonFlèche.ApparenceType.Aigu;
+            this.BTN_End.ClickColor = System.Drawing.Color.White;
+            this.BTN_End.Direction = BoutonFlèche.BoutonFlèche.DirectionType.Droit;
+            this.BTN_End.EnterColor = System.Drawing.Color.LightGray;
+            this.BTN_End.LeaveColor = System.Drawing.Color.Black;
+            this.BTN_End.Location = new System.Drawing.Point(123, 19);
+            this.BTN_End.Name = "BTN_End";
+            this.BTN_End.Size = new System.Drawing.Size(30, 33);
+            this.BTN_End.TabIndex = 8;
+            this.BTN_End.Click += new System.EventHandler(this.BTN_End_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.BTN_Next);
+            this.groupBox1.Controls.Add(this.BTN_End);
+            this.groupBox1.Controls.Add(this.BTN_Begin);
+            this.groupBox1.Controls.Add(this.BTN_Previous);
+            this.groupBox1.Location = new System.Drawing.Point(80, 392);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(175, 72);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
             // 
             // FB_Cancel
             // 
@@ -196,7 +265,7 @@
             this.FB_Cancel.ImageDisable = global::TP_Final.Properties.Resources.ICON_Annuler_Disable;
             this.FB_Cancel.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Annuler_Neutral;
             this.FB_Cancel.ImageOver = global::TP_Final.Properties.Resources.ICON_Annuler_Over;
-            this.FB_Cancel.Location = new System.Drawing.Point(257, 420);
+            this.FB_Cancel.Location = new System.Drawing.Point(273, 477);
             this.FB_Cancel.Name = "FB_Cancel";
             this.FB_Cancel.Size = new System.Drawing.Size(25, 26);
             this.FB_Cancel.TabIndex = 7;
@@ -210,7 +279,7 @@
             this.FB_Ok.ImageDisable = global::TP_Final.Properties.Resources.ICON_Accepter_Disable;
             this.FB_Ok.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Accepter_Neutral;
             this.FB_Ok.ImageOver = global::TP_Final.Properties.Resources.ICON_Accepter_Over;
-            this.FB_Ok.Location = new System.Drawing.Point(225, 420);
+            this.FB_Ok.Location = new System.Drawing.Point(241, 477);
             this.FB_Ok.Name = "FB_Ok";
             this.FB_Ok.Size = new System.Drawing.Size(26, 26);
             this.FB_Ok.TabIndex = 6;
@@ -220,8 +289,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 458);
+            this.ClientSize = new System.Drawing.Size(320, 513);
             this.Controls.Add(this.GB_Player_Stats);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.FB_Cancel);
             this.Controls.Add(this.FB_Ok);
             this.Controls.Add(this.PN_Player_Team_Logo);
@@ -234,6 +304,7 @@
             this.menuStrip1.PerformLayout();
             this.GB_Player_Stats.ResumeLayout(false);
             this.GB_Player_Stats.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,5 +330,10 @@
         private System.Windows.Forms.GroupBox GB_Player_Stats;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
+        private BoutonFlèche.BoutonFlèche BTN_Begin;
+        private BoutonFlèche.BoutonFlèche BTN_Previous;
+        private BoutonFlèche.BoutonFlèche BTN_Next;
+        private BoutonFlèche.BoutonFlèche BTN_End;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

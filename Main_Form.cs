@@ -54,6 +54,7 @@ namespace TP_Final
 >>>>>>> Update Status Strip du form Division et Équipe
 
         #endregion
+        ////////////////////////////////////////////// Au Chargement de la page ///////////////////////////////////////////
         private void Main_Form_Load(object sender, EventArgs e)
         {
             //Log_In();
@@ -62,13 +63,14 @@ namespace TP_Final
             ListDivisions();
 
             LoadSettings();
-            ApplyRowsStyles();
+
 
             Initialize_Controls();
             Initialize_LogoScroller();
+            ApplyRowsStyles();
         }
-
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #region "Initialisations"
         ////////////////////////////////////////////// Ajout des images dans le LogoScroller ///////////////////////////////////////////
         private void Initialize_LogoScroller()
         {
@@ -107,22 +109,6 @@ namespace TP_Final
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////// Affichage de la fenêtre de connection //////////////////////////////////////////
-        private void Log_In()
-        {
-            Log_Form form = new Log_Form();
-
-            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                m_Username = form.m_Username;
-                m_Pass = form.m_Pass;
-            }
-            else
-            {
-                Application.Exit();
-            }
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////// Initialisation des contrôles à leur état initial ////////////////////////////////////////
         private void Initialize_Controls()
         {
@@ -134,6 +120,70 @@ namespace TP_Final
             if (LB_Divisions.Controls.Count == 0)
                 FB_Remove_Division.Enabled = false;
         }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////// Initialisation de la liste des division pour les ComboBox d'ajout d'équipe ////////////////////////////////
+        private List<string> Initialize_Divisions_List()
+        {
+            List<string> temp = new List<string>();
+
+            string sql = "select Nom from division";
+
+            OracleCommand oraCMD = new OracleCommand(sql, conn);
+            oraCMD.CommandType = CommandType.Text;
+
+            OracleDataReader oraRead = oraCMD.ExecuteReader();
+
+            while (oraRead.Read())
+            {
+                temp.Add(oraRead.GetString(0));
+            }
+            return temp;
+        }
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////// Initialisation du DGV d'affichage des équipes de la division présentement sélectionnée ///////////////////
+        private void InitializeDGV()
+        {
+            myData.Clear();
+            string sql = "select nom, dateintroduction, ville, division from equipe where division = '" + LB_Divisions.SelectedItem.ToString() + "'";
+
+            OracleCommand oraCMD = new OracleCommand(sql, conn);
+            OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
+
+            adapt.Fill(myData, "divisions");
+
+            source = new BindingSource(myData, "divisions");
+            DGV_Teams.DataSource = source;
+            LoadSettings();
+            ApplyRowsStyles();
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////// Liste les division dans un ListView /////////////////////////////////////////////
+        private void ListDivisions()
+        {
+            try
+            {
+                LB_Divisions.Items.Clear();
+                string sql = "select Nom from division";
+
+                OracleCommand oraCMD = new OracleCommand(sql, conn);
+                oraCMD.CommandType = CommandType.Text;
+
+                OracleDataReader oraRead = oraCMD.ExecuteReader();
+
+                while (oraRead.Read())
+                {
+                    LB_Divisions.Items.Add(oraRead.GetString(0));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            FB_Remove_Division.Enabled = false;
+        }
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #endregion
         #region "Settings"
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////// Chargement des réglages /////////////////////////////////////////////////////
@@ -178,6 +228,23 @@ namespace TP_Final
             Properties.Settings.Default.Save();
         }
         #endregion
+        #region "Connection"
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////// Affichage de la fenêtre de connection //////////////////////////////////////////
+        private void Log_In()
+        {
+            Log_Form form = new Log_Form();
+
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                m_Username = form.m_Username;
+                m_Pass = form.m_Pass;
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////// Connection à la BD //////////////////////////////////////////////////////////
         private void Connect()
@@ -201,31 +268,8 @@ namespace TP_Final
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////// Liste les division dans un ListView /////////////////////////////////////////////
-        private void ListDivisions()
-        {
-            try
-            {
-                LB_Divisions.Items.Clear();
-                string sql = "select Nom from division";
-
-                OracleCommand oraCMD = new OracleCommand(sql, conn);
-                oraCMD.CommandType = CommandType.Text;
-
-                OracleDataReader oraRead = oraCMD.ExecuteReader();
-
-                while (oraRead.Read())
-                {
-                    LB_Divisions.Items.Add(oraRead.GetString(0));
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-            FB_Remove_Division.Enabled = false;
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #endregion
+        #region Flash_buttons
         /////////////////////////////////////// Gestion du clique du bouton flash d'ajout d'équipe /////////////////////////////////////
         private void FB_Add_Division_Click(object sender, EventArgs e)
         {
@@ -237,12 +281,49 @@ namespace TP_Final
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////// Gestion du clique du bouton flash du retrait d'une division ////////////////////////////////////
+        private void FB_Remove_Division_Click(object sender, EventArgs e)
+        {
+            Remove_Division();
+            
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////// Gestion du clique du bouton flash d'ajout d'équipe /////////////////////////////////////
+        private void FB_Add_Team_Click(object sender, EventArgs e)
+        {
+            Add_Team_Form form = new Add_Team_Form();
+
+            form.m_Divisions_List = Initialize_Divisions_List();
+            form.source = source;
+
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
+                //LS_Logos.AddElement(form.m_file_Name);  
+            }
+
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////// Gestion du clique du bouton flash d'édition d'équipe ///////////////////////////////////////
+        private void FB_Edit_Team_Click(object sender, EventArgs e)
+        {
+            Edit_Team();
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////// Gestion du clique du bouton flash de retrait d'une équipe //////////////////////////////////
+        private void FB_Remove_Team_Click(object sender, EventArgs e)
+        {
+            Remove_Team();
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #endregion
+        #region Fonctions_flash_buttons
         /////////////////////////////////////////////// Ajout d'une division dans la BD ////////////////////////////////////////////////
         private void Add_Division(string name, DateTime joined)
         {
             OracleParameter pname = new OracleParameter(":nom", OracleDbType.Varchar2, 20);
             OracleParameter pdate = new OracleParameter(":date", OracleDbType.Date);
-            
+
             string sqlADD = "insert into division (nom, datecreation) values(:pname, to_date(:pdate, 'DD-MM-YYYY'))";
 
             pname.Value = name;
@@ -264,13 +345,6 @@ namespace TP_Final
             ListDivisions();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////// Gestion du clique du bouton flash du retrait d'une division ////////////////////////////////////
-        private void FB_Remove_Division_Click(object sender, EventArgs e)
-        {
-            Remove_Division();
-            
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////// Retrait d'une division dans la BD //////////////////////////////////////////////////
         private void Remove_Division()
         { 
@@ -288,6 +362,7 @@ namespace TP_Final
             ListDivisions();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
         /////////////////////////////////////// Gestion du clique du bouton flash d'ajout d'équipe /////////////////////////////////////
         private void FB_Add_Team_Click(object sender, EventArgs e)
         {
@@ -330,6 +405,8 @@ namespace TP_Final
             return temp;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+=======
+>>>>>>> Modifications Charles
         //////////////////////////////////////////////// Ajout d'une équipe dans la BD /////////////////////////////////////////////////
         private void Add_Team(string name, DateTime joined, string logo, string town, string division)
         { 
@@ -377,16 +454,10 @@ namespace TP_Final
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////// Gestion du clique du bouton flash de retrait d'une équipe //////////////////////////////////
-        private void FB_Remove_Team_Click(object sender, EventArgs e)
-        {
-            Remove_Team();
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////// Retrait d'une équipe dans la BD ///////////////////////////////////////////////////
         private void Remove_Team()
         {
-            string sqlDelete = "delete from equipe where nom = '" +  DGV_Teams.SelectedRows[0].Cells[0].Value.ToString()+ "'";
+            string sqlDelete = "delete from equipe where nom = '" + DGV_Teams.SelectedRows[0].Cells[0].Value.ToString() + "'";
 
             try
             {
@@ -405,6 +476,25 @@ namespace TP_Final
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////// Modification d'une équipe ////////////////////////////////////////////////////
+        private void Edit_Team()
+        {
+            Team_Form form = new Team_Form();
+
+            form.m_TeamName = DGV_Teams.SelectedRows[0].Cells[0].Value.ToString();
+            form.m_TeamTown = DGV_Teams.SelectedRows[0].Cells[2].Value.ToString();
+            form.oddRowColor = oddRowColor;
+            form.evenRowColor = evenRowColor;
+            form.conn = conn;
+
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+
+            }
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #endregion
+        #region Menus_contextuels
         ///////////////////////////////// Gestion de l'option couleur du menu contextuel du DGV_Teams //////////////////////////////////
         private void tsmi_Color_Click(object sender, EventArgs e)
         {
@@ -458,6 +548,7 @@ namespace TP_Final
             Remove_Division();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #endregion
         /////////////////////////////////////// Application du style des rangées du DGV_Teams //////////////////////////////////////////
         private void ApplyRowsStyles()
         {
@@ -478,7 +569,6 @@ namespace TP_Final
             {
                 if (DGV_Teams.SelectedRows.Count > 0)
                 {
-
                     ContextMenuStrip cms = new ContextMenuStrip();
                     ToolStripMenuItem tsmi;
                     if (DGV_Teams.RowCount > 1 && DGV_Teams.SelectedRows[0].Index != DGV_Teams.RowCount - 1)
@@ -512,8 +602,7 @@ namespace TP_Final
             m_Options.m_EvenRowColor = evenRowColor;
             m_Options.m_OddRowColor = oddRowColor;
             m_Options.m_selectedFont = DGV_Teams.Font;
-            m_Options.m_selectedColor = DGV_Teams.ForeColor;
-           
+            m_Options.m_selectedColor = DGV_Teams.ForeColor;           
 
             if (m_Options.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -541,6 +630,7 @@ namespace TP_Final
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #region bar_recherche
         ////////////////////////////////// Initialisation de la bar de recherche active ////////////////////////////////////////////////
         private void TB_Search_Player_Enter(object sender, EventArgs e)
         {
@@ -638,29 +728,6 @@ namespace TP_Final
             return teamTown;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////// Modification d'une équipe ////////////////////////////////////////////////////
-        private void Edit_Team()
-        {
-            Team_Form form = new Team_Form();
-
-            form.m_TeamName = DGV_Teams.SelectedRows[0].Cells[0].Value.ToString();
-            form.m_TeamTown = DGV_Teams.SelectedRows[0].Cells[3].Value.ToString();
-            form.oddRowColor = oddRowColor;
-            form.evenRowColor = evenRowColor;
-            form.conn = conn;
-
-            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-
-            }
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////// Gestion du double clique pour afficher une équipe ////////////////////////////////////////
-        private void DGV_Teams_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            Edit_Team();
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////// Validation de la recherche d'un joueur /////////////////////////////////////////////
         private void TB_Search_Player_KeyDown(object sender, KeyEventArgs e)
         {
@@ -688,28 +755,18 @@ namespace TP_Final
             TB_Search_Player.Enabled = true;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #endregion
+        ///////////////////////////////////// Gestion du double clique pour afficher une équipe ////////////////////////////////////////
+        private void DGV_Teams_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Edit_Team();
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////// Réapplique les styles de rangées quand un tri est fait dans le DGV_Teams(sinon ça redevient blanc) ///////////////
         private void DGV_Teams_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             ApplyRowsStyles();
         }
-
-        private void InitializeDGV()
-        {
-            myData.Clear();
-            string sql = "select * from equipe where division = '" + LB_Divisions.SelectedItem.ToString() + "'";
-
-            OracleCommand oraCMD = new OracleCommand(sql, conn);
-            OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
-
-            adapt.Fill(myData, "divisions");
-
-            source = new BindingSource(myData, "divisions");
-            DGV_Teams.DataSource = source;
-            LoadSettings();
-            ApplyRowsStyles();
-        }
-
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////// Prévient l'édition des cellules du DGV_Teams(intégrité des données) /////////////////////////////////
         private void DGV_Teams_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -871,6 +928,7 @@ namespace TP_Final
                 cms.Show(LB_Divisions, LB_Divisions.PointToClient(Cursor.Position));
             }
         }
+<<<<<<< HEAD
 
         private void DGV_Teams_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -884,5 +942,7 @@ namespace TP_Final
 
 
 
+=======
+>>>>>>> Modifications Charles
     }
 }

@@ -122,7 +122,5 @@ namespace TP_Final
             string sql = "select * from equipe";
             CompleteTeam(sql, TB_Visitor);
         }
-
-
     }
 }
