@@ -55,6 +55,7 @@ namespace TP_Final
             Add_Match_Form mform = new Add_Match_Form();
             mform.m_TeamName = m_Team;
             mform.conn = conn;
+            
 
             if (mform.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -130,6 +131,8 @@ namespace TP_Final
             if (DGV_Historic.RowCount > 0)
             {
                 Match_Form form = new Match_Form();
+
+                form.conn = conn;
 
                 form.m_Home = DGV_Historic.SelectedRows[0].Cells[1].Value.ToString();
                 form.m_Visitor = DGV_Historic.SelectedRows[0].Cells[2].Value.ToString();

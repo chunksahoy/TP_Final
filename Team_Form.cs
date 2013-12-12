@@ -534,8 +534,10 @@ namespace TP_Final
                 DGV_Players.Location.Y - LBL_String.Size.Height);
             LBL_Town.Location = new Point(DGV_Players.Location.X + (DGV_Players.Size.Width - LBL_Town.Size.Width + LBL_Team.Size.Width + LBL_String.Size.Width) / 2,
                 DGV_Players.Location.Y - LBL_Town.Size.Height);
-            TB_Town.Location = new Point(LBL_Town.Location.X + (LBL_Town.Size.Width + TB_Town.Size.Width + 4) / 2, LBL_Town.Location.Y - TB_Town.Size.Height);
-
+            TB_Town.Location = new Point(LBL_Town.Location.X + (LBL_Town.Size.Width + TB_Town.Size.Width + 4) / 2,
+                LBL_Town.Location.Y - TB_Town.Size.Height);
+            CBX_Division.Location = new Point(LBL_Division.Location.X + (LBL_Division.Size.Width + CBX_Division.Size.Width - 64) / 2,
+                LBL_Division.Location.Y + CBX_Division.Size.Height / 4);
         }
         private void Team_Form_SizeChanged(object sender, EventArgs e)
         {
@@ -599,6 +601,14 @@ namespace TP_Final
                 CBX_Division.Visible = true;
                 CBX_Division.Focus();
             }
+        }
+
+        private void CBX_Division_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_Division = CBX_Division.SelectedItem.ToString();
+            InitializeTitle();
+            Update_Controls_Locations();
+            Clear_Update_Box();
         }
     }
 }

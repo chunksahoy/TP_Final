@@ -51,8 +51,6 @@
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Logo)).BeginInit();
-            this.menuStrip1.SuspendLayout();
-
             this.SuspendLayout();
             // 
             // DGV_Players
@@ -112,19 +110,6 @@
             this.LBL_Team.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LBL_Team_MouseClick);
             this.LBL_Team.MouseEnter += new System.EventHandler(this.LBL_Team_MouseEnter);
             this.LBL_Team.MouseLeave += new System.EventHandler(this.LBL_Team_MouseLeave);
-
-            this.FB_Remove_Player.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.FB_Remove_Player.BackgroundImage = global::TP_Final.Properties.Resources.Delete_Neutral;
-            this.FB_Remove_Player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FB_Remove_Player.ImageClick = global::TP_Final.Properties.Resources.Delete_Click;
-            this.FB_Remove_Player.ImageDisable = global::TP_Final.Properties.Resources.Delete_Disable;
-            this.FB_Remove_Player.ImageNeutral = global::TP_Final.Properties.Resources.Delete_Neutral;
-            this.FB_Remove_Player.ImageOver = global::TP_Final.Properties.Resources.Delete_Over;
-            this.FB_Remove_Player.Location = new System.Drawing.Point(91, 558);
-            this.FB_Remove_Player.Name = "FB_Remove_Player";
-            this.FB_Remove_Player.Size = new System.Drawing.Size(28, 26);
-            this.FB_Remove_Player.TabIndex = 4;
-            this.FB_Remove_Player.MouseEnter += new System.EventHandler(this.FB_Remove_Player_MouseEnter);
             // 
             // statusStrip1
             // 
@@ -136,44 +121,12 @@
             this.statusStrip1.Size = new System.Drawing.Size(1113, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
-
-            this.FB_Ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.FB_Ok.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Accepter_Neutral;
-            this.FB_Ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FB_Ok.ImageClick = global::TP_Final.Properties.Resources.ICON_Accepter_Click;
-            this.FB_Ok.ImageDisable = global::TP_Final.Properties.Resources.ICON_Accepter_Disable;
-            this.FB_Ok.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Accepter_Neutral;
-            this.FB_Ok.ImageOver = global::TP_Final.Properties.Resources.ICON_Accepter_Over;
-            this.FB_Ok.Location = new System.Drawing.Point(1018, 621);
-            this.FB_Ok.Name = "FB_Ok";
-            this.FB_Ok.Size = new System.Drawing.Size(38, 36);
-            this.FB_Ok.TabIndex = 4;
-            this.FB_Ok.Click += new System.EventHandler(this.FB_Ok_Click);
-            this.FB_Ok.MouseEnter += new System.EventHandler(this.FB_Ok_MouseEnter);
-            this.FB_Ok.MouseLeave += new System.EventHandler(this.FB_Ok_MouseLeave);
-
             // 
             // SL_TeamTips
             // 
             this.SL_TeamTips.Name = "SL_TeamTips";
             this.SL_TeamTips.Size = new System.Drawing.Size(127, 17);
             this.SL_TeamTips.Text = "derpdadepiederpederp";
-
-            this.FB_Edit_Player.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.FB_Edit_Player.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Editer_Neutre;
-            this.FB_Edit_Player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FB_Edit_Player.ImageClick = global::TP_Final.Properties.Resources.ICON_Editer_Click;
-            this.FB_Edit_Player.ImageDisable = global::TP_Final.Properties.Resources.ICON_Editer_Disable;
-            this.FB_Edit_Player.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Editer_Neutre;
-            this.FB_Edit_Player.ImageOver = global::TP_Final.Properties.Resources.ICON_Editer_Survol;
-            this.FB_Edit_Player.Location = new System.Drawing.Point(160, 558);
-            this.FB_Edit_Player.Name = "FB_Edit_Player";
-            this.FB_Edit_Player.Size = new System.Drawing.Size(28, 26);
-            this.FB_Edit_Player.TabIndex = 4;
-            this.FB_Edit_Player.Click += new System.EventHandler(this.FB_Edit_Player_Click);
-            this.FB_Edit_Player.MouseEnter += new System.EventHandler(this.FB_Edit_Player_MouseEnter);
-            this.FB_Edit_Player.MouseLeave += new System.EventHandler(this.FB_Edit_Player_MouseLeave);
-
             // 
             // FB_Display_Calendar
             // 
@@ -241,7 +194,6 @@
             this.FB_Remove_Player.TabIndex = 4;
             this.FB_Remove_Player.Click += new System.EventHandler(this.FB_Remove_Player_Click);
             this.FB_Remove_Player.MouseEnter += new System.EventHandler(this.FB_Remove_Player_MouseEnter);
-
             // 
             // FB_Edit_Player
             // 
@@ -279,7 +231,6 @@
             // 
             // PB_Logo
             // 
-
             this.PB_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PB_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PB_Logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -291,19 +242,6 @@
             this.PB_Logo.Click += new System.EventHandler(this.PB_Logo_Click);
             this.PB_Logo.MouseEnter += new System.EventHandler(this.PB_Logo_MouseEnter);
             this.PB_Logo.MouseLeave += new System.EventHandler(this.PB_Logo_MouseLeave);
-            this.LBL_Team.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LBL_Team.AutoSize = true;
-            this.LBL_Team.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_Team.Location = new System.Drawing.Point(488, 64);
-            this.LBL_Team.Name = "LBL_Team";
-            this.LBL_Team.Size = new System.Drawing.Size(80, 27);
-            this.LBL_Team.TabIndex = 6;
-            this.LBL_Team.Text = "Équipe";
-            this.LBL_Team.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LBL_Team.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LBL_Team_MouseClick);
-            this.LBL_Team.MouseEnter += new System.EventHandler(this.LBL_Team_MouseEnter);
-            this.LBL_Team.MouseLeave += new System.EventHandler(this.LBL_Team_MouseLeave);
             // 
             // LBL_String
             // 
@@ -352,7 +290,7 @@
             // 
             this.LBL_Division.AutoSize = true;
             this.LBL_Division.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_Division.Location = new System.Drawing.Point(12, 57);
+            this.LBL_Division.Location = new System.Drawing.Point(12, 64);
             this.LBL_Division.Name = "LBL_Division";
             this.LBL_Division.Size = new System.Drawing.Size(92, 27);
             this.LBL_Division.TabIndex = 6;
@@ -365,10 +303,11 @@
             // CBX_Division
             // 
             this.CBX_Division.FormattingEnabled = true;
-            this.CBX_Division.Location = new System.Drawing.Point(110, 57);
+            this.CBX_Division.Location = new System.Drawing.Point(110, 64);
             this.CBX_Division.Name = "CBX_Division";
             this.CBX_Division.Size = new System.Drawing.Size(121, 21);
             this.CBX_Division.TabIndex = 10;
+            this.CBX_Division.SelectedIndexChanged += new System.EventHandler(this.CBX_Division_SelectedIndexChanged);
             // 
             // Team_Form
             // 
@@ -426,14 +365,9 @@
         private System.Windows.Forms.Label LBL_String;
         private System.Windows.Forms.Label LBL_Town;
         private System.Windows.Forms.TextBox TB_Town;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         private System.Windows.Forms.Label LBL_Division;
         private System.Windows.Forms.ComboBox CBX_Division;
 
-=======
->>>>>>> c9f6eedb4b47e0d87f3957b6953a0da68b8afc9e
-=======
->>>>>>> c9f6eedb4b47e0d87f3957b6953a0da68b8afc9e
     }
 }

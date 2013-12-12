@@ -24,13 +24,16 @@ namespace TP_Final
         public int m_Home_Score;
         public int m_Visitor_Score;
 
-        OracleConnection conn;
-
+        public OracleConnection conn;
+        public DataSet myData;
+        public BindingSource source;
 
         private void Match_Form_Load(object sender, EventArgs e)
         {
             Initialize_Labels();
             Initialize_Winner();
+            Initialize_DGV(m_Home, DGV_Home);
+            Initialize_DGV(m_Visitor, DGV_Visitor);
         }
 
         private void Initialize_Labels()
@@ -58,9 +61,21 @@ namespace TP_Final
             }
         }
 
-        private void Initialize_DGV(string teamName)
+        private void Initialize_DGV(string teamName, DataGridView dgv)
         {
-            //string sql = "select 
+            myData = new DataSet();
+            myData.Clear();
+            string sql = "select nom, prenom, numeromaillot from player where equipe = '" + teamName + "'";
+
+            OracleCommand oraCMD = new OracleCommand(sql, conn);
+            OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
+
+            adapt.Fill(myData, "equipe");
+
+            source = new BindingSource(myData, "equipe");
+            dgv.DataSource = source;
+            //LoadSettings();
+            //ApplyRowsStyles();
         }
 
 

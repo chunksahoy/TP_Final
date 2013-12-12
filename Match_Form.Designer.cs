@@ -232,7 +232,7 @@
             // LBL_Date
             // 
             this.LBL_Date.AutoSize = true;
-            this.LBL_Date.Location = new System.Drawing.Point(81, 80);
+            this.LBL_Date.Location = new System.Drawing.Point(67, 80);
             this.LBL_Date.Name = "LBL_Date";
             this.LBL_Date.Size = new System.Drawing.Size(35, 13);
             this.LBL_Date.TabIndex = 3;
@@ -322,7 +322,10 @@
             this.Controls.Add(this.DGV_Home);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(1083, 567);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1083, 586);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1083, 586);
             this.Name = "Match_Form";
             this.Load += new System.EventHandler(this.Match_Form_Load);
             this.menuStrip1.ResumeLayout(false);
