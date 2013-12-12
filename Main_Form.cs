@@ -348,8 +348,12 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
+<<<<<<< HEAD
                // LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
+=======
+                LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
+>>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
 
             }
 
@@ -449,14 +453,23 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+<<<<<<< HEAD
                 //LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
 
+=======
+                LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
+                Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
+>>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
+<<<<<<< HEAD
+=======
+      
+>>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
         private void Resize_DGV_Teams()
@@ -466,6 +479,10 @@ namespace TP_Final
                 Col.Width = DGV_Teams.Size.Width / DGV_Teams.ColumnCount;
             }
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
         private void Update_Team(string town, string team, string division)
         {
             OracleParameter ptown = new OracleParameter(":ville", OracleDbType.Varchar2, 30);
@@ -775,11 +792,7 @@ namespace TP_Final
         ////////////////////////// Prévient l'édition des cellules du DGV_Teams(intégrité des données) /////////////////////////////////
         private void DGV_Teams_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DGV_Teams.Rows[e.RowIndex].ReadOnly = true;
-            if (DGV_Teams.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
-            {
-                DGV_Teams.Rows[e.RowIndex].ReadOnly = false;
-            }
+
         }
 
         private void Main_Form_SizeChanged(object sender, EventArgs e)
@@ -933,7 +946,11 @@ namespace TP_Final
 
         private void LS_Logos_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
            //string nomSelectedTeam  = LS_Logos.;
+=======
+ //          string nomSelectedTeam  = LS_Logos.;
+>>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
         }
     }
 }

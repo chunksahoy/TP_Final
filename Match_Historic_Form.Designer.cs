@@ -37,6 +37,7 @@
             this.FB_Edit_Match = new FlashButton.FlashButton();
             this.FB_Remove_Match = new FlashButton.FlashButton();
             this.FB_Add_Match = new FlashButton.FlashButton();
+            this.FB_Cancel = new FlashButton.FlashButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Historic)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -83,6 +84,7 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.FB_Cancel);
             this.panel1.Controls.Add(this.FB_Ok);
             this.panel1.Controls.Add(this.FB_Edit_Match);
             this.panel1.Controls.Add(this.FB_Remove_Match);
@@ -101,7 +103,7 @@
             this.FB_Ok.ImageDisable = global::TP_Final.Properties.Resources.ICON_Accepter_Disable;
             this.FB_Ok.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Accepter_Neutral;
             this.FB_Ok.ImageOver = global::TP_Final.Properties.Resources.ICON_Accepter_Over;
-            this.FB_Ok.Location = new System.Drawing.Point(726, 16);
+            this.FB_Ok.Location = new System.Drawing.Point(673, 16);
             this.FB_Ok.Name = "FB_Ok";
             this.FB_Ok.Size = new System.Drawing.Size(38, 36);
             this.FB_Ok.TabIndex = 10;
@@ -150,6 +152,20 @@
             this.FB_Add_Match.TabIndex = 8;
             this.FB_Add_Match.Click += new System.EventHandler(this.FB_Add_Match_Click);
             // 
+            // FB_Cancel
+            // 
+            this.FB_Cancel.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Annuler_Neutral;
+            this.FB_Cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FB_Cancel.ImageClick = global::TP_Final.Properties.Resources.ICON_Annuler_Click;
+            this.FB_Cancel.ImageDisable = global::TP_Final.Properties.Resources.ICON_Annuler_Disable;
+            this.FB_Cancel.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Annuler_Neutral;
+            this.FB_Cancel.ImageOver = global::TP_Final.Properties.Resources.ICON_Annuler_Over;
+            this.FB_Cancel.Location = new System.Drawing.Point(717, 16);
+            this.FB_Cancel.Name = "FB_Cancel";
+            this.FB_Cancel.Size = new System.Drawing.Size(38, 36);
+            this.FB_Cancel.TabIndex = 12;
+            this.FB_Cancel.Click += new System.EventHandler(this.FB_Cancel_Click);
+            // 
             // Match_Historic_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,5 +199,6 @@
         private FlashButton.FlashButton FB_Add_Match;
         private FlashButton.FlashButton FB_Edit_Match;
         private FlashButton.FlashButton FB_Ok;
+        private FlashButton.FlashButton FB_Cancel;
     }
 }
