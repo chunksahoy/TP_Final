@@ -160,38 +160,33 @@
             this.FB_Remove_Division.Click += new System.EventHandler(this.FB_Remove_Division_Click);
             this.FB_Remove_Division.MouseEnter += new System.EventHandler(this.FB_Remove_Division_MouseEnter);
             this.FB_Remove_Division.MouseLeave += new System.EventHandler(this.FB_Remove_Division_MouseLeave);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             //// 
             //// FB_Add_Division
-=======
-=======
-            // 
-            // FB_Add_Division
-            // 
-            this.FB_Add_Division.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FB_Add_Division.ImageClick = null;
-            this.FB_Add_Division.ImageDisable = null;
-            this.FB_Add_Division.ImageNeutral = null;
-            this.FB_Add_Division.ImageOver = null;
-            this.FB_Add_Division.Location = new System.Drawing.Point(0, 0);
-            this.FB_Add_Division.Name = "FB_Add_Division";
-            this.FB_Add_Division.Size = new System.Drawing.Size(89, 87);
-            this.FB_Add_Division.TabIndex = 6;
->>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
-            // 
-            // FB_Add_Division
-            // 
-            this.FB_Add_Division.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FB_Add_Division.ImageClick = null;
-            this.FB_Add_Division.ImageDisable = null;
-            this.FB_Add_Division.ImageNeutral = null;
-            this.FB_Add_Division.ImageOver = null;
-            this.FB_Add_Division.Location = new System.Drawing.Point(0, 0);
-            this.FB_Add_Division.Name = "FB_Add_Division";
-            this.FB_Add_Division.Size = new System.Drawing.Size(89, 87);
-            this.FB_Add_Division.TabIndex = 6;
->>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
+            //// 
+            //this.FB_Add_Division.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            //this.FB_Add_Division.ImageClick = null;
+            //this.FB_Add_Division.ImageDisable = null;
+            //this.FB_Add_Division.ImageNeutral = null;
+            //this.FB_Add_Division.ImageOver = null;
+            //this.FB_Add_Division.Location = new System.Drawing.Point(0, 0);
+            //this.FB_Add_Division.Name = "FB_Add_Division";
+            //this.FB_Add_Division.Size = new System.Drawing.Size(89, 87);
+            //this.FB_Add_Division.TabIndex = 6;
+
+            //// 
+            //// FB_Add_Division
+            //// 
+            //this.FB_Add_Division.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            //this.FB_Add_Division.ImageClick = null;
+            //this.FB_Add_Division.ImageDisable = null;
+            //this.FB_Add_Division.ImageNeutral = null;
+            //this.FB_Add_Division.ImageOver = null;
+            //this.FB_Add_Division.Location = new System.Drawing.Point(0, 0);
+            //this.FB_Add_Division.Name = "FB_Add_Division";
+            //this.FB_Add_Division.Size = new System.Drawing.Size(89, 87);
+            //this.FB_Add_Division.TabIndex = 6;
+
             // 
             this.FB_Add_Division.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Ajouter_Neutral;
             this.FB_Add_Division.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -319,8 +314,7 @@
             this.FB_Stars.Size = new System.Drawing.Size(65, 62);
             this.FB_Stars.TabIndex = 10;
             // 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
             // LS_Logos
 
@@ -407,13 +401,11 @@
             // 
             // FB_Add_Division
 
-=======
+
             // LS_Logos
-=======
+
             // LS_Logos
->>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
-            // 
->>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
+
             this.LS_Logos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LS_Logos.BackColor = System.Drawing.SystemColors.ScrollBar;
