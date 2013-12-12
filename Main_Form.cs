@@ -94,7 +94,7 @@ namespace TP_Final
                         MemoryStream memStream = new MemoryStream(myByteArray);
                         unLogo = Image.FromStream(memStream);
 
-                        //LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
+                        LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
                     }
 
                 }
@@ -347,10 +347,14 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+<<<<<<< HEAD
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
                 //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
 
+=======
+                LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
+>>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
             }
 
                         
@@ -451,11 +455,21 @@ namespace TP_Final
             {
                 //LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
+<<<<<<< HEAD
+=======
+
+                LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
+                Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
+>>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
         private void Resize_DGV_Teams()
@@ -929,7 +943,11 @@ namespace TP_Final
 
         private void LS_Logos_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
 
+=======
+           //string nomSelectedTeam  = LS_Logos.;
+>>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
         }
     }
 }
