@@ -226,6 +226,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(280, 459);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(280, 459);
             this.Name = "Add_Player_Form";
             this.Text = "Joueur";
             this.Load += new System.EventHandler(this.Add_Player_Form_Load);

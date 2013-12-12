@@ -45,6 +45,8 @@
             this.LBL_String = new System.Windows.Forms.Label();
             this.LBL_Town = new System.Windows.Forms.Label();
             this.TB_Town = new System.Windows.Forms.TextBox();
+            this.LBL_Division = new System.Windows.Forms.Label();
+            this.CBX_Division = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Players)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -63,6 +65,7 @@
             this.DGV_Players.Size = new System.Drawing.Size(999, 439);
             this.DGV_Players.TabIndex = 0;
             this.DGV_Players.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Players_CellContentClick);
+            this.DGV_Players.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Players_ColumnHeaderMouseClick);
             this.DGV_Players.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Players_RowHeaderMouseClick);
             this.DGV_Players.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Players_RowHeaderMouseDoubleClick);
             this.DGV_Players.MouseEnter += new System.EventHandler(this.DGV_Players_MouseEnter);
@@ -281,16 +284,40 @@
             this.TB_Town.Leave += new System.EventHandler(this.TB_Town_Leave);
             this.TB_Town.MouseEnter += new System.EventHandler(this.TB_Team_MouseEnter);
             // 
+            // LBL_Division
+            // 
+            this.LBL_Division.AutoSize = true;
+            this.LBL_Division.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_Division.Location = new System.Drawing.Point(12, 57);
+            this.LBL_Division.Name = "LBL_Division";
+            this.LBL_Division.Size = new System.Drawing.Size(92, 27);
+            this.LBL_Division.TabIndex = 6;
+            this.LBL_Division.Text = "Division";
+            this.LBL_Division.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LBL_Division.Click += new System.EventHandler(this.LBL_Division_Click);
+            this.LBL_Division.MouseEnter += new System.EventHandler(this.LBL_Team_MouseEnter);
+            this.LBL_Division.MouseLeave += new System.EventHandler(this.LBL_Team_MouseLeave);
+            // 
+            // CBX_Division
+            // 
+            this.CBX_Division.FormattingEnabled = true;
+            this.CBX_Division.Location = new System.Drawing.Point(110, 57);
+            this.CBX_Division.Name = "CBX_Division";
+            this.CBX_Division.Size = new System.Drawing.Size(121, 21);
+            this.CBX_Division.TabIndex = 10;
+            // 
             // Team_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 671);
+            this.Controls.Add(this.CBX_Division);
             this.Controls.Add(this.TB_Town);
             this.Controls.Add(this.PB_Logo);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.LBL_Town);
             this.Controls.Add(this.LBL_String);
+            this.Controls.Add(this.LBL_Division);
             this.Controls.Add(this.LBL_Team);
             this.Controls.Add(this.FB_Display_Calendar);
             this.Controls.Add(this.FB_Cancel);
@@ -335,6 +362,8 @@
         private System.Windows.Forms.Label LBL_String;
         private System.Windows.Forms.Label LBL_Town;
         private System.Windows.Forms.TextBox TB_Town;
+        private System.Windows.Forms.Label LBL_Division;
+        private System.Windows.Forms.ComboBox CBX_Division;
 
     }
 }

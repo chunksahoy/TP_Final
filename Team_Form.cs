@@ -37,6 +37,8 @@ namespace TP_Final
         private BindingSource source;
         public string m_TeamName;
         public string m_TeamTown;
+        public string m_Division;
+        public List<string> m_Divisions_List;
         public Color oddRowColor;
         public Color evenRowColor;
         public int m_Selected_Index;
@@ -66,7 +68,18 @@ namespace TP_Final
             RefreshLogo();
             LoadSettings();
             ApplyRowsStyles();
+            Initialize_Hidden_Updates();
+        }
+
+        private void Initialize_Hidden_Updates()
+        {
             TB_Town.Visible = false;
+            CBX_Division.Visible = false;
+
+            foreach (string division in m_Divisions_List)
+            {
+                CBX_Division.Items.Add(division);
+            }
         }
 
         private void SaveSettings()
@@ -123,6 +136,7 @@ namespace TP_Final
         {
             LBL_Team.Text = m_TeamName;
             LBL_Town.Text = m_TeamTown;
+            LBL_Division.Text = m_Division;
         }
 
         private void InitializeDataGrid()
@@ -180,36 +194,13 @@ namespace TP_Final
         ///////////////////////////////// Gestion de l'option couleur du menu contextuel du DGV_Teams //////////////////////////////////
         private void tsmi_Color_Click(object sender, EventArgs e)
         {
-            ColorDialog dlg = new ColorDialog();
 
-            dlg.Color = (DGV_Players.SelectedRows[0].Index % 2 == 0 ? evenRowColor : oddRowColor);
-            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                if (DGV_Players.SelectedRows[0].Index % 2 == 0)
-                    evenRowColor = dlg.Color;
-                else
-                    oddRowColor = dlg.Color;
-                ApplyRowsStyles();
-
-            }
-            //Save_Settings();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////// Gestion de l'option police du menu contextuel du DGV_Teams ///////////////////////////////////
         private void tsmi_Font_Click(object sender, EventArgs e)
         {
-            FontDialog dlg = new FontDialog();
 
-            dlg.Font = DGV_Players.Font;
-            dlg.Color = DGV_Players.ForeColor;
-            dlg.ShowColor = true;
-
-            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                DGV_Players.Font = dlg.Font;
-                DGV_Players.ForeColor = dlg.Color;
-            }
-            //Save_Settings();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////// Gestion de l'option édition du menu contextuel du DGV_Teams //////////////////////////////////
@@ -334,10 +325,13 @@ namespace TP_Final
 
         private void DGV_Players_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DGV_Players.Rows[e.RowIndex].ReadOnly = true;
-            if (DGV_Players.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
+            if (e.RowIndex > 0)
             {
-                DGV_Players.Rows[e.RowIndex].ReadOnly = false;
+                DGV_Players.Rows[e.RowIndex].ReadOnly = true;
+                if (DGV_Players.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
+                {
+                    DGV_Players.Rows[e.RowIndex].ReadOnly = false;
+                }
             }
         }
 
@@ -563,8 +557,7 @@ namespace TP_Final
 
         private void TB_Town_Leave(object sender, EventArgs e)
         {
-            TB_Town.Clear();
-            TB_Town.Visible = false;
+            Clear_Update_Box();
         }
 
         private void TB_Town_KeyDown(object sender, KeyEventArgs e)
@@ -574,13 +567,40 @@ namespace TP_Final
                 m_TeamTown = TB_Town.Text;
                 InitializeTitle();
                 Update_Controls_Locations();
+                Clear_Update_Box();
             }
         }
 
-
+        private void Clear_Update_Box()
+        {
+            TB_Town.Clear();
+            TB_Town.Visible = false;
+            CBX_Division.Visible = false;
+        }
         private void TB_Team_MouseEnter(object sender, EventArgs e)
         {
             Cursor = Cursors.Default;
+        }
+
+        private void DGV_Players_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ApplyRowsStyles();
+        }
+
+        private void TB_Division_Leave(object sender, EventArgs e)
+        {
+            Clear_Update_Box();
+        }
+
+        private void LBL_Division_Click(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+
+            if (lbl != null)
+            {
+                CBX_Division.Visible = true;
+                CBX_Division.Focus();
+            }
         }
     }
 }

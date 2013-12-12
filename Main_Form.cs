@@ -437,6 +437,9 @@ namespace TP_Final
 
             form.m_TeamName = DGV_Teams.SelectedRows[0].Cells[0].Value.ToString();
             form.m_TeamTown = DGV_Teams.SelectedRows[0].Cells[2].Value.ToString();
+            form.m_Division = DGV_Teams.SelectedRows[0].Cells[3].Value.ToString();
+            form.m_Divisions_List = Initialize_Divisions_List();
+
             form.oddRowColor = oddRowColor;
             form.evenRowColor = evenRowColor;
             form.conn = conn;
@@ -451,7 +454,10 @@ namespace TP_Final
 
         private void Update_Team(string town, string team)
         {
-            string sqlUpdate = "update equipe set ville = '" + town + "' where nom = '" + team +"'";
+            OracleParameter ptown = new OracleParameter(":ville", OracleDbType.Varchar2, 30);
+            OracleParameter pteam = new OracleParameter(":equipe", OracleDbType.Varchar2, 30);
+
+            string sqlUpdate = "update equipe set ville = :ville where nom = :equipe";
 
             OracleCommand oraCMD = new OracleCommand(sqlUpdate, conn);
 
@@ -546,7 +552,7 @@ namespace TP_Final
                     ToolStripMenuItem tsmi;
                     if (DGV_Teams.RowCount > 1 && DGV_Teams.SelectedRows[0].Index != DGV_Teams.RowCount - 1)
                     {
-                        tsmi = new ToolStripMenuItem("Editer l'enregistrement");
+                        tsmi = new ToolStripMenuItem("Modifier l'enregistrement");
                         tsmi.Click += tsmi_Edit_Click;
                         cms.Items.Add(tsmi);
 
