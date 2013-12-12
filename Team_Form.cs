@@ -368,11 +368,8 @@ namespace TP_Final
         private void FB_Add_Player_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_AddPlayers;
-<<<<<<< HEAD
         }
-=======
-        }  
->>>>>>> Update Status Strip du form Division et Équipe
+        
         private void FB_Remove_Player_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_RemovePlayer;
@@ -384,11 +381,7 @@ namespace TP_Final
         private void FB_Display_Calendar_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_ShowCalendar;
-<<<<<<< HEAD
         }
-=======
-        } 
->>>>>>> Update Status Strip du form Division et Équipe
         private void FB_Ok_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_AcceptChanges;
@@ -410,19 +403,12 @@ namespace TP_Final
         private void FB_Add_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
-<<<<<<< HEAD
+
         }
         private void FB_Remove_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
         }
-=======
-        } 
-        private void FB_Remove_Player_MouseLeave(object sender, EventArgs e)
-        {
-            Empty_SL_TeamTips();
-        } 
->>>>>>> Update Status Strip du form Division et Équipe
         private void FB_Edit_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
@@ -441,7 +427,7 @@ namespace TP_Final
         }
         #endregion
 
-<<<<<<< HEAD
+
         private void FB_Display_Calendar_Click(object sender, EventArgs e)
         {
             Match_Historic_Form hform = new Match_Historic_Form();
@@ -548,20 +534,5 @@ namespace TP_Final
         {
             Cursor = Cursors.Default;
         }
-=======
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> Update Status Strip du form Division et Équipe
     }
 }

@@ -41,20 +41,12 @@
             this.FB_Remove_Player = new FlashButton.FlashButton();
             this.FB_Edit_Player = new FlashButton.FlashButton();
             this.FB_Add_Player = new FlashButton.FlashButton();
-<<<<<<< HEAD
             this.PB_Logo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Players)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Logo)).BeginInit();
-=======
-            this.LBL_Team = new System.Windows.Forms.Label();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.SL_TeamTips = new System.Windows.Forms.ToolStripStatusLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_Players)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
->>>>>>> Update Status Strip du form Division et Équipe
             this.SuspendLayout();
             // 
             // DGV_Players
@@ -100,7 +92,6 @@
             // 
             // LBL_Team
             // 
-<<<<<<< HEAD
             this.LBL_Team.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LBL_Team.AutoSize = true;
@@ -114,7 +105,7 @@
             this.LBL_Team.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LBL_Team_MouseClick);
             this.LBL_Team.MouseEnter += new System.EventHandler(this.LBL_Team_MouseEnter);
             this.LBL_Team.MouseLeave += new System.EventHandler(this.LBL_Team_MouseLeave);
-=======
+
             this.FB_Remove_Player.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.FB_Remove_Player.BackgroundImage = global::TP_Final.Properties.Resources.Delete_Neutral;
             this.FB_Remove_Player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -127,12 +118,9 @@
             this.FB_Remove_Player.Size = new System.Drawing.Size(28, 26);
             this.FB_Remove_Player.TabIndex = 4;
             this.FB_Remove_Player.MouseEnter += new System.EventHandler(this.FB_Remove_Player_MouseEnter);
-            this.FB_Remove_Player.MouseLeave += new System.EventHandler(this.FB_Remove_Player_MouseLeave);
->>>>>>> Update Status Strip du form Division et Équipe
             // 
             // statusStrip1
             // 
-<<<<<<< HEAD
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Top;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SL_TeamTips});
@@ -141,7 +129,7 @@
             this.statusStrip1.Size = new System.Drawing.Size(1113, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
-=======
+
             this.FB_Ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.FB_Ok.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Accepter_Neutral;
             this.FB_Ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -156,15 +144,13 @@
             this.FB_Ok.Click += new System.EventHandler(this.FB_Ok_Click);
             this.FB_Ok.MouseEnter += new System.EventHandler(this.FB_Ok_MouseEnter);
             this.FB_Ok.MouseLeave += new System.EventHandler(this.FB_Ok_MouseLeave);
->>>>>>> Update Status Strip du form Division et Équipe
             // 
             // SL_TeamTips
             // 
-<<<<<<< HEAD
             this.SL_TeamTips.Name = "SL_TeamTips";
             this.SL_TeamTips.Size = new System.Drawing.Size(127, 17);
             this.SL_TeamTips.Text = "derpdadepiederpederp";
-=======
+
             this.FB_Edit_Player.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.FB_Edit_Player.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Editer_Neutre;
             this.FB_Edit_Player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -179,7 +165,7 @@
             this.FB_Edit_Player.Click += new System.EventHandler(this.FB_Edit_Player_Click);
             this.FB_Edit_Player.MouseEnter += new System.EventHandler(this.FB_Edit_Player_MouseEnter);
             this.FB_Edit_Player.MouseLeave += new System.EventHandler(this.FB_Edit_Player_MouseLeave);
->>>>>>> Update Status Strip du form Division et Équipe
+
             // 
             // FB_Display_Calendar
             // 
@@ -194,10 +180,7 @@
             this.FB_Display_Calendar.Name = "FB_Display_Calendar";
             this.FB_Display_Calendar.Size = new System.Drawing.Size(75, 61);
             this.FB_Display_Calendar.TabIndex = 5;
-<<<<<<< HEAD
             this.FB_Display_Calendar.Click += new System.EventHandler(this.FB_Display_Calendar_Click);
-=======
->>>>>>> Update Status Strip du form Division et Équipe
             this.FB_Display_Calendar.MouseEnter += new System.EventHandler(this.FB_Display_Calendar_MouseEnter);
             this.FB_Display_Calendar.MouseLeave += new System.EventHandler(this.FB_Display_Calendar_MouseLeave);
             // 
@@ -217,7 +200,6 @@
             this.FB_Cancel.Click += new System.EventHandler(this.FB_Cancel_Click);
             this.FB_Cancel.MouseEnter += new System.EventHandler(this.FB_Cancel_MouseEnter);
             this.FB_Cancel.MouseLeave += new System.EventHandler(this.FB_Cancel_MouseLeave);
-<<<<<<< HEAD
             // 
             // FB_Ok
             // 
@@ -251,7 +233,7 @@
             this.FB_Remove_Player.TabIndex = 4;
             this.FB_Remove_Player.Click += new System.EventHandler(this.FB_Remove_Player_Click);
             this.FB_Remove_Player.MouseEnter += new System.EventHandler(this.FB_Remove_Player_MouseEnter);
-            this.FB_Remove_Player.MouseLeave += new System.EventHandler(this.FB_Remove_Player_MouseLeave);
+
             // 
             // FB_Edit_Player
             // 
@@ -269,8 +251,6 @@
             this.FB_Edit_Player.Click += new System.EventHandler(this.FB_Edit_Player_Click);
             this.FB_Edit_Player.MouseEnter += new System.EventHandler(this.FB_Edit_Player_MouseEnter);
             this.FB_Edit_Player.MouseLeave += new System.EventHandler(this.FB_Edit_Player_MouseLeave);
-=======
->>>>>>> Update Status Strip du form Division et Équipe
             // 
             // FB_Add_Player
             // 
@@ -291,7 +271,6 @@
             // 
             // PB_Logo
             // 
-<<<<<<< HEAD
             this.PB_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PB_Logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PB_Logo.Location = new System.Drawing.Point(1006, 55);
@@ -302,7 +281,6 @@
             this.PB_Logo.Click += new System.EventHandler(this.PB_Logo_Click);
             this.PB_Logo.MouseEnter += new System.EventHandler(this.PB_Logo_MouseEnter);
             this.PB_Logo.MouseLeave += new System.EventHandler(this.PB_Logo_MouseLeave);
-=======
             this.LBL_Team.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LBL_Team.AutoSize = true;
@@ -316,7 +294,6 @@
             this.LBL_Team.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LBL_Team_MouseClick);
             this.LBL_Team.MouseEnter += new System.EventHandler(this.LBL_Team_MouseEnter);
             this.LBL_Team.MouseLeave += new System.EventHandler(this.LBL_Team_MouseLeave);
->>>>>>> Update Status Strip du form Division et Équipe
             // 
             // statusStrip1
             // 
@@ -340,10 +317,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 671);
-<<<<<<< HEAD
             this.Controls.Add(this.PB_Logo);
-=======
->>>>>>> Update Status Strip du form Division et Équipe
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.LBL_Team);
             this.Controls.Add(this.FB_Display_Calendar);
@@ -363,10 +337,7 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.PB_Logo)).EndInit();
-=======
->>>>>>> Update Status Strip du form Division et Équipe
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,9 +358,6 @@
         private System.Windows.Forms.Label LBL_Team;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel SL_TeamTips;
-<<<<<<< HEAD
         private System.Windows.Forms.PictureBox PB_Logo;
-=======
->>>>>>> Update Status Strip du form Division et Équipe
     }
 }
