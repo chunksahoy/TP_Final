@@ -160,49 +160,9 @@
             this.FB_Remove_Division.Click += new System.EventHandler(this.FB_Remove_Division_Click);
             this.FB_Remove_Division.MouseEnter += new System.EventHandler(this.FB_Remove_Division_MouseEnter);
             this.FB_Remove_Division.MouseLeave += new System.EventHandler(this.FB_Remove_Division_MouseLeave);
-
-<<<<<<< HEAD
-            //// 
-            //// FB_Add_Division
-            //// 
-            //this.FB_Add_Division.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //this.FB_Add_Division.ImageClick = null;
-            //this.FB_Add_Division.ImageDisable = null;
-            //this.FB_Add_Division.ImageNeutral = null;
-            //this.FB_Add_Division.ImageOver = null;
-            //this.FB_Add_Division.Location = new System.Drawing.Point(0, 0);
-            //this.FB_Add_Division.Name = "FB_Add_Division";
-            //this.FB_Add_Division.Size = new System.Drawing.Size(89, 87);
-            //this.FB_Add_Division.TabIndex = 6;
-
-            //// 
-            //// FB_Add_Division
-            //// 
-            //this.FB_Add_Division.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //this.FB_Add_Division.ImageClick = null;
-            //this.FB_Add_Division.ImageDisable = null;
-            //this.FB_Add_Division.ImageNeutral = null;
-            //this.FB_Add_Division.ImageOver = null;
-            //this.FB_Add_Division.Location = new System.Drawing.Point(0, 0);
-            //this.FB_Add_Division.Name = "FB_Add_Division";
-            //this.FB_Add_Division.Size = new System.Drawing.Size(89, 87);
-            //this.FB_Add_Division.TabIndex = 6;
-
-            // 
-=======
             // 
             // FB_Add_Division
             // 
-            this.FB_Add_Division.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FB_Add_Division.ImageClick = null;
-            this.FB_Add_Division.ImageDisable = null;
-            this.FB_Add_Division.ImageNeutral = null;
-            this.FB_Add_Division.ImageOver = null;
-            this.FB_Add_Division.Location = new System.Drawing.Point(0, 0);
-            this.FB_Add_Division.Name = "FB_Add_Division";
-            this.FB_Add_Division.Size = new System.Drawing.Size(89, 87);
-            this.FB_Add_Division.TabIndex = 6;
->>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
             this.FB_Add_Division.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Ajouter_Neutral;
             this.FB_Add_Division.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FB_Add_Division.ImageClick = global::TP_Final.Properties.Resources.ICON_Ajouter_Click;
@@ -216,7 +176,7 @@
             this.FB_Add_Division.Click += new System.EventHandler(this.FB_Add_Division_Click);
             this.FB_Add_Division.MouseEnter += new System.EventHandler(this.FB_Add_Division_MouseEnter);
             this.FB_Add_Division.MouseLeave += new System.EventHandler(this.FB_Add_Division_MouseLeave);
-             
+            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -329,105 +289,8 @@
             this.FB_Stars.Size = new System.Drawing.Size(65, 62);
             this.FB_Stars.TabIndex = 10;
             // 
-<<<<<<< HEAD
-
-=======
->>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
-
-
-            // FB_Remove_Team
-            // 
-            this.FB_Remove_Team.BackgroundImage = global::TP_Final.Properties.Resources.Delete_Neutral;
-            this.FB_Remove_Team.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FB_Remove_Team.ImageClick = global::TP_Final.Properties.Resources.Delete_Click;
-            this.FB_Remove_Team.ImageDisable = global::TP_Final.Properties.Resources.Delete_Disable;
-            this.FB_Remove_Team.ImageNeutral = global::TP_Final.Properties.Resources.Delete_Neutral;
-            this.FB_Remove_Team.ImageOver = global::TP_Final.Properties.Resources.Delete_Over;
-            this.FB_Remove_Team.Location = new System.Drawing.Point(134, 3);
-            this.FB_Remove_Team.Name = "FB_Remove_Team";
-            this.FB_Remove_Team.Size = new System.Drawing.Size(28, 33);
-            this.FB_Remove_Team.TabIndex = 7;
-            this.FB_Remove_Team.Click += new System.EventHandler(this.FB_Remove_Team_Click);
-            this.FB_Remove_Team.MouseEnter += new System.EventHandler(this.FB_Remove_Team_MouseEnter);
-            this.FB_Remove_Team.MouseLeave += new System.EventHandler(this.FB_Remove_Team_MouseLeave);
-            // 
-            // FB_Edit_Team
-            // 
-            this.FB_Edit_Team.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Editer_Neutre;
-            this.FB_Edit_Team.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FB_Edit_Team.ImageClick = global::TP_Final.Properties.Resources.ICON_Editer_Click;
-            this.FB_Edit_Team.ImageDisable = global::TP_Final.Properties.Resources.ICON_Editer_Disable;
-            this.FB_Edit_Team.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Editer_Neutre;
-            this.FB_Edit_Team.ImageOver = global::TP_Final.Properties.Resources.ICON_Editer_Survol;
-            this.FB_Edit_Team.Location = new System.Drawing.Point(3, 5);
-            this.FB_Edit_Team.Name = "FB_Edit_Team";
-            this.FB_Edit_Team.Size = new System.Drawing.Size(28, 33);
-            this.FB_Edit_Team.TabIndex = 8;
-            this.FB_Edit_Team.Click += new System.EventHandler(this.FB_Edit_Team_Click);
-            this.FB_Edit_Team.MouseEnter += new System.EventHandler(this.FB_Edit_Team_MouseEnter);
-            this.FB_Edit_Team.MouseLeave += new System.EventHandler(this.FB_Edit_Team_MouseLeave);
-            // 
-            // FB_Add_Team
-            // 
-            this.FB_Add_Team.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Ajouter_Neutral;
-            this.FB_Add_Team.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FB_Add_Team.ImageClick = global::TP_Final.Properties.Resources.ICON_Ajouter_Click;
-            this.FB_Add_Team.ImageDisable = global::TP_Final.Properties.Resources.ICON_Ajouter_Disable;
-            this.FB_Add_Team.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Ajouter_Neutral;
-            this.FB_Add_Team.ImageOver = global::TP_Final.Properties.Resources.ICON_Ajouter_Over;
-            this.FB_Add_Team.Location = new System.Drawing.Point(100, 3);
-            this.FB_Add_Team.Name = "FB_Add_Team";
-            this.FB_Add_Team.Size = new System.Drawing.Size(28, 33);
-            this.FB_Add_Team.TabIndex = 8;
-            this.FB_Add_Team.Click += new System.EventHandler(this.FB_Add_Team_Click);
-            this.FB_Add_Team.MouseEnter += new System.EventHandler(this.FB_Add_Team_MouseEnter);
-            this.FB_Add_Team.MouseLeave += new System.EventHandler(this.FB_Add_Team_MouseLeave);
-            //// 
-            //// LV_Divisions
-            //// 
-            //this.LV_Divisions.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            //this.LV_Divisions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            //| System.Windows.Forms.AnchorStyles.Left)));
-            //this.LV_Divisions.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.LV_Divisions.HideSelection = false;
-            //this.LV_Divisions.Location = new System.Drawing.Point(12, 142);
-            //this.LV_Divisions.Name = "LV_Divisions";
-            //this.LV_Divisions.Size = new System.Drawing.Size(222, 548);
-            //this.LV_Divisions.TabIndex = 6;
-            //this.LV_Divisions.UseCompatibleStateImageBehavior = false;
-            //this.LV_Divisions.SelectedIndexChanged += new System.EventHandler(this.LV_Divisions_SelectedIndexChanged);
-            //this.LV_Divisions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LV_Divisions_MouseClick);
-            //this.LV_Divisions.MouseEnter += new System.EventHandler(this.LV_Divisions_MouseEnter);
-            //this.LV_Divisions.MouseLeave += new System.EventHandler(this.LV_Divisions_MouseLeave);
-            // 
-            // FB_Remove_Division
-            // 
-            //this.FB_Remove_Division.BackgroundImage = global::TP_Final.Properties.Resources.Delete_Neutral;
-            //this.FB_Remove_Division.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //this.FB_Remove_Division.ImageClick = global::TP_Final.Properties.Resources.Delete_Click;
-            //this.FB_Remove_Division.ImageDisable = global::TP_Final.Properties.Resources.Delete_Disable;
-            //this.FB_Remove_Division.ImageNeutral = global::TP_Final.Properties.Resources.Delete_Neutral;
-            //this.FB_Remove_Division.ImageOver = global::TP_Final.Properties.Resources.Delete_Over;
-            //this.FB_Remove_Division.Location = new System.Drawing.Point(181, 3);
-            //this.FB_Remove_Division.Name = "FB_Remove_Division";
-            //this.FB_Remove_Division.Size = new System.Drawing.Size(28, 33);
-            //this.FB_Remove_Division.TabIndex = 5;
-            //this.FB_Remove_Division.Click += new System.EventHandler(this.FB_Remove_Division_Click);
-            //this.FB_Remove_Division.MouseEnter += new System.EventHandler(this.FB_Remove_Division_MouseEnter);
-            //this.FB_Remove_Division.MouseLeave += new System.EventHandler(this.FB_Remove_Division_MouseLeave);
-            // 
-            // FB_Add_Division
-
-
-<<<<<<< HEAD
-            // LS_Logos
-
-            // LS_Logos
-
-=======
             // LS_Logos
             // 
->>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
             this.LS_Logos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LS_Logos.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -437,8 +300,6 @@
             this.LS_Logos.NbElements = 8;
             this.LS_Logos.Size = new System.Drawing.Size(1263, 62);
             this.LS_Logos.TabIndex = 8;
-            this.LS_Logos.Load += new System.EventHandler(this.LS_Logos_Load);
-            this.LS_Logos.Click += new System.EventHandler(this.LS_Logos_Click);
             this.LS_Logos.MouseEnter += new System.EventHandler(this.logoScroller1_MouseEnter);
             this.LS_Logos.MouseLeave += new System.EventHandler(this.logoScroller1_MouseLeave);
             // 

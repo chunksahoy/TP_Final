@@ -21,6 +21,7 @@ namespace TP_Final
 {
     public partial class Main_Form : Form
     {
+
         public Main_Form()
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace TP_Final
         private string m_Pass;
         private const int MAX_TEAMS = 4;
         #endregion
+        private delegate void Del();
 
         #region "Texte du StatusStrip"
 
@@ -104,6 +106,26 @@ namespace TP_Final
                 MessageBox.Show(ex.Message.ToString());
             }
         }
+
+        public void MouseClick(string NomElement, string TownName, string DivName)
+        {
+            Team_Form dlg = new Team_Form();
+
+            dlg.m_Division = DivName;
+            dlg.m_TeamName = NomElement;
+            dlg.m_TeamTown = TownName;
+
+            dlg.oddRowColor = oddRowColor;
+            dlg.evenRowColor = evenRowColor;
+            dlg.conn = conn;
+
+
+            if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                LS_Logos.EditElement(dlg.m_TeamName, dlg.Image_LogoScroller);
+                Update_Team(dlg.m_TeamTown, dlg.m_TeamName, dlg.m_Division);
+            }
+        }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////// Initialisation des contrôles à leur état initial ////////////////////////////////////////
         private void Initialize_Controls()
@@ -153,6 +175,7 @@ namespace TP_Final
             Resize_DGV_Teams();
             //LoadSettings();
             ApplyRowsStyles();
+            DGV_Teams.AllowUserToAddRows = false;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////// Liste les division dans un ListView /////////////////////////////////////////////
@@ -281,14 +304,28 @@ namespace TP_Final
         /////////////////////////////// Gestion du clique du bouton flash du retrait d'une division ////////////////////////////////////
         private void FB_Remove_Division_Click(object sender, EventArgs e)
         {
-            Remove_Division();
-            
+            DeleteForm dlg = new DeleteForm();
+
+            dlg.ElementSupprime = "la division " + LB_Divisions.SelectedItem.ToString();
+
+            if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Remove_Division();
+            }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////// Gestion du clique du bouton flash de retrait d'une équipe //////////////////////////////////
         private void FB_Remove_Team_Click(object sender, EventArgs e)
         {
-            Remove_Team();
+            DeleteForm dlg = new DeleteForm();
+
+            dlg.ElementSupprime = "les " + DGV_Teams.SelectedRows[0].Cells[0].Value.ToString() + " de cette division";
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Remove_Team();
+            }
+            
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
@@ -347,14 +384,9 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-                //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
-
-
-=======
                 LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
->>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
+
             }
 
                         
@@ -416,7 +448,7 @@ namespace TP_Final
         //////////////////////////////////////////// Retrait d'une équipe dans la BD ///////////////////////////////////////////////////
         private void Remove_Team()
         { 
-            //LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
+            LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
             string sqlDelete = "delete from equipe where nom = '" + DGV_Teams.SelectedRows[0].Cells[0].Value.ToString() + "'";
 
             try
@@ -434,7 +466,6 @@ namespace TP_Final
             {
                 FB_Remove_Team.Enabled = false;
             }
-
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////// Modification d'une équipe ////////////////////////////////////////////////////
@@ -445,7 +476,6 @@ namespace TP_Final
             form.m_TeamName = DGV_Teams.SelectedRows[0].Cells[0].Value.ToString();
             form.m_TeamTown = DGV_Teams.SelectedRows[0].Cells[2].Value.ToString();
             form.m_Division = DGV_Teams.SelectedRows[0].Cells[3].Value.ToString();
-            form.m_Divisions_List = Initialize_Divisions_List();
 
             form.oddRowColor = oddRowColor;
             form.evenRowColor = evenRowColor;
@@ -453,23 +483,13 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                //LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
-                Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
-<<<<<<< HEAD
-=======
-
                 LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
->>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
         private void Resize_DGV_Teams()
@@ -524,7 +544,6 @@ namespace TP_Final
                 else
                     oddRowColor = dlg.Color;
                 ApplyRowsStyles();
-
             }
             Save_Settings();
         }
@@ -939,15 +958,6 @@ namespace TP_Final
         private void DGV_Teams_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-        }
-
-        private void LS_Logos_Click(object sender, EventArgs e)
-        {
-<<<<<<< HEAD
-
-=======
-           //string nomSelectedTeam  = LS_Logos.;
->>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
         }
     }
 }

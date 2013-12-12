@@ -77,6 +77,7 @@ namespace TP_Final
             Initialize_Hidden_Updates();
             Resize_DGV_Players();
             Image_LogoScroller = "";
+            m_Divisions_List = Initialize_Divisions_List();
         }
 
         private void Resize_DGV_Players()
@@ -297,7 +298,33 @@ namespace TP_Final
 
         private void FB_Remove_Player_Click(object sender, EventArgs e)
         {
-            Remove_Player();
+            DeleteForm dlg = new DeleteForm();
+            dlg.ElementSupprime = "le joueur nommé: " + DGV_Players.SelectedRows[0].Cells[0].Value.ToString() + "de cette équipe";
+
+            if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Remove_Player();
+            }
+            
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////// Initialisation de la liste des division pour les ComboBox d'ajout d'équipe ////////////////////////////////
+        private List<string> Initialize_Divisions_List()
+        {
+            List<string> temp = new List<string>();
+
+            string sql = "select Nom from division";
+
+            OracleCommand oraCMD = new OracleCommand(sql, conn);
+            oraCMD.CommandType = CommandType.Text;
+
+            OracleDataReader oraRead = oraCMD.ExecuteReader();
+
+            while (oraRead.Read())
+            {
+                temp.Add(oraRead.GetString(0));
+            }
+            return temp;
         }
 
         private void Remove_Player()
