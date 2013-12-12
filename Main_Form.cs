@@ -47,16 +47,8 @@ namespace TP_Final
         private string Txt_AddDivision = "Tips: Clique gauche pour ouvrir un dialogue qui vous permet d'ajouter une division dans ce conteneur.";
         private string Txt_LogoScroller = "Tips: Clique gauche sur un logo pour afficher les joueurs de l'équipe correspondante au logo dans une autre fenêtre";
         private string Txt_DGV_TeamOver = "Tips: Double clique sur l'entête d'une rangée d'une équipe pour afficher ses joueurs dans une autre fenêtre.";
-<<<<<<< HEAD
-        private string Txt_LB_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
-        private string Txt_LV_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
-=======
-
         private string Txt_LB_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
 
-        private string Txt_LV_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
-
->>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
 
         #endregion
         ////////////////////////////////////////////// Au Chargement de la page ///////////////////////////////////////////
@@ -344,7 +336,6 @@ namespace TP_Final
             ListDivisions();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-<<<<<<< HEAD
         /////////////////////////////////////// Gestion du clique du bouton flash d'ajout d'équipe /////////////////////////////////////
         private void FB_Add_Team_Click(object sender, EventArgs e)
         {
@@ -368,8 +359,6 @@ namespace TP_Final
             Edit_Team();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-=======
->>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
         //////////////////////////////////////////////// Ajout d'une équipe dans la BD /////////////////////////////////////////////////
         private void Add_Team(string name, DateTime joined, string logo, string town, string division)
         { 
@@ -917,16 +906,5 @@ namespace TP_Final
         {
             
         }
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-=======
->>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
     }
 }

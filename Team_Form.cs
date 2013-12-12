@@ -370,11 +370,6 @@ namespace TP_Final
         {
             SL_TeamTips.Text = Txt_AddPlayers;
         }
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
         private void FB_Remove_Player_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_RemovePlayer;
@@ -386,13 +381,9 @@ namespace TP_Final
         private void FB_Display_Calendar_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_ShowCalendar;
-<<<<<<< HEAD
-        }
-=======
-
         }
 
->>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
+
         private void FB_Ok_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_AcceptChanges;
@@ -414,19 +405,11 @@ namespace TP_Final
         private void FB_Add_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
-<<<<<<< HEAD
-
-=======
->>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
         }
         private void FB_Remove_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
         private void FB_Edit_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
@@ -445,10 +428,6 @@ namespace TP_Final
         }
         #endregion
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
         private void FB_Display_Calendar_Click(object sender, EventArgs e)
         {
             Match_Historic_Form hform = new Match_Historic_Form();
@@ -553,8 +532,6 @@ namespace TP_Final
         {
             Cursor = Cursors.Default;
         }
-<<<<<<< HEAD
-=======
         private void Update_Controls_Locations()
         {
             LBL_Team.Location = new Point(DGV_Players.Location.X + (DGV_Players.Size.Width - LBL_Team.Size.Width - LBL_String.Size.Width - LBL_Town.Size.Width) / 2,
@@ -603,6 +580,5 @@ namespace TP_Final
         {
             Cursor = Cursors.Default;
         }
->>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
     }
 }

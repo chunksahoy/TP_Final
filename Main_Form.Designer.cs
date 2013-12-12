@@ -90,10 +90,7 @@
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-<<<<<<< HEAD
             this.optionsToolStripMenuItem.Text = "&Options";
-=======
->>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
             this.optionsToolStripMenuItem.Text = "Options";
             this.optionsToolStripMenuItem.ToolTipText = "Cherles aime les poneys";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
@@ -309,7 +306,6 @@
             this.FB_Stars.Size = new System.Drawing.Size(65, 62);
             this.FB_Stars.TabIndex = 10;
             // 
-<<<<<<< HEAD
             // FB_Remove_Team
             // 
             this.FB_Remove_Team.BackgroundImage = global::TP_Final.Properties.Resources.Delete_Neutral;
@@ -407,8 +403,6 @@
             this.FB_Add_Division.MouseEnter += new System.EventHandler(this.FB_Add_Division_MouseEnter);
             this.FB_Add_Division.MouseLeave += new System.EventHandler(this.FB_Add_Division_MouseLeave);
             // 
-=======
->>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
