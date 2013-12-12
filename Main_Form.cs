@@ -349,8 +349,12 @@ namespace TP_Final
             {
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
 <<<<<<< HEAD
+<<<<<<< HEAD
                // LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
+=======
+                LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
+>>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
 =======
                 LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 >>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
@@ -454,9 +458,14 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 //LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
 
+=======
+                LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
+                Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
+>>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
 =======
                 LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
@@ -467,7 +476,10 @@ namespace TP_Final
         #endregion
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
       
 >>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -480,6 +492,10 @@ namespace TP_Final
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
 =======
 
 >>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
@@ -947,7 +963,11 @@ namespace TP_Final
         private void LS_Logos_Click(object sender, EventArgs e)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
            //string nomSelectedTeam  = LS_Logos.;
+=======
+ //          string nomSelectedTeam  = LS_Logos.;
+>>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
 =======
  //          string nomSelectedTeam  = LS_Logos.;
 >>>>>>> 4ca4a0bf9cf69c97b661b8d1bb902cdb63344a1b
