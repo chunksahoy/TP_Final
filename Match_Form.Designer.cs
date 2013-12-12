@@ -44,7 +44,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.LBL_Receveur = new System.Windows.Forms.Label();
             this.LBL_Visiteur = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PN_Display = new System.Windows.Forms.Panel();
             this.LBL_Date = new System.Windows.Forms.Label();
             this.LBL_Stadium = new System.Windows.Forms.Label();
             this.LBL_Score_Home = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Visitor)).BeginInit();
             this.PN_Visitor.SuspendLayout();
             this.PN_Home.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.PN_Display.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -216,27 +216,31 @@
             this.LBL_Visiteur.TabIndex = 6;
             this.LBL_Visiteur.Text = "Top 3";
             // 
-            // panel1
+            // PN_Display
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.LBL_Date);
-            this.panel1.Controls.Add(this.LBL_Stadium);
-            this.panel1.Controls.Add(this.LBL_Score_Home);
-            this.panel1.Controls.Add(this.LBL_Score_Visitor);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(431, 67);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 102);
-            this.panel1.TabIndex = 8;
+            this.PN_Display.BackColor = System.Drawing.SystemColors.Window;
+            this.PN_Display.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PN_Display.Controls.Add(this.LBL_Date);
+            this.PN_Display.Controls.Add(this.LBL_Stadium);
+            this.PN_Display.Controls.Add(this.LBL_Score_Home);
+            this.PN_Display.Controls.Add(this.LBL_Score_Visitor);
+            this.PN_Display.Controls.Add(this.label3);
+            this.PN_Display.Location = new System.Drawing.Point(431, 67);
+            this.PN_Display.Name = "PN_Display";
+            this.PN_Display.Size = new System.Drawing.Size(200, 102);
+            this.PN_Display.TabIndex = 8;
+            this.PN_Display.Click += new System.EventHandler(this.PN_Display_Click);
+            this.PN_Display.MouseEnter += new System.EventHandler(this.PN_Display_MouseEnter);
+            this.PN_Display.MouseLeave += new System.EventHandler(this.PN_Display_MouseLeave);
             // 
             // LBL_Date
             // 
             this.LBL_Date.AutoSize = true;
             this.LBL_Date.Location = new System.Drawing.Point(67, 80);
             this.LBL_Date.Name = "LBL_Date";
-            this.LBL_Date.Size = new System.Drawing.Size(35, 13);
+            this.LBL_Date.Size = new System.Drawing.Size(30, 13);
             this.LBL_Date.TabIndex = 3;
-            this.LBL_Date.Text = "label1";
+            this.LBL_Date.Text = "Date";
             // 
             // LBL_Stadium
             // 
@@ -310,7 +314,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 548);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PN_Display);
             this.Controls.Add(this.FB_Stats);
             this.Controls.Add(this.LBL_Visiteur);
             this.Controls.Add(this.LBL_Receveur);
@@ -336,8 +340,8 @@
             this.PN_Visitor.PerformLayout();
             this.PN_Home.ResumeLayout(false);
             this.PN_Home.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.PN_Display.ResumeLayout(false);
+            this.PN_Display.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,7 +367,7 @@
         private System.Windows.Forms.Label LBL_Receveur;
         private System.Windows.Forms.Label LBL_Visiteur;
         private FlashButton.FlashButton FB_Stats;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PN_Display;
         private System.Windows.Forms.Label LBL_Score_Home;
         private System.Windows.Forms.Label LBL_Score_Visitor;
         private System.Windows.Forms.Label label3;

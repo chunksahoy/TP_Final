@@ -94,7 +94,7 @@ namespace TP_Final
                         MemoryStream memStream = new MemoryStream(myByteArray);
                         unLogo = Image.FromStream(memStream);
 
-                        LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
+                        //LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
                     }
 
                 }
@@ -347,14 +347,9 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
+
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-                //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
-
-
-=======
-                LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
->>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
+                //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name); 
             }
 
                         
@@ -453,23 +448,14 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                //LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
+               // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
-<<<<<<< HEAD
-=======
-
-                LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
-                Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
->>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
         private void Resize_DGV_Teams()
@@ -746,6 +732,27 @@ namespace TP_Final
             return teamTown;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        private string Find_Player_Division(string team)
+        {
+            string playerDivision = "";
+            string sql = "select division from equipe where nom = '" + team + "'";
+            try
+            {
+                OracleCommand oraCMD = new OracleCommand(sql, conn);
+                OracleDataReader playerReader = oraCMD.ExecuteReader();
+
+                while (playerReader.Read())
+                {
+                    playerDivision = playerReader["Division"].ToString();
+                }
+                playerReader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return playerDivision;
+        }
         /////////////////////////////////////////// Validation de la recherche d'un joueur /////////////////////////////////////////////
         private void TB_Search_Player_KeyDown(object sender, KeyEventArgs e)
         {
@@ -755,6 +762,8 @@ namespace TP_Final
 
                 form.m_TeamName = Find_Player_Team();
                 form.m_TeamTown = Find_Player_Town(Find_Player_Team());
+                form.m_Division = Find_Player_Division(Find_Player_Team());
+                form.m_Divisions_List = Initialize_Divisions_List();
                 form.conn = conn;
 
                 if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -943,11 +952,7 @@ namespace TP_Final
 
         private void LS_Logos_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
 
-=======
-           //string nomSelectedTeam  = LS_Logos.;
->>>>>>> 115137922dfbd172e0c692949fa28378ac6b4c77
         }
     }
 }

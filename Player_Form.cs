@@ -39,12 +39,15 @@ namespace TP_Final
 
         private void Load_Stats()
         {
+            string hack = "Properties.Resources.";
+
             TB_Player_Position.Text = m_Player_Position;
             TB_Player_Goals.Text = m_Player_Goals.ToString();
             TB_Player_Pass.Text = m_Player_Pass.ToString();
             TB_Player_Points.Text = m_Player_Points.ToString();
             TB_Player_Penalty.Text = m_Player_Punitions.ToString();
             PB_Team_Logo.Image = m_Team;
+            // PN_Player_Picture.BackgroundImage = Pr
         }
 
         private void FB_Ok_Click(object sender, EventArgs e)

@@ -23,7 +23,7 @@ namespace TP_Final
         public string m_Stadium;
         public int m_Home_Score;
         public int m_Visitor_Score;
-
+        public int m_numMatch;
         public OracleConnection conn;
         public DataSet myData;
         public BindingSource source;
@@ -48,6 +48,12 @@ namespace TP_Final
 
         private void Initialize_Winner()
         {
+            PN_LVis_Win.BackgroundImage = null;
+            PN_RHome_Win.BackgroundImage = null;
+
+            PN_LHome_Win.BackgroundImage = null;
+            PN_RHome_Win.BackgroundImage = null;
+
             //il y a deux if ici en cas de scores égaux
             if (m_Home_Score > m_Visitor_Score)
             {
@@ -82,8 +88,79 @@ namespace TP_Final
         private void FB_Stats_Click(object sender, EventArgs e)
         {
             LBL_Receveur.Text = LBL_Visiteur.Text = "Statistiques du match";
-           // FB_Stats.ImageNeutral
+            // FB_Stats.ImageNeutral
         }
 
+        private void PN_Display_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void PN_Display_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
+        }
+
+        private void PN_Display_Click(object sender, EventArgs e)
+        {
+            Edit_Display();
+        }
+
+        private void Update_Match(string stadium, DateTime date, int homeScore, int visitScore)
+        {
+            OracleParameter pdate = new OracleParameter(":date",OracleDbType.Date);
+            OracleParameter pstadium = new OracleParameter(":stade", OracleDbType.Varchar2, 30);
+            OracleParameter phomescore = new OracleParameter(":scoreReceveur", OracleDbType.Int32);
+            OracleParameter pvisitscore = new OracleParameter(":scorevisiteur", OracleDbType.Int32);
+            OracleParameter pmatch = new OracleParameter(":numeromatch", OracleDbType.Int32);
+
+            string sqlUpdate = "update match set daterencontre =:pdate, lieurencontre=:pstadium, scorereceveur=:phomescore, scorevisiteur=:pvisitscore where numeromatch =:pmatch";
+            OracleCommand oraUpdate = new OracleCommand(sqlUpdate, conn);
+            oraUpdate.CommandType = CommandType.Text;
+
+            pdate.Value = date;
+            pstadium.Value = stadium;
+            phomescore.Value = homeScore;
+            pvisitscore.Value = visitScore;
+            pmatch.Value = m_numMatch;
+
+            try
+            {
+                oraUpdate.Parameters.Add(pdate);
+                oraUpdate.Parameters.Add(pstadium);
+                oraUpdate.Parameters.Add(phomescore);
+                oraUpdate.Parameters.Add(pvisitscore);
+                oraUpdate.Parameters.Add(pmatch);
+
+                oraUpdate.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+        }
+        private void Edit_Display()
+        {
+            Edit_Match_Form form = new Edit_Match_Form();
+
+            form.m_Stadium = LBL_Stadium.Text;
+            form.m_Date = DateTime.Parse(LBL_Date.Text);
+            form.m_Home_Score = int.Parse(LBL_Score_Home.Text);
+            form.m_Visitor_Score = int.Parse(LBL_Score_Visitor.Text);
+
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                m_Stadium = form.m_Stadium;
+                m_Date = form.m_Date.ToShortDateString();
+                m_Home_Score = form.m_Home_Score;
+                m_Visitor_Score = form.m_Visitor_Score;
+
+                Initialize_Labels();
+                Initialize_Winner();
+
+                Update_Match(form.m_Stadium,form.m_Date, form.m_Home_Score, form.m_Visitor_Score);
+            }
+        }
     }
 }
