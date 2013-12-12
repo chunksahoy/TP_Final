@@ -133,6 +133,9 @@
   <data name="ICON_Annuler_Over" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>ICON_Annuler_Over.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Star_Over" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Star_Over.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Versus-Symbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Versus-Symbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -141,6 +144,9 @@
   </data>
   <data name="Delete_Over" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Delete_Over.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Calendar_Disable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Calendar_Disable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Calendar_Neutral1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Calendar_Neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,8 +157,8 @@
   <data name="ICON_Accepter_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>ICON_Accepter_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="StraightLines_Over" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>StraightLines_Over.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Star_Neutral" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Star_Neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StraightLines_Neutral" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>StraightLines_Neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,8 +169,8 @@
   <data name="ICON_Accepter_Neutral" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>ICON_Accepter_Neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Calendar_Disable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Calendar_Disable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="StraightLines_Over" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>StraightLines_Over.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Calendar_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Calendar_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -183,6 +189,9 @@
   </data>
   <data name="ICON_Accepter_Disable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>ICON_Accepter_Disable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Star_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Star_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Calendar_Neutral" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Calendar_Neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,13 +214,7 @@
   <data name="Delete_Disable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Delete_Disable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Star_Neutral" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Star_Neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Star_Over" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Star_Over.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Star_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Star_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Champion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Champion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

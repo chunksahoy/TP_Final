@@ -39,7 +39,6 @@
             this.TB_Player_Pass = new System.Windows.Forms.TextBox();
             this.TB_Player_Penalty = new System.Windows.Forms.TextBox();
             this.PN_Player_Picture = new System.Windows.Forms.Panel();
-            this.PN_Player_Team_Logo = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,9 +50,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.FB_Cancel = new FlashButton.FlashButton();
             this.FB_Ok = new FlashButton.FlashButton();
+            this.PB_Team_Logo = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.GB_Player_Stats.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Team_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // LBL_Position
@@ -138,18 +139,10 @@
             // 
             // PN_Player_Picture
             // 
-            this.PN_Player_Picture.Location = new System.Drawing.Point(80, 48);
+            this.PN_Player_Picture.Location = new System.Drawing.Point(61, 48);
             this.PN_Player_Picture.Name = "PN_Player_Picture";
-            this.PN_Player_Picture.Size = new System.Drawing.Size(175, 100);
-            this.PN_Player_Picture.TabIndex = 2;
-            this.PN_Player_Picture.Paint += new System.Windows.Forms.PaintEventHandler(this.PN_Player_Picture_Paint);
-            // 
-            // PN_Player_Team_Logo
-            // 
-            this.PN_Player_Team_Logo.Location = new System.Drawing.Point(12, 48);
-            this.PN_Player_Team_Logo.Name = "PN_Player_Team_Logo";
-            this.PN_Player_Team_Logo.Size = new System.Drawing.Size(44, 38);
-            this.PN_Player_Team_Logo.TabIndex = 3;
+            this.PN_Player_Picture.Size = new System.Drawing.Size(206, 100);
+            this.PN_Player_Picture.TabIndex = 11;
             // 
             // menuStrip1
             // 
@@ -285,16 +278,24 @@
             this.FB_Ok.TabIndex = 6;
             this.FB_Ok.Click += new System.EventHandler(this.FB_Ok_Click);
             // 
+            // PB_Team_Logo
+            // 
+            this.PB_Team_Logo.Location = new System.Drawing.Point(15, 48);
+            this.PB_Team_Logo.Name = "PB_Team_Logo";
+            this.PB_Team_Logo.Size = new System.Drawing.Size(40, 40);
+            this.PB_Team_Logo.TabIndex = 10;
+            this.PB_Team_Logo.TabStop = false;
+            // 
             // Player_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(320, 513);
+            this.Controls.Add(this.PB_Team_Logo);
             this.Controls.Add(this.GB_Player_Stats);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.FB_Cancel);
             this.Controls.Add(this.FB_Ok);
-            this.Controls.Add(this.PN_Player_Team_Logo);
             this.Controls.Add(this.PN_Player_Picture);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -305,6 +306,7 @@
             this.GB_Player_Stats.ResumeLayout(false);
             this.GB_Player_Stats.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PB_Team_Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,7 +325,6 @@
         private System.Windows.Forms.TextBox TB_Player_Pass;
         private System.Windows.Forms.TextBox TB_Player_Penalty;
         private System.Windows.Forms.Panel PN_Player_Picture;
-        private System.Windows.Forms.Panel PN_Player_Team_Logo;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private FlashButton.FlashButton FB_Cancel;
         private FlashButton.FlashButton FB_Ok;
@@ -335,5 +336,6 @@
         private BoutonFlèche.BoutonFlèche BTN_Next;
         private BoutonFlèche.BoutonFlèche BTN_End;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox PB_Team_Logo;
     }
 }

@@ -47,8 +47,16 @@ namespace TP_Final
         private string Txt_AddDivision = "Tips: Clique gauche pour ouvrir un dialogue qui vous permet d'ajouter une division dans ce conteneur.";
         private string Txt_LogoScroller = "Tips: Clique gauche sur un logo pour afficher les joueurs de l'équipe correspondante au logo dans une autre fenêtre";
         private string Txt_DGV_TeamOver = "Tips: Double clique sur l'entête d'une rangée d'une équipe pour afficher ses joueurs dans une autre fenêtre.";
+<<<<<<< HEAD
         private string Txt_LB_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
         private string Txt_LV_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
+=======
+
+        private string Txt_LB_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
+
+        private string Txt_LV_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
+
+>>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
 
         #endregion
         ////////////////////////////////////////////// Au Chargement de la page ///////////////////////////////////////////
@@ -60,7 +68,6 @@ namespace TP_Final
             ListDivisions();
 
             LoadSettings();
-
 
             Initialize_Controls();
             Initialize_LogoScroller();
@@ -151,7 +158,7 @@ namespace TP_Final
 
             source = new BindingSource(myData, "divisions");
             DGV_Teams.DataSource = source;
-            LoadSettings();
+            //LoadSettings();
             ApplyRowsStyles();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -187,11 +194,11 @@ namespace TP_Final
         private void LoadSettings()
         {
             DGV_Teams.RowHeadersWidth = Properties.Settings.Default.DGV_Row_Headers_Width;
-            oddRowColor = Properties.Settings.Default.OddRowColor;
-            evenRowColor = Properties.Settings.Default.EvenRowColor;
-            this.Location = Properties.Settings.Default.Main_Form_Location;
-            this.Size = Properties.Settings.Default.Main_Form_Size;
-            DGV_Teams.Font = Properties.Settings.Default.DGV_Font;
+            oddRowColor = TP_Final.Properties.Settings.Default.OddRowColor;
+            evenRowColor = TP_Final.Properties.Settings.Default.EvenRowColor;
+            this.Location = TP_Final.Properties.Settings.Default.Main_Form_Location;
+            this.Size = TP_Final.Properties.Settings.Default.Main_Form_Size;
+            DGV_Teams.Font = TP_Final.Properties.Settings.Default.DGV_Font;
 
             string[] widthStrings = Properties.Settings.Default.DGV_Column_Width.Split(',');
             if (widthStrings.Count() > 0)
@@ -337,6 +344,7 @@ namespace TP_Final
             ListDivisions();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
         /////////////////////////////////////// Gestion du clique du bouton flash d'ajout d'équipe /////////////////////////////////////
         private void FB_Add_Team_Click(object sender, EventArgs e)
         {
@@ -360,6 +368,8 @@ namespace TP_Final
             Edit_Team();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+=======
+>>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
         //////////////////////////////////////////////// Ajout d'une équipe dans la BD /////////////////////////////////////////////////
         private void Add_Team(string name, DateTime joined, string logo, string town, string division)
         { 
@@ -442,11 +452,30 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-
+                Update_Team(form.m_TeamTown,form.m_TeamName);
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
+
+        private void Update_Team(string town, string team)
+        {
+            string sqlUpdate = "update equipe set ville = '" + town + "' where nom = '" + team +"'";
+
+            OracleCommand oraCMD = new OracleCommand(sqlUpdate, conn);
+
+            oraCMD.CommandType = CommandType.Text;
+
+            try
+            {
+                oraCMD.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
         #region Menus_contextuels
         ///////////////////////////////// Gestion de l'option couleur du menu contextuel du DGV_Teams //////////////////////////////////
         private void tsmi_Color_Click(object sender, EventArgs e)
@@ -609,7 +638,8 @@ namespace TP_Final
         ////////////////////////////////////////////////// Recherche d'un joueur ///////////////////////////////////////////////////////
         private void SearchPlayer()
         {
-            string sql = "select * from player where nom like '" + TB_Search_Player.Text + "%'";
+            string sql = "select * from player where nom like '" + TB_Search_Player.Text + "%'" + 
+                "UNION select * from player where prenom like '" + TB_Search_Player.Text + "%' ";
             try
             {
                 OracleCommand oraCMD = new OracleCommand(sql, conn);
@@ -619,6 +649,7 @@ namespace TP_Final
                 while (playerReader.Read())
                 {
                     namesCollection.Add(playerReader["Nom"].ToString());
+                    namesCollection.Add(playerReader["Prenom"].ToString());
                 }
                 playerReader.Close();
 
@@ -817,7 +848,7 @@ namespace TP_Final
         }
         private void Main_Form_LocationChanged(object sender, EventArgs e)
         {
-            Save_Settings();
+            Properties.Settings.Default.Main_Form_Location = this.Location;
         }
 
         private void DGV_Teams_RowHeightChanged(object sender, DataGridViewRowEventArgs e)
@@ -886,6 +917,7 @@ namespace TP_Final
         {
             
         }
+<<<<<<< HEAD
 
 
 
@@ -894,5 +926,7 @@ namespace TP_Final
 
 
 
+=======
+>>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
     }
 }

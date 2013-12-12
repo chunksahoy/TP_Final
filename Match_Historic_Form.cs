@@ -42,6 +42,7 @@ namespace TP_Final
 
             source = new BindingSource(myData, "divisions");
             DGV_Historic.DataSource = source;
+
         }
 
         private void FB_Add_Match_Click(object sender, EventArgs e)
@@ -126,11 +127,21 @@ namespace TP_Final
 
         private void Edit_Match()
         {
-            Match_Form form = new Match_Form();
-
-            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (DGV_Historic.RowCount > 0)
             {
+                Match_Form form = new Match_Form();
 
+                form.m_Home = DGV_Historic.SelectedRows[0].Cells[1].Value.ToString();
+                form.m_Visitor = DGV_Historic.SelectedRows[0].Cells[2].Value.ToString();
+                form.m_Date = DGV_Historic.SelectedRows[0].Cells[3].Value.ToString();
+                form.m_Stadium = DGV_Historic.SelectedRows[0].Cells[4].Value.ToString();
+                form.m_Visitor_Score = int.Parse(DGV_Historic.SelectedRows[0].Cells[5].Value.ToString());
+                form.m_Home_Score = int.Parse(DGV_Historic.SelectedRows[0].Cells[6].Value.ToString());
+
+                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+
+                }
             }
         }
 

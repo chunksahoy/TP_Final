@@ -66,7 +66,7 @@ namespace TP_Final
             RefreshLogo();
             LoadSettings();
             ApplyRowsStyles();
-
+            TB_Town.Visible = false;
         }
 
         private void SaveSettings()
@@ -121,7 +121,8 @@ namespace TP_Final
 
         private void InitializeTitle()
         {
-            LBL_Team.Text = m_TeamName + " de " + m_TeamTown;
+            LBL_Team.Text = m_TeamName;
+            LBL_Town.Text = m_TeamTown;
         }
 
         private void InitializeDataGrid()
@@ -226,6 +227,7 @@ namespace TP_Final
         {
             Player_Form form = new Player_Form();
 
+            form.m_Team = PB_Logo.Image;
             form.m_Player_Position = DGV_Players.SelectedRows[0].Cells[4].Value.ToString();
             //form.m_Player_Goals = DGV_Players.SelectedRows[0].Cells[2].Value.ToString();
 
@@ -359,7 +361,6 @@ namespace TP_Final
             Cursor = Cursors.Default;
         }
 
-
         #region "SL_TeamTips fill text"
         private void DGV_Players_MouseEnter(object sender, EventArgs e)
         {
@@ -369,7 +370,11 @@ namespace TP_Final
         {
             SL_TeamTips.Text = Txt_AddPlayers;
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
         private void FB_Remove_Player_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_RemovePlayer;
@@ -381,7 +386,13 @@ namespace TP_Final
         private void FB_Display_Calendar_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_ShowCalendar;
+<<<<<<< HEAD
         }
+=======
+
+        }
+
+>>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
         private void FB_Ok_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_AcceptChanges;
@@ -403,12 +414,19 @@ namespace TP_Final
         private void FB_Add_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
+<<<<<<< HEAD
 
+=======
+>>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
         }
         private void FB_Remove_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
         private void FB_Edit_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
@@ -427,7 +445,10 @@ namespace TP_Final
         }
         #endregion
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
         private void FB_Display_Calendar_Click(object sender, EventArgs e)
         {
             Match_Historic_Form hform = new Match_Historic_Form();
@@ -444,8 +465,6 @@ namespace TP_Final
 
         private void RefreshLogo()
         {
-            //string getLogo = "select logo from equipe where nom = :nom";
-
             try
             {
                 OracleCommand oraCMD = conn.CreateCommand();
@@ -472,7 +491,7 @@ namespace TP_Final
                                     ms.Write(buffer, 0, read);
                                 }
                                 image = ms.ToArray();
-                                PB_Logo.Image = Image.FromStream(ms); // PB_Images et un PictureBox sur le form
+                                PB_Logo.Image = Image.FromStream(ms);
 
                             }
                         }
@@ -534,5 +553,56 @@ namespace TP_Final
         {
             Cursor = Cursors.Default;
         }
+<<<<<<< HEAD
+=======
+        private void Update_Controls_Locations()
+        {
+            LBL_Team.Location = new Point(DGV_Players.Location.X + (DGV_Players.Size.Width - LBL_Team.Size.Width - LBL_String.Size.Width - LBL_Town.Size.Width) / 2,
+                DGV_Players.Location.Y - LBL_Team.Size.Height);
+            LBL_String.Location = new Point(DGV_Players.Location.X + (DGV_Players.Size.Width - LBL_String.Size.Width + LBL_Team.Size.Width - LBL_Town.Size.Width) / 2,
+                DGV_Players.Location.Y - LBL_String.Size.Height);
+            LBL_Town.Location = new Point(DGV_Players.Location.X + (DGV_Players.Size.Width - LBL_Town.Size.Width + LBL_Team.Size.Width + LBL_String.Size.Width) / 2,
+                DGV_Players.Location.Y - LBL_Town.Size.Height);
+            TB_Town.Location = new Point(LBL_Town.Location.X + (LBL_Town.Size.Width + TB_Town.Size.Width + 4) / 2, LBL_Town.Location.Y - TB_Town.Size.Height);
+
+        }
+        private void Team_Form_SizeChanged(object sender, EventArgs e)
+        {
+            Update_Controls_Locations();
+        }
+
+        private void LBL_Town_Click(object sender, EventArgs e)
+        {
+            Label lbl = sender as Label;
+
+            if (lbl != null)
+            {
+                TB_Town.Visible = true;
+                TB_Town.Focus();
+            }
+        }
+
+        private void TB_Town_Leave(object sender, EventArgs e)
+        {
+            TB_Town.Clear();
+            TB_Town.Visible = false;
+        }
+
+        private void TB_Town_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == '\r' && TB_Town.Text != "")
+            {
+                m_TeamTown = TB_Town.Text;
+                InitializeTitle();
+                Update_Controls_Locations();
+            }
+        }
+
+
+        private void TB_Team_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
+        }
+>>>>>>> f5528cee871965c7e549438f6c35671f06d7845a
     }
 }

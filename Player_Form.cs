@@ -24,6 +24,7 @@ namespace TP_Final
         public int m_Player_Points;
         public int m_Player_Punitions;
         public string m_Picture_Path;
+        public Image m_Team;
         public DataSet myData = new DataSet();
         public BindingSource source;
 
@@ -43,6 +44,7 @@ namespace TP_Final
             TB_Player_Pass.Text = m_Player_Pass.ToString();
             TB_Player_Points.Text = m_Player_Points.ToString();
             TB_Player_Penalty.Text = m_Player_Punitions.ToString();
+            PB_Team_Logo.Image = m_Team;
         }
 
         private void FB_Ok_Click(object sender, EventArgs e)
@@ -56,29 +58,21 @@ namespace TP_Final
             DialogResult = System.Windows.Forms.DialogResult.Cancel;
         }
 
-        private void PN_Player_Picture_Paint(object sender, PaintEventArgs e)
-        {
-            //object O = Properties.Resources.ResourceManager.GetObject(textBox.Text);
-            //channelPic.Image = (Image)O;
-           // this.Refresh();
-        }
-
         private void Player_Form_Load(object sender, EventArgs e)
         {
-            TB_Player_Position.Text = m_Player_Position;
-            TB_Player_Goals.Text = m_Player_Goals.ToString();
-            TB_Player_Pass.Text = m_Player_Pass.ToString();
-            TB_Player_Points.Text = m_Player_Points.ToString();
-            TB_Player_Penalty.Text = m_Player_Punitions.ToString();
+            Load_Stats();
+            UpdateTextBoxes();
         }
+
         private void UpdateTextBoxes()
         {
             TB_Player_Position.DataBindings.Add("Text", myData, "vueJoueur.position");
             TB_Player_Goals.DataBindings.Add("Text", myData, "vueJoueur.buts");
             TB_Player_Pass.DataBindings.Add("Text", myData, "vueJoueur.passes");
-            TB_Player_Points.DataBindings.Add("Text", myData, "vueJoueur.points");
+            //TB_Player_Points.DataBindings.Add("Text", myData, "vueJoueur.points");
             TB_Player_Penalty.DataBindings.Add("Text", myData, "vueJoueur.punitions");
         }
+
         private void Clear_TB_Bindings()
         {
             TB_Player_Position.DataBindings.Clear();
