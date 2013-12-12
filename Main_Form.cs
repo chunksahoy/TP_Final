@@ -385,9 +385,15 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
                 LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
+=======
+
+                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
+                //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name); 
+>>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
 =======
 
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
@@ -490,7 +496,11 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
+=======
+               // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
+>>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
 =======
                // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
 >>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
@@ -500,9 +510,10 @@ namespace TP_Final
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
-<<<<<<< HEAD
-=======
 
+<<<<<<< HEAD
+>>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
+=======
 >>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////

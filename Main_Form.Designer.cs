@@ -161,10 +161,13 @@
             this.FB_Remove_Division.MouseEnter += new System.EventHandler(this.FB_Remove_Division_MouseEnter);
             this.FB_Remove_Division.MouseLeave += new System.EventHandler(this.FB_Remove_Division_MouseLeave);
 <<<<<<< HEAD
+<<<<<<< HEAD
             // 
             // FB_Add_Division
             // 
 =======
+=======
+>>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
 
             //// 
             //// FB_Add_Division
@@ -207,6 +210,9 @@
             //this.FB_Add_Division.Size = new System.Drawing.Size(89, 87);
             //this.FB_Add_Division.TabIndex = 6;
 
+<<<<<<< HEAD
+>>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
+=======
 >>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
             this.FB_Add_Division.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Ajouter_Neutral;
             this.FB_Add_Division.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -335,9 +341,12 @@
             this.FB_Stars.TabIndex = 10;
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             // LS_Logos
             // 
 =======
+=======
+>>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
 
 
 
@@ -433,6 +442,9 @@
             // LS_Logos
             // 
 
+<<<<<<< HEAD
+>>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
+=======
 >>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
             this.LS_Logos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
