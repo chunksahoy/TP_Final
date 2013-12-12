@@ -45,6 +45,7 @@
             this.LBL_Receveur = new System.Windows.Forms.Label();
             this.LBL_Visiteur = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LBL_Date = new System.Windows.Forms.Label();
             this.LBL_Stadium = new System.Windows.Forms.Label();
             this.LBL_Score_Home = new System.Windows.Forms.Label();
             this.LBL_Score_Visitor = new System.Windows.Forms.Label();
@@ -218,14 +219,24 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.LBL_Date);
             this.panel1.Controls.Add(this.LBL_Stadium);
             this.panel1.Controls.Add(this.LBL_Score_Home);
             this.panel1.Controls.Add(this.LBL_Score_Visitor);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(431, 67);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 94);
+            this.panel1.Size = new System.Drawing.Size(200, 102);
             this.panel1.TabIndex = 8;
+            // 
+            // LBL_Date
+            // 
+            this.LBL_Date.AutoSize = true;
+            this.LBL_Date.Location = new System.Drawing.Point(81, 80);
+            this.LBL_Date.Name = "LBL_Date";
+            this.LBL_Date.Size = new System.Drawing.Size(35, 13);
+            this.LBL_Date.TabIndex = 3;
+            this.LBL_Date.Text = "label1";
             // 
             // LBL_Stadium
             // 
@@ -354,5 +365,6 @@
         private System.Windows.Forms.Label LBL_Score_Visitor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LBL_Stadium;
+        private System.Windows.Forms.Label LBL_Date;
     }
 }
