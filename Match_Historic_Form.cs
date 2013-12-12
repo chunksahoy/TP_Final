@@ -151,6 +151,7 @@ namespace TP_Final
 
                 form.conn = conn;
 
+                form.m_numMatch = int.Parse(DGV_Historic.SelectedRows[0].Cells[0].Value.ToString());
                 form.m_Home = DGV_Historic.SelectedRows[0].Cells[1].Value.ToString();
                 form.m_Visitor = DGV_Historic.SelectedRows[0].Cells[2].Value.ToString();
                 form.m_Date = DateTime.Parse(DGV_Historic.SelectedRows[0].Cells[3].Value.ToString()).ToShortDateString();
@@ -158,10 +159,9 @@ namespace TP_Final
                 form.m_Visitor_Score = int.Parse(DGV_Historic.SelectedRows[0].Cells[5].Value.ToString());
                 form.m_Home_Score = int.Parse(DGV_Historic.SelectedRows[0].Cells[6].Value.ToString());
 
-                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
+                form.ShowDialog();
 
-                }
+                InitializeDGV();          
             }
         }
 

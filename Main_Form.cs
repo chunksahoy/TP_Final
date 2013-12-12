@@ -96,7 +96,7 @@ namespace TP_Final
                         MemoryStream memStream = new MemoryStream(myByteArray);
                         unLogo = Image.FromStream(memStream);
 
-                        LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
+                        //LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
                     }
 
                 }
@@ -384,9 +384,15 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+<<<<<<< HEAD
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
                 LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
+=======
+
+                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
+                //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name); 
+>>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
             }
 
                         
@@ -483,13 +489,21 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+<<<<<<< HEAD
                 LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
+=======
+               // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
+>>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
         private void Resize_DGV_Teams()
@@ -765,6 +779,27 @@ namespace TP_Final
             return teamTown;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        private string Find_Player_Division(string team)
+        {
+            string playerDivision = "";
+            string sql = "select division from equipe where nom = '" + team + "'";
+            try
+            {
+                OracleCommand oraCMD = new OracleCommand(sql, conn);
+                OracleDataReader playerReader = oraCMD.ExecuteReader();
+
+                while (playerReader.Read())
+                {
+                    playerDivision = playerReader["Division"].ToString();
+                }
+                playerReader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return playerDivision;
+        }
         /////////////////////////////////////////// Validation de la recherche d'un joueur /////////////////////////////////////////////
         private void TB_Search_Player_KeyDown(object sender, KeyEventArgs e)
         {
@@ -774,6 +809,8 @@ namespace TP_Final
 
                 form.m_TeamName = Find_Player_Team();
                 form.m_TeamTown = Find_Player_Town(Find_Player_Team());
+                form.m_Division = Find_Player_Division(Find_Player_Team());
+                form.m_Divisions_List = Initialize_Divisions_List();
                 form.conn = conn;
 
                 if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -959,5 +996,13 @@ namespace TP_Final
         {
 
         }
+<<<<<<< HEAD
+=======
+
+        private void LS_Logos_Click(object sender, EventArgs e)
+        {
+
+        }
+>>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
     }
 }
