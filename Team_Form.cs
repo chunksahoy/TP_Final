@@ -364,7 +364,6 @@ namespace TP_Final
         {
             SL_TeamTips.Text = Txt_AddPlayers;
         }
-
         private void FB_Remove_Player_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_RemovePlayer;
@@ -376,8 +375,8 @@ namespace TP_Final
         private void FB_Display_Calendar_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_ShowCalendar;
-
         }
+
 
         private void FB_Ok_MouseEnter(object sender, EventArgs e)
         {
@@ -405,7 +404,6 @@ namespace TP_Final
         {
             Empty_SL_TeamTips();
         }
-
         private void FB_Edit_Player_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();

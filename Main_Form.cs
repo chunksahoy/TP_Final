@@ -47,10 +47,7 @@ namespace TP_Final
         private string Txt_AddDivision = "Tips: Clique gauche pour ouvrir un dialogue qui vous permet d'ajouter une division dans ce conteneur.";
         private string Txt_LogoScroller = "Tips: Clique gauche sur un logo pour afficher les joueurs de l'équipe correspondante au logo dans une autre fenêtre";
         private string Txt_DGV_TeamOver = "Tips: Double clique sur l'entête d'une rangée d'une équipe pour afficher ses joueurs dans une autre fenêtre.";
-
         private string Txt_LB_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
-
-        private string Txt_LV_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
 
 
         #endregion
@@ -287,28 +284,6 @@ namespace TP_Final
             
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////// Gestion du clique du bouton flash d'ajout d'équipe /////////////////////////////////////
-        private void FB_Add_Team_Click(object sender, EventArgs e)
-        {
-            Add_Team_Form form = new Add_Team_Form();
-
-            form.m_Divisions_List = Initialize_Divisions_List();
-            form.source = source;
-
-            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-                //LS_Logos.AddElement(form.m_file_Name);  
-            }
-
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////// Gestion du clique du bouton flash d'édition d'équipe ///////////////////////////////////////
-        private void FB_Edit_Team_Click(object sender, EventArgs e)
-        {
-            Edit_Team();
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////// Gestion du clique du bouton flash de retrait d'une équipe //////////////////////////////////
         private void FB_Remove_Team_Click(object sender, EventArgs e)
         {
@@ -359,6 +334,29 @@ namespace TP_Final
                 MessageBox.Show(ex.Message.ToString());
             }
             ListDivisions();
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////// Gestion du clique du bouton flash d'ajout d'équipe /////////////////////////////////////
+        private void FB_Add_Team_Click(object sender, EventArgs e)
+        {
+            Add_Team_Form form = new Add_Team_Form();
+
+            form.m_Divisions_List = Initialize_Divisions_List();
+            form.source = source;
+
+            if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
+                LS_Logos.AddElement(form.m_file_Name);  
+            }
+
+                        
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////// Gestion du clique du bouton flash d'édition d'équipe ///////////////////////////////////////
+        private void FB_Edit_Team_Click(object sender, EventArgs e)
+        {
+            Edit_Team();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////// Ajout d'une équipe dans la BD /////////////////////////////////////////////////
