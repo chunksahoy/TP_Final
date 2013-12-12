@@ -289,7 +289,7 @@
             // 
             this.LBL_Division.AutoSize = true;
             this.LBL_Division.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_Division.Location = new System.Drawing.Point(12, 57);
+            this.LBL_Division.Location = new System.Drawing.Point(12, 64);
             this.LBL_Division.Name = "LBL_Division";
             this.LBL_Division.Size = new System.Drawing.Size(92, 27);
             this.LBL_Division.TabIndex = 6;
@@ -302,10 +302,11 @@
             // CBX_Division
             // 
             this.CBX_Division.FormattingEnabled = true;
-            this.CBX_Division.Location = new System.Drawing.Point(110, 57);
+            this.CBX_Division.Location = new System.Drawing.Point(110, 64);
             this.CBX_Division.Name = "CBX_Division";
             this.CBX_Division.Size = new System.Drawing.Size(121, 21);
             this.CBX_Division.TabIndex = 10;
+            this.CBX_Division.SelectedIndexChanged += new System.EventHandler(this.CBX_Division_SelectedIndexChanged);
             // 
             // Team_Form
             // 
@@ -363,6 +364,10 @@
         private System.Windows.Forms.Label LBL_String;
         private System.Windows.Forms.Label LBL_Town;
         private System.Windows.Forms.TextBox TB_Town;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 53d676bb03f50a4298327a114fbb1d8f01f8f612
         private System.Windows.Forms.Label LBL_Division;
         private System.Windows.Forms.ComboBox CBX_Division;
 

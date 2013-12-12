@@ -348,7 +348,11 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
+<<<<<<< HEAD
                 LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
+=======
+                //LS_Logos.AddElement(form.m_file_Name);  
+>>>>>>> 53d676bb03f50a4298327a114fbb1d8f01f8f612
             }
 
                         
@@ -447,13 +451,18 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+<<<<<<< HEAD
                 LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
                 Update_Team(form.m_TeamTown,form.m_TeamName);
+=======
+                Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
+>>>>>>> 53d676bb03f50a4298327a114fbb1d8f01f8f612
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
+<<<<<<< HEAD
       
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
@@ -467,18 +476,30 @@ namespace TP_Final
 
 
         private void Update_Team(string town, string team)
+=======
+        private void Update_Team(string town, string team, string division)
+>>>>>>> 53d676bb03f50a4298327a114fbb1d8f01f8f612
         {
             OracleParameter ptown = new OracleParameter(":ville", OracleDbType.Varchar2, 30);
             OracleParameter pteam = new OracleParameter(":equipe", OracleDbType.Varchar2, 30);
+            OracleParameter pdivision = new OracleParameter(":division", OracleDbType.Varchar2, 20);
 
-            string sqlUpdate = "update equipe set ville = :ville where nom = :equipe";
+            string sqlUpdate = "BEGIN update equipe set ville = :ville where nom = :equipe;" + 
+                "update equipe set division = :division where nom = :equipe; END; ";
 
             OracleCommand oraCMD = new OracleCommand(sqlUpdate, conn);
-
             oraCMD.CommandType = CommandType.Text;
+
+            ptown.Value = town;
+            pteam.Value = team;
+            pdivision.Value = division;
 
             try
             {
+                oraCMD.Parameters.Add(ptown);
+                oraCMD.Parameters.Add(pteam);
+                oraCMD.Parameters.Add(pdivision);
+
                 oraCMD.ExecuteNonQuery();
             }
             catch (OracleException ex)
@@ -882,7 +903,7 @@ namespace TP_Final
                     FB_Add_Team.Enabled = false;
                 else
                     FB_Add_Team.Enabled = true;
-                if (DGV_Teams.RowCount <= 1)
+                if (DGV_Teams.RowCount <= 0)
                 {
                     FB_Remove_Team.Enabled = false;
                     FB_Edit_Team.Enabled = false;
