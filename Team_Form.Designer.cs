@@ -233,6 +233,7 @@
             this.PB_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PB_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PB_Logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PB_Logo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PB_Logo.Location = new System.Drawing.Point(1016, 64);
             this.PB_Logo.Name = "PB_Logo";
             this.PB_Logo.Size = new System.Drawing.Size(40, 40);
@@ -261,6 +262,7 @@
             this.LBL_Town.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LBL_Town.AutoSize = true;
+            this.LBL_Town.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LBL_Town.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBL_Town.Location = new System.Drawing.Point(525, 64);
             this.LBL_Town.Name = "LBL_Town";
@@ -284,6 +286,7 @@
             this.TB_Town.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_Town_KeyDown);
             this.TB_Town.Leave += new System.EventHandler(this.TB_Town_Leave);
             this.TB_Town.MouseEnter += new System.EventHandler(this.TB_Team_MouseEnter);
+            this.TB_Town.MouseLeave += new System.EventHandler(this.TB_Town_MouseLeave);
             // 
             // LBL_Division
             // 
@@ -296,8 +299,8 @@
             this.LBL_Division.Text = "Division";
             this.LBL_Division.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LBL_Division.Click += new System.EventHandler(this.LBL_Division_Click);
-            this.LBL_Division.MouseEnter += new System.EventHandler(this.LBL_Team_MouseEnter);
-            this.LBL_Division.MouseLeave += new System.EventHandler(this.LBL_Team_MouseLeave);
+            this.LBL_Division.MouseEnter += new System.EventHandler(this.LBL_Division_MouseEnter);
+            this.LBL_Division.MouseLeave += new System.EventHandler(this.LBL_Division_MouseLeave);
             // 
             // CBX_Division
             // 
@@ -307,6 +310,8 @@
             this.CBX_Division.Size = new System.Drawing.Size(121, 21);
             this.CBX_Division.TabIndex = 10;
             this.CBX_Division.SelectedIndexChanged += new System.EventHandler(this.CBX_Division_SelectedIndexChanged);
+            this.CBX_Division.MouseEnter += new System.EventHandler(this.CBX_Division_MouseEnter);
+            this.CBX_Division.MouseLeave += new System.EventHandler(this.CBX_Division_MouseLeave);
             // 
             // Team_Form
             // 
@@ -364,10 +369,6 @@
         private System.Windows.Forms.Label LBL_String;
         private System.Windows.Forms.Label LBL_Town;
         private System.Windows.Forms.TextBox TB_Town;
-<<<<<<< HEAD
-=======
-
->>>>>>> 53d676bb03f50a4298327a114fbb1d8f01f8f612
         private System.Windows.Forms.Label LBL_Division;
         private System.Windows.Forms.ComboBox CBX_Division;
 

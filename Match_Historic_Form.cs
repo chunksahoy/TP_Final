@@ -43,7 +43,17 @@ namespace TP_Final
             source = new BindingSource(myData, "divisions");
             DGV_Historic.DataSource = source;
 
+            Resize_DGV_Historic();
         }
+
+        private void Resize_DGV_Historic()
+        {
+            foreach (DataGridViewColumn Col in DGV_Historic.Columns)
+            {
+                Col.Width = DGV_Historic.Size.Width / DGV_Historic.ColumnCount;
+            }
+        }
+
 
         private void FB_Add_Match_Click(object sender, EventArgs e)
         {
@@ -100,7 +110,14 @@ namespace TP_Final
 
         private void FB_Remove_Match_Click(object sender, EventArgs e)
         {
-            Remove_Match();
+            DeleteForm dlg = new DeleteForm();
+            dlg.ElementSupprime = "le match numéro " + DGV_Historic.SelectedRows[0].Cells[0].Value.ToString();
+            
+            if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Remove_Match();
+            }
+           
         }
 
         private void Remove_Match()
@@ -170,7 +187,15 @@ namespace TP_Final
 
         private void DGV_Historic_RowHeightChanged(object sender, DataGridViewRowEventArgs e)
         {
+            foreach (DataGridViewRow row in DGV_Historic.SelectedRows)
+            {
+                row.Height = e.Row.Height;
+            }
+        }
 
+        private void FB_Cancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = System.Windows.Forms.DialogResult.Cancel;
         }
     }
 }

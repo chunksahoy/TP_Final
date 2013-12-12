@@ -25,6 +25,11 @@ namespace TP_Final
         private string Txt_RemovePlayer = "Tips: Clique gauche pour retirer le joueur sélectionné de cette équipe.";
         private string Txt_AddPlayers = "Tips: Clique gauche pour ouvrir une fenêtre qui vous permet d'ajouter un joueur à cette équipe.";
         private string Txt_DGV_Players = "Tips: Double clique sur l'entête d'une rangée d'un joueur pour afficher ses statistiques dans une autre fenêtre.";
+        private string Txt_ChangeTeamName = "Tips: Écrivez une nouvelle ville et appuyez sur la touche 'Enter' pour changer définitivement le nom de la ville de cette équipe.";
+        private string Txt_ChargeDivisionName = "Tips: Choisissez une division pour changer la division dans laquelle se trouve cette équipe.";
+        private string Txt_ChangeImage = "Tips: Clique gauche sur ce logo pour ouvrir un dialogue qui vous permet de remplacer le logo de cette équipe par celui que vous avez choisi.";
+        private string Txt_LBL_TeamName = "Tips: Clique gauche pour modifier définitivement la ville de cette équipe.";
+        private string Txt_LBL_DivisionName = "Tips: Clique gauche pour changer la division de cette équipe.";
         #endregion
 
         public Team_Form()
@@ -359,12 +364,12 @@ namespace TP_Final
 
         private void LBL_Team_MouseEnter(object sender, EventArgs e)
         {
-            Cursor = Cursors.Hand;
+            SL_TeamTips.Text = Txt_LBL_TeamName;
         }
 
         private void LBL_Team_MouseLeave(object sender, EventArgs e)
         {
-            Cursor = Cursors.Default;
+            Empty_SL_TeamTips();
         }
 
         #region "SL_TeamTips fill text"
@@ -388,8 +393,6 @@ namespace TP_Final
         {
             SL_TeamTips.Text = Txt_ShowCalendar;
         }
-
-
         private void FB_Ok_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_AcceptChanges;
@@ -397,6 +400,23 @@ namespace TP_Final
         private void FB_Cancel_MouseEnter(object sender, EventArgs e)
         {
             SL_TeamTips.Text = Txt_CancelChanges;
+        }
+        private void PB_Logo_MouseEnter(object sender, EventArgs e)
+        {
+            SL_TeamTips.Text = Txt_ChangeImage;
+        }
+        private void TB_Team_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
+            SL_TeamTips.Text = Txt_ChangeTeamName;
+        }
+        private void CBX_Division_MouseEnter(object sender, EventArgs e)
+        {
+            SL_TeamTips.Text = Txt_ChargeDivisionName;
+        }
+        private void LBL_Division_MouseEnter(object sender, EventArgs e)
+        {
+            SL_TeamTips.Text = Txt_LBL_DivisionName;
         }
         #endregion
         #region "SL_TeamTips clear text"
@@ -429,6 +449,22 @@ namespace TP_Final
             Empty_SL_TeamTips();
         }
         private void FB_Cancel_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_SL_TeamTips();
+        }
+        private void PB_Logo_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_SL_TeamTips();
+        }
+        private void TB_Town_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_SL_TeamTips();
+        }
+        private void CBX_Division_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_SL_TeamTips();
+        }
+        private void LBL_Division_MouseLeave(object sender, EventArgs e)
         {
             Empty_SL_TeamTips();
         }
@@ -530,15 +566,6 @@ namespace TP_Final
             }
         }
 
-        private void PB_Logo_MouseEnter(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Hand;
-        }
-
-        private void PB_Logo_MouseLeave(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Default;
-        }
         private void Update_Controls_Locations()
         {
             LBL_Team.Location = new Point(DGV_Players.Location.X + (DGV_Players.Size.Width - LBL_Team.Size.Width - LBL_String.Size.Width - LBL_Town.Size.Width) / 2,
@@ -590,11 +617,6 @@ namespace TP_Final
             TB_Town.Visible = false;
             CBX_Division.Visible = false;
         }
-        private void TB_Team_MouseEnter(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Default;
-        }
-
         private void DGV_Players_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             ApplyRowsStyles();
