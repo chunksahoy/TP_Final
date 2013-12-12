@@ -16,7 +16,6 @@ namespace TP_Final
 {
     public partial class Team_Form : Form
     {
-
         #region "StatusStrip text"
         private string Txt_CancelChanges = "Tips: Clique gauche pour annuler les changements faits et quitter la fenêtre.";
         private string Txt_AcceptChanges = "Tips: Clique gauche pour confirmer et appliquer les changements au niveau de la base de données et quitter la fenêtre.";
