@@ -44,6 +44,8 @@ namespace TP_Final
         public int m_Selected_Index;
         public string m_Logo_File_Path;
         public byte[] image;
+        public string Image_LogoScroller;
+        
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -69,6 +71,16 @@ namespace TP_Final
             LoadSettings();
             ApplyRowsStyles();
             Initialize_Hidden_Updates();
+            Resize_DGV_Players();
+            Image_LogoScroller = "";
+        }
+
+        private void Resize_DGV_Players()
+        {
+            foreach (DataGridViewColumn Col in DGV_Players.Columns)
+            {
+                Col.Width = DGV_Players.Size.Width / DGV_Players.ColumnCount;
+            }
         }
 
         private void Initialize_Hidden_Updates()
@@ -514,6 +526,7 @@ namespace TP_Final
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 UpdateLogo(dlg.FileName);
+                Image_LogoScroller = dlg.FileName;
             }
         }
 

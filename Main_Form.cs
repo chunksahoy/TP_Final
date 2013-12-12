@@ -70,7 +70,7 @@ namespace TP_Final
         ////////////////////////////////////////////// Ajout des images dans le LogoScroller ///////////////////////////////////////////
         private void Initialize_LogoScroller()
         {
-            string sql = "select logo from equipe";
+            string sql = "select logo, nom from equipe";
             Image unLogo;
             try
             {
@@ -94,7 +94,7 @@ namespace TP_Final
                         MemoryStream memStream = new MemoryStream(myByteArray);
                         unLogo = Image.FromStream(memStream);
 
-                        LS_Logos.AddElement(unLogo);
+                        LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
                     }
 
                 }
@@ -150,6 +150,7 @@ namespace TP_Final
 
             source = new BindingSource(myData, "divisions");
             DGV_Teams.DataSource = source;
+            Resize_DGV_Teams();
             //LoadSettings();
             ApplyRowsStyles();
         }
@@ -347,7 +348,7 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-                LS_Logos.AddElement(form.m_file_Name);  
+                LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
             }
 
                         
@@ -408,7 +409,8 @@ namespace TP_Final
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////// Retrait d'une équipe dans la BD ///////////////////////////////////////////////////
         private void Remove_Team()
-        {
+        { 
+            LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
             string sqlDelete = "delete from equipe where nom = '" + DGV_Teams.SelectedRows[0].Cells[0].Value.ToString() + "'";
 
             try
@@ -426,6 +428,7 @@ namespace TP_Final
             {
                 FB_Remove_Team.Enabled = false;
             }
+
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////// Modification d'une équipe ////////////////////////////////////////////////////
@@ -444,11 +447,24 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
                 Update_Team(form.m_TeamTown,form.m_TeamName);
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
+
+      
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
+        private void Resize_DGV_Teams()
+        {
+            foreach (DataGridViewColumn Col in DGV_Teams.Columns)
+            {
+                Col.Width = DGV_Teams.Size.Width / DGV_Teams.ColumnCount;
+            }
+        }
+
 
         private void Update_Team(string town, string team)
         {
@@ -854,13 +870,6 @@ namespace TP_Final
             }
         }
 
-        private void DGV_Teams_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e) //  Voir Mathieu "TheBigDick" Dumoulin
-        {
-            foreach (DataGridViewColumn Col in DGV_Teams.Columns)
-            {
-                Col.Width = e.Column.Width;
-            }
-        }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////// Rafraîchissement des équipes affichées dans le DGV_Teams ///////////////////////////////////
         private void LB_Divisions_SelectedIndexChanged(object sender, EventArgs e)
@@ -910,7 +919,12 @@ namespace TP_Final
 
         private void DGV_Teams_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+
+        }
+
+        private void LS_Logos_Click(object sender, EventArgs e)
+        {
+           string nomSelectedTeam  = LS_Logos.;
         }
     }
 }

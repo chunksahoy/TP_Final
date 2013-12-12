@@ -68,7 +68,7 @@ namespace TP_Final
             dlg.CheckFileExists = true;
             dlg.InitialDirectory = @":C\";
 
-            dlg.Filter = "Fichiers images (*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+            dlg.Filter = "Fichiers images (*.BMP;*.JPG;*.GIF; *.PNG)|*.BMP;*.JPG;*.GIF; *.PNG|All files (*.*)|*.*";
             dlg.FilterIndex = 1;
             dlg.RestoreDirectory = true;
 
