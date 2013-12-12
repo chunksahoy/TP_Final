@@ -94,7 +94,7 @@ namespace TP_Final
                         MemoryStream memStream = new MemoryStream(myByteArray);
                         unLogo = Image.FromStream(memStream);
 
-                        LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
+                        //LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
                     }
 
                 }
@@ -348,11 +348,9 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-<<<<<<< HEAD
-                LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
-=======
-                //LS_Logos.AddElement(form.m_file_Name);  
->>>>>>> 53d676bb03f50a4298327a114fbb1d8f01f8f612
+               // LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
+
+
             }
 
                         
@@ -414,7 +412,7 @@ namespace TP_Final
         //////////////////////////////////////////// Retrait d'une équipe dans la BD ///////////////////////////////////////////////////
         private void Remove_Team()
         { 
-            LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
+            //LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
             string sqlDelete = "delete from equipe where nom = '" + DGV_Teams.SelectedRows[0].Cells[0].Value.ToString() + "'";
 
             try
@@ -451,19 +449,14 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
-                LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
-                Update_Team(form.m_TeamTown,form.m_TeamName);
-=======
+                //LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
->>>>>>> 53d676bb03f50a4298327a114fbb1d8f01f8f612
+
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
-<<<<<<< HEAD
-      
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
         private void Resize_DGV_Teams()
@@ -473,12 +466,7 @@ namespace TP_Final
                 Col.Width = DGV_Teams.Size.Width / DGV_Teams.ColumnCount;
             }
         }
-
-
-        private void Update_Team(string town, string team)
-=======
         private void Update_Team(string town, string team, string division)
->>>>>>> 53d676bb03f50a4298327a114fbb1d8f01f8f612
         {
             OracleParameter ptown = new OracleParameter(":ville", OracleDbType.Varchar2, 30);
             OracleParameter pteam = new OracleParameter(":equipe", OracleDbType.Varchar2, 30);
@@ -876,7 +864,7 @@ namespace TP_Final
 
         private void LS_Logos_Load(object sender, EventArgs e)
         {
-            
+           
         }
         private void Main_Form_LocationChanged(object sender, EventArgs e)
         {
@@ -945,7 +933,7 @@ namespace TP_Final
 
         private void LS_Logos_Click(object sender, EventArgs e)
         {
-           string nomSelectedTeam  = LS_Logos.;
+           //string nomSelectedTeam  = LS_Logos.;
         }
     }
 }

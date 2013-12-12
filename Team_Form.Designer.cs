@@ -364,10 +364,7 @@
         private System.Windows.Forms.Label LBL_String;
         private System.Windows.Forms.Label LBL_Town;
         private System.Windows.Forms.TextBox TB_Town;
-<<<<<<< HEAD
-=======
 
->>>>>>> 53d676bb03f50a4298327a114fbb1d8f01f8f612
         private System.Windows.Forms.Label LBL_Division;
         private System.Windows.Forms.ComboBox CBX_Division;
 
