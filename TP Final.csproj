@@ -147,7 +147,6 @@
     <Compile Include="Player_Form.Designer.cs">
       <DependentUpon>Player_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Panel_Image_Setting.cs" />
     <Compile Include="Team_Form.cs">
       <SubType>Form</SubType>
     </Compile>

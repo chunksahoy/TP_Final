@@ -19,8 +19,6 @@ namespace TP_Final
 
         public DataSet myData = new DataSet();
         public BindingSource source;
-        private Panel_Image_Setting playerImage;
-
 
         public string m_PlayerName;
         public DateTime m_Player_Birth;
@@ -31,15 +29,10 @@ namespace TP_Final
         private string[] m_Positions_List = { "ATTAQUANT", "DEFENSE", "GARDIEN"};
         string m_file_Name;
 
-
-
         private void Add_Player_Form_Load(object sender, EventArgs e)
         {
             Initialize_Positions_List();
-            UpdateTextBoxes();
-            playerImage = new Panel_Image_Setting();
-            
-            //this.DataBindings.Add(new Binding("BackgroundImage", playerImage, "BackgroundImage"));
+         
         }
 
         private void Initialize_Positions_List()
@@ -58,13 +51,6 @@ namespace TP_Final
             m_PlayerJersey = (int)NUD_Jersey_Number.Value;
             m_PlayerPosition = CBX_Player_Role.SelectedItem.ToString();
             m_PlayerPhoto = PN_Player_Picture.BackgroundImage;
-        }
-
-        private void UpdateTextBoxes()
-        {
-            //TB_Player_Name.DataBindings.Add("Text", myData, "joueur.nom");
-            //TB_Player_Surname.DataBindings.Add("Text", myData, "joueur.prenom");
-            //CBX_Player_Role.DataBindings.Add("Text", myData, "joueur.role");
         }
 
         private void TB_Player_Surname_KeyPress(object sender, KeyPressEventArgs e)
@@ -98,9 +84,6 @@ namespace TP_Final
                 Bitmap bitmap1 = new Bitmap(m_file_Name);
                 PN_Player_Picture.BackgroundImage = bitmap1;
                 PN_Player_Picture.BackgroundImageLayout = ImageLayout.Stretch;
-
-                playerImage.BackgroundImage = bitmap1;
-
             }
             else
             {
@@ -115,10 +98,7 @@ namespace TP_Final
 
         private void PN_Player_Picture_Paint(object sender, PaintEventArgs e)
         {
-            //object O = Properties.Resources.ResourceManager.GetObject(m_file_Name);
-            //PN_Player_Picture.BackgroundImage = (Image)O;
-            //this.Refresh();
-        }
 
+        }
     }
 }

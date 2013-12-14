@@ -233,11 +233,13 @@ namespace TP_Final
         }
         private void EditPlayer()
         {
+            //à modifier, ceci est un form pour les matchs
             Player_Form form = new Player_Form();
 
             form.m_Team = PB_Logo.Image;
             form.m_Player_Position = DGV_Players.SelectedRows[0].Cells[4].Value.ToString();
-            //form.m_Player_Goals = DGV_Players.SelectedRows[0].Cells[2].Value.ToString();
+            form.m_Team_Name = m_TeamName;
+            form.conn = conn;
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {

@@ -86,7 +86,8 @@ namespace TP_Final
                 try
                 {
                     string sqlInsert = "insert into match (receveur, visiteur, daterencontre, " +
-                        "lieurencontre, scorevisiteur, scorereceveur) values (:phome, :pvisitor, to_date(:pdate, 'DD-MM-YYYY'), :pstadium, :pVscore, :pHscore)";
+                        "lieurencontre, scorevisiteur, scorereceveur) values (:phome, :pvisitor, to_date(:pdate, 'DD-MM-YYYY')," + 
+                        " :pstadium, :pVscore, :pHscore)";
 
                     OracleCommand oraInsert = new OracleCommand(sqlInsert, conn);
 
@@ -116,8 +117,7 @@ namespace TP_Final
             if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Remove_Match();
-            }
-           
+            }           
         }
 
         private void Remove_Match()

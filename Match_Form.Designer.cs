@@ -45,19 +45,23 @@
             this.LBL_Receveur = new System.Windows.Forms.Label();
             this.LBL_Visiteur = new System.Windows.Forms.Label();
             this.PN_Display = new System.Windows.Forms.Panel();
-            this.LBL_Date = new System.Windows.Forms.Label();
-            this.LBL_Stadium = new System.Windows.Forms.Label();
+            this.PN_Score = new System.Windows.Forms.Panel();
             this.LBL_Score_Home = new System.Windows.Forms.Label();
             this.LBL_Score_Visitor = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LBL_Space = new System.Windows.Forms.Label();
+            this.LBL_Date = new System.Windows.Forms.Label();
+            this.LBL_Stadium = new System.Windows.Forms.Label();
             this.FB_Stats = new FlashButton.FlashButton();
             this.PN_Versus = new System.Windows.Forms.Panel();
+            this.FB_Edit_Home = new FlashButton.FlashButton();
+            this.FB_Edit_Visitor = new FlashButton.FlashButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Home)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Visitor)).BeginInit();
             this.PN_Visitor.SuspendLayout();
             this.PN_Home.SuspendLayout();
             this.PN_Display.SuspendLayout();
+            this.PN_Score.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -85,26 +89,30 @@
             // 
             // DGV_Home
             // 
+            this.DGV_Home.AllowUserToAddRows = false;
             this.DGV_Home.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.DGV_Home.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Home.Location = new System.Drawing.Point(51, 202);
+            this.DGV_Home.Location = new System.Drawing.Point(12, 202);
             this.DGV_Home.Name = "DGV_Home";
             this.DGV_Home.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV_Home.Size = new System.Drawing.Size(330, 301);
+            this.DGV_Home.Size = new System.Drawing.Size(413, 301);
             this.DGV_Home.TabIndex = 1;
+            this.DGV_Home.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Home_RowHeaderMouseDoubleClick);
             // 
             // DGV_Visitor
             // 
+            this.DGV_Visitor.AllowUserToAddRows = false;
             this.DGV_Visitor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DGV_Visitor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_Visitor.Location = new System.Drawing.Point(678, 202);
+            this.DGV_Visitor.Location = new System.Drawing.Point(637, 202);
             this.DGV_Visitor.Name = "DGV_Visitor";
             this.DGV_Visitor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV_Visitor.Size = new System.Drawing.Size(330, 301);
+            this.DGV_Visitor.Size = new System.Drawing.Size(418, 301);
             this.DGV_Visitor.TabIndex = 1;
+            this.DGV_Visitor.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Visitor_RowHeaderMouseDoubleClick);
             // 
             // PN_Visitor
             // 
@@ -115,16 +123,16 @@
             this.PN_Visitor.Controls.Add(this.LBL_Visitor);
             this.PN_Visitor.Controls.Add(this.PN_RVis_Win);
             this.PN_Visitor.Controls.Add(this.PN_LVis_Win);
-            this.PN_Visitor.Location = new System.Drawing.Point(678, 104);
+            this.PN_Visitor.Location = new System.Drawing.Point(637, 104);
             this.PN_Visitor.Name = "PN_Visitor";
-            this.PN_Visitor.Size = new System.Drawing.Size(330, 65);
+            this.PN_Visitor.Size = new System.Drawing.Size(418, 65);
             this.PN_Visitor.TabIndex = 2;
             // 
             // LBL_Visitor
             // 
             this.LBL_Visitor.AutoSize = true;
             this.LBL_Visitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_Visitor.Location = new System.Drawing.Point(128, 20);
+            this.LBL_Visitor.Location = new System.Drawing.Point(171, 20);
             this.LBL_Visitor.Name = "LBL_Visitor";
             this.LBL_Visitor.Size = new System.Drawing.Size(84, 25);
             this.LBL_Visitor.TabIndex = 4;
@@ -134,7 +142,7 @@
             // 
             this.PN_RVis_Win.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PN_RVis_Win.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PN_RVis_Win.Location = new System.Drawing.Point(278, 8);
+            this.PN_RVis_Win.Location = new System.Drawing.Point(366, 8);
             this.PN_RVis_Win.Name = "PN_RVis_Win";
             this.PN_RVis_Win.Size = new System.Drawing.Size(49, 48);
             this.PN_RVis_Win.TabIndex = 3;
@@ -154,16 +162,16 @@
             this.PN_Home.Controls.Add(this.LBL_Home);
             this.PN_Home.Controls.Add(this.PN_RHome_Win);
             this.PN_Home.Controls.Add(this.PN_LHome_Win);
-            this.PN_Home.Location = new System.Drawing.Point(51, 104);
+            this.PN_Home.Location = new System.Drawing.Point(12, 104);
             this.PN_Home.Name = "PN_Home";
-            this.PN_Home.Size = new System.Drawing.Size(330, 65);
+            this.PN_Home.Size = new System.Drawing.Size(413, 65);
             this.PN_Home.TabIndex = 3;
             // 
             // LBL_Home
             // 
             this.LBL_Home.AutoSize = true;
             this.LBL_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_Home.Location = new System.Drawing.Point(118, 20);
+            this.LBL_Home.Location = new System.Drawing.Point(154, 20);
             this.LBL_Home.Name = "LBL_Home";
             this.LBL_Home.Size = new System.Drawing.Size(104, 25);
             this.LBL_Home.TabIndex = 4;
@@ -172,7 +180,7 @@
             // PN_RHome_Win
             // 
             this.PN_RHome_Win.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PN_RHome_Win.Location = new System.Drawing.Point(278, 8);
+            this.PN_RHome_Win.Location = new System.Drawing.Point(359, 8);
             this.PN_RHome_Win.Name = "PN_RHome_Win";
             this.PN_RHome_Win.Size = new System.Drawing.Size(49, 48);
             this.PN_RHome_Win.TabIndex = 3;
@@ -220,11 +228,9 @@
             // 
             this.PN_Display.BackColor = System.Drawing.SystemColors.Window;
             this.PN_Display.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PN_Display.Controls.Add(this.PN_Score);
             this.PN_Display.Controls.Add(this.LBL_Date);
             this.PN_Display.Controls.Add(this.LBL_Stadium);
-            this.PN_Display.Controls.Add(this.LBL_Score_Home);
-            this.PN_Display.Controls.Add(this.LBL_Score_Visitor);
-            this.PN_Display.Controls.Add(this.label3);
             this.PN_Display.Location = new System.Drawing.Point(431, 67);
             this.PN_Display.Name = "PN_Display";
             this.PN_Display.Size = new System.Drawing.Size(200, 102);
@@ -233,31 +239,25 @@
             this.PN_Display.MouseEnter += new System.EventHandler(this.PN_Display_MouseEnter);
             this.PN_Display.MouseLeave += new System.EventHandler(this.PN_Display_MouseLeave);
             // 
-            // LBL_Date
+            // PN_Score
             // 
-            this.LBL_Date.AutoSize = true;
-            this.LBL_Date.Location = new System.Drawing.Point(67, 80);
-            this.LBL_Date.Name = "LBL_Date";
-            this.LBL_Date.Size = new System.Drawing.Size(30, 13);
-            this.LBL_Date.TabIndex = 3;
-            this.LBL_Date.Text = "Date";
-            // 
-            // LBL_Stadium
-            // 
-            this.LBL_Stadium.AutoSize = true;
-            this.LBL_Stadium.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_Stadium.Location = new System.Drawing.Point(66, 46);
-            this.LBL_Stadium.Name = "LBL_Stadium";
-            this.LBL_Stadium.Size = new System.Drawing.Size(71, 20);
-            this.LBL_Stadium.TabIndex = 2;
-            this.LBL_Stadium.Text = "Montréal";
-            this.LBL_Stadium.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.PN_Score.Controls.Add(this.LBL_Score_Home);
+            this.PN_Score.Controls.Add(this.LBL_Score_Visitor);
+            this.PN_Score.Controls.Add(this.LBL_Space);
+            this.PN_Score.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PN_Score.Location = new System.Drawing.Point(0, 0);
+            this.PN_Score.Name = "PN_Score";
+            this.PN_Score.Size = new System.Drawing.Size(198, 44);
+            this.PN_Score.TabIndex = 9;
+            this.PN_Score.Click += new System.EventHandler(this.PN_Score_Click);
+            this.PN_Score.MouseEnter += new System.EventHandler(this.PN_Score_MouseEnter);
+            this.PN_Score.MouseLeave += new System.EventHandler(this.PN_Score_MouseLeave);
             // 
             // LBL_Score_Home
             // 
             this.LBL_Score_Home.AutoSize = true;
             this.LBL_Score_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_Score_Home.Location = new System.Drawing.Point(32, 12);
+            this.LBL_Score_Home.Location = new System.Drawing.Point(3, 9);
             this.LBL_Score_Home.Name = "LBL_Score_Home";
             this.LBL_Score_Home.Size = new System.Drawing.Size(24, 25);
             this.LBL_Score_Home.TabIndex = 1;
@@ -268,22 +268,49 @@
             // 
             this.LBL_Score_Visitor.AutoSize = true;
             this.LBL_Score_Visitor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_Score_Visitor.Location = new System.Drawing.Point(150, 12);
+            this.LBL_Score_Visitor.Location = new System.Drawing.Point(171, 9);
             this.LBL_Score_Visitor.Name = "LBL_Score_Visitor";
             this.LBL_Score_Visitor.Size = new System.Drawing.Size(24, 25);
             this.LBL_Score_Visitor.TabIndex = 1;
             this.LBL_Score_Visitor.Text = "0";
             this.LBL_Score_Visitor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // LBL_Space
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(97, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "-";
+            this.LBL_Space.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_Space.Location = new System.Drawing.Point(93, 9);
+            this.LBL_Space.Name = "LBL_Space";
+            this.LBL_Space.Size = new System.Drawing.Size(19, 25);
+            this.LBL_Space.TabIndex = 0;
+            this.LBL_Space.Text = "-";
+            this.LBL_Space.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LBL_Date
+            // 
+            this.LBL_Date.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LBL_Date.Location = new System.Drawing.Point(0, 87);
+            this.LBL_Date.Name = "LBL_Date";
+            this.LBL_Date.Size = new System.Drawing.Size(198, 13);
+            this.LBL_Date.TabIndex = 3;
+            this.LBL_Date.Text = "Date";
+            this.LBL_Date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LBL_Date.Click += new System.EventHandler(this.LBL_Date_Click);
+            this.LBL_Date.MouseEnter += new System.EventHandler(this.LBL_Date_MouseEnter);
+            this.LBL_Date.MouseLeave += new System.EventHandler(this.LBL_Date_MouseLeave);
+            // 
+            // LBL_Stadium
+            // 
+            this.LBL_Stadium.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LBL_Stadium.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_Stadium.Location = new System.Drawing.Point(0, 0);
+            this.LBL_Stadium.Name = "LBL_Stadium";
+            this.LBL_Stadium.Size = new System.Drawing.Size(198, 100);
+            this.LBL_Stadium.TabIndex = 2;
+            this.LBL_Stadium.Text = "Stade";
+            this.LBL_Stadium.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LBL_Stadium.Click += new System.EventHandler(this.LBL_Stadium_Click);
+            this.LBL_Stadium.MouseEnter += new System.EventHandler(this.LBL_Stadium_MouseEnter);
+            this.LBL_Stadium.MouseLeave += new System.EventHandler(this.LBL_Stadium_MouseLeave);
             // 
             // FB_Stats
             // 
@@ -309,11 +336,41 @@
             this.PN_Versus.Size = new System.Drawing.Size(200, 181);
             this.PN_Versus.TabIndex = 4;
             // 
+            // FB_Edit_Home
+            // 
+            this.FB_Edit_Home.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Editer_Neutre;
+            this.FB_Edit_Home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FB_Edit_Home.ImageClick = global::TP_Final.Properties.Resources.ICON_Editer_Click;
+            this.FB_Edit_Home.ImageDisable = global::TP_Final.Properties.Resources.ICON_Editer_Disable;
+            this.FB_Edit_Home.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Editer_Neutre;
+            this.FB_Edit_Home.ImageOver = global::TP_Final.Properties.Resources.ICON_Editer_Survol;
+            this.FB_Edit_Home.Location = new System.Drawing.Point(12, 509);
+            this.FB_Edit_Home.Name = "FB_Edit_Home";
+            this.FB_Edit_Home.Size = new System.Drawing.Size(39, 36);
+            this.FB_Edit_Home.TabIndex = 9;
+            this.FB_Edit_Home.Click += new System.EventHandler(this.FB_Edit_Home_Click);
+            // 
+            // FB_Edit_Visitor
+            // 
+            this.FB_Edit_Visitor.BackgroundImage = global::TP_Final.Properties.Resources.ICON_Editer_Neutre;
+            this.FB_Edit_Visitor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FB_Edit_Visitor.ImageClick = global::TP_Final.Properties.Resources.ICON_Editer_Click;
+            this.FB_Edit_Visitor.ImageDisable = global::TP_Final.Properties.Resources.ICON_Editer_Disable;
+            this.FB_Edit_Visitor.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Editer_Neutre;
+            this.FB_Edit_Visitor.ImageOver = global::TP_Final.Properties.Resources.ICON_Editer_Survol;
+            this.FB_Edit_Visitor.Location = new System.Drawing.Point(1016, 509);
+            this.FB_Edit_Visitor.Name = "FB_Edit_Visitor";
+            this.FB_Edit_Visitor.Size = new System.Drawing.Size(39, 36);
+            this.FB_Edit_Visitor.TabIndex = 9;
+            this.FB_Edit_Visitor.Click += new System.EventHandler(this.FB_Edit_Visitor_Click);
+            // 
             // Match_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 548);
+            this.Controls.Add(this.FB_Edit_Visitor);
+            this.Controls.Add(this.FB_Edit_Home);
             this.Controls.Add(this.PN_Display);
             this.Controls.Add(this.FB_Stats);
             this.Controls.Add(this.LBL_Visiteur);
@@ -332,6 +389,7 @@
             this.MinimumSize = new System.Drawing.Size(1083, 586);
             this.Name = "Match_Form";
             this.Load += new System.EventHandler(this.Match_Form_Load);
+            this.SizeChanged += new System.EventHandler(this.Match_Form_SizeChanged);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Home)).EndInit();
@@ -341,7 +399,8 @@
             this.PN_Home.ResumeLayout(false);
             this.PN_Home.PerformLayout();
             this.PN_Display.ResumeLayout(false);
-            this.PN_Display.PerformLayout();
+            this.PN_Score.ResumeLayout(false);
+            this.PN_Score.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,8 +429,11 @@
         private System.Windows.Forms.Panel PN_Display;
         private System.Windows.Forms.Label LBL_Score_Home;
         private System.Windows.Forms.Label LBL_Score_Visitor;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LBL_Space;
         private System.Windows.Forms.Label LBL_Stadium;
         private System.Windows.Forms.Label LBL_Date;
+        private System.Windows.Forms.Panel PN_Score;
+        private FlashButton.FlashButton FB_Edit_Home;
+        private FlashButton.FlashButton FB_Edit_Visitor;
     }
 }

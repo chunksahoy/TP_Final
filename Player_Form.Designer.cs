@@ -51,6 +51,10 @@
             this.FB_Cancel = new FlashButton.FlashButton();
             this.FB_Ok = new FlashButton.FlashButton();
             this.PB_Team_Logo = new System.Windows.Forms.PictureBox();
+            this.TB_Name = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TB_Surname = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.GB_Player_Stats.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -60,7 +64,7 @@
             // LBL_Position
             // 
             this.LBL_Position.AutoSize = true;
-            this.LBL_Position.Location = new System.Drawing.Point(10, 19);
+            this.LBL_Position.Location = new System.Drawing.Point(13, 119);
             this.LBL_Position.Name = "LBL_Position";
             this.LBL_Position.Size = new System.Drawing.Size(47, 13);
             this.LBL_Position.TabIndex = 0;
@@ -69,7 +73,7 @@
             // LBL_Goals
             // 
             this.LBL_Goals.AutoSize = true;
-            this.LBL_Goals.Location = new System.Drawing.Point(10, 67);
+            this.LBL_Goals.Location = new System.Drawing.Point(13, 163);
             this.LBL_Goals.Name = "LBL_Goals";
             this.LBL_Goals.Size = new System.Drawing.Size(37, 13);
             this.LBL_Goals.TabIndex = 0;
@@ -78,7 +82,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 113);
+            this.label3.Location = new System.Drawing.Point(13, 207);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 0;
@@ -87,7 +91,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 160);
+            this.label4.Location = new System.Drawing.Point(13, 252);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 0;
@@ -96,7 +100,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 209);
+            this.label5.Location = new System.Drawing.Point(13, 301);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 0;
@@ -104,54 +108,55 @@
             // 
             // TB_Player_Position
             // 
-            this.TB_Player_Position.Location = new System.Drawing.Point(75, 19);
+            this.TB_Player_Position.Location = new System.Drawing.Point(78, 119);
             this.TB_Player_Position.Name = "TB_Player_Position";
             this.TB_Player_Position.Size = new System.Drawing.Size(100, 20);
             this.TB_Player_Position.TabIndex = 1;
             // 
             // TB_Player_Goals
             // 
-            this.TB_Player_Goals.Location = new System.Drawing.Point(75, 67);
+            this.TB_Player_Goals.Location = new System.Drawing.Point(78, 163);
             this.TB_Player_Goals.Name = "TB_Player_Goals";
             this.TB_Player_Goals.Size = new System.Drawing.Size(100, 20);
             this.TB_Player_Goals.TabIndex = 2;
             // 
             // TB_Player_Points
             // 
-            this.TB_Player_Points.Location = new System.Drawing.Point(75, 160);
+            this.TB_Player_Points.Location = new System.Drawing.Point(78, 252);
             this.TB_Player_Points.Name = "TB_Player_Points";
             this.TB_Player_Points.Size = new System.Drawing.Size(100, 20);
             this.TB_Player_Points.TabIndex = 4;
             // 
             // TB_Player_Pass
             // 
-            this.TB_Player_Pass.Location = new System.Drawing.Point(75, 113);
+            this.TB_Player_Pass.Location = new System.Drawing.Point(78, 207);
             this.TB_Player_Pass.Name = "TB_Player_Pass";
             this.TB_Player_Pass.Size = new System.Drawing.Size(100, 20);
             this.TB_Player_Pass.TabIndex = 3;
             // 
             // TB_Player_Penalty
             // 
-            this.TB_Player_Penalty.Location = new System.Drawing.Point(75, 202);
+            this.TB_Player_Penalty.Location = new System.Drawing.Point(78, 294);
             this.TB_Player_Penalty.Name = "TB_Player_Penalty";
             this.TB_Player_Penalty.Size = new System.Drawing.Size(100, 20);
             this.TB_Player_Penalty.TabIndex = 5;
             // 
             // PN_Player_Picture
             // 
-            this.PN_Player_Picture.Location = new System.Drawing.Point(61, 48);
+            this.PN_Player_Picture.Location = new System.Drawing.Point(55, 36);
             this.PN_Player_Picture.Name = "PN_Player_Picture";
             this.PN_Player_Picture.Size = new System.Drawing.Size(206, 100);
             this.PN_Player_Picture.TabIndex = 11;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem,
             this.aideToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(9, 9);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(320, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(112, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -169,20 +174,23 @@
             // 
             // GB_Player_Stats
             // 
-            this.GB_Player_Stats.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.GB_Player_Stats.Controls.Add(this.TB_Surname);
             this.GB_Player_Stats.Controls.Add(this.TB_Player_Position);
+            this.GB_Player_Stats.Controls.Add(this.label2);
+            this.GB_Player_Stats.Controls.Add(this.label1);
             this.GB_Player_Stats.Controls.Add(this.LBL_Position);
             this.GB_Player_Stats.Controls.Add(this.LBL_Goals);
             this.GB_Player_Stats.Controls.Add(this.label3);
             this.GB_Player_Stats.Controls.Add(this.label4);
             this.GB_Player_Stats.Controls.Add(this.TB_Player_Penalty);
             this.GB_Player_Stats.Controls.Add(this.label5);
+            this.GB_Player_Stats.Controls.Add(this.TB_Name);
             this.GB_Player_Stats.Controls.Add(this.TB_Player_Pass);
             this.GB_Player_Stats.Controls.Add(this.TB_Player_Goals);
             this.GB_Player_Stats.Controls.Add(this.TB_Player_Points);
-            this.GB_Player_Stats.Location = new System.Drawing.Point(61, 154);
+            this.GB_Player_Stats.Location = new System.Drawing.Point(54, 145);
             this.GB_Player_Stats.Name = "GB_Player_Stats";
-            this.GB_Player_Stats.Size = new System.Drawing.Size(206, 232);
+            this.GB_Player_Stats.Size = new System.Drawing.Size(206, 334);
             this.GB_Player_Stats.TabIndex = 7;
             this.GB_Player_Stats.TabStop = false;
             // 
@@ -244,7 +252,7 @@
             this.groupBox1.Controls.Add(this.BTN_End);
             this.groupBox1.Controls.Add(this.BTN_Begin);
             this.groupBox1.Controls.Add(this.BTN_Previous);
-            this.groupBox1.Location = new System.Drawing.Point(80, 392);
+            this.groupBox1.Location = new System.Drawing.Point(70, 485);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(175, 72);
             this.groupBox1.TabIndex = 9;
@@ -258,7 +266,7 @@
             this.FB_Cancel.ImageDisable = global::TP_Final.Properties.Resources.ICON_Annuler_Disable;
             this.FB_Cancel.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Annuler_Neutral;
             this.FB_Cancel.ImageOver = global::TP_Final.Properties.Resources.ICON_Annuler_Over;
-            this.FB_Cancel.Location = new System.Drawing.Point(273, 477);
+            this.FB_Cancel.Location = new System.Drawing.Point(236, 574);
             this.FB_Cancel.Name = "FB_Cancel";
             this.FB_Cancel.Size = new System.Drawing.Size(25, 26);
             this.FB_Cancel.TabIndex = 7;
@@ -272,7 +280,7 @@
             this.FB_Ok.ImageDisable = global::TP_Final.Properties.Resources.ICON_Accepter_Disable;
             this.FB_Ok.ImageNeutral = global::TP_Final.Properties.Resources.ICON_Accepter_Neutral;
             this.FB_Ok.ImageOver = global::TP_Final.Properties.Resources.ICON_Accepter_Over;
-            this.FB_Ok.Location = new System.Drawing.Point(241, 477);
+            this.FB_Ok.Location = new System.Drawing.Point(204, 574);
             this.FB_Ok.Name = "FB_Ok";
             this.FB_Ok.Size = new System.Drawing.Size(26, 26);
             this.FB_Ok.TabIndex = 6;
@@ -280,17 +288,49 @@
             // 
             // PB_Team_Logo
             // 
-            this.PB_Team_Logo.Location = new System.Drawing.Point(15, 48);
+            this.PB_Team_Logo.Location = new System.Drawing.Point(9, 36);
             this.PB_Team_Logo.Name = "PB_Team_Logo";
             this.PB_Team_Logo.Size = new System.Drawing.Size(40, 40);
             this.PB_Team_Logo.TabIndex = 10;
             this.PB_Team_Logo.TabStop = false;
             // 
+            // TB_Name
+            // 
+            this.TB_Name.Location = new System.Drawing.Point(76, 76);
+            this.TB_Name.Name = "TB_Name";
+            this.TB_Name.Size = new System.Drawing.Size(100, 20);
+            this.TB_Name.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nom:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Prénom:";
+            // 
+            // TB_Surname
+            // 
+            this.TB_Surname.Location = new System.Drawing.Point(76, 28);
+            this.TB_Surname.Name = "TB_Surname";
+            this.TB_Surname.Size = new System.Drawing.Size(100, 20);
+            this.TB_Surname.TabIndex = 1;
+            // 
             // Player_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(320, 513);
+            this.ClientSize = new System.Drawing.Size(283, 612);
             this.Controls.Add(this.PB_Team_Logo);
             this.Controls.Add(this.GB_Player_Stats);
             this.Controls.Add(this.groupBox1);
@@ -337,5 +377,9 @@
         private BoutonFlèche.BoutonFlèche BTN_End;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox PB_Team_Logo;
+        private System.Windows.Forms.TextBox TB_Surname;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TB_Name;
     }
 }

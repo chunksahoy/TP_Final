@@ -119,10 +119,9 @@ namespace TP_Final
             dlg.evenRowColor = evenRowColor;
             dlg.conn = conn;
 
-
             if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                LS_Logos.EditElement(dlg.m_TeamName, dlg.Image_LogoScroller);
+                //LS_Logos.EditElement(dlg.m_TeamName, dlg.Image_LogoScroller);
                 Update_Team(dlg.m_TeamTown, dlg.m_TeamName, dlg.m_Division);
             }
         }
@@ -384,21 +383,9 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-                LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
+                //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
-=======
-
-                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-                //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name); 
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
-=======
-
-                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-                //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name); 
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
             }
 
                         
@@ -460,7 +447,7 @@ namespace TP_Final
         //////////////////////////////////////////// Retrait d'une équipe dans la BD ///////////////////////////////////////////////////
         private void Remove_Team()
         { 
-            LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
+            //LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
             string sqlDelete = "delete from equipe where nom = '" + DGV_Teams.SelectedRows[0].Cells[0].Value.ToString() + "'";
 
             try
@@ -488,22 +475,15 @@ namespace TP_Final
             form.m_TeamName = DGV_Teams.SelectedRows[0].Cells[0].Value.ToString();
             form.m_TeamTown = DGV_Teams.SelectedRows[0].Cells[2].Value.ToString();
             form.m_Division = DGV_Teams.SelectedRows[0].Cells[3].Value.ToString();
-
+            form.m_Divisions_List = Initialize_Divisions_List();
             form.oddRowColor = oddRowColor;
             form.evenRowColor = evenRowColor;
             form.conn = conn;
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
-=======
-               // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
-=======
-               // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
+                //LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
+
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
             }
         }
@@ -511,10 +491,6 @@ namespace TP_Final
         #endregion
 
 
-<<<<<<< HEAD
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
-=======
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
         private void Resize_DGV_Teams()
@@ -747,7 +723,8 @@ namespace TP_Final
         private string Find_Player_Team()
         {
             string teamName = "";
-            string sql = "select equipe from player where nom like '" + TB_Search_Player.Text + "%'";
+            string sql = "select equipe from player where nom like '" + TB_Search_Player.Text + "%' "+
+                "UNION select equipe from player where prenom like '" + TB_Search_Player.Text + "%'";
             try
             {
                 OracleCommand oraCMD = new OracleCommand(sql, conn);
@@ -826,7 +803,7 @@ namespace TP_Final
 
                 if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-
+                    Update_Team(form.m_TeamTown, form.m_TeamName, form.m_Division);
                 }
             }
         }
@@ -1007,13 +984,11 @@ namespace TP_Final
         {
 
         }
-<<<<<<< HEAD
-=======
 
         private void LS_Logos_Click(object sender, EventArgs e)
         {
 
         }
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
+
     }
 }

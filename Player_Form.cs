@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+//using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,9 +27,11 @@ namespace TP_Final
         public int m_Player_Points;
         public int m_Player_Punitions;
         public string m_Picture_Path;
+        public string m_Team_Name;
         public Image m_Team;
         public DataSet myData = new DataSet();
         public BindingSource source;
+        public OracleConnection conn;
 
         private void Save_Stats()
         {
@@ -39,15 +44,11 @@ namespace TP_Final
 
         private void Load_Stats()
         {
-            string hack = "Properties.Resources.";
-
-            TB_Player_Position.Text = m_Player_Position;
             TB_Player_Goals.Text = m_Player_Goals.ToString();
             TB_Player_Pass.Text = m_Player_Pass.ToString();
             TB_Player_Points.Text = m_Player_Points.ToString();
             TB_Player_Penalty.Text = m_Player_Punitions.ToString();
             PB_Team_Logo.Image = m_Team;
-            // PN_Player_Picture.BackgroundImage = Pr
         }
 
         private void FB_Ok_Click(object sender, EventArgs e)
@@ -64,16 +65,39 @@ namespace TP_Final
         private void Player_Form_Load(object sender, EventArgs e)
         {
             Load_Stats();
+            Fill_Data_set();
+        }
+
+        private void Fill_Data_set()
+        {
+            myData.Clear();
+            string sql = "select * from vueJoueur where equipe = '"  + m_Team_Name + "'";
+
+            OracleCommand oraCMD = new OracleCommand(sql, conn);
+            OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
+
+            adapt.Fill(myData, "vueJoueur");
+
+            source = new BindingSource(myData, "vueJoueur");
+
             UpdateTextBoxes();
         }
 
         private void UpdateTextBoxes()
         {
-            TB_Player_Position.DataBindings.Add("Text", myData, "vueJoueur.position");
-            TB_Player_Goals.DataBindings.Add("Text", myData, "vueJoueur.buts");
-            TB_Player_Pass.DataBindings.Add("Text", myData, "vueJoueur.passes");
-            //TB_Player_Points.DataBindings.Add("Text", myData, "vueJoueur.points");
-            TB_Player_Penalty.DataBindings.Add("Text", myData, "vueJoueur.punitions");
+            try
+            {
+                TB_Name.DataBindings.Add("Text", myData, "vueJoueur.nom");
+                TB_Surname.DataBindings.Add("Text", myData, "vueJoueur.prenom");
+                TB_Player_Goals.DataBindings.Add("Text", myData, "vueJoueur.nbbuts");
+                TB_Player_Pass.DataBindings.Add("Text", myData, "vueJoueur.nbpasses");
+                TB_Player_Points.DataBindings.Add("Text", myData, "vueJoueur.nbpoints");
+                TB_Player_Penalty.DataBindings.Add("Text", myData, "vueJoueur.tempspunition");
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void Clear_TB_Bindings()
@@ -98,7 +122,7 @@ namespace TP_Final
 
         private void BTN_Next_Click(object sender, EventArgs e)
         {
-            this.BindingContext[myData, "vueJoueur"].Position += 1;
+             this.BindingContext[myData, "vueJoueur"].Position += 1;
         }
 
         private void BTN_End_Click(object sender, EventArgs e)
