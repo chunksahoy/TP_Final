@@ -47,13 +47,10 @@ namespace TP_Final
             Initialize_Winner();
             Initialize_DGV(m_Home, DGV_Home);
             Initialize_DGV(m_Visitor, DGV_Visitor);
-<<<<<<< HEAD
             Update_Labels_Location();
             Fill_Data_set(DGV_Home, m_Home);
             Fill_Data_set(DGV_Visitor, m_Visitor);
-=======
             ShowStats = false;
->>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
         }
         
 
@@ -105,15 +102,11 @@ namespace TP_Final
             //ApplyRowsStyles();
         }
 
-<<<<<<< HEAD
         private void FB_Stats_Click(object sender, EventArgs e)
         {
             LBL_Receveur.Text = LBL_Visiteur.Text = "Statistiques du match";
             // FB_Stats.ImageNeutral
         }
-=======
-
->>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
 
         private void PN_Display_MouseEnter(object sender, EventArgs e)
         {
@@ -275,7 +268,6 @@ namespace TP_Final
             }
         }
 
-<<<<<<< HEAD
         private void Match_Form_SizeChanged(object sender, EventArgs e)
         {
             Update_Labels_Location();
@@ -351,7 +343,6 @@ namespace TP_Final
         {
 
         }
-=======
         #region "Actions Liés au MouseEnter"
         private void PN_Visitor_MouseEnter(object sender, EventArgs e)
         {
@@ -439,6 +430,5 @@ namespace TP_Final
             
         }
 
->>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
     }
 }

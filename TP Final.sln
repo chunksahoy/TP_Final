@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP Final", "TP Final.csproj", "{6A22FC78-49D9-4852-A1CA-A421AB11EFB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logo scroller", "G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\Logo scroller.csproj", "{A6F305D5-DBB0-4A34-8B1D-8DDC8233061A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{6A22FC78-49D9-4852-A1CA-A421AB11EFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A22FC78-49D9-4852-A1CA-A421AB11EFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A22FC78-49D9-4852-A1CA-A421AB11EFB8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A6F305D5-DBB0-4A34-8B1D-8DDC8233061A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6F305D5-DBB0-4A34-8B1D-8DDC8233061A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6F305D5-DBB0-4A34-8B1D-8DDC8233061A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6F305D5-DBB0-4A34-8B1D-8DDC8233061A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
