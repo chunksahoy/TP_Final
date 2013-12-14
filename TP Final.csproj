@@ -51,9 +51,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\bin\Debug\BoutonFlèche.dll</HintPath>
     </Reference>
-    <Reference Include="FlashButton">
-      <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\FlashButton.dll</HintPath>
-    </Reference>
     <Reference Include="FlashButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\FlashButton.dll</HintPath>
@@ -161,6 +158,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TopCinqForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopCinqForm.Designer.cs">
+      <DependentUpon>TopCinqForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Add_Division_Form.resx">
       <DependentUpon>Add_Division_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +213,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TopCinqForm.resx">
+      <DependentUpon>TopCinqForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -233,7 +239,9 @@
     <Content Include="Properties\Delete_Disable.png" />
     <Content Include="Properties\Delete_Neutral.png" />
     <Content Include="Properties\Delete_Over.png" />
-    <Content Include="Properties\gEtoile.png" />
+    <Content Include="Resources\Etoile.png" />
+    <Content Include="Resources\EtoileClick.png" />
+    <Content Include="Resources\EtoileOver.png" />
     <Content Include="Properties\ICON_Accepter_Click.png" />
     <Content Include="Properties\ICON_Accepter_Disable.png" />
     <Content Include="Properties\ICON_Accepter_Neutral.png" />

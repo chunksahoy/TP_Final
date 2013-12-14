@@ -15,6 +15,16 @@ namespace TP_Final
 {
     public partial class Match_Form : Form
     {
+        #region "Texte pour le StatusStrip"
+        private string Txt_PN_Visiteur = "Tips: Ce tableau représente les statistiques des joueurs de l'équipe qui a jouer le match à l'étranger.";
+        private string Txt_PN_Receveur = "Tips: Ce tableau représente les statistiques des joueurs de l'équipe qui reçoit le match.";
+        private string Txt_ScoreBoard = "Cliqué avec le bouton de gauche de la souris pour modifier le contenu.";
+        private string Txt_ShowStats = "Tips: Clique gauche sur ce bouton pour afficher les statistiques complètes du match.";
+        private string Txt_ShowTop3 = "Tips: Clique gauche sur ce bouton pour afficher les trois étoiles du match de chaque équipe.";
+        #endregion
+
+        private bool ShowStats;
+
         public Match_Form()
         {
             InitializeComponent();
@@ -37,10 +47,15 @@ namespace TP_Final
             Initialize_Winner();
             Initialize_DGV(m_Home, DGV_Home);
             Initialize_DGV(m_Visitor, DGV_Visitor);
+<<<<<<< HEAD
             Update_Labels_Location();
             Fill_Data_set(DGV_Home, m_Home);
             Fill_Data_set(DGV_Visitor, m_Visitor);
+=======
+            ShowStats = false;
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
         }
+        
 
         private void Initialize_Labels()
         {
@@ -90,20 +105,24 @@ namespace TP_Final
             //ApplyRowsStyles();
         }
 
+<<<<<<< HEAD
         private void FB_Stats_Click(object sender, EventArgs e)
         {
             LBL_Receveur.Text = LBL_Visiteur.Text = "Statistiques du match";
             // FB_Stats.ImageNeutral
         }
+=======
+
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
 
         private void PN_Display_MouseEnter(object sender, EventArgs e)
         {
-            Cursor = Cursors.Hand;
+            SL_Game.Text = Txt_ScoreBoard;
         }
 
         private void PN_Display_MouseLeave(object sender, EventArgs e)
         {
-            Cursor = Cursors.Default;
+            Empty_StatusStrip();
         }
 
         private void PN_Display_Click(object sender, EventArgs e)
@@ -256,6 +275,7 @@ namespace TP_Final
             }
         }
 
+<<<<<<< HEAD
         private void Match_Form_SizeChanged(object sender, EventArgs e)
         {
             Update_Labels_Location();
@@ -331,5 +351,94 @@ namespace TP_Final
         {
 
         }
+=======
+        #region "Actions Liés au MouseEnter"
+        private void PN_Visitor_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Game.Text = Txt_PN_Visiteur;
+        }
+
+        private void PN_Home_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Game.Text = Txt_PN_Receveur;
+        }
+        private void DGV_Visitor_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Game.Text = Txt_PN_Visiteur;
+        }
+        private void DGV_Home_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Game.Text = Txt_PN_Receveur;
+        }
+        private void FB_Stats_MouseEnter(object sender, EventArgs e)
+        {
+            if (ShowStats)
+                SL_Game.Text = Txt_ShowStats;
+            if (!ShowStats)
+                SL_Game.Text = Txt_ShowTop3;
+        }
+
+        #endregion
+        #region ""Actions liés au MouseLeave"
+        private void Empty_StatusStrip()
+        {
+            SL_Game.Text = "";
+        }
+        private void PN_Home_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
+        private void PN_Visitor_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
+
+
+        private void DGV_Home_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
+
+        private void DGV_Visitor_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
+
+        private void FB_Stats_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
+        #endregion
+
+        private void FB_Stats_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (ShowStats)
+            {
+                ShowStats = false;
+                FB_Stats.ImageNeutral = TP_Final.Properties.Resources.StraightLines_Neutral;
+                FB_Stats.ImageClick = TP_Final.Properties.Resources.StraightLines_Click;
+                FB_Stats.ImageOver = TP_Final.Properties.Resources.StraightLines_Over;
+                FB_Stats.BorderStyle = BorderStyle.Fixed3D;
+                LBL_Receveur.Text = LBL_Visiteur.Text = "Top 3";
+                LBL_Receveur.Location = new Point(LBL_Receveur.Location.X + 75, LBL_Receveur.Location.Y);
+                LBL_Visiteur.Location = new Point(LBL_Visiteur.Location.X + 75, LBL_Visiteur.Location.Y);
+                SL_Game.Text = Txt_ShowTop3;
+            }
+            else
+            {
+                ShowStats = true;
+                FB_Stats.ImageNeutral = TP_Final.Properties.Resources.Etoile;
+                FB_Stats.ImageClick = TP_Final.Properties.Resources.EtoileClick;
+                FB_Stats.ImageOver = TP_Final.Properties.Resources.EtoileOver;
+                FB_Stats.BorderStyle = BorderStyle.None;
+                LBL_Receveur.Text = LBL_Visiteur.Text = "Statistiques du match";
+                LBL_Receveur.Location = new Point(LBL_Receveur.Location.X - 75, LBL_Receveur.Location.Y);
+                LBL_Visiteur.Location = new Point(LBL_Visiteur.Location.X - 75, LBL_Visiteur.Location.Y);
+                SL_Game.Text = Txt_ShowStats;
+            }
+            
+        }
+
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
     }
 }

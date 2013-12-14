@@ -42,6 +42,7 @@
             this.PN_RHome_Win = new System.Windows.Forms.Panel();
             this.PN_LHome_Win = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.SL_Game = new System.Windows.Forms.ToolStripStatusLabel();
             this.LBL_Receveur = new System.Windows.Forms.Label();
             this.LBL_Visiteur = new System.Windows.Forms.Label();
             this.PN_Display = new System.Windows.Forms.Panel();
@@ -60,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Visitor)).BeginInit();
             this.PN_Visitor.SuspendLayout();
             this.PN_Home.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.PN_Display.SuspendLayout();
             this.PN_Score.SuspendLayout();
             this.SuspendLayout();
@@ -98,7 +100,12 @@
             this.DGV_Home.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Home.Size = new System.Drawing.Size(413, 301);
             this.DGV_Home.TabIndex = 1;
+<<<<<<< HEAD
             this.DGV_Home.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Home_RowHeaderMouseDoubleClick);
+=======
+            this.DGV_Home.MouseEnter += new System.EventHandler(this.DGV_Home_MouseEnter);
+            this.DGV_Home.MouseLeave += new System.EventHandler(this.DGV_Home_MouseLeave);
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
             // 
             // DGV_Visitor
             // 
@@ -112,7 +119,12 @@
             this.DGV_Visitor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Visitor.Size = new System.Drawing.Size(418, 301);
             this.DGV_Visitor.TabIndex = 1;
+<<<<<<< HEAD
             this.DGV_Visitor.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Visitor_RowHeaderMouseDoubleClick);
+=======
+            this.DGV_Visitor.MouseEnter += new System.EventHandler(this.DGV_Visitor_MouseEnter);
+            this.DGV_Visitor.MouseLeave += new System.EventHandler(this.DGV_Visitor_MouseLeave);
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
             // 
             // PN_Visitor
             // 
@@ -127,6 +139,8 @@
             this.PN_Visitor.Name = "PN_Visitor";
             this.PN_Visitor.Size = new System.Drawing.Size(418, 65);
             this.PN_Visitor.TabIndex = 2;
+            this.PN_Visitor.MouseEnter += new System.EventHandler(this.PN_Visitor_MouseEnter);
+            this.PN_Visitor.MouseLeave += new System.EventHandler(this.PN_Visitor_MouseLeave);
             // 
             // LBL_Visitor
             // 
@@ -137,6 +151,8 @@
             this.LBL_Visitor.Size = new System.Drawing.Size(84, 25);
             this.LBL_Visitor.TabIndex = 4;
             this.LBL_Visitor.Text = "Visiteur";
+            this.LBL_Visitor.MouseEnter += new System.EventHandler(this.PN_Visitor_MouseEnter);
+            this.LBL_Visitor.MouseLeave += new System.EventHandler(this.PN_Visitor_MouseLeave);
             // 
             // PN_RVis_Win
             // 
@@ -146,6 +162,8 @@
             this.PN_RVis_Win.Name = "PN_RVis_Win";
             this.PN_RVis_Win.Size = new System.Drawing.Size(49, 48);
             this.PN_RVis_Win.TabIndex = 3;
+            this.PN_RVis_Win.MouseEnter += new System.EventHandler(this.PN_Visitor_MouseEnter);
+            this.PN_RVis_Win.MouseLeave += new System.EventHandler(this.PN_Visitor_MouseLeave);
             // 
             // PN_LVis_Win
             // 
@@ -154,6 +172,8 @@
             this.PN_LVis_Win.Name = "PN_LVis_Win";
             this.PN_LVis_Win.Size = new System.Drawing.Size(49, 48);
             this.PN_LVis_Win.TabIndex = 3;
+            this.PN_LVis_Win.MouseEnter += new System.EventHandler(this.PN_Visitor_MouseEnter);
+            this.PN_LVis_Win.MouseLeave += new System.EventHandler(this.PN_Visitor_MouseLeave);
             // 
             // PN_Home
             // 
@@ -166,16 +186,24 @@
             this.PN_Home.Name = "PN_Home";
             this.PN_Home.Size = new System.Drawing.Size(413, 65);
             this.PN_Home.TabIndex = 3;
+            this.PN_Home.MouseEnter += new System.EventHandler(this.PN_Home_MouseEnter);
+            this.PN_Home.MouseLeave += new System.EventHandler(this.PN_Home_MouseLeave);
             // 
             // LBL_Home
             // 
             this.LBL_Home.AutoSize = true;
             this.LBL_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.LBL_Home.Location = new System.Drawing.Point(154, 20);
+=======
+            this.LBL_Home.Location = new System.Drawing.Point(121, 20);
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
             this.LBL_Home.Name = "LBL_Home";
             this.LBL_Home.Size = new System.Drawing.Size(104, 25);
             this.LBL_Home.TabIndex = 4;
             this.LBL_Home.Text = "Receveur";
+            this.LBL_Home.MouseEnter += new System.EventHandler(this.PN_Home_MouseEnter);
+            this.LBL_Home.MouseLeave += new System.EventHandler(this.PN_Home_MouseLeave);
             // 
             // PN_RHome_Win
             // 
@@ -184,6 +212,8 @@
             this.PN_RHome_Win.Name = "PN_RHome_Win";
             this.PN_RHome_Win.Size = new System.Drawing.Size(49, 48);
             this.PN_RHome_Win.TabIndex = 3;
+            this.PN_RHome_Win.MouseEnter += new System.EventHandler(this.PN_Home_MouseEnter);
+            this.PN_RHome_Win.MouseLeave += new System.EventHandler(this.PN_Home_MouseLeave);
             // 
             // PN_LHome_Win
             // 
@@ -192,15 +222,24 @@
             this.PN_LHome_Win.Name = "PN_LHome_Win";
             this.PN_LHome_Win.Size = new System.Drawing.Size(49, 48);
             this.PN_LHome_Win.TabIndex = 3;
+            this.PN_LHome_Win.MouseEnter += new System.EventHandler(this.PN_Home_MouseEnter);
+            this.PN_LHome_Win.MouseLeave += new System.EventHandler(this.PN_Home_MouseLeave);
             // 
             // statusStrip1
             // 
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SL_Game});
             this.statusStrip1.Location = new System.Drawing.Point(0, 24);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1067, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // SL_Game
+            // 
+            this.SL_Game.Name = "SL_Game";
+            this.SL_Game.Size = new System.Drawing.Size(0, 17);
             // 
             // LBL_Receveur
             // 
@@ -231,6 +270,13 @@
             this.PN_Display.Controls.Add(this.PN_Score);
             this.PN_Display.Controls.Add(this.LBL_Date);
             this.PN_Display.Controls.Add(this.LBL_Stadium);
+<<<<<<< HEAD
+=======
+            this.PN_Display.Controls.Add(this.LBL_Score_Home);
+            this.PN_Display.Controls.Add(this.LBL_Score_Visitor);
+            this.PN_Display.Controls.Add(this.label3);
+            this.PN_Display.Cursor = System.Windows.Forms.Cursors.Hand;
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
             this.PN_Display.Location = new System.Drawing.Point(431, 67);
             this.PN_Display.Name = "PN_Display";
             this.PN_Display.Size = new System.Drawing.Size(200, 102);
@@ -241,6 +287,7 @@
             // 
             // PN_Score
             // 
+<<<<<<< HEAD
             this.PN_Score.Controls.Add(this.LBL_Score_Home);
             this.PN_Score.Controls.Add(this.LBL_Score_Visitor);
             this.PN_Score.Controls.Add(this.LBL_Space);
@@ -252,6 +299,29 @@
             this.PN_Score.Click += new System.EventHandler(this.PN_Score_Click);
             this.PN_Score.MouseEnter += new System.EventHandler(this.PN_Score_MouseEnter);
             this.PN_Score.MouseLeave += new System.EventHandler(this.PN_Score_MouseLeave);
+=======
+            this.LBL_Date.AutoSize = true;
+            this.LBL_Date.Location = new System.Drawing.Point(67, 80);
+            this.LBL_Date.Name = "LBL_Date";
+            this.LBL_Date.Size = new System.Drawing.Size(30, 13);
+            this.LBL_Date.TabIndex = 3;
+            this.LBL_Date.Text = "Date";
+            this.LBL_Date.MouseEnter += new System.EventHandler(this.PN_Display_MouseEnter);
+            this.LBL_Date.MouseLeave += new System.EventHandler(this.PN_Display_MouseLeave);
+            // 
+            // LBL_Stadium
+            // 
+            this.LBL_Stadium.AutoSize = true;
+            this.LBL_Stadium.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_Stadium.Location = new System.Drawing.Point(66, 46);
+            this.LBL_Stadium.Name = "LBL_Stadium";
+            this.LBL_Stadium.Size = new System.Drawing.Size(71, 20);
+            this.LBL_Stadium.TabIndex = 2;
+            this.LBL_Stadium.Text = "Montréal";
+            this.LBL_Stadium.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LBL_Stadium.MouseEnter += new System.EventHandler(this.PN_Display_MouseEnter);
+            this.LBL_Stadium.MouseLeave += new System.EventHandler(this.PN_Display_MouseLeave);
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
             // 
             // LBL_Score_Home
             // 
@@ -263,6 +333,8 @@
             this.LBL_Score_Home.TabIndex = 1;
             this.LBL_Score_Home.Text = "0";
             this.LBL_Score_Home.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LBL_Score_Home.MouseEnter += new System.EventHandler(this.PN_Display_MouseEnter);
+            this.LBL_Score_Home.MouseLeave += new System.EventHandler(this.PN_Display_MouseLeave);
             // 
             // LBL_Score_Visitor
             // 
@@ -274,9 +346,12 @@
             this.LBL_Score_Visitor.TabIndex = 1;
             this.LBL_Score_Visitor.Text = "0";
             this.LBL_Score_Visitor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LBL_Score_Visitor.MouseEnter += new System.EventHandler(this.PN_Display_MouseEnter);
+            this.LBL_Score_Visitor.MouseLeave += new System.EventHandler(this.PN_Display_MouseLeave);
             // 
             // LBL_Space
             // 
+<<<<<<< HEAD
             this.LBL_Space.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBL_Space.Location = new System.Drawing.Point(93, 9);
             this.LBL_Space.Name = "LBL_Space";
@@ -311,6 +386,17 @@
             this.LBL_Stadium.Click += new System.EventHandler(this.LBL_Stadium_Click);
             this.LBL_Stadium.MouseEnter += new System.EventHandler(this.LBL_Stadium_MouseEnter);
             this.LBL_Stadium.MouseLeave += new System.EventHandler(this.LBL_Stadium_MouseLeave);
+=======
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(97, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "-";
+            this.label3.MouseEnter += new System.EventHandler(this.PN_Display_MouseEnter);
+            this.label3.MouseLeave += new System.EventHandler(this.PN_Display_MouseLeave);
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
             // 
             // FB_Stats
             // 
@@ -325,7 +411,9 @@
             this.FB_Stats.Name = "FB_Stats";
             this.FB_Stats.Size = new System.Drawing.Size(111, 95);
             this.FB_Stats.TabIndex = 7;
-            this.FB_Stats.Click += new System.EventHandler(this.FB_Stats_Click);
+            this.FB_Stats.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FB_Stats_MouseClick);
+            this.FB_Stats.MouseEnter += new System.EventHandler(this.FB_Stats_MouseEnter);
+            this.FB_Stats.MouseLeave += new System.EventHandler(this.FB_Stats_MouseLeave);
             // 
             // PN_Versus
             // 
@@ -398,6 +486,8 @@
             this.PN_Visitor.PerformLayout();
             this.PN_Home.ResumeLayout(false);
             this.PN_Home.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.PN_Display.ResumeLayout(false);
             this.PN_Score.ResumeLayout(false);
             this.PN_Score.PerformLayout();
@@ -432,8 +522,12 @@
         private System.Windows.Forms.Label LBL_Space;
         private System.Windows.Forms.Label LBL_Stadium;
         private System.Windows.Forms.Label LBL_Date;
+<<<<<<< HEAD
         private System.Windows.Forms.Panel PN_Score;
         private FlashButton.FlashButton FB_Edit_Home;
         private FlashButton.FlashButton FB_Edit_Visitor;
+=======
+        private System.Windows.Forms.ToolStripStatusLabel SL_Game;
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
     }
 }

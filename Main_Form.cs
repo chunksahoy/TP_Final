@@ -38,7 +38,6 @@ namespace TP_Final
         private string m_Pass;
         private const int MAX_TEAMS = 4;
         #endregion
-        private delegate void Del();
 
         #region "Texte du StatusStrip"
 
@@ -95,8 +94,7 @@ namespace TP_Final
                         // Création d'un stream pour convertir le ByteAray en Image
                         MemoryStream memStream = new MemoryStream(myByteArray);
                         unLogo = Image.FromStream(memStream);
-
-                        //LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
+                        LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
                     }
 
                 }
@@ -324,7 +322,6 @@ namespace TP_Final
             {
                 Remove_Team();
             }
-            
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
@@ -384,8 +381,12 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
+<<<<<<< HEAD
                 //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
+=======
+                LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
             }
 
                         
@@ -482,15 +483,22 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+<<<<<<< HEAD
                 //LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
 
+=======
+                LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
         private void Resize_DGV_Teams()
@@ -980,15 +988,19 @@ namespace TP_Final
             }
         }
 
-        private void DGV_Teams_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void LS_Logos_MouseClick(object sender, MouseEventArgs e)
         {
-
         }
 
-        private void LS_Logos_Click(object sender, EventArgs e)
+        private void FB_Stars_Click(object sender, EventArgs e)
         {
+            TopCinqForm dlg = new TopCinqForm();
 
+            dlg.ShowDialog();
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
     }
 }
