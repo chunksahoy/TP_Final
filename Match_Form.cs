@@ -47,12 +47,21 @@ namespace TP_Final
             Initialize_Winner();
             Initialize_DGV(m_Home, DGV_Home);
             Initialize_DGV(m_Visitor, DGV_Visitor);
+<<<<<<< HEAD
 
             Fill_Data_set(DGV_Home, m_Home);
             Fill_Data_set(DGV_Visitor, m_Visitor);
             
             ShowStats = false;
         }        
+=======
+            Update_Labels_Location();
+            Fill_Data_set(DGV_Home, m_Home);
+            Fill_Data_set(DGV_Visitor, m_Visitor);
+            ShowStats = false;
+        }
+        
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
 
         private void Initialize_Labels()
         {
@@ -100,7 +109,10 @@ namespace TP_Final
             dgv.DataSource = source;
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
         private void FB_Stats_Click(object sender, EventArgs e)
         {
             LBL_Receveur.Text = LBL_Visiteur.Text = "Statistiques du match";
@@ -449,6 +461,9 @@ namespace TP_Final
                 SL_Game.Text = Txt_ShowStats;
             }
 
+<<<<<<< HEAD
         }
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
     }
 }

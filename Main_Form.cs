@@ -71,7 +71,7 @@ namespace TP_Final
         ////////////////////////////////////////////// Ajout des images dans le LogoScroller ///////////////////////////////////////////
         private void Initialize_LogoScroller()
         {
-            string sql = "select logo, nom from equipe";
+            string sql = "select logo, nom, ville, division from equipe";
             Image unLogo;
             try
             {
@@ -84,8 +84,8 @@ namespace TP_Final
                 {
                     if (oraRead.GetValue(0).ToString() != "")
                     {
-                        // Création d'une variable locale blob
                         OracleBlob blob = oraRead.GetOracleBlob(0);
+<<<<<<< HEAD
                         // Convertion du blob en tableau de bytes
                         byte[] myByteArray = new Byte[blob.Length];
                         
@@ -95,6 +95,20 @@ namespace TP_Final
                         MemoryStream memStream = new MemoryStream(myByteArray);
                         unLogo = Image.FromStream(memStream);
                         //LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
+=======
+
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            int read = 0;
+                            byte[] buffer = new byte[8 * 1024];
+                            while ((read = blob.Read(buffer, 0, buffer.Length)) > 0) ms.Write(buffer, 0, read);
+                            Logo_scroller.LogoScroller.LogoScrollerElement lse = LS_Logos.AddElement(Image.FromStream(ms));
+                            lse.Nom = oraRead.GetString(1);
+                            lse.Ville = oraRead.GetString(2);
+                            lse.Division = oraRead.GetString(3);
+                            lse.Button.Click += Button_Click;
+                        }
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
                     }
 
                 }
@@ -103,6 +117,12 @@ namespace TP_Final
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        void Button_Click(object sender, EventArgs e)
+        {
+            Logo_scroller.LogoScroller.LogoScrollerElement lse = (Logo_scroller.LogoScroller.LogoScrollerElement)((FlashButton.FlashButton)sender).Tag;
+            MouseClick(lse.Nom, lse.Ville, lse.Division);
         }
 
         public void MouseClick(string NomElement, string TownName, string DivName)
@@ -119,9 +139,9 @@ namespace TP_Final
 
             if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                //LS_Logos.EditElement(dlg.m_TeamName, dlg.Image_LogoScroller);
                 Update_Team(dlg.m_TeamTown, dlg.m_TeamName, dlg.m_Division);
-            }
+            }  
+            LS_Logos.EditElement(dlg.m_TeamName, dlg.Image_LogoScroller);
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////// Initialisation des contrôles à leur état initial ////////////////////////////////////////
@@ -381,9 +401,19 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
+<<<<<<< HEAD
                 //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
             }                        
+=======
+                Logo_scroller.LogoScroller.LogoScrollerElement lse = LS_Logos.AddElement(form.m_file_Name);
+                lse.Nom = form.m_Team_Name;
+                lse.Ville = form.m_Team_Town;
+                lse.Division = form.m_Team_Division;
+            }
+
+                        
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////// Gestion du clique du bouton flash d'édition d'équipe ///////////////////////////////////////
@@ -444,7 +474,7 @@ namespace TP_Final
         { 
             //LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
             string sqlDelete = "delete from equipe where nom = '" + DGV_Teams.SelectedRows[0].Cells[0].Value.ToString() + "'";
-
+            LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
             try
             {
                 OracleCommand oraCMD = new OracleCommand(sqlDelete, conn);
@@ -477,10 +507,15 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+<<<<<<< HEAD
                // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
 
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
             }
+
+            LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
@@ -984,6 +1019,9 @@ namespace TP_Final
 
             dlg.ShowDialog();
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
     }
 }

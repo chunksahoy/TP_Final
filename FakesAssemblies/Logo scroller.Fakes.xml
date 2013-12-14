@@ -1,0 +1,1346 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Logo scroller.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Logo_scroller.Fakes.ShimLogoScroller">
+            <summary>Shim type of Logo_scroller.LogoScroller</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.#ctor(Logo_scroller.LogoScroller)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.Bind(System.ComponentModel.IComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.Bind(System.ComponentModel.ISynchronizeInvoke)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.Bind(System.Windows.Forms.IBindableComponent)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.Bind(System.Windows.Forms.IContainerControl)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.Bind(System.Windows.Forms.IDropTarget)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.Bind(System.Windows.Forms.IWin32Window)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AddElementImageString">
+            <summary>Sets the shim of LogoScroller.AddElement(Image image, String ImageName)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AddElementStringString">
+            <summary>Sets the shim of LogoScroller.AddElement(String FilePath, String ImageName)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.BF_Droit_MouseClickObjectMouseEventArgs">
+            <summary>Sets the shim of LogoScroller.BF_Droit_MouseClick(Object sender, MouseEventArgs e)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.BF_Gauche_MouseClickObjectMouseEventArgs">
+            <summary>Sets the shim of LogoScroller.BF_Gauche_MouseClick(Object sender, MouseEventArgs e)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.ChangeBrightnessInt32Image">
+            <summary>Sets the shim of LogoScroller.ChangeBrightness(Int32 value, Image image)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.Constructor">
+            <summary>Sets the shim of LogoScroller.LogoScroller()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.ConvertFilePathToImageString">
+            <summary>Sets the shim of LogoScroller.ConvertFilePathToImage(String FilePath)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.DisposeBoolean">
+            <summary>Sets the shim of LogoScroller.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.EditElementStringString">
+            <summary>Sets the shim of LogoScroller.EditElement(String NomElement, String FilePath)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.FLPN_Container_SizeChangedObjectEventArgs">
+            <summary>Sets the shim of LogoScroller.FLPN_Container_SizeChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.InitializeComponent">
+            <summary>Sets the shim of LogoScroller.InitializeComponent()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.LogoScroller_LoadObjectEventArgs">
+            <summary>Sets the shim of LogoScroller.LogoScroller_Load(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.MakeClickImageImage">
+            <summary>Sets the shim of LogoScroller.MakeClickImage(Image image)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.MakeOverImageImage">
+            <summary>Sets the shim of LogoScroller.MakeOverImage(Image image)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.NbElementsGet">
+            <summary>Sets the shim of LogoScroller.get_NbElements()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.NbElementsSetInt32">
+            <summary>Sets the shim of LogoScroller.set_NbElements(Int32 value)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.Redimensionner">
+            <summary>Sets the shim of LogoScroller.Redimensionner()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.RemoveElementString">
+            <summary>Sets the shim of LogoScroller.RemoveElement(String NomElement)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.UpdateControls">
+            <summary>Sets the shim of LogoScroller.UpdateControls()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.ValideInt32">
+            <summary>Sets the shim of LogoScroller.Valide(Int32 p)</summary>
+        </member>
+        <member name="T:Logo_scroller.Fakes.ShimLogoScroller.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.AddElementImageString">
+            <summary>Sets the shim of LogoScroller.AddElement(Image image, String ImageName)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.AddElementStringString">
+            <summary>Sets the shim of LogoScroller.AddElement(String FilePath, String ImageName)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.BF_Droit_MouseClickObjectMouseEventArgs">
+            <summary>Sets the shim of LogoScroller.BF_Droit_MouseClick(Object sender, MouseEventArgs e)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.BF_Gauche_MouseClickObjectMouseEventArgs">
+            <summary>Sets the shim of LogoScroller.BF_Gauche_MouseClick(Object sender, MouseEventArgs e)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.ChangeBrightnessInt32Image">
+            <summary>Sets the shim of LogoScroller.ChangeBrightness(Int32 value, Image image)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.ConvertFilePathToImageString">
+            <summary>Sets the shim of LogoScroller.ConvertFilePathToImage(String FilePath)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.DisposeBoolean">
+            <summary>Sets the shim of LogoScroller.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.EditElementStringString">
+            <summary>Sets the shim of LogoScroller.EditElement(String NomElement, String FilePath)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.FLPN_Container_SizeChangedObjectEventArgs">
+            <summary>Sets the shim of LogoScroller.FLPN_Container_SizeChanged(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.InitializeComponent">
+            <summary>Sets the shim of LogoScroller.InitializeComponent()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.LogoScroller_LoadObjectEventArgs">
+            <summary>Sets the shim of LogoScroller.LogoScroller_Load(Object sender, EventArgs e)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.MakeClickImageImage">
+            <summary>Sets the shim of LogoScroller.MakeClickImage(Image image)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.MakeOverImageImage">
+            <summary>Sets the shim of LogoScroller.MakeOverImage(Image image)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.NbElementsGet">
+            <summary>Sets the shim of LogoScroller.get_NbElements()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.NbElementsSetInt32">
+            <summary>Sets the shim of LogoScroller.set_NbElements(Int32 value)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.Redimensionner">
+            <summary>Sets the shim of LogoScroller.Redimensionner()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.RemoveElementString">
+            <summary>Sets the shim of LogoScroller.RemoveElement(String NomElement)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.UpdateControls">
+            <summary>Sets the shim of LogoScroller.UpdateControls()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.AllInstances.ValideInt32">
+            <summary>Sets the shim of LogoScroller.Valide(Int32 p)</summary>
+        </member>
+        <member name="T:Logo_scroller.Fakes.ShimLogoScroller.ShimLogoScrollerElement">
+            <summary>Shim type of Logo_scroller.LogoScroller+LogoScrollerElement</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.ShimLogoScrollerElement.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.ShimLogoScrollerElement.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.ShimLogoScroller.ShimLogoScrollerElement.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.ShimLogoScrollerElement.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.ShimLogoScrollerElement.EqualityOpLogoScrollerLogoScrollerElementLogoScrollerLogoScrollerElement">
+            <summary>Sets the shim of LogoScrollerElement.op_Equality(LogoScrollerElement a, LogoScrollerElement b)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.ShimLogoScroller.ShimLogoScrollerElement.InequalityOpLogoScrollerLogoScrollerElementLogoScrollerLogoScrollerElement">
+            <summary>Sets the shim of LogoScrollerElement.op_Inequality(LogoScrollerElement a, LogoScrollerElement b)</summary>
+        </member>
+        <member name="T:Logo_scroller.Fakes.ShimLogoScroller.ShimLogoScrollerElement.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:Logo_scroller.Fakes.StubLogoScroller">
+            <summary>Stub type of Logo_scroller.LogoScroller</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AdjustFormScrollbars(System.Boolean)">
+            <summary>Sets the stub of ContainerControl.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AdjustFormScrollbarsBoolean">
+            <summary>Sets the stub of ContainerControl.AdjustFormScrollbars(Boolean displayScrollbars)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AllowDropGet">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AllowDropSetBoolean">
+            <summary>Sets the stub of Control.set_AllowDrop(Boolean value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AnchorGet">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AnchorSetAnchorStyles">
+            <summary>Sets the stub of Control.set_Anchor(AnchorStyles value)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToAllowDrop">
+            <summary>Attaches delegates to emulate StubLogoScroller.AllowDrop as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToAnchor">
+            <summary>Attaches delegates to emulate StubLogoScroller.Anchor as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToAutoScroll">
+            <summary>Attaches delegates to emulate StubLogoScroller.AutoScroll as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToAutoScrollOffset">
+            <summary>Attaches delegates to emulate StubLogoScroller.AutoScrollOffset as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToAutoSize">
+            <summary>Attaches delegates to emulate StubLogoScroller.AutoSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToAutoValidate">
+            <summary>Attaches delegates to emulate StubLogoScroller.AutoValidate as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToBackColor">
+            <summary>Attaches delegates to emulate StubLogoScroller.BackColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToBackgroundImage">
+            <summary>Attaches delegates to emulate StubLogoScroller.BackgroundImage as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToBackgroundImageLayout">
+            <summary>Attaches delegates to emulate StubLogoScroller.BackgroundImageLayout as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToBindingContext">
+            <summary>Attaches delegates to emulate StubLogoScroller.BindingContext as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToContextMenu">
+            <summary>Attaches delegates to emulate StubLogoScroller.ContextMenu as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToContextMenuStrip">
+            <summary>Attaches delegates to emulate StubLogoScroller.ContextMenuStrip as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToCursor">
+            <summary>Attaches delegates to emulate StubLogoScroller.Cursor as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToDock">
+            <summary>Attaches delegates to emulate StubLogoScroller.Dock as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToDoubleBuffered">
+            <summary>Attaches delegates to emulate StubLogoScroller.DoubleBuffered as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToFont">
+            <summary>Attaches delegates to emulate StubLogoScroller.Font as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToForeColor">
+            <summary>Attaches delegates to emulate StubLogoScroller.ForeColor as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToImeModeBase">
+            <summary>Attaches delegates to emulate StubLogoScroller.ImeModeBase as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToMaximumSize">
+            <summary>Attaches delegates to emulate StubLogoScroller.MaximumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToMinimumSize">
+            <summary>Attaches delegates to emulate StubLogoScroller.MinimumSize as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToRightToLeft">
+            <summary>Attaches delegates to emulate StubLogoScroller.RightToLeft as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToSite">
+            <summary>Attaches delegates to emulate StubLogoScroller.Site as a property with a backing field.</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.AttachBackingFieldToText">
+            <summary>Attaches delegates to emulate StubLogoScroller.Text as a property with a backing field.</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AutoScrollGet">
+            <summary>Sets the stub of ScrollableControl.get_AutoScroll()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AutoScrollOffsetGet">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AutoScrollOffsetSetPoint">
+            <summary>Sets the stub of Control.set_AutoScrollOffset(Point value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AutoScrollSetBoolean">
+            <summary>Sets the stub of ScrollableControl.set_AutoScroll(Boolean value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AutoSizeGet">
+            <summary>Sets the stub of UserControl.get_AutoSize()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AutoSizeSetBoolean">
+            <summary>Sets the stub of UserControl.set_AutoSize(Boolean value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AutoValidateGet">
+            <summary>Sets the stub of UserControl.get_AutoValidate()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.AutoValidateSetAutoValidate">
+            <summary>Sets the stub of UserControl.set_AutoValidate(AutoValidate value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.BackColorGet">
+            <summary>Sets the stub of Control.get_BackColor()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.BackColorSetColor">
+            <summary>Sets the stub of Control.set_BackColor(Color value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.BackgroundImageGet">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.BackgroundImageLayoutGet">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.BackgroundImageLayoutSetImageLayout">
+            <summary>Sets the stub of Control.set_BackgroundImageLayout(ImageLayout value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.BackgroundImageSetImage">
+            <summary>Sets the stub of Control.set_BackgroundImage(Image value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.BindingContextGet">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.BindingContextSetBindingContext">
+            <summary>Sets the stub of ContainerControl.set_BindingContext(BindingContext value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.CanEnableImeGet">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.CanRaiseEventsGet">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ContextMenuGet">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ContextMenuSetContextMenu">
+            <summary>Sets the stub of Control.set_ContextMenu(ContextMenu value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ContextMenuStripGet">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ContextMenuStripSetContextMenuStrip">
+            <summary>Sets the stub of Control.set_ContextMenuStrip(ContextMenuStrip value)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.CreateAccessibilityInstance">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.CreateAccessibilityInstance01">
+            <summary>Sets the stub of Control.CreateAccessibilityInstance()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.CreateControlsInstance">
+            <summary>Sets the stub of Control.CreateControlsInstance()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.CreateControlsInstance01">
+            <summary>Sets the stub of Control.CreateControlsInstance()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.CreateHandle">
+            <summary>Sets the stub of Control.CreateHandle()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.CreateHandle01">
+            <summary>Sets the stub of Control.CreateHandle()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.CreateParamsGet">
+            <summary>Sets the stub of UserControl.get_CreateParams()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.CursorGet">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.CursorSetCursor">
+            <summary>Sets the stub of Control.set_Cursor(Cursor value)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.DefWndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DefWndProcMessageRef">
+            <summary>Sets the stub of Control.DefWndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DefaultCursorGet">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DefaultImeModeGet">
+            <summary>Sets the stub of Control.get_DefaultImeMode()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DefaultMarginGet">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DefaultMaximumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DefaultMinimumSizeGet">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DefaultPaddingGet">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DefaultSizeGet">
+            <summary>Sets the stub of UserControl.get_DefaultSize()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.DestroyHandle">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DestroyHandle01">
+            <summary>Sets the stub of Control.DestroyHandle()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DisplayRectangleGet">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.Dispose(System.Boolean)">
+            <summary>Sets the stub of LogoScroller.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DisposeBoolean">
+            <summary>Sets the stub of LogoScroller.Dispose(Boolean disposing)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DockGet">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DockSetDockStyle">
+            <summary>Sets the stub of Control.set_Dock(DockStyle value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DoubleBufferedGet">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.DoubleBufferedSetBoolean">
+            <summary>Sets the stub of Control.set_DoubleBuffered(Boolean value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.FocusedGet">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.FontGet">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.FontSetFont">
+            <summary>Sets the stub of Control.set_Font(Font value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ForeColorGet">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ForeColorSetColor">
+            <summary>Sets the stub of Control.set_ForeColor(Color value)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.GetAccessibilityObjectById(System.Int32)">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.GetAccessibilityObjectByIdInt32">
+            <summary>Sets the stub of Control.GetAccessibilityObjectById(Int32 objectId)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.GetPreferredSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.GetPreferredSizeSize">
+            <summary>Sets the stub of Control.GetPreferredSize(Size proposedSize)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.GetScaledBounds(System.Drawing.Rectangle,System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Control.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.GetScaledBoundsRectangleSizeFBoundsSpecified">
+            <summary>Sets the stub of Control.GetScaledBounds(Rectangle bounds, SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.GetService(System.Type)">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.GetServiceType">
+            <summary>Sets the stub of Component.GetService(Type service)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ImeModeBaseGet">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ImeModeBaseSetImeMode">
+            <summary>Sets the stub of Control.set_ImeModeBase(ImeMode value)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.InitLayout">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.InitLayout01">
+            <summary>Sets the stub of Control.InitLayout()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.InitializeStub">
+            <summary>Initializes a new instance of type StubLogoScroller</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.IsInputChar(System.Char)">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.IsInputCharChar">
+            <summary>Sets the stub of Control.IsInputChar(Char charCode)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.IsInputKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.IsInputKeyKeys">
+            <summary>Sets the stub of Control.IsInputKey(Keys keyData)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.LayoutEngineGet">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.MaximumSizeGet">
+            <summary>Sets the stub of Control.get_MaximumSize()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.MaximumSizeSetSize">
+            <summary>Sets the stub of Control.set_MaximumSize(Size value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.MinimumSizeGet">
+            <summary>Sets the stub of Control.get_MinimumSize()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.MinimumSizeSetSize">
+            <summary>Sets the stub of Control.set_MinimumSize(Size value)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.NotifyInvalidate(System.Drawing.Rectangle)">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.NotifyInvalidateRectangle">
+            <summary>Sets the stub of Control.NotifyInvalidate(Rectangle invalidatedArea)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnAutoSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnAutoSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnAutoSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnAutoValidateChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnAutoValidateChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnAutoValidateChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Control.OnBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnBackgroundImageLayoutChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnBackgroundImageLayoutChangedEventArgs">
+            <summary>Sets the stub of Control.OnBackgroundImageLayoutChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnCausesValidationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnCausesValidationChangedEventArgs">
+            <summary>Sets the stub of Control.OnCausesValidationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnChangeUICues(System.Windows.Forms.UICuesEventArgs)">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnChangeUICuesUICuesEventArgs">
+            <summary>Sets the stub of Control.OnChangeUICues(UICuesEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnClickEventArgs">
+            <summary>Sets the stub of Control.OnClick(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnClientSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnClientSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnClientSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnContextMenuChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnContextMenuChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnContextMenuStripChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnContextMenuStripChangedEventArgs">
+            <summary>Sets the stub of Control.OnContextMenuStripChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnControlAddedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlAdded(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnControlRemoved(System.Windows.Forms.ControlEventArgs)">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnControlRemovedControlEventArgs">
+            <summary>Sets the stub of Control.OnControlRemoved(ControlEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnCreateControl">
+            <summary>Sets the stub of UserControl.OnCreateControl()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnCreateControl01">
+            <summary>Sets the stub of UserControl.OnCreateControl()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnDockChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnDockChangedEventArgs">
+            <summary>Sets the stub of Control.OnDockChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnDoubleClick(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnDoubleClickEventArgs">
+            <summary>Sets the stub of Control.OnDoubleClick(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnDragDrop(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnDragDropDragEventArgs">
+            <summary>Sets the stub of Control.OnDragDrop(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnDragEnter(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnDragEnterDragEventArgs">
+            <summary>Sets the stub of Control.OnDragEnter(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnDragLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnDragLeaveEventArgs">
+            <summary>Sets the stub of Control.OnDragLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnDragOver(System.Windows.Forms.DragEventArgs)">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnDragOverDragEventArgs">
+            <summary>Sets the stub of Control.OnDragOver(DragEventArgs drgevent)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnEnabledChangedEventArgs">
+            <summary>Sets the stub of Control.OnEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnEnter(System.EventArgs)">
+            <summary>Sets the stub of Control.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnEnterEventArgs">
+            <summary>Sets the stub of Control.OnEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnFontChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnFontChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnGiveFeedback(System.Windows.Forms.GiveFeedbackEventArgs)">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnGiveFeedbackGiveFeedbackEventArgs">
+            <summary>Sets the stub of Control.OnGiveFeedback(GiveFeedbackEventArgs gfbevent)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnGotFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnGotFocusEventArgs">
+            <summary>Sets the stub of Control.OnGotFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnHandleCreated(System.EventArgs)">
+            <summary>Sets the stub of Control.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnHandleCreatedEventArgs">
+            <summary>Sets the stub of Control.OnHandleCreated(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnHandleDestroyed(System.EventArgs)">
+            <summary>Sets the stub of Control.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnHandleDestroyedEventArgs">
+            <summary>Sets the stub of Control.OnHandleDestroyed(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnHelpRequested(System.Windows.Forms.HelpEventArgs)">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnHelpRequestedHelpEventArgs">
+            <summary>Sets the stub of Control.OnHelpRequested(HelpEventArgs hevent)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnImeModeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnImeModeChangedEventArgs">
+            <summary>Sets the stub of Control.OnImeModeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnInvalidated(System.Windows.Forms.InvalidateEventArgs)">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnInvalidatedInvalidateEventArgs">
+            <summary>Sets the stub of Control.OnInvalidated(InvalidateEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnKeyDownKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyDown(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnKeyPressKeyPressEventArgs">
+            <summary>Sets the stub of Control.OnKeyPress(KeyPressEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnKeyUpKeyEventArgs">
+            <summary>Sets the stub of Control.OnKeyUp(KeyEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnLayout(System.Windows.Forms.LayoutEventArgs)">
+            <summary>Sets the stub of ContainerControl.OnLayout(LayoutEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnLayoutLayoutEventArgs">
+            <summary>Sets the stub of ContainerControl.OnLayout(LayoutEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnLeaveEventArgs">
+            <summary>Sets the stub of Control.OnLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnLoad(System.EventArgs)">
+            <summary>Sets the stub of UserControl.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnLoadEventArgs">
+            <summary>Sets the stub of UserControl.OnLoad(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnLocationChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnLocationChangedEventArgs">
+            <summary>Sets the stub of Control.OnLocationChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnLostFocus(System.EventArgs)">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnLostFocusEventArgs">
+            <summary>Sets the stub of Control.OnLostFocus(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMarginChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMarginChangedEventArgs">
+            <summary>Sets the stub of Control.OnMarginChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMouseCaptureChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMouseCaptureChangedEventArgs">
+            <summary>Sets the stub of Control.OnMouseCaptureChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMouseClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMouseDoubleClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMouseDoubleClickMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseDoubleClick(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of UserControl.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMouseDownMouseEventArgs">
+            <summary>Sets the stub of UserControl.OnMouseDown(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMouseEnter(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMouseEnterEventArgs">
+            <summary>Sets the stub of Control.OnMouseEnter(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMouseHover(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMouseHoverEventArgs">
+            <summary>Sets the stub of Control.OnMouseHover(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMouseLeave(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMouseLeaveEventArgs">
+            <summary>Sets the stub of Control.OnMouseLeave(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMouseMoveMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseMove(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMouseUpMouseEventArgs">
+            <summary>Sets the stub of Control.OnMouseUp(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMouseWheelMouseEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnMouseWheel(MouseEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnMove(System.EventArgs)">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnMoveEventArgs">
+            <summary>Sets the stub of Control.OnMove(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnNotifyMessage(System.Windows.Forms.Message)">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnNotifyMessageMessage">
+            <summary>Sets the stub of Control.OnNotifyMessage(Message m)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnPaddingChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnPaddingChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaddingChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Control.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnPaintBackgroundPaintEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnPaintBackground(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnPaintPaintEventArgs">
+            <summary>Sets the stub of Control.OnPaint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnParentBackColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnParentBackColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnParentBackgroundImageChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnParentBackgroundImageChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBackgroundImageChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnParentBindingContextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnParentBindingContextChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentBindingContextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnParentChanged(System.EventArgs)">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnParentChangedEventArgs">
+            <summary>Sets the stub of ContainerControl.OnParentChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnParentCursorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnParentCursorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentCursorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnParentEnabledChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnParentEnabledChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentEnabledChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnParentFontChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnParentFontChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentFontChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnParentForeColorChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnParentForeColorChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentForeColorChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnParentRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnParentRightToLeftChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnParentVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnParentVisibleChangedEventArgs">
+            <summary>Sets the stub of Control.OnParentVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnPreviewKeyDown(System.Windows.Forms.PreviewKeyDownEventArgs)">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnPreviewKeyDownPreviewKeyDownEventArgs">
+            <summary>Sets the stub of Control.OnPreviewKeyDown(PreviewKeyDownEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnPrint(System.Windows.Forms.PaintEventArgs)">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnPrintPaintEventArgs">
+            <summary>Sets the stub of Control.OnPrint(PaintEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnQueryContinueDrag(System.Windows.Forms.QueryContinueDragEventArgs)">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnQueryContinueDragQueryContinueDragEventArgs">
+            <summary>Sets the stub of Control.OnQueryContinueDrag(QueryContinueDragEventArgs qcdevent)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnRegionChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnRegionChangedEventArgs">
+            <summary>Sets the stub of Control.OnRegionChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnResize(System.EventArgs)">
+            <summary>Sets the stub of UserControl.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnResizeEventArgs">
+            <summary>Sets the stub of UserControl.OnResize(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnRightToLeftChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnRightToLeftChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnRightToLeftChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnScroll(System.Windows.Forms.ScrollEventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnScrollScrollEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnScroll(ScrollEventArgs se)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnSizeChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnSizeChangedEventArgs">
+            <summary>Sets the stub of Control.OnSizeChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnStyleChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnStyleChangedEventArgs">
+            <summary>Sets the stub of Control.OnStyleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnSystemColorsChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnSystemColorsChangedEventArgs">
+            <summary>Sets the stub of Control.OnSystemColorsChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnTabIndexChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnTabIndexChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabIndexChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnTabStopChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnTabStopChangedEventArgs">
+            <summary>Sets the stub of Control.OnTabStopChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnTextChanged(System.EventArgs)">
+            <summary>Sets the stub of Control.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnTextChangedEventArgs">
+            <summary>Sets the stub of Control.OnTextChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnValidated(System.EventArgs)">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnValidatedEventArgs">
+            <summary>Sets the stub of Control.OnValidated(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnValidating(System.ComponentModel.CancelEventArgs)">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnValidatingCancelEventArgs">
+            <summary>Sets the stub of Control.OnValidating(CancelEventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.OnVisibleChanged(System.EventArgs)">
+            <summary>Sets the stub of ScrollableControl.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.OnVisibleChangedEventArgs">
+            <summary>Sets the stub of ScrollableControl.OnVisibleChanged(EventArgs e)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.PreProcessMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.PreProcessMessageMessageRef">
+            <summary>Sets the stub of Control.PreProcessMessage(Message&amp; msg)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>Sets the stub of ContainerControl.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ProcessCmdKeyMessageRefKeys">
+            <summary>Sets the stub of ContainerControl.ProcessCmdKey(Message&amp; msg, Keys keyData)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ProcessDialogChar(System.Char)">
+            <summary>Sets the stub of ContainerControl.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ProcessDialogCharChar">
+            <summary>Sets the stub of ContainerControl.ProcessDialogChar(Char charCode)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ProcessDialogKey(System.Windows.Forms.Keys)">
+            <summary>Sets the stub of ContainerControl.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ProcessDialogKeyKeys">
+            <summary>Sets the stub of ContainerControl.ProcessDialogKey(Keys keyData)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ProcessKeyEventArgs(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ProcessKeyEventArgsMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyEventArgs(Message&amp; m)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ProcessKeyMessage(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ProcessKeyMessageMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyMessage(Message&amp; m)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ProcessKeyPreview(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of Control.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ProcessKeyPreviewMessageRef">
+            <summary>Sets the stub of Control.ProcessKeyPreview(Message&amp; m)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ProcessMnemonic(System.Char)">
+            <summary>Sets the stub of ContainerControl.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ProcessMnemonicChar">
+            <summary>Sets the stub of ContainerControl.ProcessMnemonic(Char charCode)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ProcessTabKey(System.Boolean)">
+            <summary>Sets the stub of ContainerControl.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ProcessTabKeyBoolean">
+            <summary>Sets the stub of ContainerControl.ProcessTabKey(Boolean forward)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.Refresh">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.Refresh01">
+            <summary>Sets the stub of Control.Refresh()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ResetBackColor">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ResetBackColor01">
+            <summary>Sets the stub of Control.ResetBackColor()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ResetCursor">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ResetCursor01">
+            <summary>Sets the stub of Control.ResetCursor()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ResetFont">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ResetFont01">
+            <summary>Sets the stub of Control.ResetFont()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ResetForeColor">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ResetForeColor01">
+            <summary>Sets the stub of Control.ResetForeColor()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ResetRightToLeft">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ResetRightToLeft01">
+            <summary>Sets the stub of Control.ResetRightToLeft()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ResetText">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ResetText01">
+            <summary>Sets the stub of Control.ResetText()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.RightToLeftGet">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.RightToLeftSetRightToLeft">
+            <summary>Sets the stub of Control.set_RightToLeft(RightToLeft value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ScaleChildrenGet">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ScaleControl(System.Drawing.SizeF,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of ScrollableControl.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ScaleControlSizeFBoundsSpecified">
+            <summary>Sets the stub of ScrollableControl.ScaleControl(SizeF factor, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ScaleCore(System.Single,System.Single)">
+            <summary>Sets the stub of ScrollableControl.ScaleCore(Single dx, Single dy)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ScaleCoreSingleSingle">
+            <summary>Sets the stub of ScrollableControl.ScaleCore(Single dx, Single dy)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ScrollToControl(System.Windows.Forms.Control)">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ScrollToControlControl">
+            <summary>Sets the stub of ScrollableControl.ScrollToControl(Control activeControl)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.Select(System.Boolean,System.Boolean)">
+            <summary>Sets the stub of ContainerControl.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.SelectBooleanBoolean">
+            <summary>Sets the stub of ContainerControl.Select(Boolean directed, Boolean forward)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.SetBoundsCore(System.Int32,System.Int32,System.Int32,System.Int32,System.Windows.Forms.BoundsSpecified)">
+            <summary>Sets the stub of Control.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.SetBoundsCoreInt32Int32Int32Int32BoundsSpecified">
+            <summary>Sets the stub of Control.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.SetClientSizeCore(System.Int32,System.Int32)">
+            <summary>Sets the stub of Control.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.SetClientSizeCoreInt32Int32">
+            <summary>Sets the stub of Control.SetClientSizeCore(Int32 x, Int32 y)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.SetVisibleCore(System.Boolean)">
+            <summary>Sets the stub of Control.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.SetVisibleCoreBoolean">
+            <summary>Sets the stub of Control.SetVisibleCore(Boolean value)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ShowFocusCuesGet">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ShowKeyboardCuesGet">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.SiteGet">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.SiteSetISite">
+            <summary>Sets the stub of Control.set_Site(ISite value)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.SizeFromClientSize(System.Drawing.Size)">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.SizeFromClientSizeSize">
+            <summary>Sets the stub of Control.SizeFromClientSize(Size clientSize)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.TextGet">
+            <summary>Sets the stub of UserControl.get_Text()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.TextSetString">
+            <summary>Sets the stub of UserControl.set_Text(String value)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ToString">
+            <summary>Sets the stub of Component.ToString()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ToString01">
+            <summary>Sets the stub of Component.ToString()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.UpdateDefaultButton">
+            <summary>Sets the stub of ContainerControl.UpdateDefaultButton()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.UpdateDefaultButton01">
+            <summary>Sets the stub of ContainerControl.UpdateDefaultButton()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ValidateChildren">
+            <summary>Sets the stub of UserControl.ValidateChildren()</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.ValidateChildren(System.Windows.Forms.ValidationConstraints)">
+            <summary>Sets the stub of UserControl.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ValidateChildren01">
+            <summary>Sets the stub of UserControl.ValidateChildren()</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.ValidateChildrenValidationConstraints">
+            <summary>Sets the stub of UserControl.ValidateChildren(ValidationConstraints validationConstraints)</summary>
+        </member>
+        <member name="M:Logo_scroller.Fakes.StubLogoScroller.WndProc(System.Windows.Forms.Message@)">
+            <summary>Sets the stub of UserControl.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="F:Logo_scroller.Fakes.StubLogoScroller.WndProcMessageRef">
+            <summary>Sets the stub of UserControl.WndProc(Message&amp; m)</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.AllowDrop">
+            <summary>Sets the stub of Control.get_AllowDrop()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.Anchor">
+            <summary>Sets the stub of Control.get_Anchor()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.AutoScroll">
+            <summary>Sets the stub of ScrollableControl.get_AutoScroll()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.AutoScrollOffset">
+            <summary>Sets the stub of Control.get_AutoScrollOffset()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.AutoSize">
+            <summary>Sets the stub of UserControl.get_AutoSize()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.AutoValidate">
+            <summary>Sets the stub of UserControl.get_AutoValidate()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.BackColor">
+            <summary>Sets the stub of Control.get_BackColor()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.BackgroundImage">
+            <summary>Sets the stub of Control.get_BackgroundImage()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.BackgroundImageLayout">
+            <summary>Sets the stub of Control.get_BackgroundImageLayout()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.BindingContext">
+            <summary>Sets the stub of ContainerControl.get_BindingContext()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.CanEnableIme">
+            <summary>Sets the stub of ContainerControl.get_CanEnableIme()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.CanRaiseEvents">
+            <summary>Sets the stub of Control.get_CanRaiseEvents()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.ContextMenu">
+            <summary>Sets the stub of Control.get_ContextMenu()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.ContextMenuStrip">
+            <summary>Sets the stub of Control.get_ContextMenuStrip()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.CreateParams">
+            <summary>Sets the stub of UserControl.get_CreateParams()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.Cursor">
+            <summary>Sets the stub of Control.get_Cursor()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.DefaultCursor">
+            <summary>Sets the stub of Control.get_DefaultCursor()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.DefaultImeMode">
+            <summary>Sets the stub of Control.get_DefaultImeMode()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.DefaultMargin">
+            <summary>Sets the stub of Control.get_DefaultMargin()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.DefaultMaximumSize">
+            <summary>Sets the stub of Control.get_DefaultMaximumSize()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.DefaultMinimumSize">
+            <summary>Sets the stub of Control.get_DefaultMinimumSize()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.DefaultPadding">
+            <summary>Sets the stub of Control.get_DefaultPadding()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.DefaultSize">
+            <summary>Sets the stub of UserControl.get_DefaultSize()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.DisplayRectangle">
+            <summary>Sets the stub of ScrollableControl.get_DisplayRectangle()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.Dock">
+            <summary>Sets the stub of Control.get_Dock()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.DoubleBuffered">
+            <summary>Sets the stub of Control.get_DoubleBuffered()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.Focused">
+            <summary>Sets the stub of Control.get_Focused()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.Font">
+            <summary>Sets the stub of Control.get_Font()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.ForeColor">
+            <summary>Sets the stub of Control.get_ForeColor()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.ImeModeBase">
+            <summary>Sets the stub of Control.get_ImeModeBase()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.LayoutEngine">
+            <summary>Sets the stub of Control.get_LayoutEngine()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.MaximumSize">
+            <summary>Sets the stub of Control.get_MaximumSize()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.MinimumSize">
+            <summary>Sets the stub of Control.get_MinimumSize()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.RightToLeft">
+            <summary>Sets the stub of Control.get_RightToLeft()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.ScaleChildren">
+            <summary>Sets the stub of Control.get_ScaleChildren()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.ShowFocusCues">
+            <summary>Sets the stub of Control.get_ShowFocusCues()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.ShowKeyboardCues">
+            <summary>Sets the stub of Control.get_ShowKeyboardCues()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.Site">
+            <summary>Sets the stub of Control.get_Site()</summary>
+        </member>
+        <member name="P:Logo_scroller.Fakes.StubLogoScroller.Text">
+            <summary>Sets the stub of UserControl.get_Text()</summary>
+        </member>
+        <member name="T:Microsoft.QualityTools.Testing.Fakes.Delegates.LogoscrollerDelegates">
+            <summary>Contains custom delegates used for the stubs and shims of Logo scroller</summary>
+        </member>
+    </members>
+</doc>

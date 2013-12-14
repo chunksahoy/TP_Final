@@ -58,10 +58,7 @@
     <Reference Include="FlashButton">
       <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\FlashButton.dll</HintPath>
     </Reference>
-    <Reference Include="Logo scroller, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>G:\Programmation 2013\Session3\DevInterface\TP FINAL\Logo scroller\Logo scroller\bin\Debug\Logo scroller.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=2.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
@@ -113,6 +110,12 @@
     </Compile>
     <Compile Include="Edit_Match_Form.Designer.cs">
       <DependentUpon>Edit_Match_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogoScroller.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LogoScroller.Designer.cs">
+      <DependentUpon>LogoScroller.cs</DependentUpon>
     </Compile>
     <Compile Include="Log_Form.cs">
       <SubType>Form</SubType>
@@ -181,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Match_Form.resx">
       <DependentUpon>Edit_Match_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogoScroller.resx">
+      <DependentUpon>LogoScroller.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Log_Form.resx">
       <DependentUpon>Log_Form.cs</DependentUpon>
