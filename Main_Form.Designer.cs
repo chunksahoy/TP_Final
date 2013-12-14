@@ -65,7 +65,6 @@
             this.DGV_Teams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV_Teams.Size = new System.Drawing.Size(1035, 548);
             this.DGV_Teams.TabIndex = 1;
-            this.DGV_Teams.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_CellMouseClick);
             this.DGV_Teams.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_ColumnHeaderMouseClick);
             this.DGV_Teams.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_RowHeaderMouseClick);
             this.DGV_Teams.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Teams_RowHeaderMouseDoubleClick);
@@ -288,6 +287,7 @@
             this.FB_Stars.Name = "FB_Stars";
             this.FB_Stars.Size = new System.Drawing.Size(65, 62);
             this.FB_Stars.TabIndex = 10;
+            this.FB_Stars.Click += new System.EventHandler(this.FB_Stars_Click);
             // 
             // LS_Logos
             // 

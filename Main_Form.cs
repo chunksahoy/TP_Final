@@ -974,13 +974,15 @@ namespace TP_Final
             }
         }
 
-        private void DGV_Teams_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
-        }
-
         private void LS_Logos_MouseClick(object sender, MouseEventArgs e)
         {
+        }
+
+        private void FB_Stars_Click(object sender, EventArgs e)
+        {
+            TopCinqForm dlg = new TopCinqForm();
+
+            dlg.ShowDialog();
         }
     }
 }

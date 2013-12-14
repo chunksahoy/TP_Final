@@ -74,10 +74,10 @@ namespace TP_Final
             RefreshLogo();
             LoadSettings();
             ApplyRowsStyles();
-            Initialize_Hidden_Updates();
             Resize_DGV_Players();
             Image_LogoScroller = "";
             m_Divisions_List = Initialize_Divisions_List();
+            Initialize_Hidden_Updates();
         }
 
         private void Resize_DGV_Players()
