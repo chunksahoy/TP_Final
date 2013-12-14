@@ -38,7 +38,6 @@ namespace TP_Final
         private string m_Pass;
         private const int MAX_TEAMS = 4;
         #endregion
-        private delegate void Del();
 
         #region "Texte du StatusStrip"
 
@@ -95,8 +94,7 @@ namespace TP_Final
                         // Création d'un stream pour convertir le ByteAray en Image
                         MemoryStream memStream = new MemoryStream(myByteArray);
                         unLogo = Image.FromStream(memStream);
-
-                        //LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
+                        LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
                     }
 
                 }
@@ -325,7 +323,6 @@ namespace TP_Final
             {
                 Remove_Team();
             }
-            
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
@@ -384,21 +381,8 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
                 LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
-
-=======
-
-                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-                //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name); 
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
-=======
-
-                Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-                //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name); 
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
             }
 
                         
@@ -495,26 +479,13 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
-=======
-               // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
-=======
-               // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
-
-<<<<<<< HEAD
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
-=======
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
         private void Resize_DGV_Teams()
@@ -1007,13 +978,9 @@ namespace TP_Final
         {
 
         }
-<<<<<<< HEAD
-=======
 
-        private void LS_Logos_Click(object sender, EventArgs e)
+        private void LS_Logos_MouseClick(object sender, MouseEventArgs e)
         {
-
         }
->>>>>>> 872b98a1ff418e34b3b29d94302ae303dabbdd44
     }
 }
