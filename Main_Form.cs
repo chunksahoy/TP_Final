@@ -86,6 +86,7 @@ namespace TP_Final
                     {
                         OracleBlob blob = oraRead.GetOracleBlob(0);
 <<<<<<< HEAD
+<<<<<<< HEAD
                         // Convertion du blob en tableau de bytes
                         byte[] myByteArray = new Byte[blob.Length];
                         
@@ -96,6 +97,8 @@ namespace TP_Final
                         unLogo = Image.FromStream(memStream);
                         //LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
 =======
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
 
                         using (MemoryStream ms = new MemoryStream())
                         {
@@ -108,6 +111,9 @@ namespace TP_Final
                             lse.Division = oraRead.GetString(3);
                             lse.Button.Click += Button_Click;
                         }
+<<<<<<< HEAD
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
+=======
 >>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
                     }
 
@@ -402,10 +408,13 @@ namespace TP_Final
             {
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
 <<<<<<< HEAD
+<<<<<<< HEAD
                 //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
             }                        
 =======
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
                 Logo_scroller.LogoScroller.LogoScrollerElement lse = LS_Logos.AddElement(form.m_file_Name);
                 lse.Nom = form.m_Team_Name;
                 lse.Ville = form.m_Team_Town;
@@ -508,8 +517,11 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
 
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
 =======
 >>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
@@ -1020,7 +1032,10 @@ namespace TP_Final
             dlg.ShowDialog();
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
 =======
 >>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
     }

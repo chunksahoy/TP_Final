@@ -370,7 +370,10 @@
         private System.Windows.Forms.Label LBL_Town;
         private System.Windows.Forms.TextBox TB_Town;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
 =======
 >>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
         private System.Windows.Forms.Label LBL_Division;

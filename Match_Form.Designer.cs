@@ -187,10 +187,10 @@
             // 
             this.LBL_Home.AutoSize = true;
             this.LBL_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.LBL_Home.Location = new System.Drawing.Point(154, 20);
-=======
             this.LBL_Home.Location = new System.Drawing.Point(121, 20);
+<<<<<<< HEAD
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
+=======
 >>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
             this.LBL_Home.Name = "LBL_Home";
             this.LBL_Home.Size = new System.Drawing.Size(104, 25);
@@ -265,13 +265,19 @@
             this.PN_Display.Controls.Add(this.LBL_Date);
             this.PN_Display.Controls.Add(this.LBL_Stadium);
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.PN_Display.Cursor = System.Windows.Forms.Cursors.Hand;
 =======
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
             this.PN_Display.Controls.Add(this.LBL_Score_Home);
             this.PN_Display.Controls.Add(this.LBL_Score_Visitor);
             this.PN_Display.Controls.Add(this.LBL_Space);
             this.PN_Display.Cursor = System.Windows.Forms.Cursors.Hand;
 
+<<<<<<< HEAD
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
+=======
 >>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
             this.PN_Display.Location = new System.Drawing.Point(431, 67);
             this.PN_Display.Name = "PN_Display";
@@ -295,6 +301,7 @@
             this.PN_Score.MouseEnter += new System.EventHandler(this.PN_Score_MouseEnter);
             this.PN_Score.MouseLeave += new System.EventHandler(this.PN_Score_MouseLeave);
 <<<<<<< HEAD
+<<<<<<< HEAD
             // 
             // LBL_Date
             // 
@@ -302,6 +309,8 @@
             this.LBL_Date.ForeColor = System.Drawing.SystemColors.WindowText;
             this.LBL_Date.Location = new System.Drawing.Point(0, 87);
 =======
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
             this.LBL_Date.AutoSize = true;
             this.LBL_Date.Location = new System.Drawing.Point(67, 80);
 >>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
@@ -317,6 +326,7 @@
             // LBL_Stadium
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.LBL_Stadium.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBL_Stadium.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBL_Stadium.Location = new System.Drawing.Point(0, 0);
@@ -329,6 +339,8 @@
             this.LBL_Stadium.MouseEnter += new System.EventHandler(this.LBL_Stadium_MouseEnter);
             this.LBL_Stadium.MouseLeave += new System.EventHandler(this.LBL_Stadium_MouseLeave);
 =======
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
             //this.LBL_Stadium.AutoSize = true;
             //this.LBL_Stadium.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             //this.LBL_Stadium.Location = new System.Drawing.Point(66, 46);
@@ -339,6 +351,9 @@
             //this.LBL_Stadium.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             //this.LBL_Stadium.MouseEnter += new System.EventHandler(this.PN_Display_MouseEnter);
             //this.LBL_Stadium.MouseLeave += new System.EventHandler(this.PN_Display_MouseLeave);
+<<<<<<< HEAD
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
+=======
 >>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
             // 
             // LBL_Score_Home
@@ -366,10 +381,13 @@
             // LBL_Space
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.LBL_Space.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LBL_Space.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBL_Space.Location = new System.Drawing.Point(0, 0);
 =======
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
             this.LBL_Space.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBL_Space.Location = new System.Drawing.Point(93, 9);
 >>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
@@ -543,6 +561,7 @@
         private System.Windows.Forms.Label LBL_Stadium;
         private System.Windows.Forms.Label LBL_Date;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         private System.Windows.Forms.Panel PN_Score;
         private FlashButton.FlashButton FB_Edit_Home;
@@ -550,6 +569,12 @@
 
         private System.Windows.Forms.ToolStripStatusLabel SL_Game;
 
+=======
+        private System.Windows.Forms.Panel PN_Score;
+        private FlashButton.FlashButton FB_Edit_Home;
+        private FlashButton.FlashButton FB_Edit_Visitor;
+        private System.Windows.Forms.ToolStripStatusLabel SL_Game;
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
 =======
         private System.Windows.Forms.Panel PN_Score;
         private FlashButton.FlashButton FB_Edit_Home;

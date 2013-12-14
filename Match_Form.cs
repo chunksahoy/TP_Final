@@ -48,6 +48,7 @@ namespace TP_Final
             Initialize_DGV(m_Home, DGV_Home);
             Initialize_DGV(m_Visitor, DGV_Visitor);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             Fill_Data_set(DGV_Home, m_Home);
             Fill_Data_set(DGV_Visitor, m_Visitor);
@@ -58,6 +59,11 @@ namespace TP_Final
             Update_Labels_Location();
             Fill_Data_set(DGV_Home, m_Home);
             Fill_Data_set(DGV_Visitor, m_Visitor);
+=======
+            Update_Labels_Location();
+            Fill_Data_set(DGV_Home, m_Home);
+            Fill_Data_set(DGV_Visitor, m_Visitor);
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
             ShowStats = false;
         }
         
@@ -110,7 +116,10 @@ namespace TP_Final
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
 =======
 >>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
         private void FB_Stats_Click(object sender, EventArgs e)
@@ -462,7 +471,10 @@ namespace TP_Final
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         }
+=======
+>>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
 =======
 >>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
     }
