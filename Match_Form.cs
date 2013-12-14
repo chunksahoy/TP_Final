@@ -47,15 +47,12 @@ namespace TP_Final
             Initialize_Winner();
             Initialize_DGV(m_Home, DGV_Home);
             Initialize_DGV(m_Visitor, DGV_Visitor);
-<<<<<<< HEAD
-            Update_Labels_Location();
+
             Fill_Data_set(DGV_Home, m_Home);
             Fill_Data_set(DGV_Visitor, m_Visitor);
-=======
+            
             ShowStats = false;
->>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
-        }
-        
+        }        
 
         private void Initialize_Labels()
         {
@@ -101,19 +98,14 @@ namespace TP_Final
 
             source = new BindingSource(myData, "equipe");
             dgv.DataSource = source;
-            //LoadSettings();
-            //ApplyRowsStyles();
         }
 
-<<<<<<< HEAD
+
         private void FB_Stats_Click(object sender, EventArgs e)
         {
             LBL_Receveur.Text = LBL_Visiteur.Text = "Statistiques du match";
             // FB_Stats.ImageNeutral
         }
-=======
-
->>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
 
         private void PN_Display_MouseEnter(object sender, EventArgs e)
         {
@@ -130,7 +122,37 @@ namespace TP_Final
             Edit_Display();
         }
 
-        private void Update_Match(string stadium, DateTime date, int homeScore, int visitScore)
+        private int Calculate_Score(string team)
+        {
+            OracleParameter pteam = new OracleParameter(":equipe", OracleDbType.Varchar2, 30);
+
+            string sql = "select sum(nbbuts) from vueJoueur where equipe=:pteam";
+            int score = 0;
+
+            OracleCommand oraCMD = new OracleCommand(sql, conn);
+            oraCMD.CommandType = CommandType.Text;
+
+            pteam.Value = team;
+
+            try
+            {
+                oraCMD.Parameters.Add(pteam);
+
+                OracleDataReader oraRead = oraCMD.ExecuteReader();
+
+                while (oraRead.Read())
+                {
+                    score = oraRead.GetInt32(0);
+                }
+            }
+            catch(OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return score;
+        }
+
+        private void Update_Match(string stadium, DateTime date)
         {
             OracleParameter pdate = new OracleParameter(":date", OracleDbType.Date);
             OracleParameter pstadium = new OracleParameter(":stade", OracleDbType.Varchar2, 30);
@@ -145,8 +167,8 @@ namespace TP_Final
 
             pdate.Value = date;
             pstadium.Value = stadium;
-            phomescore.Value = homeScore;
-            pvisitscore.Value = visitScore;
+            phomescore.Value = Calculate_Score(m_Home);
+            pvisitscore.Value = Calculate_Score(m_Visitor);
             pmatch.Value = m_numMatch;
 
             try
@@ -258,33 +280,24 @@ namespace TP_Final
 
             form.m_Stadium = LBL_Stadium.Text;
             form.m_Date = DateTime.Parse(LBL_Date.Text);
-            form.m_Home_Score = int.Parse(LBL_Score_Home.Text);
-            form.m_Visitor_Score = int.Parse(LBL_Score_Visitor.Text);
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 m_Stadium = form.m_Stadium;
                 m_Date = form.m_Date.ToShortDateString();
-                m_Home_Score = form.m_Home_Score;
-                m_Visitor_Score = form.m_Visitor_Score;
 
                 Initialize_Labels();
                 Initialize_Winner();
 
-                Update_Match(form.m_Stadium, form.m_Date, form.m_Home_Score, form.m_Visitor_Score);
+                Update_Match(form.m_Stadium, form.m_Date);
             }
         }
 
-<<<<<<< HEAD
         private void Match_Form_SizeChanged(object sender, EventArgs e)
         {
-            Update_Labels_Location();
-        }
-
-        private void Update_Labels_Location()
-        {
 
         }
+
         #region  "Gestion_Panel_Stats"
         private void LBL_Stadium_Click(object sender, EventArgs e)
         {
@@ -351,7 +364,6 @@ namespace TP_Final
         {
 
         }
-=======
         #region "Actions Liés au MouseEnter"
         private void PN_Visitor_MouseEnter(object sender, EventArgs e)
         {
@@ -436,9 +448,7 @@ namespace TP_Final
                 LBL_Visiteur.Location = new Point(LBL_Visiteur.Location.X - 75, LBL_Visiteur.Location.Y);
                 SL_Game.Text = Txt_ShowStats;
             }
-            
-        }
 
->>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
+        }
     }
 }

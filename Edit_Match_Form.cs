@@ -19,15 +19,11 @@ namespace TP_Final
 
         public string m_Stadium;
         public DateTime m_Date;
-        public int m_Home_Score;
-        public int m_Visitor_Score;
 
         private void Initialize_Stats()
         {
             TB_Stadium.Text = m_Stadium;
             DTP_Date.Value = DateTime.Parse(m_Date.ToLongDateString());
-            NUD_Home_Score.Value = m_Home_Score;
-            NUD_Visitor_Score.Value = m_Visitor_Score;
         }
 
         private void Edit_Match_Form_Load(object sender, EventArgs e)
@@ -47,8 +43,6 @@ namespace TP_Final
         {
             m_Stadium = TB_Stadium.Text;
             m_Date = DTP_Date.Value;
-            m_Home_Score = Decimal.ToInt32(NUD_Home_Score.Value);
-            m_Visitor_Score = Decimal.ToInt32(NUD_Visitor_Score.Value);
         }
     }
 }

@@ -94,7 +94,7 @@ namespace TP_Final
                         // Création d'un stream pour convertir le ByteAray en Image
                         MemoryStream memStream = new MemoryStream(myByteArray);
                         unLogo = Image.FromStream(memStream);
-                        LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
+                        //LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
                     }
 
                 }
@@ -381,15 +381,9 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-<<<<<<< HEAD
                 //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
-=======
-                LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
->>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
-            }
-
-                        
+            }                        
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////// Gestion du clique du bouton flash d'édition d'équipe ///////////////////////////////////////
@@ -483,22 +477,14 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
-                //LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
+               // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
 
-=======
-                LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
->>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Ajuste le DGV pour qu'il soit de la même taille que son contrôle parent ///////////////////////
         private void Resize_DGV_Teams()
@@ -998,9 +984,6 @@ namespace TP_Final
 
             dlg.ShowDialog();
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> 7b47353b1ac3afd341ccaf0ec2a75c0d85a8f2ec
     }
 }
