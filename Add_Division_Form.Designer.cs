@@ -123,7 +123,9 @@
             this.Controls.Add(this.GB_Division_Stats);
             this.Controls.Add(this.BTN_Ok);
             this.Controls.Add(this.BTN_Cancel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Add_Division_Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Add_Division_Form_FormClosing);
             this.Load += new System.EventHandler(this.Add_Division_Form_Load);
             this.GB_Division_Stats.ResumeLayout(false);
             this.GB_Division_Stats.PerformLayout();

@@ -16,5 +16,21 @@ namespace TP_Final
         {
             InitializeComponent();
         }
+
+        private void aideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Help_Form dlg = new Help_Form();
+            dlg.ShowDialog();
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Main_Options_Form dlg = new Main_Options_Form();
+
+            if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+
+            }
+        }
     }
 }

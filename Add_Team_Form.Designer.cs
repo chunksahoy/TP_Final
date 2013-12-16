@@ -167,6 +167,7 @@
             this.Controls.Add(this.BTN_Ok);
             this.Controls.Add(this.BTN_Cancel);
             this.Name = "Add_Team_Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Add_Team_Form_FormClosing);
             this.Load += new System.EventHandler(this.Add_Team_Form_Load);
             this.GB_Add_Player.ResumeLayout(false);
             this.GB_Add_Player.PerformLayout();

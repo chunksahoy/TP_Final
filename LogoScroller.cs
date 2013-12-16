@@ -85,7 +85,6 @@ namespace Logo_scroller
             fb.ImageOver = MakeOverImage(image);
             fb.ImageClick = MakeClickImage(image);
             fb.Size = Elements_Size;
-            //fb.Click += new EventHandler(FlashButton_Click);
 
             // Ajout de l'élement de la liste et resize de la marge dans le Flow layout panel
             LogoScrollerElement lse = new LogoScrollerElement() { Button = fb };
@@ -98,7 +97,6 @@ namespace Logo_scroller
 
         public void RemoveElement(string NomElement)
         {
-
             if ((from e in ListeElements where e.Nom == NomElement select e).Count() > 0)
             {
                 ListeElements.RemoveAll(e => e.Nom == NomElement);

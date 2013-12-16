@@ -29,6 +29,7 @@ namespace TP_Final
         private void Edit_Match_Form_Load(object sender, EventArgs e)
         {
             Initialize_Stats();
+            this.Location = Properties.Settings.Default.EditMatch_Location;
         }
 
         private void TB_Stadium_KeyPress(object sender, KeyPressEventArgs e)
@@ -43,6 +44,11 @@ namespace TP_Final
         {
             m_Stadium = TB_Stadium.Text;
             m_Date = DTP_Date.Value;
+        }
+
+        private void Edit_Match_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.EditMatch_Location = this.Location;
         }
     }
 }

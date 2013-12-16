@@ -64,6 +64,7 @@ namespace TP_Final
 
         private void Player_Form_Load(object sender, EventArgs e)
         {
+            this.Location = Properties.Settings.Default.Player_Form_Location;
             Load_Stats();
             Fill_Data_set();
         }
@@ -130,5 +131,10 @@ namespace TP_Final
             this.BindingContext[myData, "vueJoueur"].Position = myData.Tables[0].Rows.Count - 1;
         }
         #endregion
+
+        private void Player_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Player_Form_Location = this.Location;
+        }
     }
 }

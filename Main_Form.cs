@@ -34,14 +34,15 @@ namespace TP_Final
         private BindingSource source;
         private Color oddRowColor;
         private Color evenRowColor;
+        private Font Font_DGV;
+        private Color FontColor_DGV;
         private string m_Username;
         private string m_Pass;
         private const int MAX_TEAMS = 4;
         #endregion
-
         #region "Texte du StatusStrip"
 
-        private string Txt_AddTeam = "Tips: Clique gauche pour ouvrir un dialogue qui permet  d'ajouter une équipe à cette division.";
+        private string Txt_AddTeam = "Tips: Clique gauche pour ouvrir un dialogue qui permet d'ajouter une équipe à cette division.";
         private string Txt_RemoveTeam = "Tips: Clique gauche pour effacer l'équipe selectionnée de la division choisie.";
         private string Txt_ShowTeam = "Tips: Clique gauche pour ouvrir une fenêtre qui affiche tous les joueurs de l'équipe sélectionnée dans la grille Équipe.";
         private string Txt_RemoveDivision = "Tips: Clique gauche pour retirer une division de la base de données.";
@@ -49,22 +50,21 @@ namespace TP_Final
         private string Txt_LogoScroller = "Tips: Clique gauche sur un logo pour afficher les joueurs de l'équipe correspondante au logo dans une autre fenêtre";
         private string Txt_DGV_TeamOver = "Tips: Double clique sur l'entête d'une rangée d'une équipe pour afficher ses joueurs dans une autre fenêtre.";
         private string Txt_LB_Divisions = "Tips: Choisissez une division à l'aide d'un clique gauche pour qu'elle affiche ses équipes dans la grille d'équipe.";
-
+        private string Txt_Top5 = "Tips: Clique gauche pour ouvrir une fenêtre qui affiche le top 5 des meilleurs joueurs de la ligue, basée sur son nombre de point(s).";
 
         #endregion
         ////////////////////////////////////////////// Au Chargement de la page ///////////////////////////////////////////
         private void Main_Form_Load(object sender, EventArgs e)
-        {
-            //Log_In();
-            Connect();
+        { 
+                Connect();
 
-            ListDivisions();
+                ListDivisions();
 
-            LoadSettings();
+                LoadSettings();
 
-            Initialize_Controls();
-            Initialize_LogoScroller();
-            ApplyRowsStyles();
+                Initialize_Controls();
+                Initialize_LogoScroller();
+                ApplyRowsStyles();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #region "Initialisations"
@@ -72,7 +72,6 @@ namespace TP_Final
         private void Initialize_LogoScroller()
         {
             string sql = "select logo, nom, ville, division from equipe";
-            Image unLogo;
             try
             {
                 OracleCommand oraCMD = new OracleCommand(sql, conn);
@@ -85,20 +84,6 @@ namespace TP_Final
                     if (oraRead.GetValue(0).ToString() != "")
                     {
                         OracleBlob blob = oraRead.GetOracleBlob(0);
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        // Convertion du blob en tableau de bytes
-                        byte[] myByteArray = new Byte[blob.Length];
-                        
-                        int i = blob.Read(myByteArray,0,System.Convert.ToInt32(blob.Length));
-                        
-                        // Création d'un stream pour convertir le ByteAray en Image
-                        MemoryStream memStream = new MemoryStream(myByteArray);
-                        unLogo = Image.FromStream(memStream);
-                        //LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
-=======
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
 
                         using (MemoryStream ms = new MemoryStream())
                         {
@@ -111,10 +96,6 @@ namespace TP_Final
                             lse.Division = oraRead.GetString(3);
                             lse.Button.Click += Button_Click;
                         }
-<<<<<<< HEAD
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
                     }
 
                 }
@@ -128,10 +109,10 @@ namespace TP_Final
         void Button_Click(object sender, EventArgs e)
         {
             Logo_scroller.LogoScroller.LogoScrollerElement lse = (Logo_scroller.LogoScroller.LogoScrollerElement)((FlashButton.FlashButton)sender).Tag;
-            MouseClick(lse.Nom, lse.Ville, lse.Division);
+            LS_Logos_SelectItem(lse.Nom, lse.Ville, lse.Division);
         }
 
-        public void MouseClick(string NomElement, string TownName, string DivName)
+        public void LS_Logos_SelectItem(string NomElement, string TownName, string DivName)
         {
             Team_Form dlg = new Team_Form();
 
@@ -139,8 +120,6 @@ namespace TP_Final
             dlg.m_TeamName = NomElement;
             dlg.m_TeamTown = TownName;
 
-            dlg.oddRowColor = oddRowColor;
-            dlg.evenRowColor = evenRowColor;
             dlg.conn = conn;
 
             if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -157,6 +136,7 @@ namespace TP_Final
             FB_Remove_Team.Enabled = false;
             FB_Edit_Team.Enabled = false;
             FB_Add_Team.Enabled = false;
+            DGV_Teams.ForeColor = Properties.Settings.Default.Main_DGV_ForeColor;
 
             if (LB_Divisions.Controls.Count == 0)
                 FB_Remove_Division.Enabled = false;
@@ -196,7 +176,6 @@ namespace TP_Final
             source = new BindingSource(myData, "divisions");
             DGV_Teams.DataSource = source;
             Resize_DGV_Teams();
-            //LoadSettings();
             ApplyRowsStyles();
             DGV_Teams.AllowUserToAddRows = false;
         }
@@ -233,41 +212,23 @@ namespace TP_Final
         private void LoadSettings()
         {
             DGV_Teams.RowHeadersWidth = Properties.Settings.Default.DGV_Row_Headers_Width;
-            oddRowColor = TP_Final.Properties.Settings.Default.OddRowColor;
-            evenRowColor = TP_Final.Properties.Settings.Default.EvenRowColor;
+            oddRowColor = TP_Final.Properties.Settings.Default.Main_OddRowColor;
+            evenRowColor = TP_Final.Properties.Settings.Default.Main_EvenRowColor;
             this.Location = TP_Final.Properties.Settings.Default.Main_Form_Location;
             this.Size = TP_Final.Properties.Settings.Default.Main_Form_Size;
-            DGV_Teams.Font = TP_Final.Properties.Settings.Default.DGV_Font;
-
-            string[] widthStrings = Properties.Settings.Default.DGV_Column_Width.Split(',');
-            if (widthStrings.Count() > 0)
-            {
-                for (int colIndex = 0; colIndex < DGV_Teams.ColumnCount; colIndex++)
-                {
-                  // DGV_Teams.Columns[colIndex].Width = int.Parse(widthStrings[colIndex]);
-                }
-            }
+            Font_DGV = TP_Final.Properties.Settings.Default.DGV_Font;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////// Sauvegarde des réglages /////////////////////////////////////////////////////
         private void Save_Settings()
         {
-            string widthStrings = "";
-            for (int colIndex = 0; colIndex < DGV_Teams.ColumnCount; colIndex++)
-            {
-                widthStrings += DGV_Teams.Columns[colIndex].Width.ToString();
-                if (colIndex < DGV_Teams.ColumnCount - 1)
-                    widthStrings += ",";
-            }
-
-            Properties.Settings.Default.DGV_Column_Width = widthStrings;
             Properties.Settings.Default.DGV_Row_Headers_Width = DGV_Teams.RowHeadersWidth;
-            Properties.Settings.Default.OddRowColor = oddRowColor;
-            Properties.Settings.Default.EvenRowColor = evenRowColor;
+            Properties.Settings.Default.Main_OddRowColor = oddRowColor;
+            Properties.Settings.Default.Main_EvenRowColor = evenRowColor;
             Properties.Settings.Default.Main_Form_Location = this.Location;
             Properties.Settings.Default.Main_Form_Size = this.Size;
             Properties.Settings.Default.DGV_Font = DGV_Teams.Font;
-
+            Properties.Settings.Default.Main_DGV_ForeColor = DGV_Teams.ForeColor;
             Properties.Settings.Default.Save();
         }
         #endregion
@@ -340,14 +301,7 @@ namespace TP_Final
         /////////////////////////////////// Gestion du clique du bouton flash de retrait d'une équipe //////////////////////////////////
         private void FB_Remove_Team_Click(object sender, EventArgs e)
         {
-            DeleteForm dlg = new DeleteForm();
-
-            dlg.ElementSupprime = "les " + DGV_Teams.SelectedRows[0].Cells[0].Value.ToString() + " de cette division";
-
-            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
                 Remove_Team();
-            }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
@@ -407,22 +361,14 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                 //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
             }                        
-=======
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
                 Logo_scroller.LogoScroller.LogoScrollerElement lse = LS_Logos.AddElement(form.m_file_Name);
                 lse.Nom = form.m_Team_Name;
                 lse.Ville = form.m_Team_Town;
                 lse.Division = form.m_Team_Division;
-            }
-
-                        
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////// Gestion du clique du bouton flash d'édition d'équipe ///////////////////////////////////////
@@ -481,23 +427,29 @@ namespace TP_Final
         //////////////////////////////////////////// Retrait d'une équipe dans la BD ///////////////////////////////////////////////////
         private void Remove_Team()
         { 
-            //LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
-            string sqlDelete = "delete from equipe where nom = '" + DGV_Teams.SelectedRows[0].Cells[0].Value.ToString() + "'";
-            LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
-            try
+            DeleteForm dlg = new DeleteForm();
+
+            dlg.ElementSupprime = "les " + DGV_Teams.SelectedRows[0].Cells[0].Value.ToString() + " de cette division";
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                OracleCommand oraCMD = new OracleCommand(sqlDelete, conn);
-                oraCMD.CommandType = CommandType.Text;
-                oraCMD.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-            InitializeDGV();
-            if (DGV_Teams.RowCount == 0)
-            {
-                FB_Remove_Team.Enabled = false;
+                string sqlDelete = "delete from equipe where nom = '" + DGV_Teams.SelectedRows[0].Cells[0].Value.ToString() + "'";
+                LS_Logos.RemoveElement(DGV_Teams.SelectedRows[0].Cells[0].Value.ToString());
+                try
+                {
+                    OracleCommand oraCMD = new OracleCommand(sqlDelete, conn);
+                    oraCMD.CommandType = CommandType.Text;
+                    oraCMD.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+                InitializeDGV();
+                if (DGV_Teams.RowCount == 0)
+                {
+                    FB_Remove_Team.Enabled = false;
+                }
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -510,20 +462,10 @@ namespace TP_Final
             form.m_TeamTown = DGV_Teams.SelectedRows[0].Cells[2].Value.ToString();
             form.m_Division = DGV_Teams.SelectedRows[0].Cells[3].Value.ToString();
             form.m_Divisions_List = Initialize_Divisions_List();
-            form.oddRowColor = oddRowColor;
-            form.evenRowColor = evenRowColor;
             form.conn = conn;
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
-               // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
-
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
             }
 
@@ -538,7 +480,7 @@ namespace TP_Final
         {
             foreach (DataGridViewColumn Col in DGV_Teams.Columns)
             {
-                Col.Width = DGV_Teams.Size.Width / DGV_Teams.ColumnCount;
+                Col.Width = (DGV_Teams.Size.Width - DGV_Teams.RowHeadersWidth)  / DGV_Teams.ColumnCount;
             }
         }
 
@@ -587,7 +529,6 @@ namespace TP_Final
                     oddRowColor = dlg.Color;
                 ApplyRowsStyles();
             }
-            Save_Settings();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////// Gestion de l'option police du menu contextuel du DGV_Teams ///////////////////////////////////
@@ -633,12 +574,15 @@ namespace TP_Final
             {
                 DGV_Teams.Rows[index].DefaultCellStyle.BackColor = (index % 2 == 0 ? evenRowColor : oddRowColor);
             }
-            //DGV_Teams.Font = Properties.Settings.Default.DGV_Font;
+            DGV_Teams.Font = Font_DGV;
+            DGV_Teams.ForeColor = FontColor_DGV;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////// Création du menu contextuel du DGV_Teams///////////////////////////////////////////////////////
         private void DGV_Teams_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            DGV_Teams.ClearSelection();
+            DGV_Teams.Rows[e.RowIndex].Selected = true;
             DGV_Teams.SelectedRows[0].ReadOnly = true;
             FB_Edit_Team.Enabled = true;
 
@@ -648,16 +592,15 @@ namespace TP_Final
                 {
                     ContextMenuStrip cms = new ContextMenuStrip();
                     ToolStripMenuItem tsmi;
-                    if (DGV_Teams.RowCount > 1 && DGV_Teams.SelectedRows[0].Index != DGV_Teams.RowCount - 1)
-                    {
-                        tsmi = new ToolStripMenuItem("Modifier l'enregistrement");
-                        tsmi.Click += tsmi_Edit_Click;
-                        cms.Items.Add(tsmi);
 
-                        tsmi = new ToolStripMenuItem("Effacer l'enregistrement");
-                        tsmi.Click += tsmi_Delete_Click;
-                        cms.Items.Add(tsmi);
-                    }
+                    tsmi = new ToolStripMenuItem("Modifier l'enregistrement");
+                    tsmi.Click += tsmi_Edit_Click;
+                    cms.Items.Add(tsmi);
+
+                    tsmi = new ToolStripMenuItem("Effacer l'enregistrement");
+                    tsmi.Click += tsmi_Delete_Click;
+                    cms.Items.Add(tsmi);
+                    
                     tsmi = new ToolStripMenuItem("Police...");
                     tsmi.Click += tsmi_Font_Click;
                     cms.Items.Add(tsmi);
@@ -678,16 +621,15 @@ namespace TP_Final
 
             m_Options.m_EvenRowColor = evenRowColor;
             m_Options.m_OddRowColor = oddRowColor;
-            m_Options.m_selectedFont = DGV_Teams.Font;
-            m_Options.m_selectedColor = DGV_Teams.ForeColor;           
+            m_Options.m_selectedFont = Font_DGV;
+            m_Options.m_SelectedFont_Color = FontColor_DGV; 
 
             if (m_Options.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 evenRowColor = m_Options.m_EvenRowColor;
                 oddRowColor = m_Options.m_OddRowColor;
-                DGV_Teams.Font = m_Options.m_selectedFont;
-                DGV_Teams.ForeColor = m_Options.m_selectedColor;
-                
+                Font_DGV = m_Options.m_selectedFont;
+                FontColor_DGV = m_Options.m_SelectedFont_Color;
                 ApplyRowsStyles();
 
                 Save_Settings();
@@ -697,7 +639,9 @@ namespace TP_Final
         /////////////////////////////////////////////// Affichage de l'aide à l'usager /////////////////////////////////////////////////
         private void aideToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Help_Form dlg = new Help_Form();
 
+            dlg.ShowDialog();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////// Gestion de la fermeture du form /////////////////////////////////////////////////
@@ -887,10 +831,6 @@ namespace TP_Final
         {
             SL_Tips.Text = Txt_DGV_TeamOver;
         }
-        private void LB_Divisions_MouseEnter(object sender, EventArgs e)
-        {
-            SL_Tips.Text = Txt_LB_Divisions;
-        } 
         private void logoScroller1_MouseEnter(object sender, EventArgs e)
         {
             SL_Tips.Text = Txt_LogoScroller;
@@ -915,6 +855,14 @@ namespace TP_Final
         {
             SL_Tips.Text = Txt_RemoveTeam;
         }
+        private void LB_Divisions_MouseEnter_1(object sender, EventArgs e)
+        {
+            SL_Tips.Text = Txt_LB_Divisions;
+        }
+        private void FB_Stars_MouseEnter(object sender, EventArgs e)
+        {
+            SL_Tips.Text = Txt_Top5;
+        }
 
         #endregion
 
@@ -924,10 +872,6 @@ namespace TP_Final
             SL_Tips.Text = "";
         }
         private void DGV_Teams_MouseLeave(object sender, EventArgs e)
-        {
-            Empty_StatusStrip();
-        }
-        private void LB_Divisions_MouseLeave(object sender, EventArgs e)
         {
             Empty_StatusStrip();
         }
@@ -955,16 +899,15 @@ namespace TP_Final
         {
             Empty_StatusStrip();
         }
+        private void LB_Divisions_MouseLeave_1(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
+        private void FB_Stars_MouseLeave(object sender, EventArgs e)
+        {
+            Empty_StatusStrip();
+        }
         #endregion
-
-        private void LS_Logos_Load(object sender, EventArgs e)
-        {
-           
-        }
-        private void Main_Form_LocationChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.Main_Form_Location = this.Location;
-        }
 
         private void DGV_Teams_RowHeightChanged(object sender, DataGridViewRowEventArgs e)
         {
@@ -1021,22 +964,13 @@ namespace TP_Final
             }
         }
 
-        private void LS_Logos_MouseClick(object sender, MouseEventArgs e)
-        {
-        }
-
         private void FB_Stars_Click(object sender, EventArgs e)
         {
             TopCinqForm dlg = new TopCinqForm();
 
             dlg.ShowDialog();
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
+
     }
 }

@@ -43,6 +43,10 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GB_Player_Stats = new System.Windows.Forms.GroupBox();
+            this.TB_Surname = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TB_Name = new System.Windows.Forms.TextBox();
             this.BTN_Begin = new BoutonFlèche.BoutonFlèche();
             this.BTN_Previous = new BoutonFlèche.BoutonFlèche();
             this.BTN_Next = new BoutonFlèche.BoutonFlèche();
@@ -51,10 +55,6 @@
             this.FB_Cancel = new FlashButton.FlashButton();
             this.FB_Ok = new FlashButton.FlashButton();
             this.PB_Team_Logo = new System.Windows.Forms.PictureBox();
-            this.TB_Name = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TB_Surname = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.GB_Player_Stats.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -194,6 +194,38 @@
             this.GB_Player_Stats.TabIndex = 7;
             this.GB_Player_Stats.TabStop = false;
             // 
+            // TB_Surname
+            // 
+            this.TB_Surname.Location = new System.Drawing.Point(76, 28);
+            this.TB_Surname.Name = "TB_Surname";
+            this.TB_Surname.Size = new System.Drawing.Size(100, 20);
+            this.TB_Surname.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Prénom:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nom:";
+            // 
+            // TB_Name
+            // 
+            this.TB_Name.Location = new System.Drawing.Point(76, 76);
+            this.TB_Name.Name = "TB_Name";
+            this.TB_Name.Size = new System.Drawing.Size(100, 20);
+            this.TB_Name.TabIndex = 2;
+            // 
             // BTN_Begin
             // 
             this.BTN_Begin.Apparence = BoutonFlèche.BoutonFlèche.ApparenceType.Aigu;
@@ -294,38 +326,6 @@
             this.PB_Team_Logo.TabIndex = 10;
             this.PB_Team_Logo.TabStop = false;
             // 
-            // TB_Name
-            // 
-            this.TB_Name.Location = new System.Drawing.Point(76, 76);
-            this.TB_Name.Name = "TB_Name";
-            this.TB_Name.Size = new System.Drawing.Size(100, 20);
-            this.TB_Name.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nom:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Prénom:";
-            // 
-            // TB_Surname
-            // 
-            this.TB_Surname.Location = new System.Drawing.Point(76, 28);
-            this.TB_Surname.Name = "TB_Surname";
-            this.TB_Surname.Size = new System.Drawing.Size(100, 20);
-            this.TB_Surname.TabIndex = 1;
-            // 
             // Player_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,6 +340,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Player_Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Player_Form_FormClosing);
             this.Load += new System.EventHandler(this.Player_Form_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

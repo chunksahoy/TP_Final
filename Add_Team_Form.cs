@@ -87,7 +87,12 @@ namespace TP_Final
         }
         private void Add_Team_Form_Load(object sender, EventArgs e)
         {
+            this.Location = Properties.Settings.Default.AddTeam_Location;
+        }
 
+        private void Add_Team_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.AddTeam_Location = this.Location;
         }
     }
 }

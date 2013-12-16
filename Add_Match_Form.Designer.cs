@@ -193,7 +193,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BTN_Ok);
             this.Controls.Add(this.BTN_Cancel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Add_Match_Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Add_Match_Form_FormClosing);
+            this.Load += new System.EventHandler(this.Add_Match_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

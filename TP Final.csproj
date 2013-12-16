@@ -111,6 +111,12 @@
     <Compile Include="Edit_Match_Form.Designer.cs">
       <DependentUpon>Edit_Match_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help_Form.Designer.cs">
+      <DependentUpon>Help_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogoScroller.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +146,12 @@
     </Compile>
     <Compile Include="Match_Historic_Form.Designer.cs">
       <DependentUpon>Match_Historic_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Match_Option_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Match_Option_Form.Designer.cs">
+      <DependentUpon>Match_Option_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Player_Form.cs">
       <SubType>Form</SubType>
@@ -185,6 +197,9 @@
     <EmbeddedResource Include="Edit_Match_Form.resx">
       <DependentUpon>Edit_Match_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Help_Form.resx">
+      <DependentUpon>Help_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogoScroller.resx">
       <DependentUpon>LogoScroller.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Match_Historic_Form.resx">
       <DependentUpon>Match_Historic_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Match_Option_Form.resx">
+      <DependentUpon>Match_Option_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Player_Form.resx">
       <DependentUpon>Player_Form.cs</DependentUpon>

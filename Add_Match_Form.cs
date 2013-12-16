@@ -18,6 +18,8 @@ namespace TP_Final
             InitializeComponent();
         }
 
+        #region "Attributs"
+        public Point m_Location;
         public string m_TeamName;
         public string m_Home;
         public string m_Visitor;
@@ -26,6 +28,7 @@ namespace TP_Final
         public int m_Home_Score;
         public int m_Visitor_Score;
         public OracleConnection conn = new OracleConnection();
+        #endregion
 
         private void TB_Home_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -121,6 +124,16 @@ namespace TP_Final
         {
             string sql = "select * from equipe";
             CompleteTeam(sql, TB_Visitor);
+        }
+
+        private void Add_Match_Form_Load(object sender, EventArgs e)
+        {
+            this.Location = m_Location;
+        }
+
+        private void Add_Match_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.AddMatch_Location = this.Location;
         }
     }
 }

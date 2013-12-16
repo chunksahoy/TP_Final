@@ -226,12 +226,14 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(280, 459);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(280, 459);
             this.Name = "Add_Player_Form";
             this.Text = "Joueur";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Add_Player_Form_FormClosing);
             this.Load += new System.EventHandler(this.Add_Player_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NUD_Jersey_Number)).EndInit();
             this.ResumeLayout(false);

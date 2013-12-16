@@ -55,7 +55,6 @@
             this.BTN_Ok.TabIndex = 4;
             this.BTN_Ok.Text = "Accepter";
             this.BTN_Ok.UseVisualStyleBackColor = true;
-            this.BTN_Ok.Click += new System.EventHandler(this.BTN_Ok_Click);
             // 
             // BTN_Cancel
             // 
@@ -103,24 +102,22 @@
             // PN_OddRow_Color
             // 
             this.PN_OddRow_Color.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PN_OddRow_Color.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PN_OddRow_Color.Location = new System.Drawing.Point(100, 63);
             this.PN_OddRow_Color.Name = "PN_OddRow_Color";
             this.PN_OddRow_Color.Size = new System.Drawing.Size(37, 33);
             this.PN_OddRow_Color.TabIndex = 0;
             this.PN_OddRow_Color.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PN_OddRow_Color_MouseClick);
-            this.PN_OddRow_Color.MouseEnter += new System.EventHandler(this.PN_OddRow_Color_MouseEnter);
-            this.PN_OddRow_Color.MouseLeave += new System.EventHandler(this.PN_OddRow_Color_MouseLeave);
             // 
             // PN_EvenRow_Color
             // 
             this.PN_EvenRow_Color.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PN_EvenRow_Color.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PN_EvenRow_Color.Location = new System.Drawing.Point(100, 6);
             this.PN_EvenRow_Color.Name = "PN_EvenRow_Color";
             this.PN_EvenRow_Color.Size = new System.Drawing.Size(37, 33);
             this.PN_EvenRow_Color.TabIndex = 0;
             this.PN_EvenRow_Color.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PN_EvenRow_Color_MouseClick);
-            this.PN_EvenRow_Color.MouseEnter += new System.EventHandler(this.PN_OddRow_Color_MouseEnter);
-            this.PN_EvenRow_Color.MouseLeave += new System.EventHandler(this.PN_OddRow_Color_MouseLeave);
             // 
             // tabControl1
             // 
@@ -159,11 +156,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 54);
+            this.label3.Location = new System.Drawing.Point(4, 57);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Grille";
+            this.label3.Text = "Police";
             // 
             // CBX_DGV_Font
             // 
@@ -182,8 +179,10 @@
             this.Controls.Add(this.BTN_Ok);
             this.Controls.Add(this.BTN_Cancel);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Main_Options_Form";
-            this.Text = "Options";
+            this.Text = "Personnaliser";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Options_Form_FormClosing);
             this.Load += new System.EventHandler(this.Main_Options_Form_Load);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
