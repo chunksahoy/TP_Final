@@ -54,6 +54,8 @@ namespace TP_Final
             m_Team_Joined = DTP_Team_Join.Value;
             m_Team_Logo = PN_Team_Logo.BackgroundImage;
             m_Team_Town = TB_Team_Town.Text.ToString();
+            if (m_file_Name == null)
+                m_file_Name = @"..\..\Resources\Default.PNG";
         }
 
         private void BTN_Browse_Logos_Click(object sender, EventArgs e)

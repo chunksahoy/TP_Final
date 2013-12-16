@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-//using System.Data.OracleClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,6 +27,8 @@ namespace TP_Final
         public int m_Player_Punitions;
         public string m_Picture_Path;
         public string m_Team_Name;
+        public string m_Player_Surname;
+        public string m_Player_Name;
         public Image m_Team;
         public DataSet myData = new DataSet();
         public BindingSource source;
@@ -66,13 +67,14 @@ namespace TP_Final
         {
             Load_Stats();
             Fill_Data_set();
+            Update_Picture();
         }
 
         private void Fill_Data_set()
         {
             myData.Clear();
-            string sql = "select * from vueJoueur where equipe = '"  + m_Team_Name + "'";
-
+            string sql = "select nom, prenom, buts, passes, points, punition" +
+                " from vueJoueur where equipe = '" + m_Team_Name + "'";
             OracleCommand oraCMD = new OracleCommand(sql, conn);
             OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
 
@@ -89,10 +91,10 @@ namespace TP_Final
             {
                 TB_Name.DataBindings.Add("Text", myData, "vueJoueur.nom");
                 TB_Surname.DataBindings.Add("Text", myData, "vueJoueur.prenom");
-                TB_Player_Goals.DataBindings.Add("Text", myData, "vueJoueur.nbbuts");
-                TB_Player_Pass.DataBindings.Add("Text", myData, "vueJoueur.nbpasses");
-                TB_Player_Points.DataBindings.Add("Text", myData, "vueJoueur.nbpoints");
-                TB_Player_Penalty.DataBindings.Add("Text", myData, "vueJoueur.tempspunition");
+                TB_Player_Goals.DataBindings.Add("Text", myData, "vueJoueur.buts");
+                TB_Player_Pass.DataBindings.Add("Text", myData, "vueJoueur.passes");
+                TB_Player_Points.DataBindings.Add("Text", myData, "vueJoueur.points");
+                TB_Player_Penalty.DataBindings.Add("Text", myData, "vueJoueur.punition");
             }
             catch (OracleException ex)
             {
@@ -113,22 +115,37 @@ namespace TP_Final
         private void BTN_Begin_Click(object sender, EventArgs e)
         {
             this.BindingContext[myData, "vueJoueur"].Position = 0;
+            Update_Picture();
         }
 
         private void BTN_Previous_Click(object sender, EventArgs e)
         {
             this.BindingContext[myData, "vueJoueur"].Position -= 1;
+            Update_Picture();
         }
 
         private void BTN_Next_Click(object sender, EventArgs e)
         {
-             this.BindingContext[myData, "vueJoueur"].Position += 1;
+            this.BindingContext[myData, "vueJoueur"].Position += 1;
+            Update_Picture();
         }
 
         private void BTN_End_Click(object sender, EventArgs e)
         {
             this.BindingContext[myData, "vueJoueur"].Position = myData.Tables[0].Rows.Count - 1;
+            Update_Picture();
         }
         #endregion
+
+        private void PN_Player_Picture_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void Update_Picture()
+        {
+            object O = Properties.Resources.ResourceManager.GetObject(TB_Name.Text);
+            PN_Player_Picture.BackgroundImage = (Image)O;
+            PN_Player_Picture.Refresh();
+        }
     }
 }

@@ -34,20 +34,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.TB_Home = new System.Windows.Forms.TextBox();
             this.TB_Visitor = new System.Windows.Forms.TextBox();
             this.TB_Stadium = new System.Windows.Forms.TextBox();
-            this.TB_HomeScore = new System.Windows.Forms.TextBox();
-            this.TB_VisitorScore = new System.Windows.Forms.TextBox();
             this.DTP_Date = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // BTN_Cancel
             // 
             this.BTN_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BTN_Cancel.Location = new System.Drawing.Point(212, 272);
+            this.BTN_Cancel.Location = new System.Drawing.Point(212, 187);
             this.BTN_Cancel.Name = "BTN_Cancel";
             this.BTN_Cancel.Size = new System.Drawing.Size(75, 23);
             this.BTN_Cancel.TabIndex = 8;
@@ -57,7 +53,7 @@
             // BTN_Ok
             // 
             this.BTN_Ok.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.BTN_Ok.Location = new System.Drawing.Point(131, 272);
+            this.BTN_Ok.Location = new System.Drawing.Point(131, 187);
             this.BTN_Ok.Name = "BTN_Ok";
             this.BTN_Ok.Size = new System.Drawing.Size(75, 23);
             this.BTN_Ok.TabIndex = 7;
@@ -101,24 +97,6 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Lieu:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 183);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Score Receveur:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 223);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Score Visiteur:";
-            // 
             // TB_Home
             // 
             this.TB_Home.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -151,22 +129,6 @@
             this.TB_Stadium.TabIndex = 4;
             this.TB_Stadium.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_Home_KeyPress);
             // 
-            // TB_HomeScore
-            // 
-            this.TB_HomeScore.Location = new System.Drawing.Point(131, 183);
-            this.TB_HomeScore.Name = "TB_HomeScore";
-            this.TB_HomeScore.Size = new System.Drawing.Size(150, 20);
-            this.TB_HomeScore.TabIndex = 5;
-            this.TB_HomeScore.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_HomeScore_KeyPress);
-            // 
-            // TB_VisitorScore
-            // 
-            this.TB_VisitorScore.Location = new System.Drawing.Point(131, 223);
-            this.TB_VisitorScore.Name = "TB_VisitorScore";
-            this.TB_VisitorScore.Size = new System.Drawing.Size(150, 20);
-            this.TB_VisitorScore.TabIndex = 6;
-            this.TB_VisitorScore.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_HomeScore_KeyPress);
-            // 
             // DTP_Date
             // 
             this.DTP_Date.Location = new System.Drawing.Point(131, 102);
@@ -178,15 +140,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 307);
+            this.ClientSize = new System.Drawing.Size(299, 222);
             this.Controls.Add(this.DTP_Date);
-            this.Controls.Add(this.TB_VisitorScore);
-            this.Controls.Add(this.TB_HomeScore);
             this.Controls.Add(this.TB_Stadium);
             this.Controls.Add(this.TB_Visitor);
             this.Controls.Add(this.TB_Home);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -207,13 +165,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TB_Home;
         private System.Windows.Forms.TextBox TB_Visitor;
         private System.Windows.Forms.TextBox TB_Stadium;
-        private System.Windows.Forms.TextBox TB_HomeScore;
-        private System.Windows.Forms.TextBox TB_VisitorScore;
         private System.Windows.Forms.DateTimePicker DTP_Date;
     }
 }

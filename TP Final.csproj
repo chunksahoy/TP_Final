@@ -111,6 +111,12 @@
     <Compile Include="Edit_Match_Form.Designer.cs">
       <DependentUpon>Edit_Match_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Edit_Player_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Player_Form.Designer.cs">
+      <DependentUpon>Edit_Player_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogoScroller.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     <EmbeddedResource Include="Edit_Match_Form.resx">
       <DependentUpon>Edit_Match_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Player_Form.resx">
+      <DependentUpon>Edit_Player_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogoScroller.resx">
       <DependentUpon>LogoScroller.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,10 +250,12 @@
     <Content Include="Properties\Calendar_Neutral.png" />
     <Content Include="Properties\Calendar_Over.png" />
     <Content Include="Properties\Champion.png" />
+    <Content Include="Properties\Default.png" />
     <Content Include="Properties\Delete_Click.png" />
     <Content Include="Properties\Delete_Disable.png" />
     <Content Include="Properties\Delete_Neutral.png" />
     <Content Include="Properties\Delete_Over.png" />
+    <None Include="Resources\Default.png" />
     <Content Include="Resources\Etoile.png" />
     <Content Include="Resources\EtoileClick.png" />
     <Content Include="Resources\EtoileOver.png" />
@@ -308,6 +319,9 @@
     <Content Include="Resources\Joueurs\Sharks\Niemi.jpg" />
     <Content Include="Resources\Joueurs\Sharks\Pavelski.jpg" />
     <Content Include="Resources\Joueurs\Sharks\Vlasic.jpg" />
+    <None Include="Resources\Star_Click1.png" />
+    <None Include="Resources\Star_Over1.png" />
+    <None Include="Resources\Star_Neutral1.png" />
     <None Include="Resources\Joueurs\Bruins\Thumbs.db" />
     <None Include="Resources\Joueurs\Devils\Thumbs.db" />
     <None Include="Resources\Joueurs\Islander\Thumbs.db" />

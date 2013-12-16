@@ -21,7 +21,7 @@ namespace TP_Final
         public OracleConnection conn = new OracleConnection();
         public DataSet myData = new DataSet();
         public BindingSource source;
-
+        List<int> playerNumbers;
         public string m_Team;
 
         private void Match_Historic_Form_Load(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace TP_Final
         private void InitializeDGV()
         {
             myData.Clear();
-            string sql = " select * from match where receveur = '" + m_Team + 
+            string sql = " select * from match where receveur = '" + m_Team +
                 "' UNION select * from match where visiteur = '" + m_Team + "'";
 
             OracleCommand oraCMD = new OracleCommand(sql, conn);
@@ -46,6 +46,72 @@ namespace TP_Final
             Resize_DGV_Historic();
         }
 
+        private void Initialize_Players_Stats(string team)
+        {
+            OracleParameter pplayer = new OracleParameter(":numjoueur", OracleDbType.Int32);
+            OracleParameter pmatch = new OracleParameter(":numeromatch", OracleDbType.Int32);
+
+            string sqlInit = "insert into fichepersonnelle values(0,0,0,:pplayer,:pmatch)";
+            List<int> playersNumber = new List<int>();
+            OracleCommand oraCMD = new OracleCommand(sqlInit, conn);
+
+            oraCMD.CommandType = CommandType.Text;
+ 
+            playersNumber = Get_Players_Number(team);
+
+            oraCMD.Parameters.Add(pplayer);
+            oraCMD.Parameters.Add(pmatch);
+
+            foreach (int number in playersNumber)
+            {
+                pplayer.Value = number;
+                pmatch.Value = Get_Match_Number();
+
+                oraCMD.ExecuteNonQuery();
+            }
+        }
+
+        private int Get_Match_Number()
+        {
+            int matchNumber = 0;
+            string numMatch = "select seqMatchs.currval from dual";
+
+            OracleCommand cmd = new OracleCommand(numMatch, conn);
+            cmd.CommandType = CommandType.Text;
+
+            OracleDataReader matchRead = cmd.ExecuteReader();
+
+            while (matchRead.Read())
+            {
+                matchNumber = matchRead.GetInt32(0);
+            }
+
+            return matchNumber;
+        }
+
+        private List<int> Get_Players_Number(string team)
+        {
+            OracleParameter pteam = new OracleParameter(":equipe", OracleDbType.Varchar2, 30);
+            playerNumbers = new List<int>();
+            string sqlNumPlayer = "select numjoueur from joueur where equipe=:pteam";
+
+            OracleCommand cmd = new OracleCommand(sqlNumPlayer, conn);
+            cmd.CommandType = CommandType.Text;
+
+            pteam.Value = team;
+
+            cmd.Parameters.Add(pteam);
+
+            OracleDataReader oraRead = cmd.ExecuteReader();
+
+            oraRead = cmd.ExecuteReader();
+            //atteindre les numéros de joueurs, cela nous donne en même temps le nombre de joueurs dans l'équipe
+            while (oraRead.Read())
+            {
+                playerNumbers.Add(oraRead.GetInt32(0));
+            }
+            return playerNumbers;
+        }
         private void Resize_DGV_Historic()
         {
             foreach (DataGridViewColumn Col in DGV_Historic.Columns)
@@ -53,7 +119,6 @@ namespace TP_Final
                 Col.Width = DGV_Historic.Size.Width / DGV_Historic.ColumnCount;
             }
         }
-
 
         private void FB_Add_Match_Click(object sender, EventArgs e)
         {
@@ -65,7 +130,7 @@ namespace TP_Final
             Add_Match_Form mform = new Add_Match_Form();
             mform.m_TeamName = m_Team;
             mform.conn = conn;
-            
+
 
             if (mform.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -80,13 +145,13 @@ namespace TP_Final
                 pvisitor.Value = mform.m_Visitor;
                 pdate.Value = mform.m_Date;
                 pstadium.Value = mform.m_Stadium;
-                pVscore.Value = mform.m_Visitor_Score;
-                pHscore.Value = mform.m_Home_Score;
+                pVscore.Value = 0;
+                pHscore.Value = 0;
 
                 try
                 {
                     string sqlInsert = "insert into match (receveur, visiteur, daterencontre, " +
-                        "lieurencontre, scorevisiteur, scorereceveur) values (:phome, :pvisitor, to_date(:pdate, 'DD-MM-YYYY')," + 
+                        "lieurencontre, scorevisiteur, scorereceveur) values (:phome, :pvisitor, to_date(:pdate, 'DD-MM-YYYY')," +
                         " :pstadium, :pVscore, :pHscore)";
 
                     OracleCommand oraInsert = new OracleCommand(sqlInsert, conn);
@@ -105,6 +170,8 @@ namespace TP_Final
                 {
                     MessageBox.Show(ex.Message.ToString());
                 }
+                Initialize_Players_Stats(mform.m_Home);
+                Initialize_Players_Stats(mform.m_Visitor);
                 InitializeDGV();
             }
         }
@@ -113,15 +180,15 @@ namespace TP_Final
         {
             DeleteForm dlg = new DeleteForm();
             dlg.ElementSupprime = "le match numéro " + DGV_Historic.SelectedRows[0].Cells[0].Value.ToString();
-            
-            if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Remove_Match();
-            }           
+            }
         }
 
         private void Remove_Match()
-        {           
+        {
             string sqlDel = "delete from match where numeromatch = " + DGV_Historic.SelectedRows[0].Cells[0].Value.ToString();
 
             try
@@ -158,10 +225,11 @@ namespace TP_Final
                 form.m_Stadium = DGV_Historic.SelectedRows[0].Cells[4].Value.ToString();
                 form.m_Visitor_Score = int.Parse(DGV_Historic.SelectedRows[0].Cells[5].Value.ToString());
                 form.m_Home_Score = int.Parse(DGV_Historic.SelectedRows[0].Cells[6].Value.ToString());
-
+                form.home_Players_Number = Get_Players_Number(DGV_Historic.SelectedRows[0].Cells[1].Value.ToString());
+                form.visit_Players_Number = Get_Players_Number(DGV_Historic.SelectedRows[0].Cells[2].Value.ToString());
                 form.ShowDialog();
 
-                InitializeDGV();          
+                InitializeDGV();
             }
         }
 

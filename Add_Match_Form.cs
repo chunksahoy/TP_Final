@@ -23,21 +23,12 @@ namespace TP_Final
         public string m_Visitor;
         public DateTime m_Date;
         public string m_Stadium;
-        public int m_Home_Score;
-        public int m_Visitor_Score;
+
         public OracleConnection conn = new OracleConnection();
 
         private void TB_Home_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void TB_HomeScore_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -49,8 +40,7 @@ namespace TP_Final
             m_Visitor = TB_Visitor.Text;
             m_Date = DTP_Date.Value;
             m_Stadium = TB_Stadium.Text;
-            m_Home_Score = int.Parse(TB_HomeScore.Text);
-            m_Visitor_Score = int.Parse(TB_VisitorScore.Text);
+
         }
 
         private void TB_Home_TextChanged(object sender, EventArgs e)

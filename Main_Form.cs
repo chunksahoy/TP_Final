@@ -85,20 +85,16 @@ namespace TP_Final
                     if (oraRead.GetValue(0).ToString() != "")
                     {
                         OracleBlob blob = oraRead.GetOracleBlob(0);
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        // Convertion du blob en tableau de bytes
-                        byte[] myByteArray = new Byte[blob.Length];
+
+                        //// Convertion du blob en tableau de bytes
+                        //byte[] myByteArray = new Byte[blob.Length];
                         
-                        int i = blob.Read(myByteArray,0,System.Convert.ToInt32(blob.Length));
+                        //int i = blob.Read(myByteArray,0,System.Convert.ToInt32(blob.Length));
                         
-                        // Création d'un stream pour convertir le ByteAray en Image
-                        MemoryStream memStream = new MemoryStream(myByteArray);
-                        unLogo = Image.FromStream(memStream);
+                        //// Création d'un stream pour convertir le ByteAray en Image
+                        //MemoryStream memStream = new MemoryStream(myByteArray);
+                        //unLogo = Image.FromStream(memStream);
                         //LS_Logos.AddElement(unLogo, oraRead.GetValue(1).ToString());
-=======
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
 
                         using (MemoryStream ms = new MemoryStream())
                         {
@@ -111,10 +107,6 @@ namespace TP_Final
                             lse.Division = oraRead.GetString(3);
                             lse.Button.Click += Button_Click;
                         }
-<<<<<<< HEAD
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
                     }
 
                 }
@@ -407,22 +399,14 @@ namespace TP_Final
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Add_Team(form.m_Team_Name, form.m_Team_Joined, form.m_file_Name, form.m_Team_Town, LB_Divisions.SelectedItem.ToString());
-<<<<<<< HEAD
-<<<<<<< HEAD
                 //LS_Logos.AddElement(form.m_file_Name, form.m_Team_Name);  
 
-            }                        
-=======
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
+            }             
+
                 Logo_scroller.LogoScroller.LogoScrollerElement lse = LS_Logos.AddElement(form.m_file_Name);
                 lse.Nom = form.m_Team_Name;
                 lse.Ville = form.m_Team_Town;
                 lse.Division = form.m_Team_Division;
-            }
-
-                        
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////// Gestion du clique du bouton flash d'édition d'équipe ///////////////////////////////////////
@@ -442,12 +426,17 @@ namespace TP_Final
 
             string sqlADD = "insert into equipe (nom, dateintroduction, logo, ville, division) values(:nom, to_date(:creation,'DD-MM-YYYY'), :photo, :ville, :division)";
 
+            if (logo == null)
+            {
+                logo = @"..\..\Resources\Default.PNG";
+            }
+
             FileStream Streamp = new FileStream(logo, FileMode.Open, FileAccess.Read);
 
             byte[] buffer1 = new byte[Streamp.Length];
             Streamp.Read(buffer1, 0, System.Convert.ToInt32(Streamp.Length));
             Streamp.Close();
-
+            
             pname.Value = name;
             pcreation.Value = joined;
             pphoto.Value = buffer1;            
@@ -477,6 +466,7 @@ namespace TP_Final
                 FB_Remove_Team.Enabled = true;
             }
         }
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////// Retrait d'une équipe dans la BD ///////////////////////////////////////////////////
         private void Remove_Team()
@@ -516,14 +506,6 @@ namespace TP_Final
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
-               // LS_Logos.EditElement(form.m_TeamName, form.Image_LogoScroller);
-
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
                 Update_Team(form.m_TeamTown,form.m_TeamName, form.m_Division);
             }
 
@@ -1028,15 +1010,10 @@ namespace TP_Final
         private void FB_Stars_Click(object sender, EventArgs e)
         {
             TopCinqForm dlg = new TopCinqForm();
+            dlg.conn = conn;
 
-            dlg.ShowDialog();
+            dlg.ShowDialog();           
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
     }
 }
+

@@ -36,38 +36,24 @@ namespace TP_Final
         public int m_Home_Score;
         public int m_Visitor_Score;
         public int m_numMatch;
+        public List<int> home_Players_Number;
+        public List<int> visit_Players_Number;
         public OracleConnection conn;
-        
         public BindingSource source;
         public Byte[] image;
 
         private void Match_Form_Load(object sender, EventArgs e)
         {
-            Initialize_Labels();
-            Initialize_Winner();
-            Initialize_DGV(m_Home, DGV_Home);
-            Initialize_DGV(m_Visitor, DGV_Visitor);
-<<<<<<< HEAD
-<<<<<<< HEAD
+            Fill_Data_set(DGV_Home, home_Players_Number);
+            Fill_Data_set(DGV_Visitor, visit_Players_Number);
 
-            Fill_Data_set(DGV_Home, m_Home);
-            Fill_Data_set(DGV_Visitor, m_Visitor);
-            
-            ShowStats = false;
-        }        
-=======
-            Update_Labels_Location();
-            Fill_Data_set(DGV_Home, m_Home);
-            Fill_Data_set(DGV_Visitor, m_Visitor);
-=======
-            Update_Labels_Location();
-            Fill_Data_set(DGV_Home, m_Home);
-            Fill_Data_set(DGV_Visitor, m_Visitor);
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
+            m_Home_Score = Calculate_Score(home_Players_Number);
+            m_Visitor_Score = Calculate_Score(visit_Players_Number);
+
+            Initialize_Labels();            
+            Initialize_Winner();
             ShowStats = false;
         }
-        
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
 
         private void Initialize_Labels()
         {
@@ -100,28 +86,6 @@ namespace TP_Final
             }
         }
 
-        private void Initialize_DGV(string teamName, DataGridView dgv)
-        {
-            DataSet myData = new DataSet();
-            myData.Clear();
-            string sql = "select nom, prenom, numeromaillot, role from player where equipe = '" + teamName + "'";
-
-            OracleCommand oraCMD = new OracleCommand(sql, conn);
-            OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
-
-            adapt.Fill(myData, "equipe");
-
-            source = new BindingSource(myData, "equipe");
-            dgv.DataSource = source;
-        }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
         private void FB_Stats_Click(object sender, EventArgs e)
         {
             LBL_Receveur.Text = LBL_Visiteur.Text = "Statistiques du match";
@@ -143,27 +107,33 @@ namespace TP_Final
             Edit_Display();
         }
 
-        private int Calculate_Score(string team)
+        private int Calculate_Score(List<int> playersNumber)
         {
-            OracleParameter pteam = new OracleParameter(":equipe", OracleDbType.Varchar2, 30);
-
-            string sql = "select sum(nbbuts) from vueJoueur where equipe=:pteam";
+            OracleParameter pmatch = new OracleParameter(":numeromatch", OracleDbType.Int32);
+            OracleParameter pplayer = new OracleParameter(":numjoueur", OracleDbType.Int32);
+            string sql = "select nbbuts from fichepersonnelle fp inner join joueur j on fp.numjoueur = j.numjoueur" +
+                    " inner join match ma on fp.numeromatch = ma.numeromatch" +
+                    " where fp.numeromatch =:pmatch and fp.numjoueur =:pplayer ";
             int score = 0;
 
             OracleCommand oraCMD = new OracleCommand(sql, conn);
             oraCMD.CommandType = CommandType.Text;
+            oraCMD.Parameters.Add(pmatch);
+            oraCMD.Parameters.Add(pplayer);
 
-            pteam.Value = team;
-
+            pmatch.Value = m_numMatch;
             try
             {
-                oraCMD.Parameters.Add(pteam);
-
-                OracleDataReader oraRead = oraCMD.ExecuteReader();
-
-                while (oraRead.Read())
+                foreach (int number in playersNumber)
                 {
-                    score = oraRead.GetInt32(0);
+                    pplayer.Value = number;
+                    OracleDataReader oraRead = oraCMD.ExecuteReader();
+
+                    while(oraRead.Read())
+                    {
+                        score += oraRead.GetInt32(0);                        
+                    }
+                    oraRead.Close();
                 }
             }
             catch(OracleException ex)
@@ -188,8 +158,8 @@ namespace TP_Final
 
             pdate.Value = date;
             pstadium.Value = stadium;
-            phomescore.Value = Calculate_Score(m_Home);
-            pvisitscore.Value = Calculate_Score(m_Visitor);
+            phomescore.Value = Calculate_Score(home_Players_Number);
+            pvisitscore.Value = Calculate_Score(visit_Players_Number);
             pmatch.Value = m_numMatch;
 
             try
@@ -208,19 +178,21 @@ namespace TP_Final
             }
         }
 
-        private void SearchLogo(string team)
+
+        private void SearchLogo(string team, Player_Form form)
         {
             try
             {
                 OracleCommand oraCMD = conn.CreateCommand();
-                oraCMD.CommandText = "select logo from equipe where nom = :nom";
+                oraCMD.CommandText = "select logo from equipe where nom =:nom";
 
                 oraCMD.Parameters.Add(new OracleParameter(":nom", team));
 
                 using (OracleDataReader oraReader = oraCMD.ExecuteReader())
                 {
                     if (oraReader.Read())
-                    {   Byte[] image;
+                    {
+                        Byte[] image;
                         OracleBlob blob = oraReader.GetOracleBlob(0);
 
                         if (!blob.IsNull)
@@ -236,6 +208,7 @@ namespace TP_Final
                                     ms.Write(buffer, 0, read);
                                 }
                                 image = ms.ToArray();
+                                form.m_Team = Image.FromStream(ms);
                             }
                         }
                     }
@@ -251,48 +224,97 @@ namespace TP_Final
         {
             Player_Form form = new Player_Form();
 
-            //form.m_Team = PB_Logo.Image;
             form.m_Player_Position = dgv.SelectedRows[0].Cells[3].Value.ToString();
 
             if (home)
+            {
                 form.m_Team_Name = m_Home;
+                SearchLogo(m_Home, form);
+            }
             else
+            {
                 form.m_Team_Name = m_Visitor;
+                SearchLogo(m_Visitor, form);
+            }
 
             form.conn = conn;
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-
+                Update_Player(form, dgv);
+                Fill_Data_set(DGV_Home, home_Players_Number);
+                Fill_Data_set(DGV_Visitor, visit_Players_Number);
+                Update_Match(m_Stadium, DateTime.Parse(m_Date));
+                m_Home_Score = Calculate_Score(home_Players_Number);
+                m_Visitor_Score = Calculate_Score(visit_Players_Number);
+                Initialize_Labels();
+                Initialize_Winner();                
             }
         }
 
-        private void Fill_Data_set(DataGridView dgv, string team)
+        private void Update_Player(Player_Form form, DataGridView dgv)
+        {
+            OracleParameter pgoals = new OracleParameter(":buts", OracleDbType.Int32);
+            OracleParameter ppasses = new OracleParameter(":passes", OracleDbType.Int32);
+            OracleParameter ppunition = new OracleParameter(":punition", OracleDbType.Int32);
+            OracleParameter pplayer = new OracleParameter(":numjoueur", OracleDbType.Int32);
+            OracleParameter pmatch = new OracleParameter(":numeromatch", OracleDbType.Int32);
+
+            string sqlUpdate = "update fichepersonnelle set nbbuts=:pgoals, nbpasses =:ppasses, tempspunition =:ppunition " +
+                                "where numjoueur =:pplayer and numeromatch =:pmatch";
+
+            OracleCommand oraUpdate = new OracleCommand(sqlUpdate, conn);
+            oraUpdate.CommandType = CommandType.Text;
+
+            pgoals.Value = form.m_Player_Goals;
+            ppasses.Value = form.m_Player_Pass;
+            ppunition.Value = form.m_Player_Punitions;
+            pplayer.Value = int.Parse(dgv.SelectedRows[0].Cells[2].Value.ToString());
+            pmatch.Value = m_numMatch;
+
+            try
+            {
+                oraUpdate.Parameters.Add(pgoals);
+                oraUpdate.Parameters.Add(ppasses);
+                oraUpdate.Parameters.Add(ppunition);
+                oraUpdate.Parameters.Add(pplayer);
+                oraUpdate.Parameters.Add(pmatch);
+
+                oraUpdate.ExecuteNonQuery();
+            }
+            catch (OracleException Exception)
+            {
+                MessageBox.Show(Exception.Message.ToString());
+            }
+        }
+
+        private void Fill_Data_set(DataGridView dgv, List<int> playersNumber)
         {
             DataSet myData = new DataSet();
 
             myData.Clear();
 
-            OracleParameter pteam = new OracleParameter(":equipe", OracleDbType.Varchar2, 30);
+            string sql = "select * from fichepersonnelle";
+            foreach (int number in playersNumber)
+            {
+                sql = "select nom, prenom, fp.numjoueur, role, nbbuts, nbpasses, tempspunition " +
+                    " from fichepersonnelle fp inner join joueur j on fp.numjoueur = j.numjoueur" +
+                    " inner join match ma on fp.numeromatch = ma.numeromatch" +
+                    " where fp.numeromatch = " + m_numMatch + " and fp.numjoueur = " + number;
 
-            string sql = "select * from hunterro.vueJoueur where equipe=:pteam";
+                OracleCommand oraCMD = new OracleCommand(sql, conn);
 
-            pteam.Value = team;
+                oraCMD.CommandType = CommandType.Text;
 
-            OracleCommand oraCMD = new OracleCommand(sql, conn);
+                OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
 
-            oraCMD.Parameters.Add(pteam);
+                adapt.SelectCommand = oraCMD;
 
-            oraCMD.CommandType = CommandType.Text;            
+                adapt.Fill(myData, "vueJoueur");
 
-            OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
-
-            adapt.SelectCommand = oraCMD;
-
-            adapt.Fill(myData, "vueJoueur");
-
-            source = new BindingSource(myData, "vueJoueur");
-            dgv.DataSource = source;
+                source = new BindingSource(myData, "vueJoueur");
+                dgv.DataSource = source;
+            }
         }
 
         private void Edit_Display()
@@ -307,10 +329,10 @@ namespace TP_Final
                 m_Stadium = form.m_Stadium;
                 m_Date = form.m_Date.ToShortDateString();
 
+                Update_Match(form.m_Stadium, form.m_Date);
+
                 Initialize_Labels();
                 Initialize_Winner();
-
-                Update_Match(form.m_Stadium, form.m_Date);
             }
         }
 
@@ -378,12 +400,12 @@ namespace TP_Final
 
         private void FB_Edit_Visitor_Click(object sender, EventArgs e)
         {
-
+            Edit_Player(DGV_Visitor, false);
         }
 
         private void FB_Edit_Home_Click(object sender, EventArgs e)
         {
-
+            Edit_Player(DGV_Home);
         }
         #region "Actions Liés au MouseEnter"
         private void PN_Visitor_MouseEnter(object sender, EventArgs e)
@@ -469,13 +491,7 @@ namespace TP_Final
                 LBL_Visiteur.Location = new Point(LBL_Visiteur.Location.X - 75, LBL_Visiteur.Location.Y);
                 SL_Game.Text = Txt_ShowStats;
             }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
         }
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
-=======
->>>>>>> 74baf69945f820089f7e3d369cd6a28acdcaa5b9
+
     }
 }

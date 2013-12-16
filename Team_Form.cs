@@ -49,7 +49,7 @@ namespace TP_Final
         public string m_Logo_File_Path;
         public byte[] image;
         public string Image_LogoScroller;
-        
+        private List<int> playersNumber;
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -70,14 +70,16 @@ namespace TP_Final
         private void Team_Form_Load(object sender, EventArgs e)
         {
             InitializeTitle();
+            Get_Players_Number(m_TeamName);
             InitializeDataGrid();
             RefreshLogo();
             LoadSettings();
-            ApplyRowsStyles();
+
             Resize_DGV_Players();
             Image_LogoScroller = "";
             m_Divisions_List = Initialize_Divisions_List();
             Initialize_Hidden_Updates();
+
         }
 
         private void Resize_DGV_Players()
@@ -159,22 +161,54 @@ namespace TP_Final
         private void InitializeDataGrid()
         {
             myData.Clear();
-            string sql = "select * from player where equipe = '" + m_TeamName + "'";
+            OracleParameter pplayer = new OracleParameter(":numjoueur", OracleDbType.Int32);
+            string sql = "select nom, prenom, role, buts, passes, points, punition, numjoueur " +
+                        "from vueJoueur where numjoueur=:pplayer" +
+                        " group by nom, prenom, role, buts, passes, points, punition, numjoueur";
 
             OracleCommand oraCMD = new OracleCommand(sql, conn);
+            oraCMD.CommandType = CommandType.Text;
             OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
+            oraCMD.Parameters.Add(pplayer);
+            adapt.SelectCommand = oraCMD;
 
-            adapt.Fill(myData, "divisions");
+            foreach (int number in playersNumber)
+            {
+                pplayer.Value = number;
 
-            source = new BindingSource(myData, "divisions");
+                adapt.Fill(myData, "equipe");
+            }
+
+            source = new BindingSource(myData, "equipe");
             DGV_Players.DataSource = source;
+
             ApplyRowsStyles();
         }
 
-        private void Show_Player()
-        {
 
+        private void Get_Players_Number(string team)
+        {
+            OracleParameter pteam = new OracleParameter(":equipe", OracleDbType.Varchar2, 30);
+            playersNumber = new List<int>();
+            string sqlNumPlayer = "select numjoueur from joueur where equipe=:pteam";
+
+            OracleCommand cmd = new OracleCommand(sqlNumPlayer, conn);
+            cmd.CommandType = CommandType.Text;
+
+            pteam.Value = team;
+
+            cmd.Parameters.Add(pteam);
+
+            OracleDataReader oraRead = cmd.ExecuteReader();
+
+            oraRead = cmd.ExecuteReader();
+            //atteindre les numéros de joueurs, cela nous donne en même temps le nombre de joueurs dans l'équipe
+            while (oraRead.Read())
+            {
+                playersNumber.Add(oraRead.GetInt32(0));
+            }
         }
+
         private void DGV_Players_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DGV_Players.SelectedRows[0].ReadOnly = true;
@@ -233,18 +267,56 @@ namespace TP_Final
         }
         private void EditPlayer()
         {
-            //à modifier, ceci est un form pour les matchs
-            Player_Form form = new Player_Form();
+            Edit_Player_Form form = new Edit_Player_Form();
 
-            form.m_Team = PB_Logo.Image;
-            form.m_Player_Position = DGV_Players.SelectedRows[0].Cells[4].Value.ToString();
-            form.m_Team_Name = m_TeamName;
-            form.conn = conn;
+            form.m_Name = DGV_Players.SelectedRows[0].Cells[0].Value.ToString();
+            form.m_Surname = DGV_Players.SelectedRows[0].Cells[1].Value.ToString();
+            form.m_Position = DGV_Players.SelectedRows[0].Cells[2].Value.ToString();
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-
+                Update_Player(form,int.Parse(DGV_Players.SelectedRows[0].Cells[7].Value.ToString()));
             }
+        }
+
+        private void Update_Player(Edit_Player_Form form, int playerNumber)
+        {
+            OracleParameter pname = new OracleParameter(":nom", OracleDbType.Varchar2, 30);
+            OracleParameter psurname = new OracleParameter(":prenom", OracleDbType.Varchar2, 30);
+            OracleParameter pbirth = new OracleParameter(":datenaissance", OracleDbType.Date);
+            OracleParameter pjersey = new OracleParameter(":numeromaillot", OracleDbType.Int32);
+            OracleParameter pposition = new OracleParameter(":role", OracleDbType.Varchar2, 20);
+            OracleParameter pnumber = new OracleParameter(":numjoueur", OracleDbType.Int32);
+
+            string sql = "update joueur set nom =:pname, prenom=:psurname, datenaissance=:pbirth, numeromaillot=:pjersey, role=:pposition" +
+                         " where numjoueur=:pnumber";
+
+            OracleCommand oraCMD = new OracleCommand(sql, conn);
+            oraCMD.CommandType = CommandType.Text;
+
+            pname.Value = form.m_Name;
+            psurname.Value = form.m_Surname;
+            pbirth.Value = form.m_Birth;
+            pjersey.Value = form.m_Jersey;
+            pposition.Value = form.m_Position;
+            pnumber.Value = playerNumber;
+
+            try
+            {
+                oraCMD.Parameters.Add(pname);
+                oraCMD.Parameters.Add(psurname);
+                oraCMD.Parameters.Add(pbirth);
+                oraCMD.Parameters.Add(pjersey);
+                oraCMD.Parameters.Add(pposition);
+                oraCMD.Parameters.Add(pnumber);
+
+                oraCMD.ExecuteNonQuery();
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            InitializeDataGrid();
         }
 
         private void FB_Add_Player_Click(object sender, EventArgs e)
@@ -541,7 +613,6 @@ namespace TP_Final
                                 }
                                 image = ms.ToArray();
                                 PB_Logo.Image = Image.FromStream(ms);
-
                             }
                         }
                     }
