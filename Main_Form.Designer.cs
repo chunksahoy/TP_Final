@@ -86,9 +86,9 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.optionsToolStripMenuItem.Text = "&Options";
+            this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.optionsToolStripMenuItem.Text = "&Personnaliser...";
             this.optionsToolStripMenuItem.ToolTipText = "Cherles aime les poneys";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
@@ -96,8 +96,8 @@
             // 
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
             this.aideToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.aideToolStripMenuItem.Text = "&Aide";
+            this.aideToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aideToolStripMenuItem.Text = "&Aide...";
             this.aideToolStripMenuItem.Click += new System.EventHandler(this.aideToolStripMenuItem_Click);
             // 
             // statusStrip1
@@ -114,8 +114,7 @@
             // SL_Tips
             // 
             this.SL_Tips.Name = "SL_Tips";
-            this.SL_Tips.Size = new System.Drawing.Size(105, 17);
-            this.SL_Tips.Text = "derpiederpthaderp";
+            this.SL_Tips.Size = new System.Drawing.Size(0, 17);
             // 
             // TB_Search_Player
             // 
@@ -193,7 +192,29 @@
             this.LB_Divisions.TabIndex = 9;
             this.LB_Divisions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LB_Divisions_MouseClick);
             this.LB_Divisions.SelectedIndexChanged += new System.EventHandler(this.LB_Divisions_SelectedIndexChanged);
+            this.LB_Divisions.MouseEnter += new System.EventHandler(this.LB_Divisions_MouseEnter_1);
+            this.LB_Divisions.MouseLeave += new System.EventHandler(this.LB_Divisions_MouseLeave_1);
             // 
+<<<<<<< HEAD
+=======
+            // FB_Stars
+            // 
+            this.FB_Stars.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.FB_Stars.BackgroundImage = global::TP_Final.Properties.Resources.Star_Neutral;
+            this.FB_Stars.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FB_Stars.ImageClick = global::TP_Final.Properties.Resources.Star_Click;
+            this.FB_Stars.ImageDisable = null;
+            this.FB_Stars.ImageNeutral = global::TP_Final.Properties.Resources.Star_Neutral;
+            this.FB_Stars.ImageOver = global::TP_Final.Properties.Resources.Star_Over;
+            this.FB_Stars.Location = new System.Drawing.Point(692, 695);
+            this.FB_Stars.Name = "FB_Stars";
+            this.FB_Stars.Size = new System.Drawing.Size(65, 62);
+            this.FB_Stars.TabIndex = 10;
+            this.FB_Stars.Click += new System.EventHandler(this.FB_Stars_Click);
+            this.FB_Stars.MouseEnter += new System.EventHandler(this.FB_Stars_MouseEnter);
+            this.FB_Stars.MouseLeave += new System.EventHandler(this.FB_Stars_MouseLeave);
+            // 
+>>>>>>> 29c67e3052ffd8dd24660743cd4107fe56a24415
             // LS_Logos
             // 
             this.LS_Logos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -205,7 +226,6 @@
             this.LS_Logos.NbElements = 8;
             this.LS_Logos.Size = new System.Drawing.Size(1263, 62);
             this.LS_Logos.TabIndex = 8;
-            this.LS_Logos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LS_Logos_MouseClick);
             this.LS_Logos.MouseEnter += new System.EventHandler(this.logoScroller1_MouseEnter);
             this.LS_Logos.MouseLeave += new System.EventHandler(this.logoScroller1_MouseLeave);
             // 
@@ -326,7 +346,6 @@
             this.Text = "Hockey Manager 2013";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Form_FormClosing);
             this.Load += new System.EventHandler(this.Main_Form_Load);
-            this.LocationChanged += new System.EventHandler(this.Main_Form_LocationChanged);
             this.SizeChanged += new System.EventHandler(this.Main_Form_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Teams)).EndInit();
             this.MS_MainForm.ResumeLayout(false);

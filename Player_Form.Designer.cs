@@ -342,6 +342,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Player_Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Player_Form_FormClosing);
             this.Load += new System.EventHandler(this.Player_Form_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

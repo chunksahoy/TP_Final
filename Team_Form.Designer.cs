@@ -55,6 +55,7 @@
             // 
             // DGV_Players
             // 
+            this.DGV_Players.AllowUserToAddRows = false;
             this.DGV_Players.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -62,7 +63,7 @@
             this.DGV_Players.Location = new System.Drawing.Point(57, 111);
             this.DGV_Players.Name = "DGV_Players";
             this.DGV_Players.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV_Players.Size = new System.Drawing.Size(999, 439);
+            this.DGV_Players.Size = new System.Drawing.Size(1006, 440);
             this.DGV_Players.TabIndex = 0;
             this.DGV_Players.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Players_CellContentClick);
             this.DGV_Players.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_Players_ColumnHeaderMouseClick);
@@ -85,15 +86,18 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.optionsToolStripMenuItem.Text = "&Personnaliser...";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // aideToolStripMenuItem
             // 
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-            this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.aideToolStripMenuItem.Text = "Aide";
+            this.aideToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.aideToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aideToolStripMenuItem.Text = "&Aide...";
+            this.aideToolStripMenuItem.Click += new System.EventHandler(this.aideToolStripMenuItem_Click);
             // 
             // LBL_Team
             // 
@@ -124,8 +128,7 @@
             // SL_TeamTips
             // 
             this.SL_TeamTips.Name = "SL_TeamTips";
-            this.SL_TeamTips.Size = new System.Drawing.Size(127, 17);
-            this.SL_TeamTips.Text = "derpdadepiederpederp";
+            this.SL_TeamTips.Size = new System.Drawing.Size(0, 17);
             // 
             // FB_Display_Calendar
             // 
@@ -234,7 +237,7 @@
             this.PB_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PB_Logo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PB_Logo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PB_Logo.Location = new System.Drawing.Point(1016, 64);
+            this.PB_Logo.Location = new System.Drawing.Point(1023, 65);
             this.PB_Logo.Name = "PB_Logo";
             this.PB_Logo.Size = new System.Drawing.Size(40, 40);
             this.PB_Logo.TabIndex = 8;
@@ -337,6 +340,7 @@
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Team_Form";
             this.Text = "Joueurs";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Team_Form_FormClosing);
             this.Load += new System.EventHandler(this.Team_Form_Load);
             this.SizeChanged += new System.EventHandler(this.Team_Form_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_Players)).EndInit();
@@ -369,7 +373,10 @@
         private System.Windows.Forms.Label LBL_String;
         private System.Windows.Forms.Label LBL_Town;
         private System.Windows.Forms.TextBox TB_Town;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 29c67e3052ffd8dd24660743cd4107fe56a24415
         private System.Windows.Forms.Label LBL_Division;
         private System.Windows.Forms.ComboBox CBX_Division;
 

@@ -41,7 +41,12 @@ namespace TP_Final
 
         private void Add_Division_Form_Load(object sender, EventArgs e)
         {
+            this.Location = Properties.Settings.Default.AddDivision_Location;
+        }
 
+        private void Add_Division_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.AddDivision_Location = this.Location;
         }
     }
 }

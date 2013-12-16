@@ -70,14 +70,18 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.optionsToolStripMenuItem.Text = "&Personnaliser...";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // aideToolStripMenuItem
             // 
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-            this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.aideToolStripMenuItem.Text = "Aide";
+            this.aideToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.aideToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aideToolStripMenuItem.Text = "&Aide...";
+            this.aideToolStripMenuItem.Click += new System.EventHandler(this.aideToolStripMenuItem_Click);
             // 
             // TopCinqForm
             // 
@@ -86,7 +90,11 @@
             this.ClientSize = new System.Drawing.Size(781, 369);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
+<<<<<<< HEAD
             this.Controls.Add(this.DGV_Top5);
+=======
+            this.Controls.Add(this.dataGridView1);
+>>>>>>> 29c67e3052ffd8dd24660743cd4107fe56a24415
             this.Name = "TopCinqForm";
             this.Text = "Top5Form";
             this.Load += new System.EventHandler(this.TopCinqForm_Load);

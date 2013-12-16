@@ -65,7 +65,7 @@
             // Lbl_TextIntro
             // 
             this.Lbl_TextIntro.AutoSize = true;
-            this.Lbl_TextIntro.Location = new System.Drawing.Point(47, 36);
+            this.Lbl_TextIntro.Location = new System.Drawing.Point(38, 38);
             this.Lbl_TextIntro.Name = "Lbl_TextIntro";
             this.Lbl_TextIntro.Size = new System.Drawing.Size(153, 13);
             this.Lbl_TextIntro.TabIndex = 10;
@@ -74,7 +74,7 @@
             // LBL_ElementSupprime
             // 
             this.LBL_ElementSupprime.AutoSize = true;
-            this.LBL_ElementSupprime.Location = new System.Drawing.Point(193, 36);
+            this.LBL_ElementSupprime.Location = new System.Drawing.Point(184, 38);
             this.LBL_ElementSupprime.Name = "LBL_ElementSupprime";
             this.LBL_ElementSupprime.Size = new System.Drawing.Size(96, 13);
             this.LBL_ElementSupprime.TabIndex = 11;
@@ -89,6 +89,7 @@
             this.Controls.Add(this.Lbl_TextIntro);
             this.Controls.Add(this.FB_Cancel);
             this.Controls.Add(this.FB_Ok);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DeleteForm";

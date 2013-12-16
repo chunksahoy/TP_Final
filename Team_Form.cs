@@ -36,39 +36,60 @@ namespace TP_Final
             InitializeComponent();
         }
 
-        public OracleConnection conn;
+        #region "Attributs privés"
         private DataSet myData = new DataSet();
         private BindingSource source;
-        public string m_TeamName;
-        public string m_TeamTown;
-        public string m_Division;
-        public List<string> m_Divisions_List;
-        public Color oddRowColor;
-        public Color evenRowColor;
+        private Color oddRowColor;
+        private Color evenRowColor;
+        private Font Font_DGV;
+        private Color Font_DGV_Color;
+        #endregion
+        #region "Attributs publics"
+        public OracleConnection conn;
         public int m_Selected_Index;
         public string m_Logo_File_Path;
         public byte[] image;
         public string Image_LogoScroller;
+<<<<<<< HEAD
         private List<int> playersNumber;
+=======
+        public string m_TeamName;
+        public string m_TeamTown;
+        public string m_Division;
+        public List<string> m_Divisions_List;
+        #endregion
+>>>>>>> 29c67e3052ffd8dd24660743cd4107fe56a24415
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Main_Options_Form form = new Main_Options_Form();
 
-            form.m_EvenRowColor = Properties.Settings.Default.EvenRowColor;
-            form.m_OddRowColor = Properties.Settings.Default.OddRowColor;
+            form.m_EvenRowColor = evenRowColor;
+            form.m_OddRowColor = oddRowColor;
+            form.m_selectedFont = Font_DGV;
+            form.m_SelectedFont_Color = Font_DGV_Color;
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Properties.Settings.Default.EvenRowColor = form.m_EvenRowColor;
-                Properties.Settings.Default.OddRowColor = form.m_OddRowColor;
-
-                Properties.Settings.Default.Save();
+                evenRowColor = form.m_EvenRowColor;
+                oddRowColor = form.m_OddRowColor;
+                Font_DGV = form.m_selectedFont;
+                Font_DGV_Color = form.m_SelectedFont_Color;
+                UpdateControls();
             }
+        }
+
+        private void UpdateControls()
+        {
+            DGV_Players.Font = Font_DGV;
+            DGV_Players.ForeColor = Font_DGV_Color;
+            ApplyRowsStyles();
+            DGV_Players.Refresh();
         }
 
         private void Team_Form_Load(object sender, EventArgs e)
         {
+            this.Location = Properties.Settings.Default.Team_Form_Location;
             InitializeTitle();
             Get_Players_Number(m_TeamName);
             InitializeDataGrid();
@@ -86,7 +107,7 @@ namespace TP_Final
         {
             foreach (DataGridViewColumn Col in DGV_Players.Columns)
             {
-                Col.Width = DGV_Players.Size.Width / DGV_Players.ColumnCount;
+                Col.Width = (DGV_Players.Size.Width - DGV_Players.RowHeadersWidth ) / DGV_Players.ColumnCount;
             }
         }
 
@@ -103,44 +124,24 @@ namespace TP_Final
 
         private void SaveSettings()
         {
-            string widthStrings = "";
-            for (int colIndex = 0; colIndex < DGV_Players.ColumnCount; colIndex++)
-            {
-                widthStrings += DGV_Players.Columns[colIndex].Width.ToString();
-                if (colIndex < DGV_Players.ColumnCount - 1)
-                    widthStrings += ",";
-            }
-
-            Properties.Settings.Default.DGV_Players_Column_Width = widthStrings;
-            Properties.Settings.Default.DGV_Players_Row_Headers_Width = DGV_Players.RowHeadersWidth;
-            Properties.Settings.Default.OddRowColor = oddRowColor;
-            Properties.Settings.Default.EvenRowColor = evenRowColor;
+            Properties.Settings.Default.Team_OddRowColor = oddRowColor;
+            Properties.Settings.Default.Team_EvenRowColor = evenRowColor;
             Properties.Settings.Default.Team_Form_Location = this.Location;
             Properties.Settings.Default.Team_Form_Size = this.Size;
-            Properties.Settings.Default.DGV_Font = DGV_Players.Font;
-
+            Properties.Settings.Default.Team_Form_Font = DGV_Players.Font;
+            Properties.Settings.Default.Team_Form_Font = Font_DGV;
+            Properties.Settings.Default.Team_Form_FontColor = Font_DGV_Color;
             Properties.Settings.Default.Save();
         }
 
-
         private void LoadSettings()
         {
-            DGV_Players.RowHeadersWidth = Properties.Settings.Default.DGV_Players_Row_Headers_Width;
-            oddRowColor = Properties.Settings.Default.OddRowColor;
-            evenRowColor = Properties.Settings.Default.EvenRowColor;
+            oddRowColor = Properties.Settings.Default.Team_OddRowColor;
+            evenRowColor = Properties.Settings.Default.Team_EvenRowColor;
+            Font_DGV = Properties.Settings.Default.Team_Form_Font;
+            Font_DGV_Color = Properties.Settings.Default.Team_Form_FontColor;
             this.Location = Properties.Settings.Default.Team_Form_Location;
             this.Size = Properties.Settings.Default.Team_Form_Size;
-            DGV_Players.Font = Properties.Settings.Default.DGV_Font;
-
-            string[] widthStrings = Properties.Settings.Default.DGV_Players_Column_Width.Split(',');
-            if (widthStrings.Count() > 0)
-            {
-                for (int colIndex = 0; colIndex < DGV_Players.ColumnCount; colIndex++)
-                {
-                   // if (colIndex != 2)
-                       // DGV_Players.Columns[colIndex].Width = int.Parse(widthStrings[colIndex]);
-                }
-            }
         }
 
         private void ApplyRowsStyles()
@@ -185,6 +186,7 @@ namespace TP_Final
             ApplyRowsStyles();
         }
 
+<<<<<<< HEAD
 
         private void Get_Players_Number(string team)
         {
@@ -209,8 +211,13 @@ namespace TP_Final
             }
         }
 
+=======
+>>>>>>> 29c67e3052ffd8dd24660743cd4107fe56a24415
         private void DGV_Players_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            DGV_Players.ClearSelection();
+            DGV_Players.Rows[e.RowIndex].Selected = true;
+
             DGV_Players.SelectedRows[0].ReadOnly = true;
             if (e.Button == MouseButtons.Right)
             {
@@ -219,16 +226,15 @@ namespace TP_Final
 
                     ContextMenuStrip cms = new ContextMenuStrip();
                     ToolStripMenuItem tsmi;
-                    if (DGV_Players.RowCount > 1 && DGV_Players.SelectedRows[0].Index != DGV_Players.RowCount - 1)
-                    {
-                        tsmi = new ToolStripMenuItem("Editer l'enregistrement");
-                        tsmi.Click += tsmi_Edit_Click;
-                        cms.Items.Add(tsmi);
 
-                        tsmi = new ToolStripMenuItem("Effacer l'enregistrement");
-                        tsmi.Click += tsmi_Delete_Click;
-                        cms.Items.Add(tsmi);
-                    }
+                    tsmi = new ToolStripMenuItem("Editer l'enregistrement");
+                    tsmi.Click += tsmi_Edit_Click;
+                    cms.Items.Add(tsmi);
+
+                    tsmi = new ToolStripMenuItem("Effacer l'enregistrement");
+                    tsmi.Click += tsmi_Delete_Click;
+                    cms.Items.Add(tsmi);
+                    
                     tsmi = new ToolStripMenuItem("Police...");
                     tsmi.Click += tsmi_Font_Click;
                     cms.Items.Add(tsmi);
@@ -324,6 +330,7 @@ namespace TP_Final
             Add_Player_Form form = new Add_Player_Form();
 
             form.myData = myData;
+            form.m_Location = Properties.Settings.Default.AddPlayer_Location;
 
             if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -372,14 +379,7 @@ namespace TP_Final
 
         private void FB_Remove_Player_Click(object sender, EventArgs e)
         {
-            DeleteForm dlg = new DeleteForm();
-            dlg.ElementSupprime = "le joueur nommé: " + DGV_Players.SelectedRows[0].Cells[0].Value.ToString() + "de cette équipe";
-
-            if(dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                Remove_Player();
-            }
-            
+            Remove_Player();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////// Initialisation de la liste des division pour les ComboBox d'ajout d'équipe ////////////////////////////////
@@ -403,25 +403,31 @@ namespace TP_Final
 
         private void Remove_Player()
         {
-            OracleParameter pnum = new OracleParameter(":numjoueur", OracleDbType.Int32);
-            string sqlDel = "delete from joueur where numjoueur = :pnum";
+            DeleteForm dlg = new DeleteForm();
+            dlg.ElementSupprime =  DGV_Players.SelectedRows[0].Cells[1].Value.ToString() + " " + DGV_Players.SelectedRows[0].Cells[0].Value.ToString() + " de cette équipe";
 
-            pnum.Value = DGV_Players.SelectedRows[0].Cells[5].Value.ToString();
-
-            try
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                OracleCommand oraDel = new OracleCommand(sqlDel, conn);
+                OracleParameter pnum = new OracleParameter(":numjoueur", OracleDbType.Int32);
+                string sqlDel = "delete from joueur where numjoueur = :pnum";
 
-                oraDel.Parameters.Add(pnum);
+                pnum.Value = DGV_Players.SelectedRows[0].Cells[5].Value.ToString();
 
-                oraDel.CommandType = CommandType.Text;
-                oraDel.ExecuteNonQuery();
+                try
+                {
+                    OracleCommand oraDel = new OracleCommand(sqlDel, conn);
+
+                    oraDel.Parameters.Add(pnum);
+
+                    oraDel.CommandType = CommandType.Text;
+                    oraDel.ExecuteNonQuery();
+                }
+                catch (OracleException ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+                InitializeDataGrid();
             }
-            catch (OracleException ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-            InitializeDataGrid();
         }
 
         private void FB_Ok_Click(object sender, EventArgs e)
@@ -743,6 +749,17 @@ namespace TP_Final
             InitializeTitle();
             Update_Controls_Locations();
             Clear_Update_Box();
+        }
+
+        private void Team_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Team_Form_Location = this.Location;
+        }
+
+        private void aideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Help_Form dlg = new Help_Form();
+            dlg.ShowDialog();
         }
     }
 }

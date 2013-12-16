@@ -65,6 +65,7 @@ namespace TP_Final
 
         private void Player_Form_Load(object sender, EventArgs e)
         {
+            this.Location = Properties.Settings.Default.Player_Form_Location;
             Load_Stats();
             Fill_Data_set();
             Update_Picture();
@@ -137,6 +138,7 @@ namespace TP_Final
         }
         #endregion
 
+<<<<<<< HEAD
         private void PN_Player_Picture_Paint(object sender, PaintEventArgs e)
         {
 
@@ -146,6 +148,11 @@ namespace TP_Final
             object O = Properties.Resources.ResourceManager.GetObject(TB_Name.Text);
             PN_Player_Picture.BackgroundImage = (Image)O;
             PN_Player_Picture.Refresh();
+=======
+        private void Player_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Player_Form_Location = this.Location;
+>>>>>>> 29c67e3052ffd8dd24660743cd4107fe56a24415
         }
     }
 }

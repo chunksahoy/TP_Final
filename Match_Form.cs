@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace TP_Final
 {
     public partial class Match_Form : Form
@@ -24,6 +25,14 @@ namespace TP_Final
         #endregion
 
         private bool ShowStats;
+        private Color Home_oddRowColor;
+        private Color Home_evenRowColor;
+        private Color Visitor_oddRowColor;
+        private Color Visitor_evenRowColor;
+        private Color Home_FontColor;
+        private Color Visitor_FontColor;
+        private Font Font_DGV_Home;
+        private Font Font_DGV_Visitor;
 
         public Match_Form()
         {
@@ -36,9 +45,15 @@ namespace TP_Final
         public int m_Home_Score;
         public int m_Visitor_Score;
         public int m_numMatch;
+<<<<<<< HEAD
         public List<int> home_Players_Number;
         public List<int> visit_Players_Number;
         public OracleConnection conn;
+=======
+        
+        public OracleConnection conn;
+
+>>>>>>> 29c67e3052ffd8dd24660743cd4107fe56a24415
         public BindingSource source;
         public Byte[] image;
 
@@ -52,7 +67,55 @@ namespace TP_Final
 
             Initialize_Labels();            
             Initialize_Winner();
+<<<<<<< HEAD
+=======
+            Initialize_DGV(m_Home, DGV_Home);
+            Initialize_DGV(m_Visitor, DGV_Visitor);
+
+            LoadSettings();
+            Fill_Data_set(DGV_Home, m_Home);
+            Fill_Data_set(DGV_Visitor, m_Visitor);       
+            Fill_Data_set(DGV_Home, m_Home);
+            Fill_Data_set(DGV_Visitor, m_Visitor);
+>>>>>>> 29c67e3052ffd8dd24660743cd4107fe56a24415
             ShowStats = false;
+            ApplyRowsStyles();
+            
+        }
+
+        private void LoadSettings()
+        {
+            // Form parameters
+            this.Location = Properties.Settings.Default.Match_Form_Location;
+            // DataGridViews' color
+            Home_oddRowColor = Properties.Settings.Default.MatchHome_OddRowColor;
+            Home_evenRowColor = Properties.Settings.Default.MatchHome_EvenRowColor;
+            Visitor_oddRowColor = Properties.Settings.Default.MatchVisitor_OddRowColor;
+            Visitor_evenRowColor = Properties.Settings.Default.MatchVisitor_EvenRowColor;
+            // DataGridViews' font
+            Font_DGV_Home = Properties.Settings.Default.MatchHome_Font;
+            Home_FontColor = Properties.Settings.Default.Match_Home_ForeColor;
+            Font_DGV_Visitor = Properties.Settings.Default.MatchVisitor_Font;
+            Visitor_FontColor = Properties.Settings.Default.Match_Visitor_ForeColor;
+        }
+        private void ApplyRowsStyles()
+        {
+            // Ajout des couleurs sur les rangées des DGV
+            // Home
+            for (int index = 0; index < DGV_Home.Rows.Count; index++)
+            {
+                DGV_Home.Rows[index].DefaultCellStyle.BackColor = (index % 2 == 0 ? Home_evenRowColor : Home_oddRowColor);
+            }
+            // Visitor
+            for (int index = 0; index < DGV_Visitor.Rows.Count; index++)
+            {
+                DGV_Visitor.Rows[index].DefaultCellStyle.BackColor = (index % 2 == 0 ? Visitor_evenRowColor : Visitor_oddRowColor);
+            }
+            // Changement de font des DGV
+            DGV_Home.Font = Font_DGV_Home;
+            DGV_Home.ForeColor = Home_FontColor;
+            DGV_Visitor.Font = Font_DGV_Visitor;
+            DGV_Visitor.ForeColor = Visitor_FontColor;
         }
 
         private void Initialize_Labels()
@@ -63,6 +126,8 @@ namespace TP_Final
             LBL_Stadium.Text = m_Stadium;
             LBL_Score_Home.Text = m_Home_Score.ToString();
             LBL_Score_Visitor.Text = m_Visitor_Score.ToString();
+            LBL_Home.Location = new Point((PN_Home.Size.Width - LBL_Home.Size.Width) / 2, LBL_Home.Location.Y);
+            LBL_Visiteur.Location = new Point((PN_Visitor.Size.Width - LBL_Visiteur.Width) / 2, LBL_Visiteur.Location.Y);
         }
 
         private void Initialize_Winner()
@@ -86,6 +151,24 @@ namespace TP_Final
             }
         }
 
+<<<<<<< HEAD
+=======
+        private void Initialize_DGV(string teamName, DataGridView dgv)
+        {
+            DataSet myData = new DataSet();
+            myData.Clear();
+            string sql = "select nom, prenom, numeromaillot, role from player where equipe = '" + teamName + "'";
+
+            OracleCommand oraCMD = new OracleCommand(sql, conn);
+            OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
+
+            adapt.Fill(myData, "equipe");
+
+            source = new BindingSource(myData, "equipe");
+            dgv.DataSource = source;
+        }
+
+>>>>>>> 29c67e3052ffd8dd24660743cd4107fe56a24415
         private void FB_Stats_Click(object sender, EventArgs e)
         {
             LBL_Receveur.Text = LBL_Visiteur.Text = "Statistiques du match";
@@ -136,7 +219,7 @@ namespace TP_Final
                     oraRead.Close();
                 }
             }
-            catch(OracleException ex)
+            catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
@@ -304,7 +387,11 @@ namespace TP_Final
 
                 OracleCommand oraCMD = new OracleCommand(sql, conn);
 
+<<<<<<< HEAD
                 oraCMD.CommandType = CommandType.Text;
+=======
+            oraCMD.CommandType = CommandType.Text;
+>>>>>>> 29c67e3052ffd8dd24660743cd4107fe56a24415
 
                 OracleDataAdapter adapt = new OracleDataAdapter(sql, conn);
 
@@ -491,7 +578,262 @@ namespace TP_Final
                 LBL_Visiteur.Location = new Point(LBL_Visiteur.Location.X - 75, LBL_Visiteur.Location.Y);
                 SL_Game.Text = Txt_ShowStats;
             }
+<<<<<<< HEAD
         }
 
+=======
+
+        }
+
+        private void SaveSettings()
+        {
+            Properties.Settings.Default.MatchHome_Font = Font_DGV_Home;
+            Properties.Settings.Default.Match_Home_ForeColor = Home_FontColor;
+            Properties.Settings.Default.MatchVisitor_Font = Font_DGV_Visitor;
+            Properties.Settings.Default.Match_Visitor_ForeColor = Visitor_FontColor;
+            // DataGridViews' color 
+            Properties.Settings.Default.MatchHome_EvenRowColor = Home_evenRowColor;
+            Properties.Settings.Default.MatchHome_OddRowColor = Home_oddRowColor;
+            Properties.Settings.Default.MatchVisitor_EvenRowColor = Visitor_evenRowColor;
+            Properties.Settings.Default.MatchVisitor_OddRowColor = Visitor_oddRowColor;
+            // Form parameters
+            Properties.Settings.Default.Match_Form_Location = this.Location;
+        }
+
+        private void Match_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveSettings();
+        }
+
+        #region "ToolStripMenuItem_Option"
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Match_Option_Form dlg = new Match_Option_Form();
+
+            // Ajout des couleurs dans le dlg
+            dlg.Home_evenRowColor = Home_evenRowColor;
+            dlg.Home_oddRowColor = Home_oddRowColor;
+            dlg.Visitor_evenRowColor = Visitor_evenRowColor;
+            dlg.Visitor_oddRowColor = Visitor_oddRowColor;
+            // Ajout des fonts dans le dlg
+            dlg.Font_DGV_Home = Font_DGV_Home;
+            dlg.Home_FontColor = Home_FontColor;
+            dlg.Visitor_FontColor = Visitor_FontColor;
+            dlg.Font_DGV_Visitor = Font_DGV_Visitor;
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                // Home
+                Home_oddRowColor = dlg.Home_oddRowColor;
+                Home_evenRowColor = dlg.Home_evenRowColor;
+                Font_DGV_Home = dlg.Font_DGV_Home;
+                Home_FontColor = dlg.Home_FontColor;
+                // Visitor
+                Visitor_oddRowColor = dlg.Visitor_oddRowColor;
+                Visitor_evenRowColor = dlg.Visitor_evenRowColor;
+                Font_DGV_Visitor = dlg.Font_DGV_Visitor;
+                Visitor_FontColor = dlg.Visitor_FontColor;
+
+                ApplyRowsStyles();
+            }
+        }
+        #endregion
+
+        #region "DGV_Home ToolStripMenuItem"
+        private void DGV_Home_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DGV_Home.ClearSelection();
+            DGV_Home.Rows[e.RowIndex].Selected = true;
+
+            if (e.Button == MouseButtons.Right)
+            {
+                if (DGV_Home.SelectedRows.Count > 0)
+                {
+                    ContextMenuStrip cms = new ContextMenuStrip();
+                    ToolStripMenuItem tsmi;
+                    if (DGV_Home.RowCount > 1 && DGV_Home.SelectedRows[0].Index != DGV_Home.RowCount - 1)
+                    {
+                        tsmi = new ToolStripMenuItem("Modifier l'enregistrement");
+                        tsmi.Click += tsmiHome_Edit_Click;
+                        cms.Items.Add(tsmi);
+
+                        tsmi = new ToolStripMenuItem("Effacer l'enregistrement");
+                        tsmi.Click += tsmiHome_Delete_Click;
+                        cms.Items.Add(tsmi);
+                    }
+                    tsmi = new ToolStripMenuItem("Police...");
+                    tsmi.Click += tsmiHome_Font_Click;
+                    cms.Items.Add(tsmi);
+
+                    tsmi = new ToolStripMenuItem("Couleur...");
+                    tsmi.Click += tsmiHome_Color_Click;
+                    cms.Items.Add(tsmi);
+
+                    cms.Show(DGV_Home, DGV_Home.PointToClient(Cursor.Position));
+                }
+            }
+        }
+        private void tsmiHome_Color_Click(Object sender, EventArgs e)
+        {
+            ColorDialog dlg = new ColorDialog();
+
+            dlg.Color = (DGV_Home.SelectedRows[0].Index % 2 == 0 ? Home_evenRowColor : Home_oddRowColor);
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (DGV_Home.SelectedRows[0].Index % 2 == 0)
+                    Home_evenRowColor = dlg.Color;
+                else
+                    Home_oddRowColor = dlg.Color;
+                ApplyRowsStyles();
+            }
+        }
+        private void tsmiHome_Font_Click(Object sender, EventArgs e)
+        {
+            FontDialog dlg = new FontDialog();
+
+            dlg.ShowColor = true;
+            dlg.Font = Font_DGV_Home;
+            dlg.Color = Home_FontColor;
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Font_DGV_Home = dlg.Font;
+                Home_FontColor = dlg.Color;
+                ApplyRowsStyles();
+            }
+        }
+        private void tsmiHome_Delete_Click(Object sender, EventArgs e)
+        {
+            tsmiHome_Remove_FichePersonnelle();
+        }
+        private void tsmiHome_Edit_Click(Object sender, EventArgs e)
+        {
+           // Edit_Match();
+        }
+        private void tsmiHome_Remove_FichePersonnelle()
+        {
+            DeleteForm dlg = new DeleteForm();
+
+            dlg.ElementSupprime = "la fiche personnelle du joueur numéro  " + DGV_Home.SelectedRows[0].Cells[0].Value.ToString();
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string sql = "delete from fichepersonnelle where numjoueur =" + DGV_Home.SelectedRows[0].Cells[0].Value.ToString();
+
+                try
+                {
+                    OracleCommand oraCMD = new OracleCommand(sql, conn);
+                    oraCMD.CommandType = CommandType.Text;
+                    oraCMD.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
+        #endregion
+
+        #region "DGV_Visitor ToolStripMenuItem"
+        private void DGV_Visitor_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DGV_Visitor.ClearSelection();
+            DGV_Visitor.Rows[e.RowIndex].Selected = true;
+
+            if (e.Button == MouseButtons.Right)
+            {
+                if (DGV_Visitor.SelectedRows.Count > 0)
+                {
+                    ContextMenuStrip cms = new ContextMenuStrip();
+                    ToolStripMenuItem tsmi;
+
+                    tsmi = new ToolStripMenuItem("Modifier l'enregistrement");
+                    tsmi.Click += tsmiVisitor_Edit_Click;
+                    cms.Items.Add(tsmi);
+
+                    tsmi = new ToolStripMenuItem("Effacer l'enregistrement");
+                    tsmi.Click += tsmiVisitor_Delete_Click;
+                    cms.Items.Add(tsmi);
+                    
+                    tsmi = new ToolStripMenuItem("Police...");
+                    tsmi.Click += tsmiVisitor_Font_Click;
+                    cms.Items.Add(tsmi);
+
+                    tsmi = new ToolStripMenuItem("Couleur...");
+                    tsmi.Click += tsmiVisitor_Color_Click;
+                    cms.Items.Add(tsmi);
+
+                    cms.Show(DGV_Visitor, DGV_Visitor.PointToClient(Cursor.Position));
+                }
+            }
+        }
+
+        private void tsmiVisitor_Edit_Click(Object sender, EventArgs e)
+        {
+            // Edit_Match();
+        }
+
+        private void tsmiVisitor_Delete_Click(Object sender, EventArgs e)
+        {
+            DeleteForm dlg = new DeleteForm();
+
+            dlg.ElementSupprime = "la fiche personnelle du joueur numéro " + DGV_Home.SelectedRows[0].Cells[0].Value.ToString();
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string sql = "delete from fichepersonnelle where numjoueur =" + DGV_Visitor.SelectedRows[0].Cells[0].Value.ToString();
+
+                try
+                {
+                    OracleCommand oraCMD = new OracleCommand(sql, conn);
+                    oraCMD.CommandType = CommandType.Text;
+                    oraCMD.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
+
+        private void tsmiVisitor_Font_Click(Object sender, EventArgs e)
+        {
+            FontDialog dlg = new FontDialog();
+
+            dlg.ShowColor = true;
+            dlg.Font = Font_DGV_Visitor;
+            dlg.Color = Visitor_FontColor;
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Font_DGV_Visitor = dlg.Font;
+                Visitor_FontColor = dlg.Color;
+                ApplyRowsStyles();
+            }
+        }
+        private void tsmiVisitor_Color_Click(Object sender, EventArgs e)
+        {
+            ColorDialog dlg = new ColorDialog();
+
+            dlg.Color = (DGV_Visitor.SelectedRows[0].Index % 2 == 0 ? Visitor_evenRowColor : Visitor_oddRowColor);
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (DGV_Visitor.SelectedRows[0].Index % 2 == 0)
+                    Visitor_evenRowColor = dlg.Color;
+                else
+                    Visitor_oddRowColor = dlg.Color;
+                ApplyRowsStyles();
+            }
+        }
+        #endregion
+
+        private void aideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Help_Form dlg = new Help_Form();
+            dlg.ShowDialog();
+        }
+>>>>>>> 29c67e3052ffd8dd24660743cd4107fe56a24415
     }
 }

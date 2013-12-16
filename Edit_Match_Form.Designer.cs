@@ -101,10 +101,12 @@
             this.Controls.Add(this.TB_Stadium);
             this.Controls.Add(this.BTN_Ok);
             this.Controls.Add(this.BTN_Cancel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(260, 263);
             this.MinimizeBox = false;
             this.Name = "Edit_Match_Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Edit_Match_Form_FormClosing);
             this.Load += new System.EventHandler(this.Edit_Match_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

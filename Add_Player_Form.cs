@@ -17,9 +17,10 @@ namespace TP_Final
             InitializeComponent();
         }
 
+        #region "Attributs"
         public DataSet myData = new DataSet();
         public BindingSource source;
-
+        public Point m_Location;
         public string m_PlayerName;
         public DateTime m_Player_Birth;
         public string m_PlayerSurname;
@@ -28,11 +29,12 @@ namespace TP_Final
         public string m_PlayerPosition;
         private string[] m_Positions_List = { "ATTAQUANT", "DEFENSE", "GARDIEN"};
         string m_file_Name;
+        #endregion
 
         private void Add_Player_Form_Load(object sender, EventArgs e)
         {
             Initialize_Positions_List();
-         
+            this.Location = m_Location;
         }
 
         private void Initialize_Positions_List()
@@ -99,6 +101,11 @@ namespace TP_Final
         private void PN_Player_Picture_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Add_Player_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.AddPlayer_Location = this.Location;
         }
     }
 }
